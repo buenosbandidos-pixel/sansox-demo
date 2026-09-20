@@ -40,3 +40,16 @@ Mitoitustyökalu (vaatii Pylkkäsen luvut: virtaama, kgO₂/kWh, painehäviö) �
 - Hubisivut (Solutions/Projects/Technology/Company/News): otsikot, ingressit ja osiot käännetty kokonaan
 - Case-sivut: nelivaiheisen rungon otsikot, pääotsikot ja CTA käännetty; **leipätekstikappaleet EN — käännetään sisällön lukituttua** (turha kääntää tekstiä joka muuttuu kun firman luvut saadaan)
 - Kuopio-casen oma CTA ("Talk to the engineer who ran this trial") jäi EN — poikkeaa vakiorungosta
+
+## [2026-09-20] Korjauskierros 2 — tuotekuvat, 3D, Products, täydet käännökset
+- **Tuotekuvat löydetty vanhalta sivustolta** (Juhan huomio — olin missannut): OxTube-renderöinti (/products) + korkearesoluutioinen asennuskuva (pystyasennus suomalaisella laitoksella, 3648×2736). Käsitelty → `oxtube_installed_vertical.jpg/webp`, `oxtube_module_render.png`.
+- **Etusivulle proseduraalinen 3D-tuotemalli** (canvas, ei kirjastoja): laipat, venturi-kavennus, hidas pyöritys + slogan "Improving Water Quality". prefers-reduced-motion kunnioitetaan, IntersectionObserver pysäyttää näkymättömissä.
+- **Koko vanha sivusto kartoitettu sivukartasta**: 8 sivua + 18 tuotesivua + 13 blogia + 3 varattavaa palvelua. Rakennevastaus: uusi sivusto = alkuperäinen hub-rakenne (ei BB:n); aukko oli Products-taso → korjattu.
+- **products.html luotu**: tuoteperhe OxTube/RadOx/IroX/UGOx/GasRemox/Lady Bug + palvelut (konsultaatio, kurssi, koulutus), 3 kielellä. ClariOx [TARKISTETTAVA]. Navigaatioon + footeriin kaikilla sivuilla.
+- **Case-sivujen TÄYDET ES/FI-käännökset** (kicker, lede, mittarit, leipätekstit, taulukot, sitaatit, napit). Kuopiosta puuttui koko kielivalitsin → lisätty. Kuopion kuollut CTA-linkki (#) → mailto.
+- **Faktakorjaus case-india**: pilotti oli Sukhrali (Gurugram), Sadpura on laajennus — lede väitti väärin.
+- **Siuntion 📷-paikanpitäjä korvattu oikealla asennuskuvalla** ("nykyinen sukupolvi" prototyypin rinnalla).
+- **News: 13 tiivistelmää paikan päälle 3 kielellä** (lähdelinkit säilyvät pieninä). Ei enää pelkkiä linkkejä vanhalle Wixille.
+- Aiemman kierroksen A-lista: footer (VAT FI24678326 + osoitteet + navigaatio + privacy.html), og:image absoluuttiseksi, CTA-nauha Technology/Projects/News, EU-lukujen lähdemerkintä, tekstiparannukset ①–⑩, "world's strictest" -toisto purettu, ristilinkit casien välille.
+- QA: 0 löydöstä, kaikki 13 sivua HTTP 200. Selainverifiointi: 3D piirtyy, FI-kieli jättää vain palkintojen erisnimet englanniksi.
+- [TARKISTETTAVA]: ClariOx-kuvaus · GasRemox-rooli · palvelusivujen sisällöt (Wix-varauskuvaukset ohuita)
