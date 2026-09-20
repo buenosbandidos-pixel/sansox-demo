@@ -74,3 +74,12 @@ Mitoitustyökalu (vaatii Pylkkäsen luvut: virtaama, kgO₂/kWh, painehäviö) �
 - Ongelma: täysi 360°-pyöritys + voimakas perspektiivi → päät karkasivat canvasista ja putki osoitti ajoittain kohti kameraa muodottomana.
 - Korjaus: heilurikääntö ±32° sivuprofiilin ympäri; sovitus lasketaan etukäteen pahimman kulman yli (sondien kärjet mukana); perspektiivi 5.5 → 12.
 - Realismi: normaalipohjainen valaistus (diffuusi + spekulaari + fresnel-reunaheijastus), täytevalo ettei mikään kulma jää pimeäksi, materiaalikohtaiset kiillot (rst-jaksolla terävä kiiltojuova), SEG 32→48, saumaton pinta, pehmeä pohjavarjo.
+
+## [2026-09-20] Kieliraportin (7) korjaukset 1–12 — hyväksytty
+- Kielivalinta säilyy sivunvaihdossa (localStorage + DOMContentLoaded-init, try/catch-suojattu). Verifioitu: FI säilyi index → references.
+- Numerolaatat lokalisoitu: 0.7 → 0,7 FI/ES (index n2v, kuopio m3v).
+- ES Espanja-korjaukset: piscinas→tanques (carelian ×4) · "se vuelve turbia y lechosa" · "El miembro más ligero de la familia" · "Pídanos los datos" · despachos→crónicas (references + india).
+- FI-kalkit pois: "mitä vetesi tarvitsee" · "Perheen kevyin tuote" · "jotka käsiteltiin yhdessä linjassa" · references-CTA sujuvoitettu.
+- EN yhtenäistetty brittienglantiin: optimized→optimised (kuopio).
+- Kohta 13 (meta/title/alt/privacy FI+ES) = julkaisuvaiheen työ oikeiden /fi/ /es/ -sivujen kanssa.
+- Huom: sanakirja-arvot ovat \uXXXX-escapeina — tulevat tekstikorjaukset escaped-muodossa.

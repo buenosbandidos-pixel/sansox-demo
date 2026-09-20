@@ -203,7 +203,7 @@ p2t:"Potable · radón",p2p:"Aire comprimido disuelto mediante las unidades Boos
 p3t:"Potable · hierro y manganeso",p3p:"OxTube con GasRemox y filtros de arena para hierro y manganeso de aguas subterráneas — entregado en contenedor o instalado en la caseta de bombeo.",
 p4t:"Eliminación de gases · pH",p4p:"Elimina el CO₂ disuelto y otros gases no deseados en la línea presurizada — corrección de pH sin añadir productos químicos.",
 p5t:"Etapa de separación",p5p:"La etapa de separación de gases: recoge y ventila lo que el proceso extrae del agua. Funciona dentro de las entregas IroX y UGOx.",
-p6t:"Aguas naturales",p6p:"El extremo ligero de la familia: circula y airea el agua de la orilla para que las algas nunca arranquen — para orillas de verano, puertos y estanques pequeños.",
+p6t:"Aguas naturales",p6p:"El miembro más ligero de la familia: hace circular y airea el agua de la orilla para que las algas nunca arranquen — para orillas de verano, puertos y estanques pequeños.",
 fa_src:"Nombres y configuraciones de las páginas de producto de sansox.fi. Existe también la configuración de clarificación ClariOx — detalles por confirmar. [TARKISTETTAVA]",
 se_h:"Servicios",se_p:"No está comprando un tubo, está comprando un resultado — por eso también enseñamos el proceso.",
 s1t:"Gratis · 30 min",s1h:"Consulta técnica",s1p:"Traiga sus caudales, objetivos y límites de vertido. Recibirá una respuesta honesta sobre si OxTube encaja — con números.",
@@ -213,13 +213,13 @@ cb_h:"30 minutos, técnico, gratis",cb_p:"Describa su agua y su caudal \u2014 le
 fi:{"nav_ref": "Referenssit", "fn_ref": "Referenssit", "nav_sol": "Ratkaisut", "nav_prod": "Tuotteet", "nav_proj": "Projektit", "nav_tech": "Teknologia", "nav_co": "Yritys", "nav_news": "Uutiset", "fn_home": "Etusivu", "fn_sol": "Ratkaisut", "fn_prod": "Tuotteet", "fn_proj": "Projektit", "fn_tech": "Teknologia", "fn_co": "Yritys", "fn_news": "Uutiset", "fn_priv": "Tietosuoja", kick:"Tuotteet — OxTube-perhe",h1:"Yksi periaate, <em>kuusi tuotetta</em>.",
 lede:"Kaikki alla oleva on samaa mitattua periaatetta — kaasun liuottamista virtaavaan veteen alle sekunnissa — paketoituna eri tehtäviin. Jokainen yksikkö on putkilinjaan asennettava, hermeettinen ja jälkiasennettava.",
 in_h:"Tehty pultattavaksi",in_p:"OxTube käytössä suomalaisella laitoksella — pystyasennuksessa, jonka geometria sallii. Laipalliset moduulit kootaan prosessin vaatimassa järjestyksessä ja irtoavat yhtä helposti puhdistusta varten. Näet koko jalanjäljen: ei altaita, ei torneja.",
-fa_h:"Perhe",fa_p:"Saman ydinprosessin nimettyjä kokoonpanoja. Kysy meiltä, minkä sinun vetesi tarvitsee — juuri sitä varten maksuton puhelu on.",
+fa_h:"Perhe",fa_p:"Saman ydinprosessin nimettyjä kokoonpanoja. Kysy meiltä, mitä vetesi tarvitsee — juuri sitä varten maksuton puhelu on.",
 p1t:"Ydinyksikkö",p1p:"Suljettu putkiosuus, joka erottelee, aktivoi, kirkastaa ja liuottaa takaisin — ilmalla, hapella, otsonilla tai CO₂:lla. Kaikki muut tuotteet rakentuvat sen ympärille.",
 p2t:"Juomavesi · radon",p2p:"Booster- ja OxTube-yksiköiden läpi liuotettu paineilma poistaa radonin paineistetussa putkilinjassa. Kuusi asemaa Filippiineillä toimii 11 Bq/l -rajan alla.",
 p3t:"Juomavesi · rauta ja mangaani",p3p:"OxTube, GasRemox ja hiekkasuodattimet pohjaveden raudalle ja mangaanille — toimitetaan konttiyksikkönä tai asennetaan pumppaamoon.",
 p4t:"Kaasunpoisto · pH",p4p:"Poistaa liuenneen CO₂:n ja muut ei-toivotut kaasut paineistetussa linjassa — pH-korjaus ilman kemikaaleja.",
 p5t:"Erotteluvaihe",p5p:"Kaasunerotusvaihe: kerää ja tuulettaa sen, mitä prosessi vedestä irrottaa. Toimii IroX- ja UGOx-toimituksissa.",
-p6t:"Luonnonvedet",p6p:"Perheen kevyt pää: kierrättää ja ilmastaa rantaveden niin ettei levä pääse alkuun — mökkirannoille, satamiin ja pikkulammille.",
+p6t:"Luonnonvedet",p6p:"Perheen kevyin tuote: kierrättää ja ilmastaa rantaveden niin ettei levä pääse alkuun — mökkirannoille, satamiin ja pikkulammille.",
 fa_src:"Tuotenimet ja kokoonpanot sansox.fi:n tuotesivuilta. Myös ClariOx-kirkastuskokoonpano on olemassa — yksityiskohdat vahvistettava. [TARKISTETTAVA]",
 se_h:"Palvelut",se_p:"Et osta putkea vaan tuloksen — siksi opetamme myös prosessin.",
 s1t:"Maksuton · 30 min",s1h:"Tekninen konsultaatio",s1p:"Tuo virtaamat, tavoitteet ja lupaehdot. Saat rehellisen vastauksen siihen, sopiiko OxTube — lukujen kanssa.",
@@ -233,11 +233,12 @@ document.querySelectorAll('[data-i18n-html]').forEach(e=>{if(!(e.dataset.i18nHtm
 T.en=EN;}
 harvest();
 document.addEventListener('DOMContentLoaded',harvest);
-function setLang(l){document.documentElement.lang=l;
+function setLang(l){try{localStorage.setItem('sansox_lang',l)}catch(e){}document.documentElement.lang=l;
 document.querySelectorAll('.lang button').forEach(b=>b.classList.remove('on'));
 document.getElementById('l-'+l).classList.add('on');
 document.querySelectorAll('[data-i18n]').forEach(e=>{const k=e.dataset.i18n;if(T[l][k])e.textContent=T[l][k]});
 document.querySelectorAll('[data-i18n-html]').forEach(e=>{const k=e.dataset.i18nHtml;if(T[l][k])e.innerHTML=T[l][k]});}
+document.addEventListener('DOMContentLoaded',function(){var sl=null;try{sl=localStorage.getItem('sansox_lang')}catch(e){};if(sl&&sl!=='en')setLang(sl);});
 </script>
 <footer class="site"><div class="wrap">
   <div style="display:flex;flex-wrap:wrap;gap:8px 18px;margin-bottom:10px">

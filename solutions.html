@@ -189,10 +189,11 @@ const EN={};
 document.querySelectorAll('[data-i18n]').forEach(e=>EN[e.dataset.i18n]=e.textContent);
 document.querySelectorAll('[data-i18n-html]').forEach(e=>EN[e.dataset.i18nHtml]=e.innerHTML);
 T.en=EN;
-function setLang(l){document.documentElement.lang=l;
+function setLang(l){try{localStorage.setItem('sansox_lang',l)}catch(e){}document.documentElement.lang=l;
 document.querySelectorAll('.lang button').forEach(b=>b.classList.remove('on'));
 document.getElementById('l-'+l).classList.add('on');
 document.querySelectorAll('[data-i18n]').forEach(e=>{const k=e.dataset.i18n;if(T[l]&&T[l][k])e.textContent=T[l][k]});
 document.querySelectorAll('[data-i18n-html]').forEach(e=>{const k=e.dataset.i18nHtml;if(T[l]&&T[l][k])e.innerHTML=T[l][k]});}
+document.addEventListener('DOMContentLoaded',function(){var sl=null;try{sl=localStorage.getItem('sansox_lang')}catch(e){};if(sl&&sl!=='en')setLang(sl);});
 </script>
 </body></html>

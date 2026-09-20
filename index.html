@@ -157,7 +157,7 @@
    </div>
     <div class="numbers">
       <div class="num"><b>90<small>%</small></b><span data-i18n="n1">reduction of pharmaceutical residues — municipal wastewater, Kuopio</span></div>
-      <div class="num"><b>0.7<small>s</small></b><span data-i18n="n2">total process time, single pass through the tube</span></div>
+      <div class="num"><b><span data-i18n="n2v">0.7</span><small>s</small></b><span data-i18n="n2">total process time, single pass through the tube</span></div>
       <div class="num"><b>1<small>s</small></b><span data-i18n="n3">water fully saturated with oxygen — 3 s in a working fish farm</span></div>
       <div class="num"><b>6</b><span data-i18n="n4">drinking-water stations in the Philippines now under the world's toughest radon limit</span></div>
     </div>
@@ -197,7 +197,7 @@
   </section>
 </div><script>
 const T={en:{},
-es:{see1:"<a href=\"case-kuopio.html\" style=\"color:var(--aqua);font-weight:700;text-decoration:none\">Vea qué ocurre en un segundo →</a>", "nav_ref": "Referencias", "fn_ref": "Referencias", "nav_sol": "Soluciones", "nav_prod": "Productos", "nav_proj": "Proyectos", "nav_tech": "Tecnolog\u00eda", "nav_co": "Empresa", "nav_news": "Noticias", "fn_home": "Inicio", "fn_sol": "Soluciones", "fn_prod": "Productos", "fn_proj": "Proyectos", "fn_tech": "Tecnolog\u00eda", "fn_co": "Empresa", "fn_news": "Noticias", "fn_priv": "Privacidad", kicker:"Tecnología de tratamiento de agua de Finlandia — medida, publicada, instalada",
+es:{n2v:"0,7", see1:"<a href=\"case-kuopio.html\" style=\"color:var(--aqua);font-weight:700;text-decoration:none\">Vea qué ocurre en un segundo →</a>", "nav_ref": "Referencias", "fn_ref": "Referencias", "nav_sol": "Soluciones", "nav_prod": "Productos", "nav_proj": "Proyectos", "nav_tech": "Tecnolog\u00eda", "nav_co": "Empresa", "nav_news": "Noticias", "fn_home": "Inicio", "fn_sol": "Soluciones", "fn_prod": "Productos", "fn_proj": "Proyectos", "fn_tech": "Tecnolog\u00eda", "fn_co": "Empresa", "fn_news": "Noticias", "fn_priv": "Privacidad", kicker:"Tecnología de tratamiento de agua de Finlandia — medida, publicada, instalada",
 h1:"Disolver gas en agua en <em>menos de un segundo</em>.",
 lede:"Al agua sucia le falta oxígeno; el agua limpia lo necesita. OxTube es un tramo de tubería sellado que introduce oxígeno u ozono en el agua en movimiento y la limpia a su paso — dentro de las tuberías que ya tiene. Sin tanques, sin piezas móviles, sin energía extra.",
 cta1:"Ver los resultados medidos",cta2:"Conozca a los ingenieros",
@@ -216,7 +216,7 @@ cy1t:"Aguas naturales",cy1h:"Lagos, estanques y riego",cy1p:"Aireación, prevenc
 cy2t:"Agua potable",cy2h:"Radón, hierro y manganeso",cy2p:"Eliminación en línea en estaciones de bombeo — seis instalaciones en Filipinas al límite de 11 Bq/l.",
 cy3t:"Agua de proceso y residual",cy3h:"Fármacos y gases de olor",cy3p:"87–90 % de reducción de fármacos en 0,7 s en una depuradora municipal — ozono, sin balsas de contacto.",
 cb_h:"30 minutos, técnico, gratis",cb_p:"Díganos su caudal, su objetivo y sus límites de vertido. Le diremos qué puede y qué no puede hacer OxTube — con los números que lo respaldan.",cb_b:"Reservar la llamada"},
-fi:{see1:"<a href=\"case-kuopio.html\" style=\"color:var(--aqua);font-weight:700;text-decoration:none\">Katso mitä yhdessä sekunnissa tapahtuu →</a>", "nav_ref": "Referenssit", "fn_ref": "Referenssit", "nav_sol": "Ratkaisut", "nav_prod": "Tuotteet", "nav_proj": "Projektit", "nav_tech": "Teknologia", "nav_co": "Yritys", "nav_news": "Uutiset", "fn_home": "Etusivu", "fn_sol": "Ratkaisut", "fn_prod": "Tuotteet", "fn_proj": "Projektit", "fn_tech": "Teknologia", "fn_co": "Yritys", "fn_news": "Uutiset", "fn_priv": "Tietosuoja", kicker:"Suomalaista vedenkäsittelyteknologiaa — mitattu, julkaistu, asennettu",
+fi:{n2v:"0,7", see1:"<a href=\"case-kuopio.html\" style=\"color:var(--aqua);font-weight:700;text-decoration:none\">Katso mitä yhdessä sekunnissa tapahtuu →</a>", "nav_ref": "Referenssit", "fn_ref": "Referenssit", "nav_sol": "Ratkaisut", "nav_prod": "Tuotteet", "nav_proj": "Projektit", "nav_tech": "Teknologia", "nav_co": "Yritys", "nav_news": "Uutiset", "fn_home": "Etusivu", "fn_sol": "Ratkaisut", "fn_prod": "Tuotteet", "fn_proj": "Projektit", "fn_tech": "Teknologia", "fn_co": "Yritys", "fn_news": "Uutiset", "fn_priv": "Tietosuoja", kicker:"Suomalaista vedenkäsittelyteknologiaa — mitattu, julkaistu, asennettu",
 h1:"Kaasu liukenee veteen <em>alle sekunnissa</em>.",
 lede:"Likaisesta vedestä puuttuu happi; puhdas vesi tarvitsee sitä. OxTube on suljettu putkiosuus, joka lisää happea tai otsonia virtaavaan veteen ja puhdistaa sen ohikulkiessa — nykyisen putkiston sisällä. Ei altaita, ei liikkuvia osia, ei lisäenergiaa.",
 cta1:"Katso mitatut tulokset",cta2:"Tapaa insinöörit",
@@ -242,11 +242,12 @@ document.querySelectorAll('[data-i18n-html]').forEach(e=>{if(!(e.dataset.i18nHtm
 T.en=EN;}
 harvest();
 document.addEventListener('DOMContentLoaded',harvest);
-function setLang(l){document.documentElement.lang=l;
+function setLang(l){try{localStorage.setItem('sansox_lang',l)}catch(e){}document.documentElement.lang=l;
 document.querySelectorAll('.lang button').forEach(b=>b.classList.remove('on'));
 document.getElementById('l-'+l).classList.add('on');
 document.querySelectorAll('[data-i18n]').forEach(e=>{const k=e.dataset.i18n;if(T[l][k])e.textContent=T[l][k]});
 document.querySelectorAll('[data-i18n-html]').forEach(e=>{const k=e.dataset.i18nHtml;if(T[l][k])e.innerHTML=T[l][k]});}
+document.addEventListener('DOMContentLoaded',function(){var sl=null;try{sl=localStorage.getItem('sansox_lang')}catch(e){};if(sl&&sl!=='en')setLang(sl);});
 </script>
 <script>
 (function(){
