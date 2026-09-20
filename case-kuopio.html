@@ -139,6 +139,8 @@
   <span class="crumb"><a href="projects.html" style="color:inherit;text-decoration:none">← Projects</a> / Case Kuopio</span>
   <div class="logo">Sans<b>Ox</b></div>
   
+
+  <div class="lang"><button id="l-en" class="on">EN</button><button id="l-es">ES</button><button id="l-fi">FI</button></div>
 </div></header>
 
 <div class="wrap">
@@ -270,6 +272,23 @@ document.querySelectorAll('.lang button').forEach(b=>b.classList.remove('on'));
 document.getElementById('l-'+l).classList.add('on');
 document.querySelectorAll('[data-i18n]').forEach(e=>{const k=e.dataset.i18n;if(T[l]&&T[l][k])e.textContent=T[l][k]});
 document.querySelectorAll('[data-i18n-html]').forEach(e=>{const k=e.dataset.i18nHtml;if(T[l]&&T[l][k])e.innerHTML=T[l][k]});}
+</script>
+<script>
+(function(){
+if(typeof T==='undefined')return;
+if(!T.en){T.en={};
+document.querySelectorAll('[data-i18n]').forEach(function(e){if(!(e.dataset.i18n in T.en))T.en[e.dataset.i18n]=e.textContent});
+document.querySelectorAll('[data-i18n-html]').forEach(function(e){if(!(e.dataset.i18nHtml in T.en))T.en[e.dataset.i18nHtml]=e.innerHTML});}
+window.__setLang=function(l){
+try{localStorage.setItem('sansox_lang',l)}catch(e){}
+document.documentElement.lang=l;
+['en','es','fi'].forEach(function(x){var b=document.getElementById('l-'+x);if(b)b.classList.toggle('on',x===l)});
+document.querySelectorAll('[data-i18n]').forEach(function(e){var k=e.dataset.i18n;if(T[l]&&T[l][k]!=null)e.textContent=T[l][k]});
+document.querySelectorAll('[data-i18n-html]').forEach(function(e){var k=e.dataset.i18nHtml;if(T[l]&&T[l][k]!=null)e.innerHTML=T[l][k]});};
+['en','es','fi'].forEach(function(x){var b=document.getElementById('l-'+x);if(b)b.onclick=function(){window.__setLang(x)}});
+var sl=null;try{sl=localStorage.getItem('sansox_lang')}catch(e){}
+if(sl&&sl!=='en')window.__setLang(sl);
+})();
 </script>
 </body>
 </html>

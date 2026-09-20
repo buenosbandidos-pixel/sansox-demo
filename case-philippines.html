@@ -53,7 +53,9 @@
   @media(max-width:560px){.crumb{display:none}}
 .lang{display:inline-flex;gap:2px;border:1px solid var(--line);border-radius:6px;overflow:hidden}.lang button{background:transparent;border:0;color:var(--dim);font:700 12px/1 inherit;padding:7px 10px;cursor:pointer}.lang button.on{background:var(--aqua);color:#04121c}</style></head><body>
 <div class="draft">DEMO · placeholder blocks marked 📷 await real photographs · all figures from published sources</div>
-<header><div class="wrap"><span class="crumb"><a href="projects.html">← Projects</a></span><div class="logo">Sans<b>Ox</b></div></div></header>
+<header><div class="wrap"><span class="crumb"><a href="projects.html">← Projects</a></span><div class="logo">Sans<b>Ox</b></div>
+  <div class="lang"><button id="l-en" class="on">EN</button><button id="l-es">ES</button><button id="l-fi">FI</button></div>
+</div></header>
 <div class="wrap">
 <div class="hero"><div class="kicker" data-i18n="kick">Potable water · Radon removal · Unique Water partnership</div><h1 data-i18n-html="h1">Six pumping stations, one of the world's strictest radon limits — <em>met</em>.</h1><p class="lede" data-i18n="lede">The Philippines enforces a radon limit of 11 Bq/l for drinking water — far below the 300–400 Bq/l applied in parts of Europe. Together with our partner Unique Water, SansOx delivered radon removal units to municipal pumping stations.</p>
 <div class="numbers"><div class="num"><b>11<small>Bq/l</small></b><span data-i18n="m1">the limit each installation meets</span></div><div class="num"><b>6</b><span data-i18n="m2">pumping-station installations delivered</span></div><div class="num"><b>≈30<small>×</small></b><span data-i18n="m3">stricter than typical Finnish limits (300–400 Bq/l)</span></div><div class="num"><b>0</b><span data-i18n="m4">basins added — RadOx installs at the station</span></div></div><p class="src" data-i18n="src1">Sources: SansOx company records · Unique Water installation programme. Figures to be re-verified with Unique Water before publication. Note: the old site states five stations on its Projects page and six in the company story — the discrepancy is flagged for SansOx. [TARKISTETTAVA]</p></div>
@@ -98,5 +100,22 @@ document.querySelectorAll('.lang button').forEach(b=>b.classList.remove('on'));
 document.getElementById('l-'+l).classList.add('on');
 document.querySelectorAll('[data-i18n]').forEach(e=>{const k=e.dataset.i18n;if(T[l]&&T[l][k])e.textContent=T[l][k]});
 document.querySelectorAll('[data-i18n-html]').forEach(e=>{const k=e.dataset.i18nHtml;if(T[l]&&T[l][k])e.innerHTML=T[l][k]});}
+</script>
+<script>
+(function(){
+if(typeof T==='undefined')return;
+if(!T.en){T.en={};
+document.querySelectorAll('[data-i18n]').forEach(function(e){if(!(e.dataset.i18n in T.en))T.en[e.dataset.i18n]=e.textContent});
+document.querySelectorAll('[data-i18n-html]').forEach(function(e){if(!(e.dataset.i18nHtml in T.en))T.en[e.dataset.i18nHtml]=e.innerHTML});}
+window.__setLang=function(l){
+try{localStorage.setItem('sansox_lang',l)}catch(e){}
+document.documentElement.lang=l;
+['en','es','fi'].forEach(function(x){var b=document.getElementById('l-'+x);if(b)b.classList.toggle('on',x===l)});
+document.querySelectorAll('[data-i18n]').forEach(function(e){var k=e.dataset.i18n;if(T[l]&&T[l][k]!=null)e.textContent=T[l][k]});
+document.querySelectorAll('[data-i18n-html]').forEach(function(e){var k=e.dataset.i18nHtml;if(T[l]&&T[l][k]!=null)e.innerHTML=T[l][k]});};
+['en','es','fi'].forEach(function(x){var b=document.getElementById('l-'+x);if(b)b.onclick=function(){window.__setLang(x)}});
+var sl=null;try{sl=localStorage.getItem('sansox_lang')}catch(e){}
+if(sl&&sl!=='en')window.__setLang(sl);
+})();
 </script>
 </body></html>

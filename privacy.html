@@ -107,9 +107,11 @@
   }
 </style></head><body>
 <div class="draft">DEMO · [TARKISTETTAVA] — legal text to be reviewed by SansOx before publication</div>
-<header><div class="wrap nav"><a href="index.html" style="text-decoration:none;color:inherit"><div class="logo">Sans<b>Ox</b></div></a></div></header>
-<div class="wrap"><div class="hero"><h1>Privacy</h1>
-<p class="lede">This site sets no cookies and runs no analytics or tracking scripts. The only personal data we receive is what you choose to send us by e-mail (info@sansox.fi), and it is used solely to answer you. Data controller: SansOx Oy, VAT FI24678326, Niemenkatu 73, FI-15140 Lahti, Finland.</p></div></div>
+<header><div class="wrap nav"><a href="index.html" style="text-decoration:none;color:inherit"><div class="logo">Sans<b>Ox</b></div></a>
+  <div class="lang"><button id="l-en" class="on">EN</button><button id="l-es">ES</button><button id="l-fi">FI</button></div>
+</div></header>
+<div class="wrap"><div class="hero"><h1 data-i18n="h1">Privacy</h1>
+<p class="lede" data-i18n="lede">This site sets no cookies and runs no analytics or tracking scripts. The only personal data we receive is what you choose to send us by e-mail (info@sansox.fi), and it is used solely to answer you. Data controller: SansOx Oy, VAT FI24678326, Niemenkatu 73, FI-15140 Lahti, Finland.</p></div></div>
 <footer class="site"><div class="wrap">
   <div style="display:flex;flex-wrap:wrap;gap:8px 18px;margin-bottom:10px">
     <a href="index.html" style="color:var(--dim)">Home</a><a href="solutions.html" style="color:var(--dim)">Solutions</a>
@@ -120,4 +122,24 @@
   </div>
   SansOx Oy / VAT FI24678326 / c/o Lahti Science Park, Niemenkatu 73, FI-15140 Lahti, Finland / Sänkinotkonkatu 6, FI-83500 Outokumpu / +358 500 603 020 / info@sansox.fi<br>
   <span>Water Europe (WSSTP) Best Innovation 2014 / Best Aeration Company &amp; SaoxFuge 2015 / IroxFlotation runner-up, Aquatech Amsterdam 2017 / IWA Milan 2021</span>
-</div></footer></body></html>
+</div></footer><script>
+const T={"es": {"h1": "Privacidad", "lede": "Este sitio no instala cookies ni ejecuta análisis o rastreo. Los únicos datos personales que recibimos son los que usted decide enviarnos por correo (info@sansox.fi), y se usan solo para responderle. Responsable: SansOx Oy, VAT FI24678326, Niemenkatu 73, FI-15140 Lahti, Finlandia."}, "fi": {"h1": "Tietosuoja", "lede": "Tämä sivusto ei aseta evästeitä eikä käytä analytiikkaa tai seurantaa. Ainoat henkilötiedot ovat ne, jotka itse lähetät sähköpostitse (info@sansox.fi), ja niitä käytetään vain vastaamiseen. Rekisterinpitäjä: SansOx Oy, VAT FI24678326, Niemenkatu 73, 15140 Lahti."}};
+</script>
+<script>
+(function(){
+if(typeof T==='undefined')return;
+if(!T.en){T.en={};
+document.querySelectorAll('[data-i18n]').forEach(function(e){if(!(e.dataset.i18n in T.en))T.en[e.dataset.i18n]=e.textContent});
+document.querySelectorAll('[data-i18n-html]').forEach(function(e){if(!(e.dataset.i18nHtml in T.en))T.en[e.dataset.i18nHtml]=e.innerHTML});}
+window.__setLang=function(l){
+try{localStorage.setItem('sansox_lang',l)}catch(e){}
+document.documentElement.lang=l;
+['en','es','fi'].forEach(function(x){var b=document.getElementById('l-'+x);if(b)b.classList.toggle('on',x===l)});
+document.querySelectorAll('[data-i18n]').forEach(function(e){var k=e.dataset.i18n;if(T[l]&&T[l][k]!=null)e.textContent=T[l][k]});
+document.querySelectorAll('[data-i18n-html]').forEach(function(e){var k=e.dataset.i18nHtml;if(T[l]&&T[l][k]!=null)e.innerHTML=T[l][k]});};
+['en','es','fi'].forEach(function(x){var b=document.getElementById('l-'+x);if(b)b.onclick=function(){window.__setLang(x)}});
+var sl=null;try{sl=localStorage.getItem('sansox_lang')}catch(e){}
+if(sl&&sl!=='en')window.__setLang(sl);
+})();
+</script>
+</body></html>

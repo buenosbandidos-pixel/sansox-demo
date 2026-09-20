@@ -125,27 +125,28 @@
     <a href="contact.html">Contact</a>
     <a href="news.html">News</a>
   </div>
+  <div class="lang"><button id="l-en" class="on">EN</button><button id="l-es">ES</button><button id="l-fi">FI</button></div>
 </div></header>
 <div class="wrap">
-  <div class="hero"><div class="kicker">Contact</div>
-  <h1>Your success is <em>our priority</em>.</h1>
-  <p class="lede">Reach out to us today, and let's work together to find the best solutions for you.</p></div>
+  <div class="hero"><div data-i18n="kick" class="kicker">Contact</div>
+  <h1 data-i18n-html="h1">Your success is <em>our priority</em>.</h1>
+  <p data-i18n="lede" class="lede">Reach out to us today, and let's work together to find the best solutions for you.</p></div>
   <section>
     <div class="team" style="margin-top:6px">
-      <div class="person"><img src="assets/img/team_seppala.jpg" alt="Mikael Seppälä" style="width:100%;aspect-ratio:5/6;object-fit:cover;border-radius:10px;margin-bottom:12px"><b>Mikael Seppälä</b><span>Managing Director</span><p>+358 500 603 020<br>mikael.seppala@sansox.fi</p></div>
-      <div class="person"><img src="assets/img/team_hakola.jpg" alt="Jukka Hakola" style="width:100%;aspect-ratio:5/6;object-fit:cover;border-radius:10px;margin-bottom:12px"><b>Jukka Hakola</b><span>Chief Operating Officer</span><p>+358 40 500 1123<br>jukka.hakola@sansox.fi</p></div>
-      <div class="person"><img src="assets/img/team_pylkkanen.jpg" alt="Juhani Pylkkänen" style="width:100%;aspect-ratio:5/6;object-fit:cover;border-radius:10px;margin-bottom:12px"><b>Juhani Pylkkänen</b><span>Chief Engineer</span><p>+358 40 866 9506<br>juhani.pylkkanen@sansox.fi</p></div>
+      <div class="person"><img src="assets/img/team_seppala.jpg" alt="Mikael Seppälä" style="width:100%;aspect-ratio:5/6;object-fit:cover;border-radius:10px;margin-bottom:12px"><b>Mikael Seppälä</b><span data-i18n="r1">Managing Director</span><p>+358 500 603 020<br>mikael.seppala@sansox.fi</p></div>
+      <div class="person"><img src="assets/img/team_hakola.jpg" alt="Jukka Hakola" style="width:100%;aspect-ratio:5/6;object-fit:cover;border-radius:10px;margin-bottom:12px"><b>Jukka Hakola</b><span data-i18n="r2">Chief Operating Officer</span><p>+358 40 500 1123<br>jukka.hakola@sansox.fi</p></div>
+      <div class="person"><img src="assets/img/team_pylkkanen.jpg" alt="Juhani Pylkkänen" style="width:100%;aspect-ratio:5/6;object-fit:cover;border-radius:10px;margin-bottom:12px"><b>Juhani Pylkkänen</b><span data-i18n="r3">Chief Engineer</span><p>+358 40 866 9506<br>juhani.pylkkanen@sansox.fi</p></div>
     </div>
   </section>
   <section>
     <div class="cards">
-      <div class="card"><span class="tag">Address</span><h3>Lahti</h3><p>SansOx Oy<br>c/o Lahti Science Park<br>Niemenkatu 73<br>FI-15140 Lahti, FINLAND</p></div>
-      <div class="card"><span class="tag">Address</span><h3>Outokumpu</h3><p>SansOx Oy<br>Sänkinotkonkatu 6<br>FI-83500 Outokumpu, FINLAND</p></div>
-      <div class="card"><span class="tag">Direct</span><h3>Phone &amp; email</h3><p>+358 500 603 020<br><a href="mailto:info@sansox.fi" style="color:var(--aqua)">info@sansox.fi</a></p></div>
+      <div class="card"><span class="tag">Address</span><h3 data-i18n="a1">Lahti</h3><p>SansOx Oy<br>c/o Lahti Science Park<br>Niemenkatu 73<br>FI-15140 Lahti, FINLAND</p></div>
+      <div class="card"><span class="tag">Address</span><h3 data-i18n="a2">Outokumpu</h3><p>SansOx Oy<br>Sänkinotkonkatu 6<br>FI-83500 Outokumpu, FINLAND</p></div>
+      <div class="card"><span class="tag">Direct</span><h3 data-i18n="a3">Phone &amp; email</h3><p>+358 500 603 020<br><a href="mailto:info@sansox.fi" style="color:var(--aqua)">info@sansox.fi</a></p></div>
     </div>
   </section>
-  <section><div class="ctaband"><div><h3>Leave a message</h3><p>Tell us your flow, your target and your water — we answer ourselves.</p></div>
-  <a class="btn" href="mailto:info@sansox.fi?subject=Contact%20from%20website">Email us</a></div></section>
+  <section><div class="ctaband"><div><h3 data-i18n="cb_h">Leave a message</h3><p data-i18n="cb_p">Tell us your flow, your target and your water — we answer ourselves.</p></div>
+  <a data-i18n="cb_b" class="btn" href="mailto:info@sansox.fi?subject=Contact%20from%20website">Email us</a></div></section>
 </div>
 <footer class="site"><div class="wrap">
   <div style="display:flex;flex-wrap:wrap;gap:8px 18px;margin-bottom:10px">
@@ -158,4 +159,24 @@
   SansOx Oy / VAT FI24678326 / c/o Lahti Science Park, Niemenkatu 73, FI-15140 Lahti, Finland / Sänkinotkonkatu 6, FI-83500 Outokumpu / +358 500 603 020 / info@sansox.fi<br>
   <span>Water Europe (WSSTP) Best Innovation 2014 / Best Aeration Company &amp; SaoxFuge 2015 / IroxFlotation runner-up, Aquatech Amsterdam 2017 / IWA Milan 2021</span>
 </div></footer>
+<script>
+const T={"es": {"kick": "Contacto", "h1": "Su éxito es <em>nuestra prioridad</em>.", "lede": "Póngase en contacto hoy y trabajemos juntos para encontrar la mejor solución para usted.", "r1": "Director general", "r2": "Director de operaciones", "r3": "Ingeniero jefe", "a1": "Lahti", "a2": "Outokumpu", "a3": "Teléfono y correo", "cb_h": "Déjenos un mensaje", "cb_p": "Díganos su caudal, su objetivo y su agua — respondemos nosotros mismos.", "cb_b": "Escríbanos"}, "fi": {"kick": "Yhteystiedot", "h1": "Sinun onnistumisesi on <em>meidän prioriteettimme</em>.", "lede": "Ota yhteyttä jo tänään — etsitään yhdessä paras ratkaisu.", "r1": "Toimitusjohtaja", "r2": "Operatiivinen johtaja", "r3": "Pääinsinööri", "a1": "Lahti", "a2": "Outokumpu", "a3": "Puhelin ja sähköposti", "cb_h": "Jätä viesti", "cb_p": "Kerro virtaama, tavoite ja vetesi — vastaamme itse.", "cb_b": "Lähetä sähköpostia"}};
+</script>
+<script>
+(function(){
+if(typeof T==='undefined')return;
+if(!T.en){T.en={};
+document.querySelectorAll('[data-i18n]').forEach(function(e){if(!(e.dataset.i18n in T.en))T.en[e.dataset.i18n]=e.textContent});
+document.querySelectorAll('[data-i18n-html]').forEach(function(e){if(!(e.dataset.i18nHtml in T.en))T.en[e.dataset.i18nHtml]=e.innerHTML});}
+window.__setLang=function(l){
+try{localStorage.setItem('sansox_lang',l)}catch(e){}
+document.documentElement.lang=l;
+['en','es','fi'].forEach(function(x){var b=document.getElementById('l-'+x);if(b)b.classList.toggle('on',x===l)});
+document.querySelectorAll('[data-i18n]').forEach(function(e){var k=e.dataset.i18n;if(T[l]&&T[l][k]!=null)e.textContent=T[l][k]});
+document.querySelectorAll('[data-i18n-html]').forEach(function(e){var k=e.dataset.i18nHtml;if(T[l]&&T[l][k]!=null)e.innerHTML=T[l][k]});};
+['en','es','fi'].forEach(function(x){var b=document.getElementById('l-'+x);if(b)b.onclick=function(){window.__setLang(x)}});
+var sl=null;try{sl=localStorage.getItem('sansox_lang')}catch(e){}
+if(sl&&sl!=='en')window.__setLang(sl);
+})();
+</script>
 </body></html>

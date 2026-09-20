@@ -53,7 +53,9 @@
   @media(max-width:560px){.crumb{display:none}}
 .lang{display:inline-flex;gap:2px;border:1px solid var(--line);border-radius:6px;overflow:hidden}.lang button{background:transparent;border:0;color:var(--dim);font:700 12px/1 inherit;padding:7px 10px;cursor:pointer}.lang button.on{background:var(--aqua);color:#04121c}</style></head><body>
 <div class="draft">DEMO · placeholder blocks marked 📷 await real photographs · all figures from published sources</div>
-<header><div class="wrap"><span class="crumb"><a href="projects.html">← Projects</a></span><div class="logo">Sans<b>Ox</b></div></div></header>
+<header><div class="wrap"><span class="crumb"><a href="projects.html">← Projects</a></span><div class="logo">Sans<b>Ox</b></div>
+  <div class="lang"><button id="l-en" class="on">EN</button><button id="l-es">ES</button><button id="l-fi">FI</button></div>
+</div></header>
 <div class="wrap">
 <div class="hero"><div class="kicker" data-i18n="kick">Aquaculture · Ozone disinfection · Finland</div><h1 data-i18n-html="h1">Ozone dissolved to full effect — <em>in 3 seconds</em>, in a working caviar farm.</h1><p class="lede" data-i18n="lede">Carelian Caviar raises sturgeon in Finland. Sturgeon die in bad water — and caviar is a ten-year investment you cannot restart. OxTube was installed to dissolve ozone into the process water, eliminating bacteria and viruses without chemical residues.</p>
 <div class="numbers"><div class="num"><b>3<small>s</small></b><span data-i18n="m1">to theoretical maximum concentration in the farm installation</span></div><div class="num"><b>1<small>s</small></b><span data-i18n="m2">the same result in laboratory runs</span></div><div class="num"><b>4<small>wks</small></b><span data-i18n="m3">dissolved concentration remained stable (lab)</span></div><div class="num"><b>0</b><span data-i18n="m4">chemical residues — ozone reverts to oxygen</span></div></div><p class="src" data-i18n-html="src1">Sources: Pylkkänen, IWA Milan 2021 (dissolution times) · SansOx company records. <a href="assets/paper/Pylkkanen_OxTube_IWA_Milan_2021.pdf">Download the paper</a></p></div>
@@ -99,5 +101,22 @@ document.querySelectorAll('.lang button').forEach(b=>b.classList.remove('on'));
 document.getElementById('l-'+l).classList.add('on');
 document.querySelectorAll('[data-i18n]').forEach(e=>{const k=e.dataset.i18n;if(T[l]&&T[l][k])e.textContent=T[l][k]});
 document.querySelectorAll('[data-i18n-html]').forEach(e=>{const k=e.dataset.i18nHtml;if(T[l]&&T[l][k])e.innerHTML=T[l][k]});}
+</script>
+<script>
+(function(){
+if(typeof T==='undefined')return;
+if(!T.en){T.en={};
+document.querySelectorAll('[data-i18n]').forEach(function(e){if(!(e.dataset.i18n in T.en))T.en[e.dataset.i18n]=e.textContent});
+document.querySelectorAll('[data-i18n-html]').forEach(function(e){if(!(e.dataset.i18nHtml in T.en))T.en[e.dataset.i18nHtml]=e.innerHTML});}
+window.__setLang=function(l){
+try{localStorage.setItem('sansox_lang',l)}catch(e){}
+document.documentElement.lang=l;
+['en','es','fi'].forEach(function(x){var b=document.getElementById('l-'+x);if(b)b.classList.toggle('on',x===l)});
+document.querySelectorAll('[data-i18n]').forEach(function(e){var k=e.dataset.i18n;if(T[l]&&T[l][k]!=null)e.textContent=T[l][k]});
+document.querySelectorAll('[data-i18n-html]').forEach(function(e){var k=e.dataset.i18nHtml;if(T[l]&&T[l][k]!=null)e.innerHTML=T[l][k]});};
+['en','es','fi'].forEach(function(x){var b=document.getElementById('l-'+x);if(b)b.onclick=function(){window.__setLang(x)}});
+var sl=null;try{sl=localStorage.getItem('sansox_lang')}catch(e){}
+if(sl&&sl!=='en')window.__setLang(sl);
+})();
 </script>
 </body></html>
