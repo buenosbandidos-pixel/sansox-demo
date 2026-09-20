@@ -1,0 +1,11 @@
+{"source":"Pylkkanen IWA 2021, Table 1 — Kuopio municipal wastewater, OxTube Ozone vs. two present methods (reduction %)",
+ "headline":[
+  {"substance":"Cetirizine","oxtube":99.9,"present1":"<20","present2":"<20"},
+  {"substance":"Diclofenac","oxtube":99.7,"present1":"<20","present2":"<20"},
+  {"substance":"Losartan","oxtube":99.6,"present1":"<20","present2":"<20"},
+  {"substance":"Furosemide","oxtube":97,"present1":"<20","present2":"<20"},
+  {"substance":"Citalopram","oxtube":97,"present1":"<20","present2":"<20"},
+  {"substance":"Mirtazapine","oxtube":96.4,"present1":31,"present2":"<20"},
+  {"substance":"Quetiapine","oxtube":95,"present1":"<20","present2":"<20"},
+  {"substance":"Azithromycin","oxtube":94,"present1":"<20","present2":"<20"}],
+ "note":"Full table: table1_substances.png · transcribe completely before publishing"}
