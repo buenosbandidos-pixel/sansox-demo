@@ -6,6 +6,10 @@
 <meta property="og:description" content="One principle, six products. In-line, hermetic, retrofittable.">
 <meta property="og:type" content="website">
 <meta property="og:image" content="https://static.wixstatic.com/media/74c0a2_6b00bf8ab75f48a48c8ade4762dfa6d8~mv2.jpg">
+<link rel="alternate" hreflang="en" href="https://www.sansox.fi/products.html">
+<link rel="alternate" hreflang="es" href="https://www.sansox.fi/es/products.html">
+<link rel="alternate" hreflang="fi" href="https://www.sansox.fi/fi/products.html">
+<link rel="alternate" hreflang="x-default" href="https://www.sansox.fi/products.html">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <style>
   :root{
@@ -132,11 +136,7 @@
     <a href="technology.html" data-i18n="nav_tech">Technology</a>
     <a href="company.html" data-i18n="nav_co">Company</a>
   </div>
-  <div class="lang">
-    <button id="l-en" class="on" onclick="setLang('en')">EN</button>
-    <button id="l-es" onclick="setLang('es')">ES</button>
-    <button id="l-fi" onclick="setLang('fi')">FI</button>
-  </div>
+  <div class="lang"><a class="on" href="products.html" style="padding:8px 10px;text-decoration:none;color:#04121c;font:700 12px/1 -apple-system,sans-serif;background:var(--aqua)">EN</a><a href="es/products.html" style="padding:8px 10px;text-decoration:none;color:var(--dim);font:700 12px/1 -apple-system,sans-serif;">ES</a><a href="fi/products.html" style="padding:8px 10px;text-decoration:none;color:var(--dim);font:700 12px/1 -apple-system,sans-serif;">FI</a></div>
 </div></header>
 <div class="wrap">
   <div class="hero">
@@ -244,7 +244,6 @@ document.querySelectorAll('.lang button').forEach(b=>b.classList.remove('on'));
 document.getElementById('l-'+l).classList.add('on');
 document.querySelectorAll('[data-i18n]').forEach(e=>{const k=e.dataset.i18n;if(T[l][k])e.textContent=T[l][k]});
 document.querySelectorAll('[data-i18n-html]').forEach(e=>{const k=e.dataset.i18nHtml;if(T[l][k])e.innerHTML=T[l][k]});}
-document.addEventListener('DOMContentLoaded',function(){var sl=null;try{sl=localStorage.getItem('sansox_lang')}catch(e){};if(sl&&sl!=='en')setLang(sl);});
 </script>
 <footer class="site"><div class="wrap">
   <div style="display:flex;flex-wrap:wrap;gap:8px 18px;margin-bottom:10px">

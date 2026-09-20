@@ -97,3 +97,11 @@ Mitoitustyökalu (vaatii Pylkkäsen luvut: virtaama, kgO₂/kWh, painehäviö) �
 - Virallinen logo löytyi blogista (1080×1080 PNG) → käsitelty tummalle taustalle → docs/src/sansox_logo_dark.png (odottaa vektoria Seppälältä)
 - Toinen AI-kuvavariantti vahvistettu (b8c8d4: sama ketju-lasiin-teema)
 - Prosessivirhe kirjattu: commit f8214a7 väitti kortit lisätyiksi mutta re.sub kaatui ennen kirjoitusta → korjattu ja verifioitu 2ad471e:ssä
+
+## [2026-09-21] V2 — Aallon 1 D-kohdat toteutettu (Juha: "tee se 1d")
+- **D1** Team-osio: 📷-kuvapaikat (4:5) kolmelle + Pylkkäsen sitaattipaikka [TARKISTETTAVA], 3 kielellä
+- **D2** `build_i18n.py`: generoi /es/ ja /fi/ (käännökset suoraan HTML:ään, i18n-JS pois, kielivalitsin linkeiksi), hreflang-klusterit kaikkiin (base [TARKISTETTAVA] www.sansox.fi), lokalisoidut title/meta/og, sitemap.xml + robots.txt. Dict-poiminta sulkulaskennalla + node-eval (regex ei riittänyt — `};</script>` ilman rivinvaihtoa)
+- **D3** Engineering data -taulukko technologyyn ([LUKU]-paikat: virtaama, kgO₂/kWh, painehäviö, DN), 3 kielellä
+- **D4** `--publish`-lippu poistaa demo-bannerit + og-korjaus julkaisussa (ei ajettu — demo pysyy bannerilla)
+- **D5** privacy ES/FI generoituna (ES natiivioikoluvun kautta ennen julkaisua)
+- QA: 33 sivua (11×3 kieltä), 0 rikkinäistä polkua, ei i18n-JS-jäämiä, FI verifioitu selaimessa. V1 vertailussa :9993, V2 :9994.

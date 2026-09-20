@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="fi">
+<head>
+<meta charset="utf-8">
+<meta name="description" content="IWA:n julkaisema koe, aine aineelta.">
+
+<meta property="og:title" content="Case Kuopio — 90 % lääkejäämistä 0,7 sekunnissa | SansOx">
+<meta property="og:description" content="IWA:n julkaisema koe, aine aineelta.">
+<meta property="og:type" content="website">
+<meta property="og:image" content="https://static.wixstatic.com/media/74c0a2_6b00bf8ab75f48a48c8ade4762dfa6d8~mv2.jpg">
+<link rel="alternate" hreflang="en" href="https://www.sansox.fi/case-kuopio.html">
+<link rel="alternate" hreflang="es" href="https://www.sansox.fi/es/case-kuopio.html">
+<link rel="alternate" hreflang="fi" href="https://www.sansox.fi/fi/case-kuopio.html">
+<link rel="alternate" hreflang="x-default" href="https://www.sansox.fi/case-kuopio.html">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Case Kuopio — 90 % lääkejäämistä 0,7 sekunnissa | SansOx</title>
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><circle cx=%2250%22 cy=%2250%22 r=%2246%22 fill=%22%23050e16%22/><path d=%22M50 16C38 34 28 46 28 60a22 22 0 0044 0C72 46 62 34 50 16z%22 fill=%22%233ec6ff%22/></svg>">
+<style>
+  :root{
+    --bg:#050e16; --panel:#0a1826; --line:#16283a;
+    --ink:#e9f2f9; --dim:#8aa3b8; --aqua:#3ec6ff; --aqua-deep:#0f5f8f;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{background:var(--bg);color:var(--ink);
+    font:16px/1.6 -apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif;
+    -webkit-font-smoothing:antialiased}
+  .wrap{max-width:900px;margin:0 auto;padding:0 20px}
+
+  .draft{background:#26200a;color:#e5cf7a;font-size:12.5px;text-align:center;
+    padding:8px 14px;letter-spacing:.3px}
+
+  header{padding:20px 0;border-bottom:1px solid var(--line)}
+  .logo{font-weight:800;font-size:18px;letter-spacing:.6px}
+  .logo b{color:var(--aqua)}
+  .crumb{float:right;font-size:13px;color:var(--dim);padding-top:3px}
+
+  /* HERO */
+  .hero{padding:64px 0 40px;position:relative;overflow:hidden}
+  .hero:before{content:"";position:absolute;inset:0;pointer-events:none;
+    background:
+      radial-gradient(60% 45% at 80% 0%, rgba(62,198,255,.13), transparent 70%),
+      radial-gradient(45% 40% at 10% 100%, rgba(15,95,143,.18), transparent 70%);}
+  .kicker{color:var(--aqua);font-size:13px;font-weight:700;letter-spacing:2.5px;
+    text-transform:uppercase;margin-bottom:18px}
+  .hero h1{font-size:clamp(34px,7vw,62px);line-height:1.04;letter-spacing:-1.5px;
+    font-weight:800;max-width:16ch}
+  .hero h1 em{font-style:normal;color:var(--aqua)}
+  .hero p{color:var(--dim);max-width:56ch;margin-top:20px;font-size:17px}
+
+  /* GIANT NUMBERS */
+  .numbers{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));
+    gap:2px;background:var(--line);border:1px solid var(--line);border-radius:10px;
+    overflow:hidden;margin:44px 0 8px}
+  .num{background:var(--panel);padding:26px 20px}
+  .num b{display:block;font-size:clamp(40px,8vw,58px);font-weight:800;
+    letter-spacing:-2px;color:var(--aqua);line-height:1;font-variant-numeric:tabular-nums}
+  .num span{display:block;color:var(--dim);font-size:13.5px;margin-top:10px;line-height:1.45}
+  .src{color:var(--dim);font-size:12.5px;margin:10px 2px 0}
+  .src a{color:var(--aqua)}
+
+  section{padding:52px 0;border-top:1px solid var(--line)}
+  h2{font-size:clamp(22px,4vw,30px);letter-spacing:-.5px;margin-bottom:8px}
+  .lead{color:var(--dim);max-width:60ch;margin-bottom:26px}
+  .stepnum{display:inline-grid;place-items:center;width:26px;height:26px;border-radius:50%;
+    background:var(--aqua);color:#04121c;font-size:13px;font-weight:800;margin-right:10px;
+    transform:translateY(-2px)}
+
+  /* BEFORE / AFTER SLIDER */
+  .ba{position:relative;border-radius:10px;overflow:hidden;border:1px solid var(--line);
+    aspect-ratio:16/9;max-height:460px;user-select:none;touch-action:none}
+  .ba .after,.ba .before{position:absolute;inset:0}
+  .ba .before{background:url(../assets/img/kuopio_before.jpg) center/cover no-repeat;background-image:image-set(url(../assets/img/kuopio_before.webp) type('image/webp'),url(../assets/img/kuopio_before.jpg) type('image/jpeg'));background-size:cover;background-position:center;}
+  
+  .ba .after{background:url(../assets/img/kuopio_after.jpg) center/cover no-repeat;background-image:image-set(url(../assets/img/kuopio_after.webp) type('image/webp'),url(../assets/img/kuopio_after.jpg) type('image/jpeg'));background-size:cover;background-position:center;
+    clip-path:inset(0 0 0 var(--cut,50%))}
+  .ba .label{position:absolute;top:14px;font-size:11.5px;font-weight:700;
+    letter-spacing:1.6px;text-transform:uppercase;padding:5px 10px;border-radius:4px;
+    background:rgba(4,14,22,.55);backdrop-filter:blur(3px)}
+  .ba .label.l{left:14px;color:#e8d9a0}
+  .ba .label.r{right:14px;color:#bfe9ff}
+  .ba .handle{position:absolute;top:0;bottom:0;left:var(--cut,50%);width:2px;
+    background:#fff;box-shadow:0 0 14px rgba(62,198,255,.8)}
+  .ba .handle:after{content:"◂ ▸";position:absolute;top:50%;left:50%;
+    transform:translate(-50%,-50%);background:#fff;color:#04121c;font-size:11px;
+    font-weight:800;padding:7px 9px;border-radius:99px;white-space:nowrap}
+  .ba input{position:absolute;inset:0;width:100%;height:100%;opacity:0;cursor:ew-resize}
+  .cap{color:var(--dim);font-size:13px;margin-top:12px}
+  .cap b{color:var(--ink)}
+
+  /* PROCESS BAR — 0.7 s */
+  .flow{border:1px solid var(--line);border-radius:10px;background:var(--panel);
+    padding:26px 22px;margin-top:6px}
+  .bar{position:relative;height:10px;border-radius:99px;background:#0d2033;overflow:hidden}
+  .bar i{position:absolute;inset:0;border-radius:99px;transform-origin:left;
+    background:linear-gradient(90deg,var(--aqua-deep),var(--aqua));
+    animation:run 2.8s cubic-bezier(.2,.8,.25,1) infinite}
+  @keyframes run{0%{transform:scaleX(0)}25%{transform:scaleX(1)}100%{transform:scaleX(1)}}
+  .stages{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin-top:16px}
+  .stage{font-size:12.5px;color:var(--dim);line-height:1.4}
+  .stage b{display:block;color:var(--ink);font-size:13px;margin-bottom:2px}
+  .flow .t{display:flex;justify-content:space-between;color:var(--dim);
+    font-size:12px;margin:8px 2px 0;font-variant-numeric:tabular-nums}
+  .flow .t b{color:var(--aqua);font-weight:800}
+
+  /* RESULT TABLE */
+  .tablewrap{overflow-x:auto;-webkit-overflow-scrolling:touch;border:1px solid var(--line);
+    border-radius:10px}
+  table{border-collapse:collapse;width:100%;min-width:520px;font-size:14.5px;background:var(--panel)}
+  th,td{text-align:left;padding:13px 16px;border-bottom:1px solid var(--line)}
+  tr:last-child td{border-bottom:0}
+  th{color:var(--dim);font-size:11.5px;letter-spacing:1.2px;text-transform:uppercase}
+  td.v{color:var(--aqua);font-weight:800;font-variant-numeric:tabular-nums;white-space:nowrap}
+
+  blockquote{border-left:3px solid var(--aqua);padding:6px 0 6px 20px;margin:26px 0 6px;
+    font-size:17px;color:var(--ink);max-width:58ch}
+  blockquote footer{color:var(--dim);font-size:13.5px;margin-top:8px;border:0;padding:0}
+
+  /* CTA */
+  .ctaband{background:linear-gradient(180deg,var(--panel),#0c1f31);
+    border:1px solid var(--line);border-radius:12px;padding:34px 26px;margin:8px 0 0;
+    display:flex;flex-wrap:wrap;gap:20px;align-items:center;justify-content:space-between}
+  .ctaband h3{font-size:20px;letter-spacing:-.3px}
+  .ctaband p{color:var(--dim);font-size:14.5px;margin-top:4px;max-width:46ch}
+  .btn{display:inline-block;background:var(--aqua);color:#04121c;font-weight:800;
+    text-decoration:none;padding:14px 24px;border-radius:7px;font-size:15px;white-space:nowrap}
+  .btn.ghost{background:transparent;color:var(--aqua);border:1.5px solid var(--aqua)}
+
+  footer.site{border-top:1px solid var(--line);margin-top:56px;padding:28px 0 46px;
+    color:var(--dim);font-size:13.5px}
+  @media(max-width:560px){
+    .crumb{display:none}
+    .stages{grid-template-columns:repeat(2,1fr);gap:14px}
+    .ctaband{padding:26px 20px}
+  }
+.lang{display:inline-flex;gap:2px;border:1px solid var(--line);border-radius:6px;overflow:hidden}.lang button{background:transparent;border:0;color:var(--dim);font:700 12px/1 inherit;padding:7px 10px;cursor:pointer}.lang button.on{background:var(--aqua);color:#04121c}</style>
+</head>
+<body>
+
+<div class="draft">DRAFT · rakenne- ja ilme-ehdotus · kaikki luvut: Pylkkänen, IWA 2021 · ennen/jälkeen: paperin aidot koekuvat (Fig 2, rajattu)</div>
+
+<header><div class="wrap">
+  <span class="crumb"><a href="index.html" style="color:inherit;text-decoration:none">← Evidence</a> / Case Kuopio</span>
+  <div class="logo">Sans<b>Ox</b></div>
+  <div class="lang"><a href="../case-kuopio.html" style="padding:8px 10px;text-decoration:none;color:var(--dim);font:700 12px/1 -apple-system,sans-serif;">EN</a><a href="../es/case-kuopio.html" style="padding:8px 10px;text-decoration:none;color:var(--dim);font:700 12px/1 -apple-system,sans-serif;">ES</a><a class="on" href="../fi/case-kuopio.html" style="padding:8px 10px;text-decoration:none;color:#04121c;font:700 12px/1 -apple-system,sans-serif;background:var(--aqua)">FI</a></div>
+</div></header>
+
+<div class="wrap">
+
+  <div class="hero">
+    <div class="kicker" data-i18n="kick">Mitattu tulos · Kunnallinen jätevesi · Kuopio, Suomi</div>
+    <h1 data-i18n-html="h1">Lääkejäämät poistettu <em>0,7&nbsp;sekunnissa</em>.</h1>
+    <p data-i18n="intro">OxTube Ozone asennettiin puhdistetun kunnallisen jäteveden poistoputkeen Kuopiossa. Yksi läpivirtaus putken läpi. Ei lisäenergiaa veden puolella. Tulokset esiteltiin IWA Ecotechnologies for Wastewater Treatment -konferenssissa Milanossa 2021.</p>
+  </div>
+
+  <div class="numbers">
+    <div class="num"><b>90<small style="font-size:.45em">%</small></b><span data-i18n="m1">lääkejäämien vähenemä</span></div>
+    <div class="num"><b>87<small style="font-size:.45em">%</small></b><span data-i18n="m2">keskimääräinen vähenemä ml. muut mitatut kemikaalit</span></div>
+    <div class="num"><b><span data-i18n="m3v">0,7</span><small style="font-size:.45em">s</small></b><span data-i18n="m3">prosessin kokonaisaika, yksi läpivirtaus</span></div>
+    <div class="num"><b>0</b><span data-i18n="m4">lisäenergiaa veden puolella — vain otsonigeneraattori kuluttaa</span></div>
+  </div>
+  <p class="src">Source: J. Pylkkänen, <i>OxTube Integrated Water Clarification for Removal of Pharmaceutical Residues and Disinfection</i>, IWA 2021 · <a href="../assets/paper/Pylkkanen_OxTube_IWA_Milan_2021.pdf" data-i18n="dl">Lataa julkaisu (PDF, 6 s.)</a> <img src="../assets/img/iwa_ecostp_2021.png" alt="IWA ecoSTP 2021" style="height:24px;vertical-align:middle;margin-left:6px;background:#fff;border-radius:3px;padding:2px 4px"></p>
+
+  <section>
+    <h2 data-i18n-html="s1"><span class="stepnum">1</span>Lähtötilanne</h2>
+    <p class="lead" data-i18n="l1">Perinteinen puhdistus poistaa kiintoaineet ja ravinteet — mutta lääkejäämät menevät läpi. Ne päätyvät jokiin, järviin ja lopulta Itämereen. Otsonikäsittely toimii, mutta perinteiset kontaktialtaat ovat suuria, hitaita ja energiasyöppöjä.</p>
+
+    <div class="ba" id="ba" style="--cut:50%">
+      <div class="before"></div>
+      <div class="after"></div>
+      <span class="label l">Before · 0.0 s</span>
+      <span class="label r">After · 1.0 s</span>
+      <div class="handle"></div>
+      <input type="range" min="4" max="96" value="50" aria-label="Before/after comparison"
+        oninput="document.getElementById('ba').style.setProperty('--cut',this.value+'%')">
+    </div>
+    <p class="cap" data-i18n-html="ev_cap"><b>Vedä jakajaa.</b> Ensin vesi kuohuu maitomaiseksi, kun epäpuhtaudet irtoavat — sekuntia myöhemmin se virtaa kirkkaana. Aidot koekuvat julkaistusta artikkelista (kuva&nbsp;2), käsittelemättä rajausta lukuun ottamatta.</p>
+  </section>
+
+  <section>
+    <h2 data-i18n-html="s2"><span class="stepnum">2</span>Mitä asennettiin</h2>
+    <p class="lead" data-i18n="l2">OxTube on hermeettinen putkilaite — ei allasta, ei liikkuvia osia vedessä. Neljä toimintoa tapahtuu peräkkäin yhden putken sisällä, alle sekunnissa:</p>
+
+    <div class="flow">
+      <div class="bar"><i></i></div>
+      <div class="t"><span>0.0 s</span><b>0.7 s — treated</b></div>
+      <div class="stages">
+        <div class="stage"><b>Separation</b>Soluble ingredients are separated from the water</div>
+        <div class="stage"><b>Activation</b>Molecular and ionic structures are split — complex pharmaceutical molecules break</div>
+        <div class="stage"><b>Clarification</b>Ozone is fed straight into the nozzle zone; meeting probability of molecules is high</div>
+        <div class="stage"><b>Re-dissolving</b>Oxygen is dissolved back in; residual ozone is negligible</div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <h2 data-i18n-html="s3"><span class="stepnum">3</span>Mitatut tulokset</h2>
+    <p class="lead" data-i18n="l3">Mitattu Kuopion kunnallisen puhdistamon käsitellystä vedestä. Ensimmäinen koe, optimoimaton — karkealla hypoteettisella annostelulla.</p>
+
+    <div class="tablewrap">
+      <table>
+        <tr><th data-i18n="th1">Mittari</th><th data-i18n="th2">Tulos</th></tr>
+        <tr><td data-i18n="r1">Lääkejäämät, vähenemä</td><td class="v">90 %</td></tr>
+        <tr><td data-i18n="r2">Lääkkeet + mitatut kemikaalit, keskiarvo</td><td class="v">87 %</td></tr>
+        <tr><td data-i18n="r3">Prosessin kokonaisaika</td><td class="v">0.7 s</td></tr>
+        <tr><td data-i18n="r4">Jäännösotsoni käsitellyssä vedessä</td><td class="v">negligible</td></tr>
+        <tr><td data-i18n="r5">Liuennut happi käsittelyn jälkeen</td><td class="v">high</td></tr>
+        <tr><td data-i18n="r6">Energia, veden puoli</td><td class="v">none added</td></tr>
+      </table>
+    </div>
+
+    
+    <h2 style="margin-top:34px;font-size:20px">Substance by substance — versus present methods</h2>
+    <div class="tablewrap" style="margin-top:14px">
+      <table>
+        <tr><th>Substance</th><th>OxTube Ozone</th><th>Present method 1</th><th>Present method 2</th></tr>
+        <tr><td>Cetirizine</td><td class="v">99.9 %</td><td>&lt;20 %</td><td>&lt;20 %</td></tr>
+        <tr><td>Diclofenac</td><td class="v">99.7 %</td><td>&lt;20 %</td><td>&lt;20 %</td></tr>
+        <tr><td>Losartan</td><td class="v">99.6 %</td><td>&lt;20 %</td><td>&lt;20 %</td></tr>
+        <tr><td>Furosemide</td><td class="v">97 %</td><td>&lt;20 %</td><td>&lt;20 %</td></tr>
+        <tr><td>Citalopram</td><td class="v">97 %</td><td>&lt;20 %</td><td>&lt;20 %</td></tr>
+        <tr><td>Mirtazapine</td><td class="v">96.4 %</td><td>31 %</td><td>&lt;20 %</td></tr>
+        <tr><td>Quetiapine</td><td class="v">95 %</td><td>&lt;20 %</td><td>&lt;20 %</td></tr>
+        <tr><td>Azithromycin</td><td class="v">94 %</td><td>&lt;20 %</td><td>&lt;20 %</td></tr>
+      </table>
+    </div>
+    <p class="src">Eight of 40+ measured substances (Table 1 of the paper). Diclofenac is the best-known problem pharmaceutical in EU water policy. Full table: <a href="../assets/paper/table1_substances.png" style="color:var(--aqua)">original as image</a> — complete transcription pending before publication.</p>
+    <p class="lead" style="margin-top:18px" data-i18n-html="eu"><b style="color:var(--ink)">Miksi tämä on ajankohtaista:</b> EU:n uudistettu jätevesidirektiivi tuo laajennetun tuottajavastuun — lääke- ja kosmetiikkateollisuuden on katettava vähintään 80 % mikropollutanttien poistokustannuksista. Lääkkeet ja kosmetiikka muodostavat jopa 92 % kaupunkijäteveden mikropollutanteista; Itämereen arvioidaan päätyvän 1,8 miljoonaa kiloa lääkejäämiä vuodessa. Poisto muuttuu vapaaehtoisesta pakolliseksi — ja tämä koe on mitattu vastaus. <i style="color:var(--dim)">(Luvut: EU:n jätevesidirektiivi; Helsingin Sanomat SansOxin kautta, 3/2026.)</i></p>
+    <blockquote>
+      “OxTube Ozone Process was identified an efficient and low energy consumption technology in pharmaceuticals removal, and at the same time in waste water clarification and disinfection.”
+      <footer>— J. Pylkkänen, IWA Ecotechnologies for Wastewater Treatment, Milan 2021</footer>
+    </blockquote>
+  </section>
+
+  <section>
+    <h2 data-i18n-html="s4"><span class="stepnum">4</span>Mitä tästä seuraa</h2>
+    <p class="lead" data-i18n="l4">Koe ajettiin karkealla ensimmäisen kierroksen annostelulla — 87–90 % vähenemä on lattia, ei katto. Koska OxTube asennetaan olemassa olevan laitoksen poistoputkeen, sama kokoonpano sopii mille tahansa kunnalliselle laitokselle, jossa lääkejäämät, desinfiointi tai purkuveden laatu ovat agendalla. Yliannosteltu otsoni voidaan kierrättää suoraan takaisin kaasukanavaan.</p>
+
+    <div class="ctaband">
+      <div>
+        <h3 data-i18n="kcta_h">Puhu insinöörin kanssa, joka ajoi tämän kokeen</h3>
+        <p data-i18n="kcta_p">30 minuuttia, teknistä. Tuo virtaamat ja lupaehdot — kerromme rehellisesti, sopiiko OxTube.</p>
+      </div>
+      <div>
+        <a class="btn" href="mailto:info@sansox.fi?subject=Kuopio%20trial%20—%20technical%20call" data-i18n="kcta_b">Varaa 30 min CTO:mme kanssa</a>
+        <a class="btn ghost" href="#" style="margin-left:8px">Download the paper</a>
+      </div>
+    </div>
+  </section>
+
+</div>
+
+<div class="wrap"><p style="margin:26px 0"><a href="case-philippines.html" style="color:var(--aqua);font-weight:700;text-decoration:none" data-i18n="nx">Seuraava case: radon Filippiineillä →</a></p></div>
+<footer class="site"><div class="wrap">
+  <div style="display:flex;flex-wrap:wrap;gap:8px 18px;margin-bottom:10px">
+    <a href="index.html" style="color:var(--dim)" data-i18n="fn_home">Etusivu</a><a href="solutions.html" style="color:var(--dim)" data-i18n="fn_sol">Ratkaisut</a>
+    <a href="products.html" style="color:var(--dim)" data-i18n="fn_prod">Tuotteet</a>
+    <a href="references.html" style="color:var(--dim)" data-i18n="fn_ref">Referenssit</a><a href="technology.html" style="color:var(--dim)" data-i18n="fn_tech">Teknologia</a>
+    <a href="company.html" style="color:var(--dim)" data-i18n="fn_co">Yritys</a>
+    <a href="privacy.html" style="color:var(--dim)" data-i18n="fn_priv">Tietosuoja</a>
+  </div>
+  SansOx Oy · VAT FI24678326 · Lahti Science Park, Niemenkatu 73, FI-15140 Lahti, Finland · Sänkinotkonkatu 6, FI-83500 Outokumpu · +358 500 603 020 · info@sansox.fi<br>
+  <span>Water Europe (WSSTP) Best Innovation in the European Water Industry 2014 · Best Aeration Company 2015 · IWA Milan 2021</span>
+</div></footer>
+
+</body>
+</html>
