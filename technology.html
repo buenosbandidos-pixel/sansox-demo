@@ -1,0 +1,175 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8">
+<title>Technology | SansOx</title>
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><circle cx=%2250%22 cy=%2250%22 r=%2246%22 fill=%22%23050e16%22/><path d=%22M50 16C38 34 28 46 28 60a22 22 0 0044 0C72 46 62 34 50 16z%22 fill=%22%233ec6ff%22/></svg>">
+<meta name="description" content="How OxTube works: separation, activation, clarification and re-dissolving in one hermetic tube, in 0.7 seconds.">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+  :root{
+    --bg:#050e16; --panel:#0a1826; --line:#16283a;
+    --ink:#e9f2f9; --dim:#8aa3b8; --aqua:#3ec6ff; --aqua-deep:#0f5f8f;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{background:var(--bg);color:var(--ink);
+    font:16px/1.6 -apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif;
+    -webkit-font-smoothing:antialiased}
+  .wrap{max-width:960px;margin:0 auto;padding:0 20px}
+  .draft{background:#26200a;color:#e5cf7a;font-size:12px;text-align:center;padding:7px 14px}
+
+  header{position:sticky;top:0;z-index:50;background:rgba(5,14,22,.85);
+    backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+  .nav{display:flex;align-items:center;gap:22px;padding:15px 0}
+  .logo{font-weight:800;font-size:18px;letter-spacing:.6px}
+  .logo b{color:var(--aqua)}
+  .nav .links{display:flex;gap:18px;font-size:13.5px;margin-left:auto}
+  .nav .links a{color:var(--dim);text-decoration:none}
+  .nav .links a:hover{color:var(--ink)}
+  .lang{display:flex;gap:2px;border:1px solid var(--line);border-radius:6px;overflow:hidden}
+  .lang button{background:transparent;border:0;color:var(--dim);font:700 12px/1 inherit;
+    padding:8px 10px;cursor:pointer}
+  .lang button.on{background:var(--aqua);color:#04121c}
+
+  .hero{padding:70px 0 44px;position:relative;overflow:visible}
+  .bleed{width:100vw;position:relative;left:50%;margin-left:-50vw}
+  .hero:before{content:"";position:absolute;inset:0;pointer-events:none;
+    background:radial-gradient(60% 45% at 85% 0%, rgba(62,198,255,.14), transparent 70%),
+               radial-gradient(45% 40% at 5% 100%, rgba(15,95,143,.2), transparent 70%)}
+  .kicker{color:var(--aqua);font-size:12.5px;font-weight:700;letter-spacing:2.4px;
+    text-transform:uppercase;margin-bottom:16px}
+  h1{font-size:clamp(34px,7vw,64px);line-height:1.03;letter-spacing:-1.5px;font-weight:800;max-width:17ch}
+  h1 em{font-style:normal;color:var(--aqua)}
+  .lede{color:var(--dim);max-width:58ch;margin-top:20px;font-size:17px}
+  .heroctas{margin-top:28px;display:flex;gap:12px;flex-wrap:wrap}
+  .btn{display:inline-block;background:var(--aqua);color:#04121c;font-weight:800;
+    text-decoration:none;padding:14px 24px;border-radius:7px;font-size:15px}
+  .btn.ghost{background:transparent;color:var(--aqua);border:1.5px solid var(--aqua)}
+
+  .numbers{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));
+    gap:2px;background:var(--line);border:1px solid var(--line);border-radius:10px;
+    overflow:hidden;margin:40px 0 6px}
+  .num{background:var(--panel);padding:24px 20px}
+  .num b{display:block;font-size:clamp(38px,7vw,54px);font-weight:800;letter-spacing:-2px;
+    color:var(--aqua);line-height:1;font-variant-numeric:tabular-nums}
+  .num small{font-size:.45em}
+  .num span{display:block;color:var(--dim);font-size:13px;margin-top:9px;line-height:1.45}
+  .src{color:var(--dim);font-size:12.5px;margin-top:10px}
+  .src a{color:var(--aqua)}
+
+  section{padding:72px 0;border-top:1px solid var(--line)}
+  h2{font-size:clamp(23px,4vw,32px);letter-spacing:-.6px;margin-bottom:8px}
+  .lead{color:var(--dim);max-width:62ch;margin-bottom:26px}
+
+  .ba{position:relative;border-radius:10px;overflow:hidden;border:1px solid var(--line);
+    aspect-ratio:16/9;max-height:470px;user-select:none;touch-action:none}
+  .ba .before,.ba .after{position:absolute;inset:0}
+  .ba .before{background:url(assets/img/kuopio_before.jpg) center/cover no-repeat}
+  .ba .after{background:url(assets/img/kuopio_after.jpg) center/cover no-repeat;
+    clip-path:inset(0 0 0 var(--cut,50%))}
+  .ba .label{position:absolute;top:14px;font-size:11px;font-weight:700;letter-spacing:1.6px;
+    text-transform:uppercase;padding:5px 10px;border-radius:4px;
+    background:rgba(4,14,22,.6);backdrop-filter:blur(3px)}
+  .ba .label.l{left:14px;color:#ffd9a0}
+  .ba .label.r{right:14px;color:#bfe9ff}
+  .ba .handle{position:absolute;top:0;bottom:0;left:var(--cut,50%);width:2px;
+    background:#fff;box-shadow:0 0 14px rgba(62,198,255,.85)}
+  .ba .handle:after{content:"◂ ▸";position:absolute;top:50%;left:50%;
+    transform:translate(-50%,-50%);background:#fff;color:#04121c;font-size:11px;
+    font-weight:800;padding:7px 9px;border-radius:99px;white-space:nowrap}
+  .ba input{position:absolute;inset:0;width:100%;height:100%;opacity:0;cursor:ew-resize}
+  .cap{color:var(--dim);font-size:13px;margin-top:12px}
+  .cap b{color:var(--ink)}
+
+  .cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:16px}
+  .card{border:1px solid var(--line);border-radius:10px;padding:22px;background:var(--panel)}
+  .tag{display:inline-block;font-size:11px;letter-spacing:1.2px;text-transform:uppercase;
+    color:var(--aqua);font-weight:800;margin-bottom:10px}
+  .card h3{font-size:17px;margin-bottom:8px}
+  .card p{font-size:14px;color:var(--dim)}
+  .card .big{font-size:30px;font-weight:800;color:var(--aqua);letter-spacing:-1px;
+    margin:6px 0 4px;font-variant-numeric:tabular-nums}
+
+  .flow{border:1px solid var(--line);border-radius:10px;background:var(--panel);padding:26px 22px}
+  .bar{position:relative;height:10px;border-radius:99px;background:#0d2033;overflow:hidden}
+  .bar i{position:absolute;inset:0;border-radius:99px;transform-origin:left;
+    background:linear-gradient(90deg,var(--aqua-deep),var(--aqua));
+    animation:run 2.8s cubic-bezier(.2,.8,.25,1) infinite}
+  @keyframes run{0%{transform:scaleX(0)}25%{transform:scaleX(1)}100%{transform:scaleX(1)}}
+  .stages{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-top:16px}
+  .stage{font-size:12.5px;color:var(--dim);line-height:1.4}
+  .stage b{display:block;color:var(--ink);font-size:13px;margin-bottom:2px}
+  .flow .t{display:flex;justify-content:space-between;color:var(--dim);font-size:12px;margin-top:8px}
+  .flow .t b{color:var(--aqua);font-weight:800}
+
+  .proto{display:grid;grid-template-columns:1.2fr 1fr;gap:22px;align-items:center}
+  .proto img{width:100%;border-radius:10px;border:1px solid var(--line);display:block}
+  .proto p{color:var(--dim);font-size:14.5px}
+  .proto b{color:var(--ink)}
+
+  .team{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:16px}
+  .person{border:1px solid var(--line);border-radius:10px;padding:20px;background:var(--panel)}
+  .avatar{width:52px;height:52px;border-radius:50%;background:var(--aqua-deep);color:#dff2ff;
+    display:grid;place-items:center;font-weight:800;font-size:17px;margin-bottom:12px}
+  .person b{display:block}
+  .person span{color:var(--aqua);font-size:12.5px;font-weight:700;letter-spacing:.8px;
+    text-transform:uppercase}
+  .person p{color:var(--dim);font-size:13.5px;margin-top:8px}
+
+  .ctaband{background:linear-gradient(180deg,var(--panel),#0c1f31);border:1px solid var(--line);
+    border-radius:12px;padding:34px 26px;display:flex;flex-wrap:wrap;gap:20px;
+    align-items:center;justify-content:space-between}
+  .ctaband h3{font-size:20px}
+  .ctaband p{color:var(--dim);font-size:14.5px;margin-top:4px;max-width:46ch}
+
+  footer.site{border-top:1px solid var(--line);margin-top:0;padding:30px 0 48px;
+    color:var(--dim);font-size:13.5px}
+  @media(max-width:680px){
+    .nav .links{display:none}
+    .proto{grid-template-columns:1fr}
+    .stages{grid-template-columns:repeat(2,1fr);gap:14px}
+  }
+</style></head><body>
+<div class="draft">DEMO · not published · figures from published sources · photos unretouched apart from cropping</div>
+<header><div class="wrap nav">
+  <a href="index.html" style="text-decoration:none;color:inherit"><div class="logo">Sans<b>Ox</b></div></a>
+  <div class="links">
+    <a href="solutions.html">Solutions</a>
+    <a href="projects.html">Projects</a>
+    <a href="technology.html">Technology</a>
+    <a href="company.html">Company</a>
+  </div>
+  
+</div></header>
+<div class="wrap">
+  <div class="hero"><div class="kicker">Technology — OxTube</div>
+  <h1>Four functions, one tube, <em>0.7 seconds</em>.</h1>
+  <p class="lede">Inside the hermetic tube the water stays a controlled mixture of water, drops and gas — molecular meeting probability is high, so reactions complete immediately. The module retrofits into existing pipework and is easily removed and cleaned.</p></div>
+  <section>
+    <div class="flow">
+      <div class="bar"><i></i></div>
+      <div class="t"><span>0.0 s</span><b>0.7 s — treated</b></div>
+      <div class="stages">
+        <div class="stage"><b>Separation</b><span>soluble ingredients out of the water</span></div>
+        <div class="stage"><b>Activation</b><span>molecular structures split — complex pharmaceuticals break</span></div>
+        <div class="stage"><b>Clarification</b><span>gas fed or vacuum-sucked straight into the nozzle zone</span></div>
+        <div class="stage"><b>Re-dissolving</b><span>oxygen dissolved back in, stable for weeks</span></div>
+      </div>
+    </div>
+  </section>
+  <section>
+    <h2>Where it started</h2>
+    <div class="proto" style="margin-top:18px">
+      <img src="assets/img/oxtube_proto.jpg" alt="First OxTube prototype">
+      <p><b>The first working prototype</b> — garden-hose fittings and all — proved the four-stage process in Kokkola, Finland, removing iron from surface water. The measured results came later; the honesty stayed.</p>
+    </div>
+  </section>
+  <section>
+    <h2>Statement of principle</h2>
+    <p style="font-family:Didot,'Bodoni MT','Playfair Display',Georgia,serif;font-size:clamp(24px,4.5vw,38px);line-height:1.55;color:#d9e6f0;margin-top:18px">
+      Ninety percent of pharmaceuticals.<br>Seven tenths of a second.<br><span style="color:var(--aqua)">Measured — not promised.</span></p>
+  </section>
+</div>
+<footer class="site"><div class="wrap">
+  SansOx Oy · Lahti Science Park, Niemenkatu 73, FI-15140 Lahti, Finland · Sänkinotkonkatu 6, FI-83500 Outokumpu · +358 500 603 020 · info@sansox.fi<br>
+  <span>Water Europe (WSSTP) Best Innovation in the European Water Industry 2014 · Best Aeration Company 2015 · IWA Milan 2021</span>
+</div></footer>
+</body></html>
