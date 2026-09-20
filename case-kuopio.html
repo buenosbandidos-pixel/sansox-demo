@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Case Kuopio — 90 % pharmaceutical removal in 0.7 s | SansOx</title>
+<style>
+  :root{
+    --bg:#050e16; --panel:#0a1826; --line:#16283a;
+    --ink:#e9f2f9; --dim:#8aa3b8; --aqua:#3ec6ff; --aqua-deep:#0f5f8f;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{background:var(--bg);color:var(--ink);
+    font:16px/1.6 -apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif;
+    -webkit-font-smoothing:antialiased}
+  .wrap{max-width:900px;margin:0 auto;padding:0 20px}
+
+  .draft{background:#26200a;color:#e5cf7a;font-size:12.5px;text-align:center;
+    padding:8px 14px;letter-spacing:.3px}
+
+  header{padding:20px 0;border-bottom:1px solid var(--line)}
+  .logo{font-weight:800;font-size:18px;letter-spacing:.6px}
+  .logo b{color:var(--aqua)}
+  .crumb{float:right;font-size:13px;color:var(--dim);padding-top:3px}
+
+  /* HERO */
+  .hero{padding:64px 0 40px;position:relative;overflow:hidden}
+  .hero:before{content:"";position:absolute;inset:0;pointer-events:none;
+    background:
+      radial-gradient(60% 45% at 80% 0%, rgba(62,198,255,.13), transparent 70%),
+      radial-gradient(45% 40% at 10% 100%, rgba(15,95,143,.18), transparent 70%);}
+  .kicker{color:var(--aqua);font-size:13px;font-weight:700;letter-spacing:2.5px;
+    text-transform:uppercase;margin-bottom:18px}
+  .hero h1{font-size:clamp(34px,7vw,62px);line-height:1.04;letter-spacing:-1.5px;
+    font-weight:800;max-width:16ch}
+  .hero h1 em{font-style:normal;color:var(--aqua)}
+  .hero p{color:var(--dim);max-width:56ch;margin-top:20px;font-size:17px}
+
+  /* GIANT NUMBERS */
+  .numbers{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));
+    gap:2px;background:var(--line);border:1px solid var(--line);border-radius:10px;
+    overflow:hidden;margin:44px 0 8px}
+  .num{background:var(--panel);padding:26px 20px}
+  .num b{display:block;font-size:clamp(40px,8vw,58px);font-weight:800;
+    letter-spacing:-2px;color:var(--aqua);line-height:1;font-variant-numeric:tabular-nums}
+  .num span{display:block;color:var(--dim);font-size:13.5px;margin-top:10px;line-height:1.45}
+  .src{color:var(--dim);font-size:12.5px;margin:10px 2px 0}
+  .src a{color:var(--aqua)}
+
+  section{padding:52px 0;border-top:1px solid var(--line)}
+  h2{font-size:clamp(22px,4vw,30px);letter-spacing:-.5px;margin-bottom:8px}
+  .lead{color:var(--dim);max-width:60ch;margin-bottom:26px}
+  .stepnum{display:inline-grid;place-items:center;width:26px;height:26px;border-radius:50%;
+    background:var(--aqua);color:#04121c;font-size:13px;font-weight:800;margin-right:10px;
+    transform:translateY(-2px)}
+
+  /* BEFORE / AFTER SLIDER */
+  .ba{position:relative;border-radius:10px;overflow:hidden;border:1px solid var(--line);
+    aspect-ratio:16/9;max-height:460px;user-select:none;touch-action:none}
+  .ba .after,.ba .before{position:absolute;inset:0}
+  .ba .before{background:url(assets/img/kuopio_before.jpg) center/cover no-repeat;}
+  
+  .ba .after{background:url(assets/img/kuopio_after.jpg) center/cover no-repeat;
+    clip-path:inset(0 0 0 var(--cut,50%))}
+  .ba .label{position:absolute;top:14px;font-size:11.5px;font-weight:700;
+    letter-spacing:1.6px;text-transform:uppercase;padding:5px 10px;border-radius:4px;
+    background:rgba(4,14,22,.55);backdrop-filter:blur(3px)}
+  .ba .label.l{left:14px;color:#e8d9a0}
+  .ba .label.r{right:14px;color:#bfe9ff}
+  .ba .handle{position:absolute;top:0;bottom:0;left:var(--cut,50%);width:2px;
+    background:#fff;box-shadow:0 0 14px rgba(62,198,255,.8)}
+  .ba .handle:after{content:"◂ ▸";position:absolute;top:50%;left:50%;
+    transform:translate(-50%,-50%);background:#fff;color:#04121c;font-size:11px;
+    font-weight:800;padding:7px 9px;border-radius:99px;white-space:nowrap}
+  .ba input{position:absolute;inset:0;width:100%;height:100%;opacity:0;cursor:ew-resize}
+  .cap{color:var(--dim);font-size:13px;margin-top:12px}
+  .cap b{color:var(--ink)}
+
+  /* PROCESS BAR — 0.7 s */
+  .flow{border:1px solid var(--line);border-radius:10px;background:var(--panel);
+    padding:26px 22px;margin-top:6px}
+  .bar{position:relative;height:10px;border-radius:99px;background:#0d2033;overflow:hidden}
+  .bar i{position:absolute;inset:0;border-radius:99px;transform-origin:left;
+    background:linear-gradient(90deg,var(--aqua-deep),var(--aqua));
+    animation:run 2.8s cubic-bezier(.2,.8,.25,1) infinite}
+  @keyframes run{0%{transform:scaleX(0)}25%{transform:scaleX(1)}100%{transform:scaleX(1)}}
+  .stages{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin-top:16px}
+  .stage{font-size:12.5px;color:var(--dim);line-height:1.4}
+  .stage b{display:block;color:var(--ink);font-size:13px;margin-bottom:2px}
+  .flow .t{display:flex;justify-content:space-between;color:var(--dim);
+    font-size:12px;margin:8px 2px 0;font-variant-numeric:tabular-nums}
+  .flow .t b{color:var(--aqua);font-weight:800}
+
+  /* RESULT TABLE */
+  .tablewrap{overflow-x:auto;-webkit-overflow-scrolling:touch;border:1px solid var(--line);
+    border-radius:10px}
+  table{border-collapse:collapse;width:100%;min-width:520px;font-size:14.5px;background:var(--panel)}
+  th,td{text-align:left;padding:13px 16px;border-bottom:1px solid var(--line)}
+  tr:last-child td{border-bottom:0}
+  th{color:var(--dim);font-size:11.5px;letter-spacing:1.2px;text-transform:uppercase}
+  td.v{color:var(--aqua);font-weight:800;font-variant-numeric:tabular-nums;white-space:nowrap}
+
+  blockquote{border-left:3px solid var(--aqua);padding:6px 0 6px 20px;margin:26px 0 6px;
+    font-size:17px;color:var(--ink);max-width:58ch}
+  blockquote footer{color:var(--dim);font-size:13.5px;margin-top:8px;border:0;padding:0}
+
+  /* CTA */
+  .ctaband{background:linear-gradient(180deg,var(--panel),#0c1f31);
+    border:1px solid var(--line);border-radius:12px;padding:34px 26px;margin:8px 0 0;
+    display:flex;flex-wrap:wrap;gap:20px;align-items:center;justify-content:space-between}
+  .ctaband h3{font-size:20px;letter-spacing:-.3px}
+  .ctaband p{color:var(--dim);font-size:14.5px;margin-top:4px;max-width:46ch}
+  .btn{display:inline-block;background:var(--aqua);color:#04121c;font-weight:800;
+    text-decoration:none;padding:14px 24px;border-radius:7px;font-size:15px;white-space:nowrap}
+  .btn.ghost{background:transparent;color:var(--aqua);border:1.5px solid var(--aqua)}
+
+  footer.site{border-top:1px solid var(--line);margin-top:56px;padding:28px 0 46px;
+    color:var(--dim);font-size:13.5px}
+  @media(max-width:560px){
+    .crumb{display:none}
+    .stages{grid-template-columns:repeat(2,1fr);gap:14px}
+    .ctaband{padding:26px 20px}
+  }
+</style>
+</head>
+<body>
+
+<div class="draft">DRAFT · rakenne- ja ilme-ehdotus · kaikki luvut: Pylkkänen, IWA 2021 · ennen/jälkeen: paperin aidot koekuvat (Fig 2, rajattu)</div>
+
+<header><div class="wrap">
+  <span class="crumb">Evidence / Case Kuopio</span>
+  <div class="logo">Sans<b>Ox</b></div>
+</div></header>
+
+<div class="wrap">
+
+  <div class="hero">
+    <div class="kicker">Measured result · Municipal wastewater · Kuopio, Finland</div>
+    <h1>Pharmaceutical residues, removed in <em>0.7&nbsp;seconds</em>.</h1>
+    <p>OxTube Ozone was installed in the outlet pipe of a purified municipal wastewater stream in Kuopio, Finland. One pass through the tube. No additional energy on the water side. The results were presented at IWA Ecotechnologies for Wastewater Treatment, Milan 2021.</p>
+  </div>
+
+  <div class="numbers">
+    <div class="num"><b>90<small style="font-size:.45em">%</small></b><span>reduction of pharmaceutical residues</span></div>
+    <div class="num"><b>87<small style="font-size:.45em">%</small></b><span>average reduction incl. other measured chemicals</span></div>
+    <div class="num"><b>0.7<small style="font-size:.45em">s</small></b><span>total process time, single pass</span></div>
+    <div class="num"><b>0</b><span>additional energy on the water side — only the ozone generator draws power</span></div>
+  </div>
+  <p class="src">Source: J. Pylkkänen, <i>OxTube Integrated Water Clarification for Removal of Pharmaceutical Residues and Disinfection</i>, IWA 2021 · <a href="assets/paper/Pylkkanen_OxTube_IWA_Milan_2021.pdf">Download the paper (PDF, 6 p.)</a></p>
+
+  <section>
+    <h2><span class="stepnum">1</span>The starting point</h2>
+    <p class="lead">Conventional treatment removes solids and nutrients — but pharmaceutical residues pass through. They end up in rivers, lakes and, eventually, the Baltic Sea. Ozone treatment works, but conventional contact basins are large, slow and energy-hungry.</p>
+
+    <div class="ba" id="ba" style="--cut:50%">
+      <div class="before"></div>
+      <div class="after"></div>
+      <span class="label l">Before · 0.0 s</span>
+      <span class="label r">After · 1.0 s</span>
+      <div class="handle"></div>
+      <input type="range" min="4" max="96" value="50" aria-label="Before/after comparison"
+        oninput="document.getElementById('ba').style.setProperty('--cut',this.value+'%')">
+    </div>
+    <p class="cap"><b>Drag the divider.</b> Actual trial photographs from the published paper (Fig.&nbsp;2): tap water with soluble ingredients separated and molecules activated — and the same water one second later, clarified and re-dissolved. Unretouched apart from cropping.</p>
+  </section>
+
+  <section>
+    <h2><span class="stepnum">2</span>What was installed</h2>
+    <p class="lead">OxTube is a hermetic in-line device — no basin, no moving parts in the water. Four functions happen sequentially inside one tube, in under a second:</p>
+
+    <div class="flow">
+      <div class="bar"><i></i></div>
+      <div class="t"><span>0.0 s</span><b>0.7 s — treated</b></div>
+      <div class="stages">
+        <div class="stage"><b>Separation</b>Soluble ingredients are separated from the water</div>
+        <div class="stage"><b>Activation</b>Molecular and ionic structures are split — complex pharmaceutical molecules break</div>
+        <div class="stage"><b>Clarification</b>Ozone is fed straight into the nozzle zone; meeting probability of molecules is high</div>
+        <div class="stage"><b>Re-dissolving</b>Oxygen is dissolved back in; residual ozone is negligible</div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <h2><span class="stepnum">3</span>Measured results</h2>
+    <p class="lead">Measured from the treated water of the Kuopio municipal plant. First trial, unoptimised — run on rough hypothetical dosing data.</p>
+
+    <div class="tablewrap">
+      <table>
+        <tr><th>Measure</th><th>Result</th></tr>
+        <tr><td>Pharmaceutical residues, reduction</td><td class="v">90 %</td></tr>
+        <tr><td>Pharmaceuticals + measured chemicals, average</td><td class="v">87 %</td></tr>
+        <tr><td>Total process time</td><td class="v">0.7 s</td></tr>
+        <tr><td>Residual ozone in treated water</td><td class="v">negligible</td></tr>
+        <tr><td>Dissolved oxygen after treatment</td><td class="v">high</td></tr>
+        <tr><td>Energy, water side</td><td class="v">none added</td></tr>
+      </table>
+    </div>
+
+    <blockquote>
+      “OxTube Ozone Process was identified an efficient and low energy consumption technology in pharmaceuticals removal, and at the same time in waste water clarification and disinfection.”
+      <footer>— J. Pylkkänen, IWA Ecotechnologies for Wastewater Treatment, Milan 2021</footer>
+    </blockquote>
+  </section>
+
+  <section>
+    <h2><span class="stepnum">4</span>What follows from this</h2>
+    <p class="lead">The trial was run with rough, first-pass dosing — the 87–90 % reduction is a floor, not a ceiling. Because OxTube installs in the outlet pipe of an existing plant, the same setup applies to any municipal plant where pharmaceutical residues, disinfection or discharge quality are on the agenda. Overdosed ozone can be recycled directly back into the gas channel.</p>
+
+    <div class="ctaband">
+      <div>
+        <h3>Talk to the engineer who ran this trial</h3>
+        <p>30 minutes, technical. Bring your flow rates and discharge permits — we'll tell you honestly whether OxTube fits.</p>
+      </div>
+      <div>
+        <a class="btn" href="#">Book 30 min with our CTO</a>
+        <a class="btn ghost" href="#" style="margin-left:8px">Download the paper</a>
+      </div>
+    </div>
+  </section>
+
+</div>
+
+<footer class="site"><div class="wrap">
+  SansOx Oy · Lahti Science Park, Niemenkatu 73, FI-15140 Lahti, Finland · +358 500 603 020 · info@sansox.fi<br>
+  Water Europe (WSSTP) Best Innovation in the European Water Industry 2014 · IWA Milan 2021
+</div></footer>
+
+</body>
+</html>

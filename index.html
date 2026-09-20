@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>SansOx — Dissolving gas into water in under a second</title>
+<style>
+  :root{
+    --bg:#050e16; --panel:#0a1826; --line:#16283a;
+    --ink:#e9f2f9; --dim:#8aa3b8; --aqua:#3ec6ff; --aqua-deep:#0f5f8f;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{background:var(--bg);color:var(--ink);
+    font:16px/1.6 -apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif;
+    -webkit-font-smoothing:antialiased}
+  .wrap{max-width:960px;margin:0 auto;padding:0 20px}
+  .draft{background:#26200a;color:#e5cf7a;font-size:12px;text-align:center;padding:7px 14px}
+
+  header{position:sticky;top:0;z-index:50;background:rgba(5,14,22,.85);
+    backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+  .nav{display:flex;align-items:center;gap:22px;padding:15px 0}
+  .logo{font-weight:800;font-size:18px;letter-spacing:.6px}
+  .logo b{color:var(--aqua)}
+  .nav .links{display:flex;gap:18px;font-size:13.5px;margin-left:auto}
+  .nav .links a{color:var(--dim);text-decoration:none}
+  .nav .links a:hover{color:var(--ink)}
+  .lang{display:flex;gap:2px;border:1px solid var(--line);border-radius:6px;overflow:hidden}
+  .lang button{background:transparent;border:0;color:var(--dim);font:700 12px/1 inherit;
+    padding:8px 10px;cursor:pointer}
+  .lang button.on{background:var(--aqua);color:#04121c}
+
+  .hero{padding:70px 0 44px;position:relative;overflow:hidden}
+  .hero:before{content:"";position:absolute;inset:0;pointer-events:none;
+    background:radial-gradient(60% 45% at 85% 0%, rgba(62,198,255,.14), transparent 70%),
+               radial-gradient(45% 40% at 5% 100%, rgba(15,95,143,.2), transparent 70%)}
+  .kicker{color:var(--aqua);font-size:12.5px;font-weight:700;letter-spacing:2.4px;
+    text-transform:uppercase;margin-bottom:16px}
+  h1{font-size:clamp(34px,7vw,64px);line-height:1.03;letter-spacing:-1.5px;font-weight:800;max-width:17ch}
+  h1 em{font-style:normal;color:var(--aqua)}
+  .lede{color:var(--dim);max-width:58ch;margin-top:20px;font-size:17px}
+  .heroctas{margin-top:28px;display:flex;gap:12px;flex-wrap:wrap}
+  .btn{display:inline-block;background:var(--aqua);color:#04121c;font-weight:800;
+    text-decoration:none;padding:14px 24px;border-radius:7px;font-size:15px}
+  .btn.ghost{background:transparent;color:var(--aqua);border:1.5px solid var(--aqua)}
+
+  .numbers{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));
+    gap:2px;background:var(--line);border:1px solid var(--line);border-radius:10px;
+    overflow:hidden;margin:40px 0 6px}
+  .num{background:var(--panel);padding:24px 20px}
+  .num b{display:block;font-size:clamp(38px,7vw,54px);font-weight:800;letter-spacing:-2px;
+    color:var(--aqua);line-height:1;font-variant-numeric:tabular-nums}
+  .num small{font-size:.45em}
+  .num span{display:block;color:var(--dim);font-size:13px;margin-top:9px;line-height:1.45}
+  .src{color:var(--dim);font-size:12.5px;margin-top:10px}
+  .src a{color:var(--aqua)}
+
+  section{padding:54px 0;border-top:1px solid var(--line)}
+  h2{font-size:clamp(23px,4vw,32px);letter-spacing:-.6px;margin-bottom:8px}
+  .lead{color:var(--dim);max-width:62ch;margin-bottom:26px}
+
+  .ba{position:relative;border-radius:10px;overflow:hidden;border:1px solid var(--line);
+    aspect-ratio:16/9;max-height:470px;user-select:none;touch-action:none}
+  .ba .before,.ba .after{position:absolute;inset:0}
+  .ba .before{background:url(assets/img/kuopio_before.jpg) center/cover no-repeat}
+  .ba .after{background:url(assets/img/kuopio_after.jpg) center/cover no-repeat;
+    clip-path:inset(0 0 0 var(--cut,50%))}
+  .ba .label{position:absolute;top:14px;font-size:11px;font-weight:700;letter-spacing:1.6px;
+    text-transform:uppercase;padding:5px 10px;border-radius:4px;
+    background:rgba(4,14,22,.6);backdrop-filter:blur(3px)}
+  .ba .label.l{left:14px;color:#ffd9a0}
+  .ba .label.r{right:14px;color:#bfe9ff}
+  .ba .handle{position:absolute;top:0;bottom:0;left:var(--cut,50%);width:2px;
+    background:#fff;box-shadow:0 0 14px rgba(62,198,255,.85)}
+  .ba .handle:after{content:"◂ ▸";position:absolute;top:50%;left:50%;
+    transform:translate(-50%,-50%);background:#fff;color:#04121c;font-size:11px;
+    font-weight:800;padding:7px 9px;border-radius:99px;white-space:nowrap}
+  .ba input{position:absolute;inset:0;width:100%;height:100%;opacity:0;cursor:ew-resize}
+  .cap{color:var(--dim);font-size:13px;margin-top:12px}
+  .cap b{color:var(--ink)}
+
+  .cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:16px}
+  .card{border:1px solid var(--line);border-radius:10px;padding:22px;background:var(--panel)}
+  .tag{display:inline-block;font-size:11px;letter-spacing:1.2px;text-transform:uppercase;
+    color:var(--aqua);font-weight:800;margin-bottom:10px}
+  .card h3{font-size:17px;margin-bottom:8px}
+  .card p{font-size:14px;color:var(--dim)}
+  .card .big{font-size:30px;font-weight:800;color:var(--aqua);letter-spacing:-1px;
+    margin:6px 0 4px;font-variant-numeric:tabular-nums}
+
+  .flow{border:1px solid var(--line);border-radius:10px;background:var(--panel);padding:26px 22px}
+  .bar{position:relative;height:10px;border-radius:99px;background:#0d2033;overflow:hidden}
+  .bar i{position:absolute;inset:0;border-radius:99px;transform-origin:left;
+    background:linear-gradient(90deg,var(--aqua-deep),var(--aqua));
+    animation:run 2.8s cubic-bezier(.2,.8,.25,1) infinite}
+  @keyframes run{0%{transform:scaleX(0)}25%{transform:scaleX(1)}100%{transform:scaleX(1)}}
+  .stages{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-top:16px}
+  .stage{font-size:12.5px;color:var(--dim);line-height:1.4}
+  .stage b{display:block;color:var(--ink);font-size:13px;margin-bottom:2px}
+  .flow .t{display:flex;justify-content:space-between;color:var(--dim);font-size:12px;margin-top:8px}
+  .flow .t b{color:var(--aqua);font-weight:800}
+
+  .proto{display:grid;grid-template-columns:1.2fr 1fr;gap:22px;align-items:center}
+  .proto img{width:100%;border-radius:10px;border:1px solid var(--line);display:block}
+  .proto p{color:var(--dim);font-size:14.5px}
+  .proto b{color:var(--ink)}
+
+  .team{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:16px}
+  .person{border:1px solid var(--line);border-radius:10px;padding:20px;background:var(--panel)}
+  .avatar{width:52px;height:52px;border-radius:50%;background:var(--aqua-deep);color:#dff2ff;
+    display:grid;place-items:center;font-weight:800;font-size:17px;margin-bottom:12px}
+  .person b{display:block}
+  .person span{color:var(--aqua);font-size:12.5px;font-weight:700;letter-spacing:.8px;
+    text-transform:uppercase}
+  .person p{color:var(--dim);font-size:13.5px;margin-top:8px}
+
+  .ctaband{background:linear-gradient(180deg,var(--panel),#0c1f31);border:1px solid var(--line);
+    border-radius:12px;padding:34px 26px;display:flex;flex-wrap:wrap;gap:20px;
+    align-items:center;justify-content:space-between}
+  .ctaband h3{font-size:20px}
+  .ctaband p{color:var(--dim);font-size:14.5px;margin-top:4px;max-width:46ch}
+
+  footer.site{border-top:1px solid var(--line);margin-top:0;padding:30px 0 48px;
+    color:var(--dim);font-size:13.5px}
+  @media(max-width:680px){
+    .nav .links{display:none}
+    .proto{grid-template-columns:1fr}
+    .stages{grid-template-columns:repeat(2,1fr);gap:14px}
+  }
+</style>
+</head>
+<body>
+
+<div class="draft" data-i18n="draft">DEMO · not published · all figures from Pylkkänen, IWA Milan 2021 · trial photos unretouched apart from cropping</div>
+
+<header><div class="wrap nav">
+  <div class="logo">Sans<b>Ox</b></div>
+  <div class="links">
+    <a href="#evidence" data-i18n="nav1">Evidence</a>
+    <a href="#apps" data-i18n="nav2">Applications</a>
+    <a href="#tech" data-i18n="nav3">Technology</a>
+    <a href="#team" data-i18n="nav4">Company</a>
+  </div>
+  <div class="lang">
+    <button id="l-en" class="on" onclick="setLang('en')">EN</button>
+    <button id="l-es" onclick="setLang('es')">ES</button>
+    <button id="l-fi" onclick="setLang('fi')">FI</button>
+  </div>
+</div></header>
+
+<div class="wrap">
+
+  <div class="hero">
+    <div class="kicker" data-i18n="kicker">Finnish water technology · Measured, published, installed</div>
+    <h1 data-i18n-html="h1">Dissolving gas into water in <em>under a second</em>.</h1>
+    <p class="lede" data-i18n="lede">OxTube is a hermetic in-line device that oxygenates, ozonates and clarifies water inside the pipe you already have. No basin, no moving parts in the water — and no added energy on the water side.</p>
+    <div class="heroctas">
+      <a class="btn" href="#evidence" data-i18n="cta1">See the measured results</a>
+      <a class="btn ghost" href="#team" data-i18n="cta2">Book 30 min with our engineers</a>
+    </div>
+
+    <div class="numbers">
+      <div class="num"><b>90<small>%</small></b><span data-i18n="n1">reduction of pharmaceutical residues — municipal wastewater, Kuopio</span></div>
+      <div class="num"><b>0.7<small>s</small></b><span data-i18n="n2">total process time, single pass through the tube</span></div>
+      <div class="num"><b>1<small>s</small></b><span data-i18n="n3">to theoretical maximum dissolved oxygen (lab); 3 s in a fish-farm installation</span></div>
+      <div class="num"><b>6</b><span data-i18n="n4">radon-removal installations in the Philippines meeting the 11 Bq/l limit</span></div>
+    </div>
+    <p class="src" data-i18n-html="src">Sources: J. Pylkkänen, <i>OxTube Integrated Water Clarification…</i>, IWA Milan 2021 · Unique Water installations. <a href="assets/paper/Pylkkanen_OxTube_IWA_Milan_2021.pdf">Download the paper (PDF)</a></p>
+  </div>
+
+  <section id="evidence">
+    <h2 data-i18n="ev_h">Seeing is faster than reading</h2>
+    <p class="lead" data-i18n="ev_p">The same tap water, photographed during the published trial: soluble ingredients separated and molecules activated — then clarified and re-dissolved, one second later.</p>
+    <div class="ba" id="ba" style="--cut:50%">
+      <div class="before"></div><div class="after"></div>
+      <span class="label l" data-i18n="ev_l">Before · separated</span>
+      <span class="label r" data-i18n="ev_r">After · 1.0 s</span>
+      <div class="handle"></div>
+      <input type="range" min="4" max="96" value="50" aria-label="Before/after"
+        oninput="document.getElementById('ba').style.setProperty('--cut',this.value+'%')">
+    </div>
+    <p class="cap" data-i18n-html="ev_cap"><b>Drag the divider.</b> Trial photographs from the paper (Fig. 2). Unretouched apart from cropping.</p>
+  </section>
+
+  <section id="apps">
+    <h2 data-i18n="ap_h">Three applications with proof behind them</h2>
+    <p class="lead" data-i18n="ap_p">Not a catalogue — each of these has measured results and named installations.</p>
+    <div class="cards">
+      <div class="card"><span class="tag" data-i18n="ap1t">Wastewater</span>
+        <h3 data-i18n="ap1h">Pharmaceutical residues &amp; disinfection</h3>
+        <div class="big">87–90&nbsp;%</div>
+        <p data-i18n="ap1p">Reduction measured at the Kuopio municipal plant, ozone fed directly into the tube, 0.7 s process — installed in the outlet pipe.</p></div>
+      <div class="card"><span class="tag" data-i18n="ap2t">Potable water</span>
+        <h3 data-i18n="ap2h">Radon removal</h3>
+        <div class="big">11&nbsp;Bq/l</div>
+        <p data-i18n="ap2p">Six pumping-station installations with Unique Water in the Philippines — meeting one of the strictest radon limits in the world.</p></div>
+      <div class="card"><span class="tag" data-i18n="ap3t">Irrigation</span>
+        <h3 data-i18n="ap3h">Oxygen-enriched drip irrigation</h3>
+        <div class="big">O₂ ↑</div>
+        <p data-i18n="ap3p">An alternative to Venturi injectors and chemical oxidants: no additives, retrofitted into the existing line, oxygen dissolved to saturation in seconds.</p></div>
+    </div>
+  </section>
+
+  <section id="tech">
+    <h2 data-i18n="te_h">Four functions, one tube, 0.7 seconds</h2>
+    <p class="lead" data-i18n="te_p">Inside the hermetic tube the water stays a controlled mixture of water, drops and gas — molecular meeting probability is high, so reactions complete immediately.</p>
+    <div class="flow">
+      <div class="bar"><i></i></div>
+      <div class="t"><span>0.0 s</span><b data-i18n="te_t">0.7 s — treated</b></div>
+      <div class="stages">
+        <div class="stage"><b data-i18n="s1h">Separation</b><span data-i18n="s1p">soluble ingredients out of the water</span></div>
+        <div class="stage"><b data-i18n="s2h">Activation</b><span data-i18n="s2p">molecular structures split — complex pharmaceuticals break</span></div>
+        <div class="stage"><b data-i18n="s3h">Clarification</b><span data-i18n="s3p">gas fed or vacuum-sucked straight into the nozzle zone</span></div>
+        <div class="stage"><b data-i18n="s4h">Re-dissolving</b><span data-i18n="s4p">oxygen dissolved back in, stable for weeks</span></div>
+      </div>
+    </div>
+
+    <div class="proto" style="margin-top:26px">
+      <img src="assets/img/oxtube_proto.jpg" alt="First OxTube prototype">
+      <p data-i18n-html="proto"><b>This is where it started.</b> The first working prototype — garden-hose fittings and all — proved the four-stage process in Kokkola, Finland, removing iron from surface water. The measured results above came later; the honesty stayed.</p>
+    </div>
+  </section>
+
+  <section id="team">
+    <h2 data-i18n="tm_h">Talk to an engineer, not a salesperson</h2>
+    <p class="lead" data-i18n="tm_p">Three people, decades of gas-dissolving between them. Bring your flow rates — you will get an honest answer on whether OxTube fits.</p>
+    <div class="team">
+      <div class="person"><div class="avatar">MS</div><b>Mikael Seppälä</b>
+        <span data-i18n="tm1">Managing Director</span>
+        <p>+358 500 603 020<br>mikael.seppala@sansox.fi</p></div>
+      <div class="person"><div class="avatar">JH</div><b>Jukka Hakola</b>
+        <span data-i18n="tm2">Chief Operating Officer</span>
+        <p>+358 40 500 1123<br>jukka.hakola@sansox.fi</p></div>
+      <div class="person"><div class="avatar">JP</div><b>Juhani Pylkkänen</b>
+        <span data-i18n="tm3">Chief Engineer · author of the IWA paper</span>
+        <p>+358 40 866 9506<br>juhani.pylkkanen@sansox.fi</p></div>
+    </div>
+
+    <div class="ctaband" style="margin-top:26px">
+      <div>
+        <h3 data-i18n="cb_h">30 minutes, technical, free</h3>
+        <p data-i18n="cb_p">Tell us your flow, your target and your permit limits. We'll tell you what OxTube can and cannot do — with the numbers to back it.</p>
+      </div>
+      <a class="btn" href="mailto:info@sansox.fi" data-i18n="cb_b">Book the call</a>
+    </div>
+  </section>
+
+</div>
+
+<footer class="site"><div class="wrap">
+  SansOx Oy · Lahti Science Park, Niemenkatu 73, FI-15140 Lahti, Finland · Sänkinotkonkatu 6, FI-83500 Outokumpu · +358 500 603 020 · info@sansox.fi<br>
+  <span data-i18n="foot">Water Europe (WSSTP) Best Innovation in the European Water Industry 2014 · Best Aeration Company 2015 · IWA Milan 2021</span>
+</div></footer>
+
+<script>
+const T={
+en:{},
+es:{
+ draft:"DEMO · sin publicar · todas las cifras: Pylkkänen, IWA Milán 2021 · fotos del ensayo sin retocar salvo el recorte",
+ nav1:"Evidencia",nav2:"Aplicaciones",nav3:"Tecnología",nav4:"Empresa",
+ kicker:"Tecnología finlandesa del agua · Medida, publicada, instalada",
+ h1:"Disolver gas en agua en <em>menos de un segundo</em>.",
+ lede:"OxTube es un dispositivo hermético en línea que oxigena, ozoniza y clarifica el agua dentro de la tubería que ya tiene. Sin balsa, sin piezas móviles en el agua — y sin energía añadida en el lado del agua.",
+ cta1:"Ver los resultados medidos",cta2:"Reserve 30 min con nuestros ingenieros",
+ n1:"reducción de residuos farmacéuticos — agua residual municipal, Kuopio",
+ n2:"tiempo total de proceso, un solo paso por el tubo",
+ n3:"hasta el máximo teórico de oxígeno disuelto (laboratorio); 3 s en una piscifactoría",
+ n4:"instalaciones de eliminación de radón en Filipinas cumpliendo el límite de 11 Bq/l",
+ src:"Fuentes: J. Pylkkänen, <i>OxTube Integrated Water Clarification…</i>, IWA Milán 2021 · instalaciones de Unique Water. <a href='assets/paper/Pylkkanen_OxTube_IWA_Milan_2021.pdf'>Descargar el artículo (PDF)</a>",
+ ev_h:"Ver es más rápido que leer",
+ ev_p:"La misma agua de grifo, fotografiada durante el ensayo publicado: ingredientes solubles separados y moléculas activadas — y clarificada y redisuelta, un segundo después.",
+ ev_l:"Antes · separada",ev_r:"Después · 1,0 s",
+ ev_cap:"<b>Arrastre el divisor.</b> Fotografías del ensayo (Fig. 2 del artículo). Sin retocar salvo el recorte.",
+ ap_h:"Tres aplicaciones con pruebas detrás",
+ ap_p:"No es un catálogo — cada una tiene resultados medidos e instalaciones con nombre.",
+ ap1t:"Agua residual",ap1h:"Residuos farmacéuticos y desinfección",
+ ap1p:"Reducción medida en la depuradora municipal de Kuopio, ozono inyectado directamente en el tubo, proceso de 0,7 s — instalado en la tubería de salida.",
+ ap2t:"Agua potable",ap2h:"Eliminación de radón",
+ ap2p:"Seis estaciones de bombeo con Unique Water en Filipinas — cumpliendo uno de los límites de radón más estrictos del mundo.",
+ ap3t:"Riego",ap3h:"Riego por goteo enriquecido con oxígeno",
+ ap3p:"Alternativa a los inyectores Venturi y a los oxidantes químicos: sin aditivos, adaptado a la línea existente, oxígeno disuelto hasta saturación en segundos.",
+ te_h:"Cuatro funciones, un tubo, 0,7 segundos",
+ te_p:"Dentro del tubo hermético el agua es una mezcla controlada de agua, gotas y gas — la probabilidad de encuentro molecular es alta y las reacciones se completan de inmediato.",
+ te_t:"0,7 s — tratada",
+ s1h:"Separación",s1p:"los ingredientes solubles salen del agua",
+ s2h:"Activación",s2p:"las estructuras moleculares se rompen — también los fármacos complejos",
+ s3h:"Clarificación",s3p:"el gas se inyecta o se aspira por vacío directamente en la zona de la tobera",
+ s4h:"Redisolución",s4p:"el oxígeno se disuelve de nuevo, estable durante semanas",
+ proto:"<b>Aquí empezó todo.</b> El primer prototipo funcional — con racores de manguera de jardín incluidos — demostró el proceso de cuatro etapas en Kokkola, Finlandia, eliminando hierro del agua superficial. Los resultados medidos llegaron después; la honestidad se quedó.",
+ tm_h:"Hable con un ingeniero, no con un comercial",
+ tm_p:"Tres personas, décadas de disolución de gases entre ellas. Traiga sus caudales — recibirá una respuesta honesta sobre si OxTube encaja.",
+ tm1:"Director General",tm2:"Director de Operaciones",tm3:"Ingeniero Jefe · autor del artículo IWA",
+ cb_h:"30 minutos, técnico, gratis",
+ cb_p:"Díganos su caudal, su objetivo y sus límites de vertido. Le diremos qué puede y qué no puede hacer OxTube — con los números que lo respaldan.",
+ cb_b:"Reservar la llamada",
+ foot:"Water Europe (WSSTP) Mejor Innovación de la Industria Europea del Agua 2014 · Mejor Empresa de Aireación 2015 · IWA Milán 2021"
+},
+fi:{
+ draft:"DEMO · ei julkaistu · kaikki luvut: Pylkkänen, IWA Milano 2021 · koekuvat käsittelemättä rajausta lukuun ottamatta",
+ nav1:"Näyttö",nav2:"Sovellukset",nav3:"Teknologia",nav4:"Yritys",
+ kicker:"Suomalaista vesiteknologiaa · Mitattu, julkaistu, asennettu",
+ h1:"Kaasu liukenee veteen <em>alle sekunnissa</em>.",
+ lede:"OxTube on hermeettinen putkilaite, joka hapettaa, otsonoi ja kirkastaa veden nykyisen putkiston sisällä. Ei allasta, ei liikkuvia osia vedessä — eikä lisäenergiaa veden puolella.",
+ cta1:"Katso mitatut tulokset",cta2:"Varaa 30 min insinöörien kanssa",
+ n1:"lääkejäämien vähenemä — kunnallinen jätevesi, Kuopio",
+ n2:"prosessin kokonaisaika, yksi läpivirtaus",
+ n3:"hapen teoreettiseen maksimiin (laboratorio); 3 s kalankasvattamoasennuksessa",
+ n4:"radoninpoistoasennusta Filippiineillä, 11 Bq/l -raja täyttyy",
+ src:"Lähteet: J. Pylkkänen, <i>OxTube Integrated Water Clarification…</i>, IWA Milano 2021 · Unique Water -asennukset. <a href='assets/paper/Pylkkanen_OxTube_IWA_Milan_2021.pdf'>Lataa julkaisu (PDF)</a>",
+ ev_h:"Näkeminen on lukemista nopeampaa",
+ ev_p:"Sama hanavesi kuvattuna julkaistun kokeen aikana: liuenneet aineet eroteltuina ja molekyylit aktivoituina — sitten kirkastettuna ja takaisin liuotettuna, sekuntia myöhemmin.",
+ ev_l:"Ennen · eroteltu",ev_r:"Jälkeen · 1,0 s",
+ ev_cap:"<b>Vedä jakajaa.</b> Koekuvat julkaisusta (kuva 2). Käsittelemättä rajausta lukuun ottamatta.",
+ ap_h:"Kolme sovellusta, joilla on näyttö takanaan",
+ ap_p:"Ei luetteloa — jokaisella on mitatut tulokset ja nimetyt asennukset.",
+ ap1t:"Jätevesi",ap1h:"Lääkejäämät ja desinfiointi",
+ ap1p:"Vähenemä mitattu Kuopion kunnallisella puhdistamolla, otsoni syötettiin suoraan putkeen, 0,7 s prosessi — asennus poistoputkeen.",
+ ap2t:"Juomavesi",ap2h:"Radonin poisto",
+ ap2p:"Kuusi pumppaamoasennusta Unique Waterin kanssa Filippiineillä — maailman tiukimpiin kuuluva radonraja täyttyy.",
+ ap3t:"Kastelu",ap3h:"Hapetettu tippukastelu",
+ ap3p:"Vaihtoehto Venturi-injektoreille ja kemiallisille hapettimille: ei lisäaineita, asennus nykyiseen linjaan, happi kyllästystasoon sekunneissa.",
+ te_h:"Neljä vaihetta, yksi putki, 0,7 sekuntia",
+ te_p:"Hermeettisessä putkessa vesi pysyy hallittuna veden, pisaroiden ja kaasun seoksena — molekyylien kohtaamistodennäköisyys on korkea ja reaktiot tapahtuvat heti.",
+ te_t:"0,7 s — käsitelty",
+ s1h:"Erotus",s1p:"liuenneet aineet erotetaan vedestä",
+ s2h:"Aktivointi",s2p:"molekyylirakenteet hajoavat — myös monimutkaiset lääkeaineet",
+ s3h:"Kirkastus",s3p:"kaasu syötetään tai imetään alipaineella suoraan suutinvyöhykkeeseen",
+ s4h:"Takaisinliuotus",s4p:"happi liukenee takaisin, pysyy vakaana viikkoja",
+ proto:"<b>Tästä se alkoi.</b> Ensimmäinen toimiva prototyyppi — puutarhaletkuliittimineen — todisti nelivaiheisen prosessin Kokkolassa poistamalla rautaa pintavedestä. Mitatut tulokset tulivat myöhemmin; rehellisyys jäi.",
+ tm_h:"Puhu insinöörin kanssa, älä myyjän",
+ tm_p:"Kolme ihmistä, vuosikymmenten kokemus kaasujen liuotuksesta. Kerro virtaamasi — saat rehellisen vastauksen siihen, sopiiko OxTube.",
+ tm1:"Toimitusjohtaja",tm2:"Operatiivinen johtaja",tm3:"Pääinsinööri · IWA-julkaisun kirjoittaja",
+ cb_h:"30 minuuttia, teknistä, maksutta",
+ cb_p:"Kerro virtaama, tavoite ja lupaehdot. Kerromme mitä OxTube voi ja mitä se ei voi — luvuilla perusteltuna.",
+ cb_b:"Varaa puhelu",
+ foot:"Water Europe (WSSTP): Euroopan vesialan paras innovaatio 2014 · Paras ilmastusyritys 2015 · IWA Milano 2021"
+}};
+const EN={};
+document.querySelectorAll('[data-i18n]').forEach(e=>EN[e.dataset.i18n]=e.textContent);
+document.querySelectorAll('[data-i18n-html]').forEach(e=>EN[e.dataset.i18nHtml]=e.innerHTML);
+T.en=EN;
+function setLang(l){
+  document.documentElement.lang=l;
+  document.querySelectorAll('.lang button').forEach(b=>b.classList.remove('on'));
+  document.getElementById('l-'+l).classList.add('on');
+  document.querySelectorAll('[data-i18n]').forEach(e=>{const k=e.dataset.i18n;if(T[l][k])e.textContent=T[l][k]});
+  document.querySelectorAll('[data-i18n-html]').forEach(e=>{const k=e.dataset.i18nHtml;if(T[l][k])e.innerHTML=T[l][k]});
+}
+</script>
+</body>
+</html>
