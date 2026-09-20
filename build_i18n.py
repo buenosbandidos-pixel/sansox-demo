@@ -9,7 +9,7 @@ R = os.path.dirname(os.path.abspath(__file__))
 PUBLISH = "--publish" in sys.argv
 
 PAGES = ["index.html","solutions.html","products.html","references.html","technology.html",
-         "company.html","case-kuopio.html","case-philippines.html","case-carelian.html","case-india.html"]
+         "company.html","story.html","case-kuopio.html","case-philippines.html","case-carelian.html","case-india.html"]
 
 META = {  # sivu → (es_title, es_desc, fi_title, fi_desc)
  "index.html":("SansOx — tecnología finlandesa de tratamiento de agua",
@@ -26,6 +26,8 @@ META = {  # sivu → (es_title, es_desc, fi_title, fi_desc)
    "Teknologia | SansOx","Neljä vaihetta suljetussa putkessa, alle sekunnissa."),
  "company.html":("Empresa | SansOx","Tres ingenieros en Lahti, Finlandia. Publicado en IWA, premiado por Water Europe.",
    "Yritys | SansOx","Kolme insinööriä Lahdessa. IWA-julkaisu, Water Europe -palkinto."),
+ "story.html":("Nuestra historia | SansOx","De una idea hidroeléctrica a una misión de restauración del agua.",
+   "Tarinamme | SansOx","Vesivoimaideasta veden elvytysmissioksi."),
  "case-kuopio.html":("Caso Kuopio — 90 % de fármacos eliminados en 0,7 s | SansOx","El ensayo publicado por IWA, sustancia por sustancia.",
    "Case Kuopio — 90 % lääkejäämistä 0,7 sekunnissa | SansOx","IWA:n julkaisema koe, aine aineelta."),
  "case-philippines.html":("Caso Filipinas — radón bajo 11 Bq/l | SansOx","Seis estaciones de bombeo bajo uno de los límites más estrictos del mundo.",
