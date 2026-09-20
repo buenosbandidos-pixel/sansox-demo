@@ -1,0 +1,13 @@
+=== ETUSIVUN LUKUSTRIP — kopioi Wixiin sellaisenaan (EN) ===
+
+Otsikko:  Measured results
+
+Laatta 1:  90 %        of pharmaceutical residues removed — municipal wastewater trial, Kuopio
+Laatta 2:  0.7 s       total process time, one pass through the tube
+Laatta 3:  11 Bq/l     the Philippine radon limit our stations meet
+Laatta 4:  2012        founded in Lahti · Water Europe awards 2014 & 2015
+
+Nappi:     Read the published article (IWA Milan 2021)
+Linkki:    [paperin PDF — sama tiedosto joka on jo etusivun "READ MORE ARTICLE" -linkissä]
+
+Lähderivi (pieni): Source: J. Pylkkänen, IWA Ecotechnologies for Wastewater Treatment, Milan 2021.
