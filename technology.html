@@ -137,12 +137,12 @@
 <header><div class="wrap nav">
   <a href="index.html" style="text-decoration:none;color:inherit"><div class="logo">Sans<b>Ox</b></div></a>
   <div class="links">
-    <a href="solutions.html">Solutions</a>
-    <a href="products.html">Products</a>
-    <a href="projects.html">Projects</a>
-    <a href="technology.html">Technology</a>
-    <a href="company.html">Company</a>
-    <a href="news.html">News</a>
+    <a href="solutions.html" data-i18n="nav_sol">Solutions</a>
+    <a href="products.html" data-i18n="nav_prod">Products</a>
+    <a href="projects.html" data-i18n="nav_proj">Projects</a>
+    <a href="technology.html" data-i18n="nav_tech">Technology</a>
+    <a href="company.html" data-i18n="nav_co">Company</a>
+    <a href="news.html" data-i18n="nav_news">News</a>
   </div>
   
 <div class="lang">
@@ -166,7 +166,7 @@
     <picture><source srcset="assets/img/oxtube_installed_vertical.webp" type="image/webp"><img class="photo" src="assets/img/oxtube_installed_vertical.jpg" alt="OxTube installed vertically at a Finnish treatment plant, stainless steel with flanged modules"></picture>
     <div class="proto" style="margin-top:22px">
       <img src="assets/img/oxtube_module_render.png" alt="OxTube modular assembly render: flanged sections with sensor ports" style="background:#fff;padding:14px;border-radius:10px">
-      <p data-i18n="pr2_c"><b>The modular assembly.</b> Flanged sections bolt into existing pipework in any order the process needs — and unbolt as easily for cleaning. Sensor ports along the line.</p>
+      <p data-i18n-html="pr2_c"><b>The modular assembly.</b> Flanged sections bolt into existing pipework in any order the process needs — and unbolt as easily for cleaning. Sensor ports along the line.</p>
     </div>
   </section>
   <section>
@@ -174,10 +174,10 @@
       <div class="bar"><i></i></div>
       <div class="t"><span>0.0 s</span><b>0.7 s — treated</b></div>
       <div class="stages">
-        <div class="stage"><b>Separation</b><span>soluble ingredients out of the water</span></div>
-        <div class="stage"><b>Activation</b><span>molecular structures split — complex pharmaceuticals break</span></div>
-        <div class="stage"><b>Clarification</b><span>gas fed or vacuum-sucked straight into the nozzle zone</span></div>
-        <div class="stage"><b>Re-dissolving</b><span>oxygen dissolved back in, stable for weeks</span></div>
+        <div class="stage"><b data-i18n="st1b">Separation</b><span data-i18n="st1s">soluble ingredients out of the water</span></div>
+        <div class="stage"><b data-i18n="st2b">Activation</b><span data-i18n="st2s">molecular structures split — complex pharmaceuticals break</span></div>
+        <div class="stage"><b data-i18n="st3b">Clarification</b><span data-i18n="st3s">gas fed or vacuum-sucked straight into the nozzle zone</span></div>
+        <div class="stage"><b data-i18n="st4b">Re-dissolving</b><span data-i18n="st4s">oxygen dissolved back in, stable for weeks</span></div>
       </div>
     </div>
   </section>
@@ -185,7 +185,7 @@
     <h2 data-i18n="st_h">Where it started</h2>
     <div class="proto" style="margin-top:18px">
       <picture><source srcset="assets/img/oxtube_proto.webp" type="image/webp"><img src="assets/img/oxtube_proto.jpg" alt="First OxTube prototype with garden-hose fittings, process stages labelled"></picture>
-      <p><b>The first working prototype</b> — garden-hose fittings and all — proved the four-stage process in Kokkola, Finland, removing iron from surface water. The measured results came later; the honesty stayed.</p>
+      <p data-i18n-html="proto_p"><b>The first working prototype</b> — garden-hose fittings and all — proved the four-stage process in Kokkola, Finland, removing iron from surface water. The measured results came later; the honesty stayed.</p>
     </div>
   </section>
   <section>
@@ -199,16 +199,16 @@
 </div>
 <footer class="site"><div class="wrap">
   <div style="display:flex;flex-wrap:wrap;gap:8px 18px;margin-bottom:10px">
-    <a href="index.html" style="color:var(--dim)">Home</a><a href="solutions.html" style="color:var(--dim)">Solutions</a>
-    <a href="products.html" style="color:var(--dim)">Products</a>
-    <a href="projects.html" style="color:var(--dim)">Projects</a><a href="technology.html" style="color:var(--dim)">Technology</a>
-    <a href="company.html" style="color:var(--dim)">Company</a><a href="news.html" style="color:var(--dim)">News</a>
-    <a href="privacy.html" style="color:var(--dim)">Privacy</a>
+    <a href="index.html" style="color:var(--dim)" data-i18n="fn_home">Home</a><a href="solutions.html" style="color:var(--dim)" data-i18n="fn_sol">Solutions</a>
+    <a href="products.html" style="color:var(--dim)" data-i18n="fn_prod">Products</a>
+    <a href="projects.html" style="color:var(--dim)" data-i18n="fn_proj">Projects</a><a href="technology.html" style="color:var(--dim)" data-i18n="fn_tech">Technology</a>
+    <a href="company.html" style="color:var(--dim)" data-i18n="fn_co">Company</a><a href="news.html" style="color:var(--dim)" data-i18n="fn_news">News</a>
+    <a href="privacy.html" style="color:var(--dim)" data-i18n="fn_priv">Privacy</a>
   </div>
   SansOx Oy · VAT FI24678326 · Lahti Science Park, Niemenkatu 73, FI-15140 Lahti, Finland · Sänkinotkonkatu 6, FI-83500 Outokumpu · +358 500 603 020 · info@sansox.fi<br>
   <span>Water Europe (WSSTP) Best Innovation in the European Water Industry 2014 · Best Aeration Company 2015 · IWA Milan 2021</span>
 </div></footer>
-<script>const T={"es": {"kick": "Tecnología — OxTube", "h1": "Cuatro funciones, un tubo, <em>0,7 segundos</em>.", "lede": "Dentro del tubo hermético el agua es una mezcla controlada de agua, gotas y gas — la probabilidad de encuentro molecular es alta y las reacciones se completan de inmediato. El módulo se adapta a la tubería existente y se desmonta y limpia con facilidad.", "st_h": "Dónde empezó", "pr_h": "Declaración de principio"}, "fi": {"kick": "Teknologia — OxTube", "h1": "Neljä vaihetta, yksi putki, <em>0,7 sekuntia</em>.", "lede": "Hermeettisessä putkessa vesi pysyy hallittuna veden, pisaroiden ja kaasun seoksena — molekyylien kohtaamistodennäköisyys on korkea ja reaktiot tapahtuvat heti. Moduuli asennetaan nykyiseen putkistoon ja on helppo irrottaa ja puhdistaa.", "st_h": "Mistä kaikki alkoi", "pr_h": "Periaatejulistus"}};</script>
+<script>const T={"es": {"nav_sol": "Soluciones", "nav_prod": "Productos", "nav_proj": "Proyectos", "nav_tech": "Tecnolog\u00eda", "nav_co": "Empresa", "nav_news": "Noticias", "fn_home": "Inicio", "fn_sol": "Soluciones", "fn_prod": "Productos", "fn_proj": "Proyectos", "fn_tech": "Tecnolog\u00eda", "fn_co": "Empresa", "fn_news": "Noticias", "fn_priv": "Privacidad", "st1b": "Separaci\u00f3n", "st1s": "los ingredientes solubles salen del agua", "st2b": "Activaci\u00f3n", "st2s": "las estructuras moleculares se dividen \u2014 los f\u00e1rmacos complejos se rompen", "st3b": "Clarificaci\u00f3n", "st3s": "gas alimentado o aspirado por vac\u00edo directamente a la zona de toberas", "st4b": "Redisoluci\u00f3n", "st4s": "el ox\u00edgeno se disuelve de nuevo, estable durante semanas", "proto_p": "<b>El primer prototipo funcional</b> \u2014 con racores de manguera de jard\u00edn y todo \u2014 demostr\u00f3 el proceso de cuatro etapas en Kokkola, Finlandia, eliminando hierro de agua superficial. Los resultados medidos llegaron despu\u00e9s; la honestidad se qued\u00f3.", "cb_h": "30 minutos, t\u00e9cnico, gratis", "cb_p": "Traiga sus caudales y objetivos \u2014 recibir\u00e1 una respuesta honesta sobre si OxTube encaja.", "cb_b": "Reservar la llamada", "pr2_h": "El producto, en servicio", "pr2_p": "OxTube instalado en vertical en una planta finlandesa \u2014 acero inoxidable, m\u00f3dulos embridados, instrumentaci\u00f3n al lado. El estrechamiento que ve es la zona de toberas donde el gas se encuentra con el agua.", "pr2_c": "<b>El conjunto modular.</b> Las secciones embridadas se atornillan a la tuber\u00eda existente en el orden que el proceso necesite \u2014 y se desatornillan igual de f\u00e1cil para su limpieza. Puertos de sensores a lo largo de la l\u00ednea.", "kick": "Tecnología — OxTube", "h1": "Cuatro funciones, un tubo, <em>0,7 segundos</em>.", "lede": "Dentro del tubo hermético el agua es una mezcla controlada de agua, gotas y gas — la probabilidad de encuentro molecular es alta y las reacciones se completan de inmediato. El módulo se adapta a la tubería existente y se desmonta y limpia con facilidad.", "st_h": "Dónde empezó", "pr_h": "Declaración de principio"}, "fi": {"nav_sol": "Ratkaisut", "nav_prod": "Tuotteet", "nav_proj": "Projektit", "nav_tech": "Teknologia", "nav_co": "Yritys", "nav_news": "Uutiset", "fn_home": "Etusivu", "fn_sol": "Ratkaisut", "fn_prod": "Tuotteet", "fn_proj": "Projektit", "fn_tech": "Teknologia", "fn_co": "Yritys", "fn_news": "Uutiset", "fn_priv": "Tietosuoja", "st1b": "Erottelu", "st1s": "liukoiset ainesosat irtoavat vedest\u00e4", "st2b": "Aktivointi", "st2s": "molekyylirakenteet hajoavat \u2014 monimutkaiset l\u00e4\u00e4keaineet pilkkoutuvat", "st3b": "Kirkastus", "st3s": "kaasu sy\u00f6tet\u00e4\u00e4n tai imet\u00e4\u00e4n alipaineella suoraan suutinvy\u00f6hykkeeseen", "st4b": "Takaisinliuotus", "st4s": "happi liukenee takaisin, pysyy vakaana viikkoja", "proto_p": "<b>Ensimm\u00e4inen toimiva prototyyppi</b> \u2014 puutarhaletkuliittimineen kaikkineen \u2014 todisti nelivaiheisen prosessin Kokkolassa poistamalla rautaa pintavedest\u00e4. Mitatut tulokset tulivat my\u00f6hemmin; rehellisyys j\u00e4i.", "cb_h": "30 minuuttia, teknist\u00e4, maksutta", "cb_p": "Tuo virtaamat ja tavoitteet \u2014 saat rehellisen vastauksen siihen, sopiiko OxTube.", "cb_b": "Varaa puhelu", "pr2_h": "Tuote, k\u00e4yt\u00f6ss\u00e4", "pr2_p": "OxTube pystyasennettuna suomalaisella laitoksella \u2014 ruostumatonta ter\u00e4st\u00e4, laipalliset moduulit, instrumentointi vieress\u00e4. N\u00e4kyv\u00e4 kavennus on suutinvy\u00f6hyke, jossa kaasu kohtaa veden.", "pr2_c": "<b>Moduulikokoonpano.</b> Laipalliset osat pultataan nykyiseen putkistoon siin\u00e4 j\u00e4rjestyksess\u00e4 kuin prosessi vaatii \u2014 ja irtoavat yht\u00e4 helposti puhdistusta varten. Anturiportit pitkin linjaa.", "kick": "Teknologia — OxTube", "h1": "Neljä vaihetta, yksi putki, <em>0,7 sekuntia</em>.", "lede": "Hermeettisessä putkessa vesi pysyy hallittuna veden, pisaroiden ja kaasun seoksena — molekyylien kohtaamistodennäköisyys on korkea ja reaktiot tapahtuvat heti. Moduuli asennetaan nykyiseen putkistoon ja on helppo irrottaa ja puhdistaa.", "st_h": "Mistä kaikki alkoi", "pr_h": "Periaatejulistus"}};</script>
 <script>
 const EN={};
 document.querySelectorAll('[data-i18n]').forEach(e=>EN[e.dataset.i18n]=e.textContent);

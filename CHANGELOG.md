@@ -53,3 +53,10 @@ Mitoitustyökalu (vaatii Pylkkäsen luvut: virtaama, kgO₂/kWh, painehäviö) �
 - Aiemman kierroksen A-lista: footer (VAT FI24678326 + osoitteet + navigaatio + privacy.html), og:image absoluuttiseksi, CTA-nauha Technology/Projects/News, EU-lukujen lähdemerkintä, tekstiparannukset ①–⑩, "world's strictest" -toisto purettu, ristilinkit casien välille.
 - QA: 0 löydöstä, kaikki 13 sivua HTTP 200. Selainverifiointi: 3D piirtyy, FI-kieli jättää vain palkintojen erisnimet englanniksi.
 - [TARKISTETTAVA]: ClariOx-kuvaus · GasRemox-rooli · palvelusivujen sisällöt (Wix-varauskuvaukset ohuita)
+
+## [2026-09-20] Korjauskierros 3 — 3D renderin mukaiseksi + käännösten loppusiivous
+- 3D-malli rakennettu tuoterenderin geometrian mukaan: laippaparit, kaksi materiaalia (tumma putki + kiiltävä rst spekulaarijuovalla), kartiolaajennus + paksu moduuli, keltaiset anturisondit, solakat mittasuhteet.
+- Kuvatekstit joissa oli englantia FI/ES-kielillä → käännetty: technology (pr2_*, 4 prosessivaihetta, prototyyppiteksti), kuopio (jakajan kuvateksti), company (talvilampi), CTA-nauhat (projects/news/technology).
+- Päänavigaatio + footerin linkit käännetty kaikilla sivuilla (Ratkaisut/Tuotteet/…).
+- Bugikorjaus: index+products EN-harvesteri ei tavoittanut skriptin jälkeistä footeria → kielen paluu EN:ään olisi jättänyt footerin suomeksi. Harvest ajetaan nyt myös DOMContentLoadedissa.
+- Jäljelle jäävä englanti FI/ES-näkymissä: palkintojen ja julkaisujen erisnimet (tarkoituksella).
