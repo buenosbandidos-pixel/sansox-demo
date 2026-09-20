@@ -32,7 +32,8 @@
     padding:8px 10px;cursor:pointer}
   .lang button.on{background:var(--aqua);color:#04121c}
 
-  .hero{padding:70px 0 44px;position:relative;overflow:hidden}
+  .hero{padding:70px 0 44px;position:relative;overflow:visible}
+  .bleed{width:100vw;position:relative;left:50%;margin-left:-50vw}
   .hero:before{content:"";position:absolute;inset:0;pointer-events:none;
     background:radial-gradient(60% 45% at 85% 0%, rgba(62,198,255,.14), transparent 70%),
                radial-gradient(45% 40% at 5% 100%, rgba(15,95,143,.2), transparent 70%)}
@@ -57,7 +58,7 @@
   .src{color:var(--dim);font-size:12.5px;margin-top:10px}
   .src a{color:var(--aqua)}
 
-  section{padding:54px 0;border-top:1px solid var(--line)}
+  section{padding:72px 0;border-top:1px solid var(--line)}
   h2{font-size:clamp(23px,4vw,32px);letter-spacing:-.6px;margin-bottom:8px}
   .lead{color:var(--dim);max-width:62ch;margin-bottom:26px}
 
@@ -241,10 +242,18 @@
     </div>
   </section>
 
+
+  <section id="statement" style="padding:110px 0;text-align:center;border-top:1px solid var(--line)">
+    <p style="font-family:Didot,'Bodoni MT','Playfair Display',Georgia,serif;font-size:clamp(26px,5vw,44px);line-height:1.55;color:#d9e6f0;letter-spacing:.2px">
+      <span data-i18n="st1">Ninety percent of pharmaceuticals.</span><br>
+      <span data-i18n="st2">Seven tenths of a second.</span><br>
+      <span style="color:var(--aqua)" data-i18n="st3">Measured — not promised.</span>
+    </p>
+  </section>
   <section id="finland">
     <h2 data-i18n="fi_h">Built where water freezes</h2>
     <p class="lead" data-i18n="fi_p">Aeration floats keeping a Finnish pond open in January — a SansOx installation photographed this winter. Finnish water technology means one thing above all: measured against some of the strictest standards in Europe, in conditions that forgive nothing.</p>
-    <img src="assets/img/finland_pond_winter.jpg" alt="SansOx aeration floats keeping a Finnish pond open in mid-winter" style="width:100%;border-radius:10px;border:1px solid var(--line);display:block">
+    </div><div class="bleed"><img src="assets/img/finland_pond_winter.jpg" alt="SansOx aeration floats keeping a Finnish pond open in mid-winter" style="width:100%;max-height:72vh;object-fit:cover;display:block"></div><div class="wrap">
     <p class="cap" data-i18n="fi_cap">Aeration floats under snow, open water around them. Unretouched.</p>
   </section>
 
@@ -283,7 +292,7 @@
 const T={
 en:{},
 es:{
- fi_h:"Construido donde el agua se congela",fi_p:"Flotadores de aireación manteniendo abierto un estanque finlandés en enero — una instalación SansOx fotografiada este invierno. La tecnología finlandesa del agua significa sobre todo una cosa: medida contra algunas de las normas más estrictas de Europa, en condiciones que no perdonan nada.",fi_cap:"Flotadores de aireación bajo la nieve, agua abierta a su alrededor. Sin retocar.",
+ st1:"El noventa por ciento de los fármacos.",st2:"Siete décimas de segundo.",st3:"Medido — no prometido.",fi_h:"Construido donde el agua se congela",fi_p:"Flotadores de aireación manteniendo abierto un estanque finlandés en enero — una instalación SansOx fotografiada este invierno. La tecnología finlandesa del agua significa sobre todo una cosa: medida contra algunas de las normas más estrictas de Europa, en condiciones que no perdonan nada.",fi_cap:"Flotadores de aireación bajo la nieve, agua abierta a su alrededor. Sin retocar.",
  draft:"DEMO · sin publicar · todas las cifras: Pylkkänen, IWA Milán 2021 · fotos del ensayo sin retocar salvo el recorte",
  nav1:"Evidencia",nav2:"Aplicaciones",nav3:"Tecnología",nav4:"Empresa",
  kicker:"Tecnología finlandesa del agua · Medida, publicada, instalada",
@@ -324,7 +333,7 @@ es:{
  foot:"Water Europe (WSSTP) Mejor Innovación de la Industria Europea del Agua 2014 · Mejor Empresa de Aireación 2015 · IWA Milán 2021"
 },
 fi:{
- fi_h:"Rakennettu sinne missä vesi jäätyy",fi_p:"Ilmastuskellukkeet pitävät suomalaisen lammen sulana tammikuussa — SansOx-asennus kuvattuna tänä talvena. Suomalainen vesiteknologia tarkoittaa ennen kaikkea yhtä: mitattu Euroopan tiukimpia normeja vasten, oloissa jotka eivät anna anteeksi.",fi_cap:"Ilmastuskellukkeet lumen alla, avovesi ympärillä. Käsittelemättä.",
+ st1:"Yhdeksänkymmentä prosenttia lääkejäämistä.",st2:"Seitsemän kymmenesosaa sekunnista.",st3:"Mitattu — ei luvattu.",fi_h:"Rakennettu sinne missä vesi jäätyy",fi_p:"Ilmastuskellukkeet pitävät suomalaisen lammen sulana tammikuussa — SansOx-asennus kuvattuna tänä talvena. Suomalainen vesiteknologia tarkoittaa ennen kaikkea yhtä: mitattu Euroopan tiukimpia normeja vasten, oloissa jotka eivät anna anteeksi.",fi_cap:"Ilmastuskellukkeet lumen alla, avovesi ympärillä. Käsittelemättä.",
  draft:"DEMO · ei julkaistu · kaikki luvut: Pylkkänen, IWA Milano 2021 · koekuvat käsittelemättä rajausta lukuun ottamatta",
  nav1:"Näyttö",nav2:"Sovellukset",nav3:"Teknologia",nav4:"Yritys",
  kicker:"Suomalaista vesiteknologiaa · Mitattu, julkaistu, asennettu",
