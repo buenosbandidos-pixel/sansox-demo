@@ -51,18 +51,18 @@
   .btn{display:inline-block;background:var(--aqua);color:#04121c;font-weight:800;text-decoration:none;padding:13px 22px;border-radius:7px;font-size:14.5px}
   footer.site{border-top:1px solid var(--line);margin-top:50px;padding:26px 0 44px;color:var(--dim);font-size:13px}
   @media(max-width:560px){.crumb{display:none}}
-</style></head><body>
+.lang{display:inline-flex;gap:2px;border:1px solid var(--line);border-radius:6px;overflow:hidden}.lang button{background:transparent;border:0;color:var(--dim);font:700 12px/1 inherit;padding:7px 10px;cursor:pointer}.lang button.on{background:var(--aqua);color:#04121c}</style></head><body>
 <div class="draft">DEMO · placeholder blocks marked 📷 await real photographs · all figures from published sources</div>
-<header><div class="wrap"><span class="crumb"><a href="index.html">← Evidence</a></span><div class="logo">Sans<b>Ox</b></div></div></header>
+<header><div class="wrap"><span class="crumb"><a href="index.html">← Evidence</a></span><div class="logo">Sans<b>Ox</b></div><div class="lang" style="float:right"><button id="l-en" class="on" onclick="setLang('en')">EN</button><button id="l-es" onclick="setLang('es')">ES</button><button id="l-fi" onclick="setLang('fi')">FI</button></div></div></header>
 <div class="wrap">
-<div class="hero"><div class="kicker">Natural water · Lake rejuvenation · Haryana, India</div><h1>A dead village pond, <em>brought back</em> — and kept clean under contract.</h1><p class="lede">In Sadpura village, Haryana, the pond had become a dump for untreated inflow — covered in algae, banks eroded. With our Indian partner Elixiir, SansOx turned it into the pilot of a lake-rejuvenation programme.</p>
+<div class="hero"><div class="kicker">Natural water · Lake rejuvenation · Haryana, India</div><h1 data-i18n-html="h1">A dead village pond, <em>brought back</em> — and kept clean under contract.</h1><p class="lede">In Sadpura village, Haryana, the pond had become a dump for untreated inflow — covered in algae, banks eroded. With our Indian partner Elixiir, SansOx turned it into the pilot of a lake-rejuvenation programme.</p>
 <div class="numbers"><div class="num"><b>1</b><span>pond fully treated — programme expanding</span></div><div class="num"><b>O₂ ↑</b><span>dissolved oxygen raised by OxTube aeration</span></div><div class="num"><b>24/7</b><span>continuous aeration keeps the water clear</span></div><div class="num"><b>1</b><span>maintenance contract in force with Elixiir</span></div></div><p class="src">Sources: SansOx project records with Elixiir · sansox.fi project pages.</p></div>
-<section><h2><span class="stepnum">1</span>The starting point</h2><p class="lead">This is what the pond looked like: full algae cover, untreated water flowing in, litter on the banks. Mid-1990s Indian rivers were relatively healthy — the deterioration since has been rapid.</p>
+<section><h2 data-i18n-html="s1"><span class="stepnum">1</span>The starting point</h2><p class="lead">This is what the pond looked like: full algae cover, untreated water flowing in, litter on the banks. Mid-1990s Indian rivers were relatively healthy — the deterioration since has been rapid.</p>
  <picture><source srcset="assets/img/india_sukhrali_before.webp" type="image/webp"><img class="photo" src="assets/img/india_sukhrali_before.jpg" alt="Sukhrali pond before treatment — full algae cover"></picture>
  <p class="cap"><b>Before.</b> Sukhrali pond under full algae cover. Unretouched.</p></section>
-<section><h2><span class="stepnum">2</span>What was installed</h2><p class="lead">First the untreated inflow was stopped and the banks cleaned. Then water was pumped through OxTubes to dissolve air and raise dissolved oxygen, while a natural enzyme treatment floated bottom solids to the surface for collection. Continuous OxTube aeration keeps the water clear.</p>
+<section><h2 data-i18n-html="s2"><span class="stepnum">2</span>What was installed</h2><p class="lead">First the untreated inflow was stopped and the banks cleaned. Then water was pumped through OxTubes to dissolve air and raise dissolved oxygen, while a natural enzyme treatment floated bottom solids to the surface for collection. Continuous OxTube aeration keeps the water clear.</p>
  <div class="ph"><span class="cam">📷</span><b>Photo pending — after</b><span>Ask Elixiir: the same pond, same angle, after treatment. The before/after pair becomes the strongest image on this page.</span></div></section>
-<section><h2><span class="stepnum">3</span>Measured results</h2><div class="tablewrap"><table>
+<section><h2 data-i18n-html="s3"><span class="stepnum">3</span>Measured results</h2><div class="tablewrap"><table>
  <tr><th>Measure</th><th>Result</th></tr>
  <tr><td>Untreated inflow</td><td class="v">stopped</td></tr>
  <tr><td>Dissolved oxygen</td><td class="v">raised — continuous</td></tr>
@@ -79,10 +79,22 @@
  </table></div>
  <p class="cap" style="margin-top:10px"><b>Institutional record:</b> revival executed by MICADA under supervision of the Embassy of Finland, funded through the Indo-Nordic Water Forum; the Municipal Corporation of Gurugram now runs upkeep campaigns; the project was presented to the Commerce Committee of the Finnish Parliament.</p>
  <p class="cap"><b>Why this matters:</b> four dispatches across two years is the maintenance contract, visible. A revived pond that stays revived is the claim — the timeline is its receipt.</p></section>
-<section><h2><span class="stepnum">4</span>What follows from this</h2><p class="lead">The programme is expanding to further lakes in Haryana — and the mechanism scales: the same aeration that revives a village pond is what our Nature Rejuvenation mission proposes for eutrophied waters from India to the Baltic Sea.</p>
-<div class="ctaband" style="margin-top:24px"><div><h3>Does your case look like this one?</h3>
-<p>30 minutes, technical, free. Bring your flow rates and targets.</p></div>
+<section><h2 data-i18n-html="s4"><span class="stepnum">4</span>What follows from this</h2><p class="lead">The programme is expanding to further lakes in Haryana — and the mechanism scales: the same aeration that revives a village pond is what our Nature Rejuvenation mission proposes for eutrophied waters from India to the Baltic Sea.</p>
+<div class="ctaband" style="margin-top:24px"><div><h3 data-i18n="cta_h">Does your case look like this one?</h3>
+<p data-i18n="cta_p">30 minutes, technical, free. Bring your flow rates and targets.</p></div>
 <a class="btn" href="mailto:info@sansox.fi">Book 30 min with our engineers</a></div></section>
 </div>
 <footer class="site"><div class="wrap">SansOx Oy · Lahti Science Park, Niemenkatu 73, FI-15140 Lahti, Finland · +358 500 603 020 · info@sansox.fi</div></footer>
+<script>const T={"es": {"s1": "<span class=\"stepnum\">1</span>El punto de partida", "s2": "<span class=\"stepnum\">2</span>Lo que se instaló", "s3": "<span class=\"stepnum\">3</span>Resultados medidos", "s4": "<span class=\"stepnum\">4</span>Lo que sigue de esto", "cta_h": "¿Su caso se parece a este?", "cta_p": "30 minutos, técnico, gratis. Traiga sus caudales y objetivos.", "h1": "Un estanque de aldea muerto, <em>recuperado</em> — y mantenido limpio bajo contrato."}, "fi": {"s1": "<span class=\"stepnum\">1</span>Lähtötilanne", "s2": "<span class=\"stepnum\">2</span>Mitä asennettiin", "s3": "<span class=\"stepnum\">3</span>Mitatut tulokset", "s4": "<span class=\"stepnum\">4</span>Mitä tästä seuraa", "cta_h": "Näyttääkö sinun tapauksesi tältä?", "cta_p": "30 minuuttia, teknistä, maksutta. Tuo virtaamasi ja tavoitteesi.", "h1": "Kuollut kylälampi <em>herätetty henkiin</em> — ja pidetty puhtaana sopimuksella."}};</script>
+<script>
+const EN={};
+document.querySelectorAll('[data-i18n]').forEach(e=>EN[e.dataset.i18n]=e.textContent);
+document.querySelectorAll('[data-i18n-html]').forEach(e=>EN[e.dataset.i18nHtml]=e.innerHTML);
+T.en=EN;
+function setLang(l){document.documentElement.lang=l;
+document.querySelectorAll('.lang button').forEach(b=>b.classList.remove('on'));
+document.getElementById('l-'+l).classList.add('on');
+document.querySelectorAll('[data-i18n]').forEach(e=>{const k=e.dataset.i18n;if(T[l]&&T[l][k])e.textContent=T[l][k]});
+document.querySelectorAll('[data-i18n-html]').forEach(e=>{const k=e.dataset.i18nHtml;if(T[l]&&T[l][k])e.innerHTML=T[l][k]});}
+</script>
 </body></html>

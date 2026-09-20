@@ -144,11 +144,21 @@
     <a href="news.html">News</a>
   </div>
   
+<div class="lang">
+    <button id="l-en" class="on" onclick="setLang('en')">EN</button>
+    <button id="l-es" onclick="setLang('es')">ES</button>
+    <button id="l-fi" onclick="setLang('fi')">FI</button>
+  </div>
+  <div class="lang">
+    <button id="l-en" class="on" onclick="setLang('en')">EN</button>
+    <button id="l-es" onclick="setLang('es')">ES</button>
+    <button id="l-fi" onclick="setLang('fi')">FI</button>
+  </div>
 </div></header>
 <div class="wrap">
-  <div class="hero"><div class="kicker">Technology — OxTube</div>
-  <h1>Four functions, one tube, <em>0.7 seconds</em>.</h1>
-  <p class="lede">Inside the hermetic tube the water stays a controlled mixture of water, drops and gas — molecular meeting probability is high, so reactions complete immediately. The module retrofits into existing pipework and is easily removed and cleaned.</p></div>
+  <div class="hero"><div data-i18n="kick" class="kicker">Technology — OxTube</div>
+  <h1 data-i18n-html="h1">Four functions, one tube, <em>0.7 seconds</em>.</h1>
+  <p data-i18n="lede" class="lede">Inside the hermetic tube the water stays a controlled mixture of water, drops and gas — molecular meeting probability is high, so reactions complete immediately. The module retrofits into existing pipework and is easily removed and cleaned.</p></div>
   <section>
     <div class="flow">
       <div class="bar"><i></i></div>
@@ -162,14 +172,14 @@
     </div>
   </section>
   <section>
-    <h2>Where it started</h2>
+    <h2 data-i18n="st_h">Where it started</h2>
     <div class="proto" style="margin-top:18px">
       <picture><source srcset="assets/img/oxtube_proto.webp" type="image/webp"><img src="assets/img/oxtube_proto.jpg" alt="First OxTube prototype with garden-hose fittings, process stages labelled"></picture>
       <p><b>The first working prototype</b> — garden-hose fittings and all — proved the four-stage process in Kokkola, Finland, removing iron from surface water. The measured results came later; the honesty stayed.</p>
     </div>
   </section>
   <section>
-    <h2>Statement of principle</h2>
+    <h2 data-i18n="pr_h">Statement of principle</h2>
     <p style="font-family:Didot,'Bodoni MT','Playfair Display',Georgia,serif;font-size:clamp(24px,4.5vw,38px);line-height:1.55;color:#d9e6f0;margin-top:18px">
       Ninety percent of pharmaceuticals.<br>Seven tenths of a second.<br><span style="color:var(--aqua)">Measured — not promised.</span></p>
   </section>
@@ -178,4 +188,16 @@
   SansOx Oy · Lahti Science Park, Niemenkatu 73, FI-15140 Lahti, Finland · Sänkinotkonkatu 6, FI-83500 Outokumpu · +358 500 603 020 · info@sansox.fi<br>
   <span>Water Europe (WSSTP) Best Innovation in the European Water Industry 2014 · Best Aeration Company 2015 · IWA Milan 2021</span>
 </div></footer>
+<script>const T={"es": {"kick": "Tecnología — OxTube", "h1": "Cuatro funciones, un tubo, <em>0,7 segundos</em>.", "lede": "Dentro del tubo hermético el agua es una mezcla controlada de agua, gotas y gas — la probabilidad de encuentro molecular es alta y las reacciones se completan de inmediato. El módulo se adapta a la tubería existente y se desmonta y limpia con facilidad.", "st_h": "Dónde empezó", "pr_h": "Declaración de principio"}, "fi": {"kick": "Teknologia — OxTube", "h1": "Neljä vaihetta, yksi putki, <em>0,7 sekuntia</em>.", "lede": "Hermeettisessä putkessa vesi pysyy hallittuna veden, pisaroiden ja kaasun seoksena — molekyylien kohtaamistodennäköisyys on korkea ja reaktiot tapahtuvat heti. Moduuli asennetaan nykyiseen putkistoon ja on helppo irrottaa ja puhdistaa.", "st_h": "Mistä kaikki alkoi", "pr_h": "Periaatejulistus"}};</script>
+<script>
+const EN={};
+document.querySelectorAll('[data-i18n]').forEach(e=>EN[e.dataset.i18n]=e.textContent);
+document.querySelectorAll('[data-i18n-html]').forEach(e=>EN[e.dataset.i18nHtml]=e.innerHTML);
+T.en=EN;
+function setLang(l){document.documentElement.lang=l;
+document.querySelectorAll('.lang button').forEach(b=>b.classList.remove('on'));
+document.getElementById('l-'+l).classList.add('on');
+document.querySelectorAll('[data-i18n]').forEach(e=>{const k=e.dataset.i18n;if(T[l]&&T[l][k])e.textContent=T[l][k]});
+document.querySelectorAll('[data-i18n-html]').forEach(e=>{const k=e.dataset.i18nHtml;if(T[l]&&T[l][k])e.innerHTML=T[l][k]});}
+</script>
 </body></html>

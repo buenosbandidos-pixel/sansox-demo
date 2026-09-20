@@ -129,7 +129,7 @@
     .stages{grid-template-columns:repeat(2,1fr);gap:14px}
     .ctaband{padding:26px 20px}
   }
-</style>
+.lang{display:inline-flex;gap:2px;border:1px solid var(--line);border-radius:6px;overflow:hidden}.lang button{background:transparent;border:0;color:var(--dim);font:700 12px/1 inherit;padding:7px 10px;cursor:pointer}.lang button.on{background:var(--aqua);color:#04121c}</style>
 </head>
 <body>
 
@@ -144,7 +144,7 @@
 
   <div class="hero">
     <div class="kicker">Measured result · Municipal wastewater · Kuopio, Finland</div>
-    <h1>Pharmaceutical residues, removed in <em>0.7&nbsp;seconds</em>.</h1>
+    <h1 data-i18n-html="h1">Pharmaceutical residues, removed in <em>0.7&nbsp;seconds</em>.</h1>
     <p>OxTube Ozone was installed in the outlet pipe of a purified municipal wastewater stream in Kuopio, Finland. One pass through the tube. No additional energy on the water side. The results were presented at IWA Ecotechnologies for Wastewater Treatment, Milan 2021.</p>
   </div>
 
@@ -157,7 +157,7 @@
   <p class="src">Source: J. Pylkkänen, <i>OxTube Integrated Water Clarification for Removal of Pharmaceutical Residues and Disinfection</i>, IWA 2021 · <a href="assets/paper/Pylkkanen_OxTube_IWA_Milan_2021.pdf">Download the paper (PDF, 6 p.)</a></p>
 
   <section>
-    <h2><span class="stepnum">1</span>The starting point</h2>
+    <h2 data-i18n-html="s1"><span class="stepnum">1</span>The starting point</h2>
     <p class="lead">Conventional treatment removes solids and nutrients — but pharmaceutical residues pass through. They end up in rivers, lakes and, eventually, the Baltic Sea. Ozone treatment works, but conventional contact basins are large, slow and energy-hungry.</p>
 
     <div class="ba" id="ba" style="--cut:50%">
@@ -173,7 +173,7 @@
   </section>
 
   <section>
-    <h2><span class="stepnum">2</span>What was installed</h2>
+    <h2 data-i18n-html="s2"><span class="stepnum">2</span>What was installed</h2>
     <p class="lead">OxTube is a hermetic in-line device — no basin, no moving parts in the water. Four functions happen sequentially inside one tube, in under a second:</p>
 
     <div class="flow">
@@ -189,7 +189,7 @@
   </section>
 
   <section>
-    <h2><span class="stepnum">3</span>Measured results</h2>
+    <h2 data-i18n-html="s3"><span class="stepnum">3</span>Measured results</h2>
     <p class="lead">Measured from the treated water of the Kuopio municipal plant. First trial, unoptimised — run on rough hypothetical dosing data.</p>
 
     <div class="tablewrap">
@@ -228,7 +228,7 @@
   </section>
 
   <section>
-    <h2><span class="stepnum">4</span>What follows from this</h2>
+    <h2 data-i18n-html="s4"><span class="stepnum">4</span>What follows from this</h2>
     <p class="lead">The trial was run with rough, first-pass dosing — the 87–90 % reduction is a floor, not a ceiling. Because OxTube installs in the outlet pipe of an existing plant, the same setup applies to any municipal plant where pharmaceutical residues, disinfection or discharge quality are on the agenda. Overdosed ozone can be recycled directly back into the gas channel.</p>
 
     <div class="ctaband">
@@ -250,5 +250,17 @@
   Water Europe (WSSTP) Best Innovation in the European Water Industry 2014 · IWA Milan 2021
 </div></footer>
 
+<script>const T={"es": {"s1": "<span class=\"stepnum\">1</span>El punto de partida", "s2": "<span class=\"stepnum\">2</span>Lo que se instaló", "s3": "<span class=\"stepnum\">3</span>Resultados medidos", "s4": "<span class=\"stepnum\">4</span>Lo que sigue de esto", "cta_h": "¿Su caso se parece a este?", "cta_p": "30 minutos, técnico, gratis. Traiga sus caudales y objetivos.", "h1": "Residuos farmacéuticos, eliminados en <em>0,7&nbsp;segundos</em>."}, "fi": {"s1": "<span class=\"stepnum\">1</span>Lähtötilanne", "s2": "<span class=\"stepnum\">2</span>Mitä asennettiin", "s3": "<span class=\"stepnum\">3</span>Mitatut tulokset", "s4": "<span class=\"stepnum\">4</span>Mitä tästä seuraa", "cta_h": "Näyttääkö sinun tapauksesi tältä?", "cta_p": "30 minuuttia, teknistä, maksutta. Tuo virtaamasi ja tavoitteesi.", "h1": "Lääkejäämät poistettu <em>0,7&nbsp;sekunnissa</em>."}};</script>
+<script>
+const EN={};
+document.querySelectorAll('[data-i18n]').forEach(e=>EN[e.dataset.i18n]=e.textContent);
+document.querySelectorAll('[data-i18n-html]').forEach(e=>EN[e.dataset.i18nHtml]=e.innerHTML);
+T.en=EN;
+function setLang(l){document.documentElement.lang=l;
+document.querySelectorAll('.lang button').forEach(b=>b.classList.remove('on'));
+document.getElementById('l-'+l).classList.add('on');
+document.querySelectorAll('[data-i18n]').forEach(e=>{const k=e.dataset.i18n;if(T[l]&&T[l][k])e.textContent=T[l][k]});
+document.querySelectorAll('[data-i18n-html]').forEach(e=>{const k=e.dataset.i18nHtml;if(T[l]&&T[l][k])e.innerHTML=T[l][k]});}
+</script>
 </body>
 </html>

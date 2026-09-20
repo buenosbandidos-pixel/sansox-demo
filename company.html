@@ -144,27 +144,37 @@
     <a href="news.html">News</a>
   </div>
   
+<div class="lang">
+    <button id="l-en" class="on" onclick="setLang('en')">EN</button>
+    <button id="l-es" onclick="setLang('es')">ES</button>
+    <button id="l-fi" onclick="setLang('fi')">FI</button>
+  </div>
+  <div class="lang">
+    <button id="l-en" class="on" onclick="setLang('en')">EN</button>
+    <button id="l-es" onclick="setLang('es')">ES</button>
+    <button id="l-fi" onclick="setLang('fi')">FI</button>
+  </div>
 </div></header>
 <div class="wrap">
-  <div class="hero"><div class="kicker">Company — SansOx Oy, Lahti, Finland</div>
-  <h1>Talk to an engineer, <em>not a salesperson</em>.</h1>
-  <p class="lede">Registered 2012 in Lahti. Recognised by Water Europe in 2014. Published at IWA in 2021. Installations in Finland, the Philippines and India — and a mission to restore natural waters, from village ponds to the Baltic Sea.</p></div>
-  <section><h2>The people</h2>
+  <div class="hero"><div data-i18n="kick" class="kicker">Company — SansOx Oy, Lahti, Finland</div>
+  <h1 data-i18n-html="h1">Talk to an engineer, <em>not a salesperson</em>.</h1>
+  <p data-i18n="lede" class="lede">Registered 2012 in Lahti. Recognised by Water Europe in 2014. Published at IWA in 2021. Installations in Finland, the Philippines and India — and a mission to restore natural waters, from village ponds to the Baltic Sea.</p></div>
+  <section><h2 data-i18n="pe_h">The people</h2>
     <div class="team" style="margin-top:16px">
       <div class="person"><div class="avatar">MS</div><b>Mikael Seppälä</b><span>Managing Director</span><p>+358 500 603 020<br>mikael.seppala@sansox.fi</p></div>
       <div class="person"><div class="avatar">JH</div><b>Jukka Hakola</b><span>Chief Operating Officer</span><p>+358 40 500 1123<br>jukka.hakola@sansox.fi</p></div>
       <div class="person"><div class="avatar">JP</div><b>Juhani Pylkkänen</b><span>Chief Engineer · author of the IWA paper</span><p>+358 40 866 9506<br>juhani.pylkkanen@sansox.fi</p></div>
     </div>
   </section>
-  <section><h2>Built where water freezes</h2>
+  <section><h2 data-i18n="fi_h">Built where water freezes</h2>
     <p class="lead">Aeration floats keeping a Finnish pond open in January — a SansOx installation photographed this winter. Finnish water technology means one thing above all: measured against some of the strictest standards in Europe, in conditions that forgive nothing. This is also where our <b style="color:var(--ink)">Nature Rejuvenation</b> mission lives.</p>
   </div><div class="bleed" style="width:100vw;position:relative;left:50%;margin-left:-50vw"><picture><source srcset="assets/img/finland_pond_winter.webp" type="image/webp"><img src="assets/img/finland_pond_winter.jpg" alt="SansOx aeration floats keeping a Finnish pond open in mid-winter" style="width:100%;max-height:70vh;object-fit:cover;display:block"></picture></div><div class="wrap">
     <p class="cap">Aeration floats under snow, open water around them. Unretouched.</p>
   </section>
-  <section><h2>Research consortium — Baltic Sea Project</h2>
+  <section><h2 data-i18n="ba_h">Research consortium — Baltic Sea Project</h2>
     <p class="lead">Funded winner of the Bank of Åland's Baltic Sea Project 2024, in a consortium with the <b style="color:var(--ink)">City of Salo</b>, the <b style="color:var(--ink)">Finnish Institute for Health and Welfare (THL)</b> and <b style="color:var(--ink)">Savonia University of Applied Sciences</b>: removing pharmaceutical residues and harmful microbes from discharge water by dissolving ozone through OxTube.</p>
   </section>
-  <section><h2>The story, briefly</h2>
+  <section><h2 data-i18n="st_h">The story, briefly</h2>
     <p class="lead">SansOx began as Happihyrrä Oy, chasing turbine efficiency in small hydropower. The economics didn't carry — but along the way we found that aeration had untapped potential, and the company turned. The first prototype proved itself in Kokkola. Awards followed (Water Europe 2014, Best Aeration Company 2015), then installations from the Philippines to India, a caviar farm in Karelia — and a published IWA paper. The full story deserves its own reading; the short version is above, in numbers.</p>
     <div class="ctaband" style="margin-top:22px">
       <div><h3>30 minutes, technical, free</h3><p>Bring your flow rates and permit limits — you will get an honest answer.</p></div>
@@ -176,4 +186,16 @@
   SansOx Oy · Lahti Science Park, Niemenkatu 73, FI-15140 Lahti, Finland · Sänkinotkonkatu 6, FI-83500 Outokumpu · +358 500 603 020 · info@sansox.fi<br>
   <span>Water Europe (WSSTP) Best Innovation in the European Water Industry 2014 · Best Aeration Company 2015 · IWA Milan 2021</span>
 </div></footer>
+<script>const T={"es": {"kick": "Empresa — SansOx Oy, Lahti, Finlandia", "h1": "Hable con un ingeniero, <em>no con un comercial</em>.", "lede": "Registrada en 2012 en Lahti. Reconocida por Water Europe en 2014. Publicada en IWA en 2021. Instalaciones en Finlandia, Filipinas e India — y una misión de restaurar aguas naturales, de estanques de aldea al mar Báltico.", "pe_h": "Las personas", "fi_h": "Construido donde el agua se congela", "ba_h": "Consorcio de investigación — Baltic Sea Project", "st_h": "La historia, en breve"}, "fi": {"kick": "Yritys — SansOx Oy, Lahti", "h1": "Puhu insinöörin kanssa, <em>älä myyjän</em>.", "lede": "Rekisteröity 2012 Lahdessa. Water Europen tunnustus 2014. IWA-julkaisu 2021. Asennuksia Suomessa, Filippiineillä ja Intiassa — ja missio elvyttää luonnonvesiä kylälammista Itämereen.", "pe_h": "Ihmiset", "fi_h": "Rakennettu sinne missä vesi jäätyy", "ba_h": "Tutkimuskonsortio — Baltic Sea Project", "st_h": "Tarina lyhyesti"}};</script>
+<script>
+const EN={};
+document.querySelectorAll('[data-i18n]').forEach(e=>EN[e.dataset.i18n]=e.textContent);
+document.querySelectorAll('[data-i18n-html]').forEach(e=>EN[e.dataset.i18nHtml]=e.innerHTML);
+T.en=EN;
+function setLang(l){document.documentElement.lang=l;
+document.querySelectorAll('.lang button').forEach(b=>b.classList.remove('on'));
+document.getElementById('l-'+l).classList.add('on');
+document.querySelectorAll('[data-i18n]').forEach(e=>{const k=e.dataset.i18n;if(T[l]&&T[l][k])e.textContent=T[l][k]});
+document.querySelectorAll('[data-i18n-html]').forEach(e=>{const k=e.dataset.i18nHtml;if(T[l]&&T[l][k])e.innerHTML=T[l][k]});}
+</script>
 </body></html>

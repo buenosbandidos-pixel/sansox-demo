@@ -140,11 +140,21 @@
     <a href="solutions.html">Solutions</a><a href="projects.html">Projects</a>
     <a href="technology.html">Technology</a><a href="company.html">Company</a><a href="news.html">News</a>
   </div>
+<div class="lang">
+    <button id="l-en" class="on" onclick="setLang('en')">EN</button>
+    <button id="l-es" onclick="setLang('es')">ES</button>
+    <button id="l-fi" onclick="setLang('fi')">FI</button>
+  </div>
+  <div class="lang">
+    <button id="l-en" class="on" onclick="setLang('en')">EN</button>
+    <button id="l-es" onclick="setLang('es')">ES</button>
+    <button id="l-fi" onclick="setLang('fi')">FI</button>
+  </div>
 </div></header>
 <div class="wrap">
-  <div class="hero"><div class="kicker">News — from the field, not the newsroom</div>
-  <h1>What we've been <em>doing</em>.</h1>
-  <p class="lede">Thirteen dispatches, 2024–2026: ponds saved, textile water in Bangladesh and Pakistan, the Baltic Sea Project win, and the pharmaceutical work behind the Kuopio numbers.</p></div>
+  <div class="hero"><div data-i18n="kick" class="kicker">News — from the field, not the newsroom</div>
+  <h1 data-i18n-html="h1">What we've been <em>doing</em>.</h1>
+  <p data-i18n="lede" class="lede">Thirteen dispatches, 2024–2026: ponds saved, textile water in Bangladesh and Pakistan, the Baltic Sea Project win, and the pharmaceutical work behind the Kuopio numbers.</p></div>
   <section><div class="cards"><a class="card" href="https://www.sansox.fi/post/pharmaseutical-residues" style="text-decoration:none;color:inherit">
 <span class="tag">Wastewater</span><h3 style="font-size:16px">Pharmaceutical residues</h3>
 <p style="font-variant-numeric:tabular-nums">2026-03-11</p></a><a class="card" href="https://www.sansox.fi/post/another-pond-to-be-saved" style="text-decoration:none;color:inherit">
@@ -174,4 +184,16 @@
 <p style="font-variant-numeric:tabular-nums">2024-04-18</p></a></div></section>
 </div>
 <footer class="site"><div class="wrap">SansOx Oy · Lahti Science Park, Niemenkatu 73, FI-15140 Lahti, Finland · +358 500 603 020 · info@sansox.fi</div></footer>
+<script>const T={"es": {"kick": "Noticias — del terreno, no de la redacción", "h1": "Lo que hemos estado <em>haciendo</em>.", "lede": "Trece despachos, 2024–2026: estanques salvados, agua textil en Bangladés y Pakistán, el premio del Baltic Sea Project, y el trabajo farmacéutico detrás de las cifras de Kuopio."}, "fi": {"kick": "Uutiset — kentältä, ei uutishuoneesta", "h1": "Mitä olemme <em>tehneet</em>.", "lede": "Kolmetoista raporttia 2024–2026: pelastettuja lampia, tekstiilivettä Bangladeshissa ja Pakistanissa, Baltic Sea Projectin voitto ja Kuopion lukujen takana oleva lääkejäämätyö."}};</script>
+<script>
+const EN={};
+document.querySelectorAll('[data-i18n]').forEach(e=>EN[e.dataset.i18n]=e.textContent);
+document.querySelectorAll('[data-i18n-html]').forEach(e=>EN[e.dataset.i18nHtml]=e.innerHTML);
+T.en=EN;
+function setLang(l){document.documentElement.lang=l;
+document.querySelectorAll('.lang button').forEach(b=>b.classList.remove('on'));
+document.getElementById('l-'+l).classList.add('on');
+document.querySelectorAll('[data-i18n]').forEach(e=>{const k=e.dataset.i18n;if(T[l]&&T[l][k])e.textContent=T[l][k]});
+document.querySelectorAll('[data-i18n-html]').forEach(e=>{const k=e.dataset.i18nHtml;if(T[l]&&T[l][k])e.innerHTML=T[l][k]});}
+</script>
 </body></html>

@@ -144,11 +144,21 @@
     <a href="news.html">News</a>
   </div>
   
+<div class="lang">
+    <button id="l-en" class="on" onclick="setLang('en')">EN</button>
+    <button id="l-es" onclick="setLang('es')">ES</button>
+    <button id="l-fi" onclick="setLang('fi')">FI</button>
+  </div>
+  <div class="lang">
+    <button id="l-en" class="on" onclick="setLang('en')">EN</button>
+    <button id="l-es" onclick="setLang('es')">ES</button>
+    <button id="l-fi" onclick="setLang('fi')">FI</button>
+  </div>
 </div></header>
 <div class="wrap">
-  <div class="hero"><div class="kicker">Projects — measured, named, sourced</div>
-  <h1>Five references, <em>no adjectives</em>.</h1>
-  <p class="lede">Each page follows the same spine: the starting point, what was installed, the measured results, and what follows. If a number is missing, the page says so.</p></div>
+  <div class="hero"><div data-i18n="kick" class="kicker">Projects — measured, named, sourced</div>
+  <h1 data-i18n-html="h1">Five references, <em>no adjectives</em>.</h1>
+  <p data-i18n="lede" class="lede">Each page follows the same spine: the starting point, what was installed, the measured results, and what follows. If a number is missing, the page says so.</p></div>
   <section>
     <div class="cards">
       <a class="card" href="case-kuopio.html" style="text-decoration:none;color:inherit"><span class="tag">Wastewater · Finland</span><h3>Kuopio — pharmaceuticals</h3><div class="big">90&nbsp;%</div><p>removed in 0.7 s. The IWA-published trial, substance by substance.</p></a>
@@ -163,4 +173,16 @@
   SansOx Oy · Lahti Science Park, Niemenkatu 73, FI-15140 Lahti, Finland · Sänkinotkonkatu 6, FI-83500 Outokumpu · +358 500 603 020 · info@sansox.fi<br>
   <span>Water Europe (WSSTP) Best Innovation in the European Water Industry 2014 · Best Aeration Company 2015 · IWA Milan 2021</span>
 </div></footer>
+<script>const T={"es": {"kick": "Proyectos — medidos, con nombre, con fuente", "h1": "Cinco referencias, <em>sin adjetivos</em>.", "lede": "Cada página sigue la misma columna: el punto de partida, lo instalado, los resultados medidos y lo que sigue. Si falta una cifra, la página lo dice."}, "fi": {"kick": "Projektit — mitattu, nimetty, lähteistetty", "h1": "Viisi referenssiä, <em>ei adjektiiveja</em>.", "lede": "Jokainen sivu noudattaa samaa runkoa: lähtötilanne, asennus, mitatut tulokset ja mitä seuraa. Jos luku puuttuu, sivu sanoo sen."}};</script>
+<script>
+const EN={};
+document.querySelectorAll('[data-i18n]').forEach(e=>EN[e.dataset.i18n]=e.textContent);
+document.querySelectorAll('[data-i18n-html]').forEach(e=>EN[e.dataset.i18nHtml]=e.innerHTML);
+T.en=EN;
+function setLang(l){document.documentElement.lang=l;
+document.querySelectorAll('.lang button').forEach(b=>b.classList.remove('on'));
+document.getElementById('l-'+l).classList.add('on');
+document.querySelectorAll('[data-i18n]').forEach(e=>{const k=e.dataset.i18n;if(T[l]&&T[l][k])e.textContent=T[l][k]});
+document.querySelectorAll('[data-i18n-html]').forEach(e=>{const k=e.dataset.i18nHtml;if(T[l]&&T[l][k])e.innerHTML=T[l][k]});}
+</script>
 </body></html>

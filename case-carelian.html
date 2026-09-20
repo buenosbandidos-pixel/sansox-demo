@@ -51,17 +51,17 @@
   .btn{display:inline-block;background:var(--aqua);color:#04121c;font-weight:800;text-decoration:none;padding:13px 22px;border-radius:7px;font-size:14.5px}
   footer.site{border-top:1px solid var(--line);margin-top:50px;padding:26px 0 44px;color:var(--dim);font-size:13px}
   @media(max-width:560px){.crumb{display:none}}
-</style></head><body>
+.lang{display:inline-flex;gap:2px;border:1px solid var(--line);border-radius:6px;overflow:hidden}.lang button{background:transparent;border:0;color:var(--dim);font:700 12px/1 inherit;padding:7px 10px;cursor:pointer}.lang button.on{background:var(--aqua);color:#04121c}</style></head><body>
 <div class="draft">DEMO · placeholder blocks marked 📷 await real photographs · all figures from published sources</div>
-<header><div class="wrap"><span class="crumb"><a href="index.html">← Evidence</a></span><div class="logo">Sans<b>Ox</b></div></div></header>
+<header><div class="wrap"><span class="crumb"><a href="index.html">← Evidence</a></span><div class="logo">Sans<b>Ox</b></div><div class="lang" style="float:right"><button id="l-en" class="on" onclick="setLang('en')">EN</button><button id="l-es" onclick="setLang('es')">ES</button><button id="l-fi" onclick="setLang('fi')">FI</button></div></div></header>
 <div class="wrap">
-<div class="hero"><div class="kicker">Aquaculture · Ozone disinfection · Finland</div><h1>Ozone dissolved to full effect — <em>in 3 seconds</em>, in a working caviar farm.</h1><p class="lede">Carelian Caviar raises sturgeon in Finland — a species that tolerates no water-quality compromises. OxTube was installed to dissolve ozone into the process water, eliminating bacteria and viruses without chemical residues.</p>
+<div class="hero"><div class="kicker">Aquaculture · Ozone disinfection · Finland</div><h1 data-i18n-html="h1">Ozone dissolved to full effect — <em>in 3 seconds</em>, in a working caviar farm.</h1><p class="lede">Carelian Caviar raises sturgeon in Finland — a species that tolerates no water-quality compromises. OxTube was installed to dissolve ozone into the process water, eliminating bacteria and viruses without chemical residues.</p>
 <div class="numbers"><div class="num"><b>3<small>s</small></b><span>to theoretical maximum concentration in the farm installation</span></div><div class="num"><b>1<small>s</small></b><span>the same result in laboratory runs</span></div><div class="num"><b>4<small>wks</small></b><span>dissolved concentration remained stable (lab)</span></div><div class="num"><b>0</b><span>chemical residues — ozone reverts to oxygen</span></div></div><p class="src">Sources: Pylkkänen, IWA Milan 2021 (dissolution times) · SansOx company records. <a href="assets/paper/Pylkkanen_OxTube_IWA_Milan_2021.pdf">Download the paper</a></p></div>
-<section><h2><span class="stepnum">1</span>The starting point</h2><p class="lead">Recirculating aquaculture lives and dies by water hygiene. Chemical disinfection leaves residues; UV misses turbid water. Ozone works — if you can dissolve it fast enough, evenly enough.</p>
+<section><h2 data-i18n-html="s1"><span class="stepnum">1</span>The starting point</h2><p class="lead">Recirculating aquaculture lives and dies by water hygiene. Chemical disinfection leaves residues; UV misses turbid water. Ozone works — if you can dissolve it fast enough, evenly enough.</p>
  <div class="ph"><span class="cam">📷</span><b>Photo pending — farm basins</b><span>Ask Carelian Caviar: sturgeon basins + the OxTube line feeding them.</span></div></section>
-<section><h2><span class="stepnum">2</span>What was installed</h2><p class="lead">OxTube fed with ozone from a generator, installed in the circulation line. The hermetic tube gives ozone molecules a high meeting probability with the water — which is why dissolution completes in seconds, not minutes.</p>
+<section><h2 data-i18n-html="s2"><span class="stepnum">2</span>What was installed</h2><p class="lead">OxTube fed with ozone from a generator, installed in the circulation line. The hermetic tube gives ozone molecules a high meeting probability with the water — which is why dissolution completes in seconds, not minutes.</p>
  <div class="ph"><span class="cam">📷</span><b>Photo pending — installation</b><span>The in-line unit and the ozone generator, one frame.</span></div></section>
-<section><h2><span class="stepnum">3</span>Measured results</h2><div class="tablewrap"><table>
+<section><h2 data-i18n-html="s3"><span class="stepnum">3</span>Measured results</h2><div class="tablewrap"><table>
  <tr><th>Measure</th><th>Result</th></tr>
  <tr><td>Time to theoretical max concentration (farm)</td><td class="v">3 s</td></tr>
  <tr><td>Time to theoretical max concentration (lab)</td><td class="v">1 s</td></tr>
@@ -69,10 +69,22 @@
  <tr><td>Bacteria & viruses in treated pools</td><td class="v">eliminated</td></tr>
  </table></div>
  <blockquote>“There we demonstrated that OxTube could dissolve ozone with exceptional efficiency, eliminating bacteria and viruses in aquaculture pools.”<footer>— SansOx, company history</footer></blockquote></section>
-<section><h2><span class="stepnum">4</span>What follows from this</h2><p class="lead">The same fast ozone dissolution opened doors in aquaculture in Norway, Chile and Vietnam — and it is the exact mechanism behind the 87–90 % pharmaceutical removal measured in Kuopio. One principle, two industries.</p>
-<div class="ctaband" style="margin-top:24px"><div><h3>Does your case look like this one?</h3>
-<p>30 minutes, technical, free. Bring your flow rates and targets.</p></div>
+<section><h2 data-i18n-html="s4"><span class="stepnum">4</span>What follows from this</h2><p class="lead">The same fast ozone dissolution opened doors in aquaculture in Norway, Chile and Vietnam — and it is the exact mechanism behind the 87–90 % pharmaceutical removal measured in Kuopio. One principle, two industries.</p>
+<div class="ctaband" style="margin-top:24px"><div><h3 data-i18n="cta_h">Does your case look like this one?</h3>
+<p data-i18n="cta_p">30 minutes, technical, free. Bring your flow rates and targets.</p></div>
 <a class="btn" href="mailto:info@sansox.fi">Book 30 min with our engineers</a></div></section>
 </div>
 <footer class="site"><div class="wrap">SansOx Oy · Lahti Science Park, Niemenkatu 73, FI-15140 Lahti, Finland · +358 500 603 020 · info@sansox.fi</div></footer>
+<script>const T={"es": {"s1": "<span class=\"stepnum\">1</span>El punto de partida", "s2": "<span class=\"stepnum\">2</span>Lo que se instaló", "s3": "<span class=\"stepnum\">3</span>Resultados medidos", "s4": "<span class=\"stepnum\">4</span>Lo que sigue de esto", "cta_h": "¿Su caso se parece a este?", "cta_p": "30 minutos, técnico, gratis. Traiga sus caudales y objetivos.", "h1": "Ozono disuelto a pleno efecto — <em>en 3 segundos</em>, en una granja de caviar en funcionamiento."}, "fi": {"s1": "<span class=\"stepnum\">1</span>Lähtötilanne", "s2": "<span class=\"stepnum\">2</span>Mitä asennettiin", "s3": "<span class=\"stepnum\">3</span>Mitatut tulokset", "s4": "<span class=\"stepnum\">4</span>Mitä tästä seuraa", "cta_h": "Näyttääkö sinun tapauksesi tältä?", "cta_p": "30 minuuttia, teknistä, maksutta. Tuo virtaamasi ja tavoitteesi.", "h1": "Otsoni liuotettuna täyteen tehoon — <em>3 sekunnissa</em>, toimivassa kaviaarikasvattamossa."}};</script>
+<script>
+const EN={};
+document.querySelectorAll('[data-i18n]').forEach(e=>EN[e.dataset.i18n]=e.textContent);
+document.querySelectorAll('[data-i18n-html]').forEach(e=>EN[e.dataset.i18nHtml]=e.innerHTML);
+T.en=EN;
+function setLang(l){document.documentElement.lang=l;
+document.querySelectorAll('.lang button').forEach(b=>b.classList.remove('on'));
+document.getElementById('l-'+l).classList.add('on');
+document.querySelectorAll('[data-i18n]').forEach(e=>{const k=e.dataset.i18n;if(T[l]&&T[l][k])e.textContent=T[l][k]});
+document.querySelectorAll('[data-i18n-html]').forEach(e=>{const k=e.dataset.i18nHtml;if(T[l]&&T[l][k])e.innerHTML=T[l][k]});}
+</script>
 </body></html>

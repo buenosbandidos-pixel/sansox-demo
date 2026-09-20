@@ -144,14 +144,24 @@
     <a href="news.html">News</a>
   </div>
   
+<div class="lang">
+    <button id="l-en" class="on" onclick="setLang('en')">EN</button>
+    <button id="l-es" onclick="setLang('es')">ES</button>
+    <button id="l-fi" onclick="setLang('fi')">FI</button>
+  </div>
+  <div class="lang">
+    <button id="l-en" class="on" onclick="setLang('en')">EN</button>
+    <button id="l-es" onclick="setLang('es')">ES</button>
+    <button id="l-fi" onclick="setLang('fi')">FI</button>
+  </div>
 </div></header>
 <div class="wrap">
-  <div class="hero"><div class="kicker">Solutions — every stage of the water cycle</div>
-  <h1>One tube, three <em>segments</em>.</h1>
-  <p class="lede">The same four-stage process — separation, activation, clarification, re-dissolving — applied where you work. Proven applications first; the wider list is what the tube also does.</p></div>
+  <div class="hero"><div data-i18n="kick" class="kicker">Solutions — every stage of the water cycle</div>
+  <h1 data-i18n-html="h1">One tube, three <em>segments</em>.</h1>
+  <p data-i18n="lede" class="lede">The same four-stage process — separation, activation, clarification, re-dissolving — applied where you work. Proven applications first; the wider list is what the tube also does.</p></div>
 
-  <section id="natural"><h2>Natural water &amp; irrigation</h2>
-    <p class="lead">Aeration and oxygen where nature or crops need it — without chemicals.</p>
+  <section id="natural"><h2 data-i18n-html="n_h">Natural water &amp; irrigation</h2>
+    <p data-i18n="n_p" class="lead">Aeration and oxygen where nature or crops need it — without chemicals.</p>
     <div class="cards">
       <a class="card" href="case-india.html" style="text-decoration:none;color:inherit"><span class="tag">Proven</span><h3>Lake rejuvenation — Sukhrali, India</h3><p>A dead pond revived; continuous OxTube aeration keeps it clear under contract.</p></a>
       <a class="card" href="case-siuntio.html" style="text-decoration:none;color:inherit"><span class="tag">Proven</span><h3>Winter aeration — Finland</h3><p>Floats keep ponds open and oxygenated through Nordic winters.</p></a>
@@ -160,8 +170,8 @@
     <p class="src">Also: algae prevention · transferring lakes from carbon source to carbon sink · golf course water hazards · dissolved oxygen for fish farming.</p>
   </section>
 
-  <section id="potable"><h2>Potable water</h2>
-    <p class="lead">In-line treatment at the pumping station — no new basins.</p>
+  <section id="potable"><h2 data-i18n="p_h">Potable water</h2>
+    <p data-i18n="p_p" class="lead">In-line treatment at the pumping station — no new basins.</p>
     <div class="cards">
       <a class="card" href="case-philippines.html" style="text-decoration:none;color:inherit"><span class="tag">Proven</span><h3>Radon removal — Philippines</h3><p>Six stations with Unique Water, meeting the 11 Bq/l limit.</p></a>
       <a class="card" href="case-siuntio.html" style="text-decoration:none;color:inherit"><span class="tag">Proven</span><h3>Iron removal — Siuntio &amp; Kokkola</h3><p>The field origin of the process: iron out of surface water, in-line.</p></a>
@@ -169,8 +179,8 @@
     </div>
   </section>
 
-  <section id="waste"><h2>Process &amp; wastewater</h2>
-    <p class="lead">Ozone with high meeting probability — disinfection and molecular breakdown in the pipe.</p>
+  <section id="waste"><h2 data-i18n-html="w_h">Process &amp; wastewater</h2>
+    <p data-i18n="w_p" class="lead">Ozone with high meeting probability — disinfection and molecular breakdown in the pipe.</p>
     <div class="cards">
       <a class="card" href="case-kuopio.html" style="text-decoration:none;color:inherit"><span class="tag">Proven</span><h3>Pharmaceutical residues — Kuopio</h3><p>87–90 % reduction in 0.7 s, published at IWA Milan 2021.</p></a>
       <a class="card" href="case-carelian.html" style="text-decoration:none;color:inherit"><span class="tag">Proven</span><h3>Ozone disinfection — Carelian Caviar</h3><p>Bacteria and viruses eliminated in a working sturgeon farm.</p></a>
@@ -183,4 +193,16 @@
   SansOx Oy · Lahti Science Park, Niemenkatu 73, FI-15140 Lahti, Finland · Sänkinotkonkatu 6, FI-83500 Outokumpu · +358 500 603 020 · info@sansox.fi<br>
   <span>Water Europe (WSSTP) Best Innovation in the European Water Industry 2014 · Best Aeration Company 2015 · IWA Milan 2021</span>
 </div></footer>
+<script>const T={"es": {"kick": "Soluciones — todas las etapas del ciclo del agua", "h1": "Un tubo, tres <em>segmentos</em>.", "lede": "El mismo proceso de cuatro etapas — separación, activación, clarificación, redisolución — aplicado donde usted trabaja. Primero las aplicaciones probadas; la lista amplia es lo que el tubo también hace.", "n_h": "Aguas naturales y riego", "n_p": "Aireación y oxígeno donde la naturaleza o los cultivos lo necesitan — sin químicos.", "p_h": "Agua potable", "p_p": "Tratamiento en línea en la estación de bombeo — sin balsas nuevas.", "w_h": "Agua de proceso y residual", "w_p": "Ozono con alta probabilidad de encuentro — desinfección y ruptura molecular en la tubería."}, "fi": {"kick": "Ratkaisut — veden kierron kaikki vaiheet", "h1": "Yksi putki, kolme <em>segmenttiä</em>.", "lede": "Sama nelivaiheinen prosessi — erotus, aktivointi, kirkastus, takaisinliuotus — sovellettuna sinne missä työskentelet. Ensin todennetut sovellukset; laajempi lista on sitä mitä putki myös tekee.", "n_h": "Luonnonvedet ja kastelu", "n_p": "Ilmastusta ja happea sinne missä luonto tai viljelmät sitä tarvitsevat — ilman kemikaaleja.", "p_h": "Juomavesi", "p_p": "Käsittely putkilinjassa pumppaamolla — ei uusia altaita.", "w_h": "Prosessi- ja jätevesi", "w_p": "Otsoni korkealla kohtaamistodennäköisyydellä — desinfiointi ja molekyylien hajotus putkessa."}};</script>
+<script>
+const EN={};
+document.querySelectorAll('[data-i18n]').forEach(e=>EN[e.dataset.i18n]=e.textContent);
+document.querySelectorAll('[data-i18n-html]').forEach(e=>EN[e.dataset.i18nHtml]=e.innerHTML);
+T.en=EN;
+function setLang(l){document.documentElement.lang=l;
+document.querySelectorAll('.lang button').forEach(b=>b.classList.remove('on'));
+document.getElementById('l-'+l).classList.add('on');
+document.querySelectorAll('[data-i18n]').forEach(e=>{const k=e.dataset.i18n;if(T[l]&&T[l][k])e.textContent=T[l][k]});
+document.querySelectorAll('[data-i18n-html]').forEach(e=>{const k=e.dataset.i18nHtml;if(T[l]&&T[l][k])e.innerHTML=T[l][k]});}
+</script>
 </body></html>
