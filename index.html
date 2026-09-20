@@ -252,50 +252,81 @@ document.querySelectorAll('[data-i18n-html]').forEach(e=>{const k=e.dataset.i18n
 (function(){
 const cv=document.getElementById('ox3d'); if(!cv) return;
 const ctx=cv.getContext('2d'), W=cv.width, H=cv.height;
-// OxTube tuoterenderin mukaan: laippaparit, tumma putki + kiiltävä rst-jakso,
-// kartiolaajennus + paksu moduuli, anturisondit. mat: 0=tumma 1=laippa 2=kiiltävä
+// OxTube tuoterenderin mukaan. mat: 0=tumma putki 1=laippateräs 2=kiiltävä rst
 const P=[];
 function seg(x0,x1,r0,r1,mat,n){for(let i=(P.length?1:0);i<=n;i++){const t=i/n;P.push([x0+(x1-x0)*t,r0+(r1-r0)*t,mat]);}}
-function flangePair(x){ // kaksi laippakiekkoa pienellä raolla = pulttiliitos
-  seg(x,x,.13,.24,1,1); seg(x,x+.11,.24,.24,1,1); seg(x+.11,x+.11,.24,.135,1,1);
+function flangePair(x){
+  seg(x,x,.13,.24,1,1); seg(x,x+.11,.24,.24,1,2); seg(x+.11,x+.11,.24,.135,1,1);
   seg(x+.11,x+.15,.135,.135,0,1);
-  seg(x+.15,x+.15,.135,.24,1,1); seg(x+.15,x+.26,.24,.24,1,1); seg(x+.26,x+.26,.24,.13,1,1);}
-seg(-2.9,-2.9,.02,.13,0,1);           // pää
-seg(-2.9,-2.55,.13,.13,0,2);          // putki
+  seg(x+.15,x+.15,.135,.24,1,1); seg(x+.15,x+.26,.24,.24,1,2); seg(x+.26,x+.26,.24,.13,1,1);}
+seg(-2.9,-2.9,.02,.13,0,1);
+seg(-2.9,-2.55,.13,.13,0,2);
 flangePair(-2.55);
 seg(-2.29,-2.05,.13,.13,0,2);
-seg(-2.05,-1.95,.13,.105,2,1);        // kavennus kiiltävään
-seg(-1.95,-1.15,.105,.105,2,4);       // kiiltävä rst-jakso 1
-seg(-1.15,-1.05,.105,.13,2,1);
+seg(-2.05,-1.95,.13,.105,2,2);
+seg(-1.95,-1.15,.105,.105,2,6);
+seg(-1.15,-1.05,.105,.13,2,2);
 flangePair(-1.05);
-seg(-.79,-.69,.13,.105,2,1);
-seg(-.69,.05,.105,.105,2,4);          // kiiltävä rst-jakso 2
-seg(.05,.15,.105,.13,2,1);
+seg(-.79,-.69,.13,.105,2,2);
+seg(-.69,.05,.105,.105,2,6);
+seg(.05,.15,.105,.13,2,2);
 flangePair(.15);
-seg(.41,.78,.13,.185,0,3);            // kartiolaajennus
-seg(.78,1.55,.185,.185,0,3);          // paksu moduuli
-seg(1.55,1.55,.185,.27,1,1); seg(1.55,1.66,.27,.27,1,1); seg(1.66,1.66,.27,.19,1,1);
+seg(.41,.78,.13,.185,0,5);
+seg(.78,1.55,.185,.185,0,4);
+seg(1.55,1.55,.185,.27,1,1); seg(1.55,1.66,.27,.27,1,2); seg(1.66,1.66,.27,.19,1,1);
 seg(1.66,1.7,.19,.19,0,1);
-seg(1.7,1.7,.19,.27,1,1); seg(1.7,1.81,.27,.27,1,1); seg(1.81,1.81,.27,.185,1,1);
-seg(1.81,2.3,.185,.185,0,2);          // paksu barrel
-seg(2.3,2.3,.185,.26,1,1); seg(2.3,2.41,.26,.26,1,1); seg(2.41,2.41,.26,.13,1,1);
-seg(2.41,2.85,.13,.13,0,2);           // putki ulos
-seg(2.85,2.85,.13,.02,0,1);           // pää
-const MAT=[[112,113,120],[128,142,164],[188,197,208]]; // tumma · laippa · kiiltävä
-const PROBES=[[-1.7,-.14],[-1.5,.12],[-.5,-.12],[-.3,.14]]; // [x, kallistus]
-const SEG=32, TWO=Math.PI*2;
+seg(1.7,1.7,.19,.27,1,1); seg(1.7,1.81,.27,.27,1,2); seg(1.81,1.81,.27,.185,1,1);
+seg(1.81,2.3,.185,.185,0,3);
+seg(2.3,2.3,.185,.26,1,1); seg(2.3,2.41,.26,.26,1,2); seg(2.41,2.41,.26,.13,1,1);
+seg(2.41,2.85,.13,.13,0,2);
+seg(2.85,2.85,.13,.02,0,1);
+// materiaali: pohja, ambientti, diffuusi, spekulaari, terävyys
+const MAT=[[[112,116,124],.44,.58,.30,12],[[126,141,162],.42,.60,.55,22],[[176,186,198],.46,.50,1.0,46]];
+const PROBES=[[-1.7,-.14],[-1.5,.12],[-.5,-.12],[-.3,.14]];
+const SEG=48, TWO=Math.PI*2, PERSP=12;
+// profiilisegmenttien 2D-normaalit (x,r)-tasossa
+const N2=[];
+for(let i=0;i<P.length-1;i++){
+  const dx=P[i+1][0]-P[i][0], dr=P[i+1][1]-P[i][1], l=Math.hypot(dx,dr)||1;
+  N2.push([-dr/l,dx/l]);}
+// sovitus: pahin kulma etukäteen, sondien kärjet mukana
+let FIT=1;
+{let mx=0,my=0;
+ const pts=P.map(p=>[p[0],p[1]]).concat(PROBES.map(([px,t])=>[px+t*1.15,.63]));
+ for(let yi=0;yi<=24;yi++){const yaw=-.6+yi/24*1.2;
+  for(const pitch of [.30,.38]){
+   const cy=Math.cos(yaw),sy=Math.sin(yaw),cp=Math.cos(pitch),sp=Math.sin(pitch);
+   for(const [x,r] of pts){for(let j=0;j<12;j++){const a=j/12*TWO;
+     const y=r*Math.cos(a), z=r*Math.sin(a);
+     let X=x*cy+z*sy, Z=-x*sy+z*cy;
+     let Y=y*cp-Z*sp; Z=y*sp+Z*cp;
+     const d=PERSP/(PERSP-Z);
+     mx=Math.max(mx,Math.abs(X*d)); my=Math.max(my,Math.abs(Y*d));}}}}
+ FIT=Math.min(W/2/mx,H/2/my)*.97;}
+const Ln=(v=>{const l=Math.hypot(...v);return v.map(c=>c/l)})([-.45,.75,.48]);
+const Hv=(v=>{const l=Math.hypot(...v);return v.map(c=>c/l)})([Ln[0],Ln[1],Ln[2]+1]);
+const L2=(v=>{const l=Math.hypot(...v);return v.map(c=>c/l)})([.55,.12,.62]);
 const reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;
 let t=0, running=true;
 function frame(){
   ctx.clearRect(0,0,W,H);
-  const yaw=t*.32, pitch=.40+Math.sin(t*.45)*.05;
+  const yaw=.55*Math.sin(t*.30), pitch=.34+Math.sin(t*.45)*.04;
   const cy=Math.cos(yaw),sy=Math.sin(yaw),cp=Math.cos(pitch),sp=Math.sin(pitch);
-  const scale=Math.min(H*.42,W/(2*3.02)), cx=W/2, cz=H/2, persp=5.5;
-  function proj(x,y,z){
+  const scale=FIT, cx=W/2, cz=H/2;
+  function rot(x,y,z){
     let X=x*cy+z*sy, Z=-x*sy+z*cy;
     let Y=y*cp-Z*sp; Z=y*sp+Z*cp;
-    const d=persp/(persp-Z);
+    return [X,Y,Z];}
+  function proj(x,y,z){
+    const [X,Y,Z]=rot(x,y,z);
+    const d=PERSP/(PERSP-Z);
     return [cx+X*scale*d, cz-Y*scale*d, Z];}
+  // pehmeä pohjavarjo
+  const shy=cz+FIT*.62;
+  const sg=ctx.createRadialGradient(cx,shy,4,cx,shy,FIT*3.0);
+  sg.addColorStop(0,'rgba(0,0,0,.34)');sg.addColorStop(1,'rgba(0,0,0,0)');
+  ctx.save();ctx.translate(cx,shy);ctx.scale(1,.13);ctx.translate(-cx,-shy);
+  ctx.fillStyle=sg;ctx.fillRect(0,shy-FIT*3,W,FIT*6);ctx.restore();
   const V=[];
   for(let i=0;i<P.length;i++){V.push([]);
     for(let j=0;j<SEG;j++){const a=j/SEG*TWO;
@@ -303,30 +334,39 @@ function frame(){
   const quads=[];
   for(let i=0;i<P.length-1;i++)for(let j=0;j<SEG;j++){
     const j2=(j+1)%SEG, a=V[i][j],b=V[i][j2],c=V[i+1][j2],e=V[i+1][j];
-    quads.push([(a[2]+b[2]+c[2]+e[2])/4,a,b,c,e,Math.max(P[i][2],P[i+1][2]),(j+.5)/SEG]);}
+    quads.push([(a[2]+b[2]+c[2]+e[2])/4,a,b,c,e,Math.max(P[i][2],P[i+1][2]),(j+.5)/SEG,i]);}
   quads.sort((q,r)=>q[0]-r[0]);
-  for(const [d,a,b,c,e,mat,th] of quads){
-    // valo ylhäältä: kulma θ≈0 (yläpinta) kirkkain + kapea spekulaarijuova kiiltävälle
-    const up=Math.cos(th*TWO);                       // 1 ylhäällä, -1 alhaalla
-    let L=.42+.46*Math.max(0,up)+.12*(d+1)/2;
-    if(mat===2) L+= .38*Math.max(0,1-Math.abs(th-.07)*9); // spekulaari
-    const M=MAT[mat];
-    ctx.fillStyle='rgb('+Math.min(255,M[0]*L|0)+','+Math.min(255,M[1]*L|0)+','+Math.min(255,M[2]*L|0)+')';
+  for(const [d,a,b,c,e,mat,th,i] of quads){
+    const am=th*TWO;
+    const [Nx,Nr]=N2[i];
+    const [NX,NY,NZ]=rot(Nx,Nr*Math.cos(am),Nr*Math.sin(am));
+    if(NZ<-.15) continue;                                  // takapinnat pois
+    const diff=Math.max(0,NX*Ln[0]+NY*Ln[1]+NZ*Ln[2])+.34*Math.max(0,NX*L2[0]+NY*L2[1]+NZ*L2[2]);
+    const spec=Math.pow(Math.max(0,NX*Hv[0]+NY*Hv[1]+NZ*Hv[2]),MAT[mat][4]);
+    const fres=Math.pow(1-Math.abs(NZ),2.2);              // sinertävä reunaheijastus
+    const [base,amb,kd,ks]=MAT[mat];
+    const L=amb+kd*diff;
+    const r8=Math.min(255,base[0]*L+235*ks*spec+8*fres);
+    const g8=Math.min(255,base[1]*L+240*ks*spec+26*fres);
+    const b8=Math.min(255,base[2]*L+248*ks*spec+38*fres);
+    ctx.fillStyle='rgb('+(r8|0)+','+(g8|0)+','+(b8|0)+')';
+    ctx.strokeStyle=ctx.fillStyle;ctx.lineWidth=.8;        // saumaton pinta
     ctx.beginPath();ctx.moveTo(a[0],a[1]);ctx.lineTo(b[0],b[1]);ctx.lineTo(c[0],c[1]);ctx.lineTo(e[0],e[1]);ctx.closePath();
-    ctx.fill();
-    if(mat===1){ctx.strokeStyle='rgba(20,32,46,.25)';ctx.lineWidth=.5;ctx.stroke();}}
-  // anturisondit (keltaiset, kiiltävillä jaksoilla)
+    ctx.fill();ctx.stroke();}
+  // anturisondit
   for(const [px,tilt] of PROBES){
     const r=.105, len=.46;
     const b1=proj(px,r,0), b2=proj(px+tilt,r+len,0), tip=proj(px+tilt*1.15,r+len+.07,0);
-    ctx.strokeStyle='#8a93a0';ctx.lineWidth=2;
+    ctx.strokeStyle='#79828f';ctx.lineWidth=2;
     ctx.beginPath();ctx.moveTo(b1[0],b1[1]);ctx.lineTo(b2[0],b2[1]);ctx.stroke();
-    ctx.strokeStyle='#d9b53a';ctx.lineWidth=4.5;
+    ctx.strokeStyle='#b6952f';ctx.lineWidth=5;
     ctx.beginPath();ctx.moveTo(b2[0],b2[1]);ctx.lineTo(tip[0],tip[1]);ctx.stroke();
-    ctx.fillStyle='#e8c94f';ctx.beginPath();ctx.arc(tip[0],tip[1],3.2,0,TWO);ctx.fill();}
-  // aqua-pohjahehku
+    ctx.strokeStyle='#e9cc55';ctx.lineWidth=2.4;
+    ctx.beginPath();ctx.moveTo(b2[0]-1,b2[1]-1);ctx.lineTo(tip[0]-1,tip[1]-1);ctx.stroke();
+    ctx.fillStyle='#f0d564';ctx.beginPath();ctx.arc(tip[0],tip[1],3.4,0,TWO);ctx.fill();}
+  // aqua-hehku
   const g=ctx.createRadialGradient(cx,H*.88,10,cx,H*.88,W*.45);
-  g.addColorStop(0,'rgba(62,198,255,.10)');g.addColorStop(1,'rgba(62,198,255,0)');
+  g.addColorStop(0,'rgba(62,198,255,.09)');g.addColorStop(1,'rgba(62,198,255,0)');
   ctx.fillStyle=g;ctx.fillRect(0,H*.6,W,H*.4);
   t+=.016;
   if(!reduce&&running)requestAnimationFrame(frame);}

@@ -69,3 +69,8 @@ Mitoitustyökalu (vaatii Pylkkäsen luvut: virtaama, kgO₂/kWh, painehäviö) �
 - **Etusivu ohennettu yhteen näytölliseen**: 3D + slogan, faktarivi, numerot, 3 segmenttiovea, CTA. Ennen/jälkeen-jakaja poistettu (elää Kuopio-casessa) → tilalle linkki "Katso mitä yhdessä sekunnissa tapahtuu →". IWA-leima siirtyi Kuopion paperilinkin viereen.
 - projects.html, news.html, case-siuntio.html poistettu; kaikki linkit päivitetty. QA 0 löydöstä, 11 sivua HTTP 200, FI/EN-kielikierros verifioitu selaimessa.
 - Perustelu (vertailu A vs B kirjattu keskusteluun): ostajan sanasto (References/Technology), julkaistut luvut pääsivuna, A→B-tiivistys mahdollinen myöhemmin halvalla.
+
+## [2026-09-20] 3D-hero v3 — realismi + kehyskorjaus
+- Ongelma: täysi 360°-pyöritys + voimakas perspektiivi → päät karkasivat canvasista ja putki osoitti ajoittain kohti kameraa muodottomana.
+- Korjaus: heilurikääntö ±32° sivuprofiilin ympäri; sovitus lasketaan etukäteen pahimman kulman yli (sondien kärjet mukana); perspektiivi 5.5 → 12.
+- Realismi: normaalipohjainen valaistus (diffuusi + spekulaari + fresnel-reunaheijastus), täytevalo ettei mikään kulma jää pimeäksi, materiaalikohtaiset kiillot (rst-jaksolla terävä kiiltojuova), SEG 32→48, saumaton pinta, pehmeä pohjavarjo.
