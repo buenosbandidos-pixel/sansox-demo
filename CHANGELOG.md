@@ -89,3 +89,11 @@ Mitoitustyökalu (vaatii Pylkkäsen luvut: virtaama, kgO₂/kWh, painehäviö) �
 - Kaikkien 13 postauksen pääkuvat ladattu ja KATSOTTU. 9 korttiin lisätty aito kuva (16:10, 640 px, webp+jpg): lampikellukkeet, SFP-25, STP-ryhmäkuva, Charm-MoU-allekirjoitus, lavaesiintyminen, Sukhrali, INWF-kokous, Mikkelin roll-up + Kuopio-kortissa oma koekuva.
 - EI käytetty: post01 lääkejäämäkuva = VARMISTETTU tekoälykuva (ketju lasiin, asteikko juomalasissa) · post08 + post13 lehtiaukeamia (tekijänoikeus — vain linkit) · post11 geneerinen vedenalainen stock · post12 = post07:n duplikaatti.
 - 🔎 LÖYTÖ: tapahtumakuvissa on SansOxin omia ihmisiä (MoU, lava, Mikkeli) — mahdollista Company-sivun aineistoa, MUTTA nimet vahvistettava Seppälältä ennen käyttöä henkilökuvina.
+
+## [2026-09-21] Täydennysluku — Juhan huomautus "et lukenut kaikkea" oli oikea
+- Rehellinen inventaario: lukematta oli 7/18 tuotesivua kokonaan, 11 muuta vain 400 merkin katkelmina, book-online, blogien 19 sisäkuvaa, galleriat. Nyt luettu/katsottu kaikki (member-profiles = 404).
+- LÖYDÖT: tuoteperheessä 5 nimeämätöntä jäsentä → PharmOx, DripOx, GolfOx kortteina + DCWOx/RiverOx/Booster lähdemaininnassa (3 kielellä, verifioitu selaimessa)
+- ⭐ FAKTAKORJAUS: firman OMA dia (10/2025, Pakistan-kiertue): "More than 70 installations" → faktarivi 100→70+ (Karjalainen-lehden 100+/20 maata oli toimittajan luku). Molemmat luvut Seppälälle vahvistettavaksi.
+- Virallinen logo löytyi blogista (1080×1080 PNG) → käsitelty tummalle taustalle → docs/src/sansox_logo_dark.png (odottaa vektoria Seppälältä)
+- Toinen AI-kuvavariantti vahvistettu (b8c8d4: sama ketju-lasiin-teema)
+- Prosessivirhe kirjattu: commit f8214a7 väitti kortit lisätyiksi mutta re.sub kaatui ennen kirjoitusta → korjattu ja verifioitu 2ad471e:ssä
