@@ -112,8 +112,16 @@ def strip_banner(h):
     return re.sub(r'<div class="draft">[^<]*</div>\n?','',h)
 
 os.makedirs(R+"/es",exist_ok=True); os.makedirs(R+"/fi",exist_ok=True)
+def dedupe(h, page, cur):
+    h = re.sub(r'<link rel="alternate" hreflang[^>]*>\n?','',h)
+    # jätä vain ensimmäinen .lang-lohko, poista muut
+    blocks = list(re.finditer(r'<div class="lang"[^>]*>.*?</div>', h, re.S))
+    for b in reversed(blocks[1:]):
+        h = h[:b.start()]+h[b.end():]
+    return h
+
 for page in PAGES:
-    src = open(R+"/"+page).read()
+    src = dedupe(open(R+"/"+page).read(), page, "en")
     d = extract_dict(src)
     if d is None:
         print("!! ei sanakirjaa:",page); continue
@@ -131,7 +139,7 @@ for page in PAGES:
     print("ok",page)
 
 # privacy ES/FI
-psrc = open(R+"/privacy.html").read()
+psrc = re.sub(r'<link rel="alternate" hreflang[^>]*>\n?',"",open(R+"/privacy.html").read())
 for lang,(t,lede,h1) in PRIVACY.items():
     p = psrc.replace('<html lang="en">',f'<html lang="{lang}">')
     p = re.sub(r'<title>[^<]*</title>',f'<title>{t}</title>',p)
