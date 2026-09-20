@@ -83,3 +83,9 @@ Mitoitustyökalu (vaatii Pylkkäsen luvut: virtaama, kgO₂/kWh, painehäviö) �
 - EN yhtenäistetty brittienglantiin: optimized→optimised (kuopio).
 - Kohta 13 (meta/title/alt/privacy FI+ES) = julkaisuvaiheen työ oikeiden /fi/ /es/ -sivujen kanssa.
 - Huom: sanakirja-arvot ovat \uXXXX-escapeina — tulevat tekstikorjaukset escaped-muodossa.
+
+## [2026-09-21] News-virta sai kuvat — Juhan huomio "alkuperäisessä oli enemmän kuvia" vahvistettu ja korjattu
+- Mitattu vanhalta sivustolta: joka blogipostauksessa 4–6 kuvaa (etusivu ~26, solutions ~24 assettia). Demon News oli pelkkää tekstiä.
+- Kaikkien 13 postauksen pääkuvat ladattu ja KATSOTTU. 9 korttiin lisätty aito kuva (16:10, 640 px, webp+jpg): lampikellukkeet, SFP-25, STP-ryhmäkuva, Charm-MoU-allekirjoitus, lavaesiintyminen, Sukhrali, INWF-kokous, Mikkelin roll-up + Kuopio-kortissa oma koekuva.
+- EI käytetty: post01 lääkejäämäkuva = VARMISTETTU tekoälykuva (ketju lasiin, asteikko juomalasissa) · post08 + post13 lehtiaukeamia (tekijänoikeus — vain linkit) · post11 geneerinen vedenalainen stock · post12 = post07:n duplikaatti.
+- 🔎 LÖYTÖ: tapahtumakuvissa on SansOxin omia ihmisiä (MoU, lava, Mikkeli) — mahdollista Company-sivun aineistoa, MUTTA nimet vahvistettava Seppälältä ennen käyttöä henkilökuvina.
