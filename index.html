@@ -71,25 +71,6 @@
   h2{font-size:clamp(23px,4vw,32px);letter-spacing:-.6px;margin-bottom:8px}
   .lead{color:var(--dim);max-width:62ch;margin-bottom:26px}
 
-  .ba{position:relative;border-radius:10px;overflow:hidden;border:1px solid var(--line);
-    aspect-ratio:16/9;max-height:470px;user-select:none;touch-action:none}
-  .ba .before,.ba .after{position:absolute;inset:0}
-  .ba .before{background:url(assets/img/kuopio_before.jpg) center/cover no-repeat;background-image:image-set(url(assets/img/kuopio_before.webp) type('image/webp'),url(assets/img/kuopio_before.jpg) type('image/jpeg'));background-size:cover;background-position:center}
-  .ba .after{background:url(assets/img/kuopio_after.jpg) center/cover no-repeat;background-image:image-set(url(assets/img/kuopio_after.webp) type('image/webp'),url(assets/img/kuopio_after.jpg) type('image/jpeg'));background-size:cover;background-position:center;
-    clip-path:inset(0 0 0 var(--cut,50%))}
-  .ba .label{position:absolute;top:14px;font-size:11px;font-weight:700;letter-spacing:1.6px;
-    text-transform:uppercase;padding:5px 10px;border-radius:4px;
-    background:rgba(4,14,22,.6);backdrop-filter:blur(3px)}
-  .ba .label.l{left:14px;color:#ffd9a0}
-  .ba .label.r{right:14px;color:#bfe9ff}
-  .ba .handle{position:absolute;top:0;bottom:0;left:var(--cut,50%);width:2px;
-    background:#fff;box-shadow:0 0 14px rgba(62,198,255,.85)}
-  .ba .handle:after{content:"◂ ▸";position:absolute;top:50%;left:50%;
-    transform:translate(-50%,-50%);background:#fff;color:#04121c;font-size:11px;
-    font-weight:800;padding:7px 9px;border-radius:99px;white-space:nowrap}
-  .ba input{position:absolute;inset:0;width:100%;height:100%;opacity:0;cursor:ew-resize}
-  .cap{color:var(--dim);font-size:13px;margin-top:12px}
-  .cap b{color:var(--ink)}
 
   .cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:16px}
   .card{border:1px solid var(--line);border-radius:10px;padding:22px;background:var(--panel)}
@@ -146,10 +127,9 @@
   <div class="links">
     <a href="solutions.html" data-i18n="nav_sol">Solutions</a>
     <a href="products.html" data-i18n="nav_prod">Products</a>
-    <a href="projects.html" data-i18n="nav_proj">Projects</a>
+    <a href="references.html" data-i18n="nav_ref">References</a>
     <a href="technology.html" data-i18n="nav_tech">Technology</a>
     <a href="company.html" data-i18n="nav_co">Company</a>
-    <a href="news.html" data-i18n="nav_news">News</a>
   </div>
   <div class="lang">
     <button id="l-en" class="on" onclick="setLang('en')">EN</button>
@@ -165,7 +145,7 @@
     <h1 data-i18n-html="h1">Dissolving gas into water in <em>under a second</em>.</h1>
     <p class="lede" data-i18n="lede">Dirty water lacks oxygen; clean water needs it. OxTube is a sealed pipe section that puts oxygen or ozone into flowing water and cleans it as it passes — inside the pipes you already have. No tanks, no moving parts, no extra energy.</p>
     <div class="heroctas">
-      <a class="btn" href="projects.html" data-i18n="cta1">See the measured results</a>
+      <a class="btn" href="references.html" data-i18n="cta1">See the measured results</a>
       <a class="btn ghost" href="company.html" data-i18n="cta2">Meet the engineers</a>
     </div>
    </div>
@@ -186,22 +166,9 @@
       <span data-i18n="f3">peer-reviewed IWA publication, Milan 2021</span>
       <span data-i18n="f4">Water Europe: Best Innovation 2014</span>
       <span data-i18n="f5">over 100 installations in ~20 countries</span>
+      <span data-i18n-html="see1"><a href="case-kuopio.html" style="color:var(--aqua);font-weight:700;text-decoration:none">See what happens in one second →</a></span>
     </div>
   </div>
-
-  <section id="evidence">
-    <h2 data-i18n="ev_h">Seeing is faster than reading</h2>
-    <p class="lead" data-i18n="ev_p">The same tap water, photographed during the published trial: separated and activated — then clarified and re-dissolved, one second later.</p>
-    <div class="ba" id="ba" style="--cut:50%">
-      <div class="before"></div><div class="after"></div>
-      <span class="label l" data-i18n="ev_l">Before · separated</span>
-      <span class="label r" data-i18n="ev_r">After · 1.0 s</span>
-      <div class="handle"></div>
-      <input type="range" min="4" max="96" value="50" aria-label="Before/after"
-        oninput="document.getElementById('ba').style.setProperty('--cut',this.value+'%')">
-    </div>
-    <p class="cap" data-i18n-html="ev_cap"><b>Drag the divider.</b> Trial photographs from the paper (Fig. 2). Unretouched apart from cropping. <a href="assets/paper/Pylkkanen_OxTube_IWA_Milan_2021.pdf" style="color:var(--aqua)">Download the paper</a> <img src="assets/img/iwa_ecostp_2021.png" alt="IWA ecoSTP 2021" style="height:24px;vertical-align:middle;margin-left:6px;background:#fff;border-radius:3px;padding:2px 4px"></p>
-  </section>
 
   <section id="cycle">
     <h2 data-i18n="cy_h">Every stage of the water cycle</h2>
@@ -230,7 +197,7 @@
   </section>
 </div><script>
 const T={en:{},
-es:{"nav_sol": "Soluciones", "nav_prod": "Productos", "nav_proj": "Proyectos", "nav_tech": "Tecnolog\u00eda", "nav_co": "Empresa", "nav_news": "Noticias", "fn_home": "Inicio", "fn_sol": "Soluciones", "fn_prod": "Productos", "fn_proj": "Proyectos", "fn_tech": "Tecnolog\u00eda", "fn_co": "Empresa", "fn_news": "Noticias", "fn_priv": "Privacidad", kicker:"Tecnología de tratamiento de agua de Finlandia — medida, publicada, instalada",
+es:{see1:"<a href=\"case-kuopio.html\" style=\"color:var(--aqua);font-weight:700;text-decoration:none\">Vea qué ocurre en un segundo →</a>", "nav_ref": "Referencias", "fn_ref": "Referencias", "nav_sol": "Soluciones", "nav_prod": "Productos", "nav_proj": "Proyectos", "nav_tech": "Tecnolog\u00eda", "nav_co": "Empresa", "nav_news": "Noticias", "fn_home": "Inicio", "fn_sol": "Soluciones", "fn_prod": "Productos", "fn_proj": "Proyectos", "fn_tech": "Tecnolog\u00eda", "fn_co": "Empresa", "fn_news": "Noticias", "fn_priv": "Privacidad", kicker:"Tecnología de tratamiento de agua de Finlandia — medida, publicada, instalada",
 h1:"Disolver gas en agua en <em>menos de un segundo</em>.",
 lede:"Al agua sucia le falta oxígeno; el agua limpia lo necesita. OxTube es un tramo de tubería sellado que introduce oxígeno u ozono en el agua en movimiento y la limpia a su paso — dentro de las tuberías que ya tiene. Sin tanques, sin piezas móviles, sin energía extra.",
 cta1:"Ver los resultados medidos",cta2:"Conozca a los ingenieros",
@@ -249,7 +216,7 @@ cy1t:"Aguas naturales",cy1h:"Lagos, estanques y riego",cy1p:"Aireación, prevenc
 cy2t:"Agua potable",cy2h:"Radón, hierro y manganeso",cy2p:"Eliminación en línea en estaciones de bombeo — seis instalaciones en Filipinas al límite de 11 Bq/l.",
 cy3t:"Agua de proceso y residual",cy3h:"Fármacos y gases de olor",cy3p:"87–90 % de reducción de fármacos en 0,7 s en una depuradora municipal — ozono, sin balsas de contacto.",
 cb_h:"30 minutos, técnico, gratis",cb_p:"Díganos su caudal, su objetivo y sus límites de vertido. Le diremos qué puede y qué no puede hacer OxTube — con los números que lo respaldan.",cb_b:"Reservar la llamada"},
-fi:{"nav_sol": "Ratkaisut", "nav_prod": "Tuotteet", "nav_proj": "Projektit", "nav_tech": "Teknologia", "nav_co": "Yritys", "nav_news": "Uutiset", "fn_home": "Etusivu", "fn_sol": "Ratkaisut", "fn_prod": "Tuotteet", "fn_proj": "Projektit", "fn_tech": "Teknologia", "fn_co": "Yritys", "fn_news": "Uutiset", "fn_priv": "Tietosuoja", kicker:"Suomalaista vedenkäsittelyteknologiaa — mitattu, julkaistu, asennettu",
+fi:{see1:"<a href=\"case-kuopio.html\" style=\"color:var(--aqua);font-weight:700;text-decoration:none\">Katso mitä yhdessä sekunnissa tapahtuu →</a>", "nav_ref": "Referenssit", "fn_ref": "Referenssit", "nav_sol": "Ratkaisut", "nav_prod": "Tuotteet", "nav_proj": "Projektit", "nav_tech": "Teknologia", "nav_co": "Yritys", "nav_news": "Uutiset", "fn_home": "Etusivu", "fn_sol": "Ratkaisut", "fn_prod": "Tuotteet", "fn_proj": "Projektit", "fn_tech": "Teknologia", "fn_co": "Yritys", "fn_news": "Uutiset", "fn_priv": "Tietosuoja", kicker:"Suomalaista vedenkäsittelyteknologiaa — mitattu, julkaistu, asennettu",
 h1:"Kaasu liukenee veteen <em>alle sekunnissa</em>.",
 lede:"Likaisesta vedestä puuttuu happi; puhdas vesi tarvitsee sitä. OxTube on suljettu putkiosuus, joka lisää happea tai otsonia virtaavaan veteen ja puhdistaa sen ohikulkiessa — nykyisen putkiston sisällä. Ei altaita, ei liikkuvia osia, ei lisäenergiaa.",
 cta1:"Katso mitatut tulokset",cta2:"Tapaa insinöörit",
@@ -374,8 +341,8 @@ if(!reduce){
   <div style="display:flex;flex-wrap:wrap;gap:8px 18px;margin-bottom:10px">
     <a href="index.html" style="color:var(--dim)" data-i18n="fn_home">Home</a><a href="solutions.html" style="color:var(--dim)" data-i18n="fn_sol">Solutions</a>
     <a href="products.html" style="color:var(--dim)" data-i18n="fn_prod">Products</a>
-    <a href="projects.html" style="color:var(--dim)" data-i18n="fn_proj">Projects</a><a href="technology.html" style="color:var(--dim)" data-i18n="fn_tech">Technology</a>
-    <a href="company.html" style="color:var(--dim)" data-i18n="fn_co">Company</a><a href="news.html" style="color:var(--dim)" data-i18n="fn_news">News</a>
+    <a href="references.html" style="color:var(--dim)" data-i18n="fn_ref">References</a><a href="technology.html" style="color:var(--dim)" data-i18n="fn_tech">Technology</a>
+    <a href="company.html" style="color:var(--dim)" data-i18n="fn_co">Company</a>
     <a href="privacy.html" style="color:var(--dim)" data-i18n="fn_priv">Privacy</a>
   </div>
   SansOx Oy · VAT FI24678326 · Lahti Science Park, Niemenkatu 73, FI-15140 Lahti, Finland · Sänkinotkonkatu 6, FI-83500 Outokumpu · +358 500 603 020 · info@sansox.fi<br>

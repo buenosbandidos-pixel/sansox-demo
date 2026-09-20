@@ -60,3 +60,12 @@ Mitoitustyökalu (vaatii Pylkkäsen luvut: virtaama, kgO₂/kWh, painehäviö) �
 - Päänavigaatio + footerin linkit käännetty kaikilla sivuilla (Ratkaisut/Tuotteet/…).
 - Bugikorjaus: index+products EN-harvesteri ei tavoittanut skriptin jälkeistä footeria → kielen paluu EN:ään olisi jättänyt footerin suomeksi. Harvest ajetaan nyt myös DOMContentLoadedissa.
 - Jäljelle jäävä englanti FI/ES-näkymissä: palkintojen ja julkaisujen erisnimet (tarkoituksella).
+
+## [2026-09-20] RAKENNE A — hyväksytty ja toteutettu
+- Navigaatio 7 → 5 ovea: `Solutions · Products · References · Technology · Company`
+- **references.html** = Projects + News yhdistettynä: 4 näyttöcasea (kaikilla mitattu tulos) + 13 uutistiivistelmää "Kentältä"-virtana. Otsikot, tagit ja lähdelinkit käännetty; tupla-kielivalitsin siivottu.
+- **case-siuntio poistettu referenssinä** — alkuperätarina EI ole asiakascase. Sisältö siirtyi company.html#story-osioksi "Mistä kaikki alkoi" (prototyyppi → Kokkola → Siuntio → Water Europe 2014/2015), 3 kielellä.
+- **Technology**: erillinen "Where it started" -osio pois; prototyyppi jäi yhdeksi riviksi tuoteosioon linkillä koko tarinaan.
+- **Etusivu ohennettu yhteen näytölliseen**: 3D + slogan, faktarivi, numerot, 3 segmenttiovea, CTA. Ennen/jälkeen-jakaja poistettu (elää Kuopio-casessa) → tilalle linkki "Katso mitä yhdessä sekunnissa tapahtuu →". IWA-leima siirtyi Kuopion paperilinkin viereen.
+- projects.html, news.html, case-siuntio.html poistettu; kaikki linkit päivitetty. QA 0 löydöstä, 11 sivua HTTP 200, FI/EN-kielikierros verifioitu selaimessa.
+- Perustelu (vertailu A vs B kirjattu keskusteluun): ostajan sanasto (References/Technology), julkaistut luvut pääsivuna, A→B-tiivistys mahdollinen myöhemmin halvalla.
