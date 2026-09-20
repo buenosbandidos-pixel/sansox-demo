@@ -34,3 +34,9 @@ Mobiili: CSS on mobile-first ja testattu artifact-esikatselussa; **erillinen lai
 
 ## Auki (C-lista + kysyttävät)
 Mitoitustyökalu (vaatii Pylkkäsen luvut: virtaama, kgO₂/kWh, painehäviö) · hero-video · kuvat kumppaneilta (Unique Water, Caviar, Elixiirin "jälkeen") · Pylkkäsen titteli (paperissa CTO, sivulla Chief Engineer) · patenttinumerot · ClariOx-tuotteen paikka · hosting + domain-siirto (firman päätös)
+
+## Täydennys 20.9. ilta — demo valmis
+- Kielikytkin (EN/ES/FI) nyt **kaikilla 11 sivulla**
+- Hubisivut (Solutions/Projects/Technology/Company/News): otsikot, ingressit ja osiot käännetty kokonaan
+- Case-sivut: nelivaiheisen rungon otsikot, pääotsikot ja CTA käännetty; **leipätekstikappaleet EN — käännetään sisällön lukituttua** (turha kääntää tekstiä joka muuttuu kun firman luvut saadaan)
+- Kuopio-casen oma CTA ("Talk to the engineer who ran this trial") jäi EN — poikkeaa vakiorungosta
