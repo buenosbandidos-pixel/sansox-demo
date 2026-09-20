@@ -134,13 +134,23 @@
     <div class="kicker">Optimized water treatment solutions</div>
     <h1>Improving <em>Water</em> Quality.</h1>
     <p class="lede">SansOx provides solutions for improving the water quality at all stages of natural water circulation. We are dedicated to water treatment that does more than purify and aerate — we focus on revitalizing and enriching natural water ecosystems, fostering the natural equilibrium and vigor of aquatic environments.</p>
-    <p class="lede" style="margin-top:12px">Explore how we can support the health of your water systems and contribute to a sustainable future.</p>
+    <div class="heroctas">
+      <a class="btn" href="solutions.html">See our solutions</a>
+      <a class="btn ghost" href="case-kuopio.html">Read the published results</a>
+    </div>
    </div>
    <div class="heroviz">
      <canvas id="ox3d" width="680" height="500" aria-label="OxTube — rotating 3D model"></canvas>
      <div class="sloglabel">OxTube® in-line dissolving unit / 3D model</div>
    </div>
    </div>
+   <div class="numbers">
+      <div class="num"><b>90<small>%</small></b><span>of pharmaceutical residues removed in a municipal wastewater trial, Kuopio</span></div>
+      <div class="num"><b>0.7<small>s</small></b><span>total process time — one pass through the tube</span></div>
+      <div class="num"><b>11<small>Bq/l</small></b><span>the Philippine radon limit our stations meet — 30× stricter than Finland's</span></div>
+      <div class="num"><b>2012</b><span>founded in Lahti; awarded by Water Europe 2014 and 2015</span></div>
+    </div>
+    <p class="src">Sources: Pylkkänen, IWA Milan 2021 · sansox.fi project pages · Finnish Trade Register.</p>
   </div>
 
   <section>
@@ -163,6 +173,18 @@
   <section><h2>Partners &amp; customers</h2>
     <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(130px,1fr));gap:12px;margin-top:14px"><div style="background:#fff;border-radius:10px;display:grid;place-items:center;padding:14px"><img src="assets/img/logos/upm.png" alt="UPM" style="max-height:48px;max-width:100%"></div><div style="background:#fff;border-radius:10px;display:grid;place-items:center;padding:14px"><img src="assets/img/logos/storaenso.png" alt="Stora Enso" style="max-height:48px;max-width:100%"></div><div style="background:#fff;border-radius:10px;display:grid;place-items:center;padding:14px"><img src="assets/img/logos/kesko.png" alt="Kesko" style="max-height:48px;max-width:100%"></div><div style="background:#fff;border-radius:10px;display:grid;place-items:center;padding:14px"><img src="assets/img/logos/ekokymppi.png" alt="Ekokymppi" style="max-height:48px;max-width:100%"></div><div style="background:#fff;border-radius:10px;display:grid;place-items:center;padding:14px"><img src="assets/img/logos/savonia.png" alt="Savonia UAS" style="max-height:48px;max-width:100%"></div><div style="background:#fff;border-radius:10px;display:grid;place-items:center;padding:14px"><img src="assets/img/logos/uef.png" alt="University of Eastern Finland" style="max-height:48px;max-width:100%"></div><div style="background:#fff;border-radius:10px;display:grid;place-items:center;padding:14px"><img src="assets/img/logos/uniquewater.png" alt="Unique Water" style="max-height:48px;max-width:100%"></div><div style="background:#fff;border-radius:10px;display:grid;place-items:center;padding:14px"><img src="assets/img/logos/fwf.png" alt="Finnish Water Forum" style="max-height:48px;max-width:100%"></div><div style="background:#fff;border-radius:10px;display:grid;place-items:center;padding:14px"><img src="assets/img/logos/inwf.png" alt="Indo-Nordic Water Forum" style="max-height:48px;max-width:100%"></div></div>
   </section>
+
+  <section><div class="ctaband">
+    <div><h3>The article behind the numbers</h3>
+    <p>OxTube Integrated Water Clarification for Removal of Pharmaceutical Residues and Disinfection — presented at IWA Ecotechnologies for Wastewater Treatment, Milan 2021. Cetirizine 99.9 %, Diclofenac 99.7 %, Losartan 99.6 %.</p></div>
+    <a class="btn" href="case-kuopio.html">Read the case</a>
+  </div></section>
+
+  <section><div class="ctaband">
+    <div><h3>Talk to an engineer</h3>
+    <p>Mikael, Jukka and Juhani answer their own phones. Tell us your flow and your water — you will get an honest answer.</p></div>
+    <a class="btn" href="contact.html">Contact us</a>
+  </div></section>
 </div>
 <script>
 (function(){
@@ -280,10 +302,6 @@ function frame(){
     ctx.strokeStyle='#e9cc55';ctx.lineWidth=2.4;
     ctx.beginPath();ctx.moveTo(b2[0]-1,b2[1]-1);ctx.lineTo(tip[0]-1,tip[1]-1);ctx.stroke();
     ctx.fillStyle='#f0d564';ctx.beginPath();ctx.arc(tip[0],tip[1],3.4,0,TWO);ctx.fill();}
-  // aqua-hehku
-  const g=ctx.createRadialGradient(cx,H*.88,10,cx,H*.88,W*.45);
-  g.addColorStop(0,'rgba(62,198,255,.09)');g.addColorStop(1,'rgba(62,198,255,0)');
-  ctx.fillStyle=g;ctx.fillRect(0,0,W,H);
   t+=.016;
   if(!reduce&&running)requestAnimationFrame(frame);}
 frame();
