@@ -15,8 +15,24 @@ PUBLISH = "--publish" in sys.argv
 
 # [2026-09-21] Paivitetty v3:n sivunimiin. Vanha lista oli v2:sta (products/references/
 # technology/company/story) eika yksikaan niista ole olemassa v3:ssa -> skripti ei tehnyt mitaan.
+# Uutisartikkelit generoidaan build_posts.py:lla; ne kuuluvat kieliversioihin
+# ja sivukarttaan siina missa muutkin sivut.
+POSTS = ['post-baltic-sea-pharmaceuticals.html',
+         'post-baltic-sea-project-win.html',
+         'post-bangladesh-textile-jv.html',
+         'post-karjalainen-profile.html',
+         'post-lake-rejuvenation-parliament.html',
+         'post-mikkeli-water-week.html',
+         'post-pharmaceutical-residues.html',
+         'post-pond-aeration-under-ice.html',
+         'post-sadpura-lake.html',
+         'post-sfp25-bangladesh-pakistan.html',
+         'post-stp-tour-pakistan.html',
+         'post-sukhrali-pond.html',
+         'post-sustainable-fashion-platform.html']
+
 PAGES = ["index.html","solutions.html","products.html","projects.html","our-story.html","contact.html","news.html",
-         "case-kuopio.html","case-philippines.html","case-carelian.html","case-india.html"]
+         "case-kuopio.html","case-philippines.html","case-carelian.html","case-india.html"] + POSTS
 
 META = {  # sivu → (es_title, es_desc, fi_title, fi_desc)
  "index.html":("SansOx — tecnología finlandesa de tratamiento de agua",

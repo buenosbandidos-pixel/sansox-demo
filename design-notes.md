@@ -280,3 +280,41 @@ otsikot eivät — mutta tämä on se hinta, jonka ruoste olisi poistanut.
 - Uutisten päiväykset `--dim` (olivat `--aqua`). Ne eivät ole linkkejä, joten
   ne eivät saa olla linkkivärissä — ja nyt kun korostusväri on sinistä, tämä
   on entistä tärkeämpää.
+
+## [2026-09-21] Uutiset omiksi sivuiksi — 13 artikkelia, 17 ulosvievää linkkiä purettu
+
+**Juha:** "uutisista ei voi siirtyä vanhoille sivuille" → "nämä pitää olla kokonaan
+omat sivut" → "onko vielä jossain sama rakenne, ne kaikki pitää purkaa"
+
+**Mikä oli vikana.** Uutissivun kortti oli `<div>`, jonka sisällä oli vain pieni
+"lähde: sansox.fi →" -linkki. Otsikkoa tai kuvaa klikkaamalla ei päässyt mihinkään,
+ja se ainoa linkki vei pois sivustolta vanhalle Wix-sivulle. Sama rakenne oli myös
+case-india.html:ssä (4 kpl "→ post" -linkkiä). Yhteensä 17 linkkiä.
+
+**Mitä tehtiin.** Kaikkien 13 artikkelin sisältö haettiin sansox.fi:n blogista ja
+kirjoitettiin omiksi sivuiksi `post-<slug>.html` kolmella kielellä (EN/FI/ES).
+Kortit ovat nyt kokonaan klikattavia `<a class="card">`-elementtejä; sisempi linkki
+muutettiin `<span class="more">`:ksi, koska `<a>` `<a>`:n sisällä on virheellistä.
+
+**Generaattori, ei 13 käsin kirjoitettua sivua.** `build_posts.py` lukee
+`posts/*.json` ja tuottaa sivut. Rakenne on joka sivulla sama; käsin kirjoitettuna
+13 sivua ajautuisi erilleen ensimmäisessä muutoksessa. Sisältö on datassa,
+rakenne generaattorissa. Sivut lisättiin myös `build_i18n.py`:n PAGES-listaan,
+jotta ne päätyvät kieliversioihin ja sivukarttaan.
+
+**Sisältövirhe joka paljastui lähdettä lukiessa.** Uutiskortti "Lääkejäämät"
+kuvaili **Kuopion** koetta ja käytti Kuopion valokuvaa, mutta alkuperäinen
+artikkeli kertoo **Salon** puhdistamon kokeesta (PharmOx, THL, Savonia:
+lääkeaineista jopa 100 %, kolibakteerit kokonaan, PFAS merkittävästi alas,
+happi yli 21 mg/l). Tiivistelmä korjattu kolmelle kielelle ja väärä kuva poistettu.
+Kortin luvut eivät olleet valheellisia — ne olivat oikeat luvut väärästä kokeesta.
+
+**Yksi kortti jäi ilman sivua:** "Suomi–Korea Startup Summit 2019" (nt14). Sille
+ei ole lähdeartikkelia sansox.fi:ssä, eikä sivua voi tehdä keksimättä sisältöä.
+Kortti jätettiin linkittömäksi `<div>`-elementiksi. [NEEDS VERIFICATION: onko
+jutusta alkuperäistä lähdettä]
+
+**Kielet.** EN on lähde 12 artikkelissa; "SansOxin ratkaisu estää lääkejäämien
+päätymisen Itämereen" on alun perin suomeksi, eli siinä EN ja ES ovat käännöksiä.
+Espanja on konekäännöksen sijaan kirjoitettu, mutta se kaipaa yhä natiivin
+tarkistuksen — sama avoin kohta kuin muillakin sivuilla.

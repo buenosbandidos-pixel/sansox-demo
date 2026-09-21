@@ -237,3 +237,8 @@
     .card,.person{border-right:0;padding-right:0}
     .ctaband{padding:20px 18px}
   }
+
+  /* Uutiskortin "Lue juttu" — ei linkki vaan vihje, koska koko kortti on linkki.
+     Sisakkainen <a> <a>:n sisalla olisi virheellista HTML:aa. */
+  .card .more{display:inline-block;color:var(--dim);font-size:12.5px;font-weight:700}
+  a.card:hover .more{color:var(--accent);text-decoration:underline;text-underline-offset:3px}

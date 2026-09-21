@@ -55,3 +55,33 @@
   footer.site{border-top:1.5px solid var(--deepfield);margin-top:50px;padding:26px 0 44px;color:var(--dim);font-size:13px}
   @media(max-width:560px){.crumb{display:none}}
 .lang{display:inline-flex;gap:0;border:1.5px solid var(--deepfield)}.lang button,.lang a{background:transparent;border:0;color:var(--dim);text-decoration:none;display:inline-block;font:700 12px/1 inherit;padding:7px 10px;cursor:pointer}@media(max-width:680px){.lang button,.lang a{padding:15px 14px}}.lang button.on,.lang a.on{background:var(--deepfield);color:#EAF2ED}
+
+/* ── Uutisartikkelin sivu (post-*.html, generoitu build_posts.py:lla) ── */
+.hero-img{margin:0 0 30px}
+.post{max-width:66ch}
+.post p{margin-bottom:17px}
+.post h2{font-size:clamp(19px,2.6vw,23px);margin:30px 0 9px;letter-spacing:-.012em}
+.post h2:first-child{margin-top:0}
+.post .bullets{margin:0 0 17px 0;padding-left:0;list-style:none}
+.post .bullets li{position:relative;padding-left:20px;margin-bottom:7px}
+/* Merkkinä lyhyt viiva eikä pallo: sivusto ei kayta pyoristettyja muotoja. */
+.post .bullets li:before{content:"";position:absolute;left:0;top:.72em;width:11px;height:1.5px;background:var(--deepfield)}
+.post figure{margin:26px 0}
+.post figcaption{margin-top:9px}
+.postnav{display:flex;gap:18px;flex-wrap:wrap;justify-content:space-between;
+  border-top:1px solid var(--line);margin-top:34px;padding-top:20px}
+.postnav a{color:var(--ink);text-decoration:none;font-weight:700;font-size:15px;max-width:46%}
+.postnav a:hover{color:var(--deepfield);text-decoration:underline;text-underline-offset:3px}
+@media(max-width:560px){.postnav a{max-width:100%}}
+/* Artikkelisivun ylapalkki: logo vasemmalle, murupolku ja kieli oikealle.
+   float:right jatti murupolun eri linjaan kuin logon. */
+.posthead{display:flex;align-items:center;gap:14px}
+.posthead .logo{text-decoration:none;color:inherit}
+.posthead .crumb{float:none;margin-left:auto;padding-top:0}
+.post .bullets li:before{height:2px}
+/* Mobiilissa case.css piilottaa murupolun. Artikkelisivulla se on ainoa
+   paluureitti uutislistaan, joten se pidetaan nakyvissa omalla rivillaan. */
+@media(max-width:560px){
+  .posthead{flex-wrap:wrap}
+  .posthead .crumb{display:inline-block;order:3;margin-left:0;flex-basis:100%;padding-top:6px}
+}
