@@ -316,3 +316,5 @@ header{border-bottom:1px solid var(--line)}
 
 .vlink{align-self:center;color:var(--accent);font-weight:500;text-decoration:underline;text-underline-offset:4px;font-size:15px}
 .vlink:hover{color:var(--ink)}
+
+section[id],[id="video"]{scroll-margin-top:96px}
