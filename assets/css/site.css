@@ -14,6 +14,11 @@
     --aqua-deep:#0A6A9E;
     --rust:#8F4020;       /* rautaoksidi — vajaa tulos */
     --moss:#2F5D4A;       /* lupaleima — vahvistettu asia */
+    /* Todistegrafiikan kenttä ja statusvärit. Validoitu dataviz-skriptillä
+       tummaa kenttää vasten: kaikki kuusi tarkistusta PASS. */
+    --deepfield:#0E322A;  /* syvä kenttä — väri täyttää pinnan, ei viivaa */
+    --win:#34A97A;        /* OxTube voitti */
+    --lose:#E2703A;       /* perinteinen menetelmä voitti */
   }
   *{box-sizing:border-box;margin:0;padding:0}
   /* width/height-attribuutit varaavat tilan (CLS); nama kaksi pitavat kuvasuhteen */
@@ -75,8 +80,43 @@
   .src{color:var(--dim);font-size:13px;margin:12px 2px 0}
   .src a{color:var(--aqua)}
 
+  /* ── TODISTEGRAFIIKKA — sivuston yksi rohkea elementti ──
+     42 ainetta yhtenä kuvana. Vihreä = OxTube voitti, oksidi = perinteinen voitti.
+     Väri on statuskoodi, ei koriste; siksi selite ja tekstiselitys aina mukana.
+     Paletti validoitu dataviz-skriptillä: CVD ΔE 9.1 protan, 25.4 normaali. */
+  .proof{background:var(--deepfield);color:#EAF2ED;border-top:0;padding:46px 0 40px}
+  .proof h2{color:#fff;max-width:28ch}
+  .proof .lead{color:#B9CCC2;max-width:68ch}
+  .chart{margin-top:26px;position:relative;padding-left:46px}
+  .chart svg{width:100%;height:190px;display:block}
+  .chart .grid line{stroke:rgba(255,255,255,.16);stroke-width:1}
+  .chart rect.w{fill:var(--win)}
+  .chart rect.l{fill:var(--lose)}
+  .chart rect.ref{fill:#EAF2ED}
+  .chart rect:hover{fill:#fff}
+  /* Pystyasteikko: pylväät koodaavat korkeutta, joten merkinnät kuuluvat y-akselille.
+     Vaakariville sijoitettuna ne väittäisivät x-asteikkoa jota ei ole. */
+  .yaxis{position:absolute;left:0;top:0;height:190px;width:42px;
+    display:flex;flex-direction:column;justify-content:space-between;
+    text-align:right;color:#8FA79C;font-size:11.5px;line-height:1}
+  .yaxis span{transform:translateY(-.35em)}
+  .yaxis span:first-child{transform:none}
+  .chart figcaption{display:flex;gap:22px;flex-wrap:wrap;align-items:center;
+    margin-top:16px;font-size:14px;color:#B9CCC2}
+  .key{display:inline-flex;align-items:center;gap:8px}
+  .key i{width:13px;height:13px;flex:none;display:inline-block}
+  .key i.kw{background:var(--win)} .key i.kl{background:var(--lose)}
+  .chart figcaption a{color:#fff}
+  @media(max-width:680px){
+    .proof{padding:32px 0 30px}
+    .chart{padding-left:38px}
+    .chart svg{height:150px}
+    .yaxis{height:150px;width:34px}
+    .chart figcaption{gap:10px;flex-direction:column;align-items:flex-start}
+  }
+
   section{padding:38px 0;border-top:1.5px solid var(--ink)}
-  h2{font-size:clamp(21px,3vw,27px);letter-spacing:-.018em;font-weight:800;margin-bottom:7px}
+  h2{font-size:clamp(21px,3vw,27px);line-height:1.16;letter-spacing:-.018em;font-weight:800;margin-bottom:7px}
   .lead{color:var(--dim);max-width:62ch;margin-bottom:22px}
 
   /* Luettelot riveinä, ei korttipakkana */
@@ -87,7 +127,7 @@
   .card:last-child{border-right:0}
   .tag{display:inline-block;font-size:12.5px;letter-spacing:.2px;color:var(--rust);
     font-weight:700;margin-bottom:8px}
-  .card h3{font-size:17px;margin-bottom:8px}
+  .card h3{font-size:17px;line-height:1.25;margin-bottom:8px}
   .card p{font-size:14.5px;color:var(--dim)}
   .card .big{font-size:30px;font-weight:800;letter-spacing:-.03em;margin:6px 0 4px}
 
@@ -145,7 +185,9 @@
     .nav .links.open{display:flex}
     .nav .links a{padding:13px 2px;border-top:1px solid var(--line);color:var(--ink)}
     .hero{padding:28px 0 28px}
-    .num{padding:18px 16px 18px 0}
+    /* yksipalstaisena pystyviiva jäisi roikkumaan oikeaan reunaan */
+    .num{padding:16px 0;border-right:0;border-bottom:1px solid var(--line)}
+    .num:last-child{border-bottom:0}
     .proto{grid-template-columns:1fr}
     .stages{grid-template-columns:repeat(2,1fr);gap:14px}
     .card,.person{border-right:0;padding-right:0}
