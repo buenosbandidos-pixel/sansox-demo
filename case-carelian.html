@@ -87,4 +87,49 @@ var sl=null;try{sl=localStorage.getItem('sansox_lang')}catch(e){}
 if(sl&&sl!=='en')window.__setLang(sl);
 })();
 </script>
+<script>
+/* Lukujen ja päivämäärien lokalisointi kielen mukaan.
+   Muokkaa VAIN tekstisolmuja — elementin textContent-asetus tuhoaisi
+   sisäkkäiset <small>-elementit. Kanoniset arvot otetaan talteen kerran
+   latauksessa, joten toistuva kielenvaihto ei kerrytä muunnoksia. */
+(function(){
+  var KUUK={fi:['tammi','helmi','maalis','huhti','touko','kesä','heinä','elo','syys','loka','marras','joulu'],
+            es:['ene','feb','mar','abr','may','jun','jul','ago','sep','oct','nov','dic']};
+  function solmut(juuret){
+    var out=[];
+    juuret.forEach(function(j){
+      var w=document.createTreeWalker(j, NodeFilter.SHOW_TEXT), n;
+      while(n=w.nextNode()){ if(n.nodeValue.trim()) out.push(n); }
+    });
+    return out;
+  }
+  var numJuuret=[].slice.call(document.querySelectorAll('.num b'));
+  var pvmJuuret=[].slice.call(document.querySelectorAll('[data-loc-date]'));
+  var numS=solmut(numJuuret), pvmS=solmut(pvmJuuret);
+  if(!numS.length && !pvmS.length) return;
+  var cNum=numS.map(function(n){return n.nodeValue});
+  var cPvm=pvmS.map(function(n){return n.nodeValue});
+  function pvm(t,l){
+    return t.replace(/(\d{4})-(\d{2})(?:-(\d{2}))?/g, function(_,y,m,d){
+      var i=parseInt(m,10)-1;
+      if(l==='en') return d ? y+'-'+m+'-'+d : y+'-'+m;
+      if(l==='fi') return d ? parseInt(d,10)+'.'+parseInt(m,10)+'.'+y : KUUK.fi[i]+'kuu '+y;
+      return d ? parseInt(d,10)+' '+KUUK.es[i]+' '+y : KUUK.es[i]+' '+y;
+    });
+  }
+  function render(l){
+    numS.forEach(function(n,i){
+      var t=cNum[i];
+      if(l!=='en') t=t.replace(/(\d)\.(\d)/g,'$1,$2');
+      if(t.trim()==='%') t=(l==='en'?'%':'\u00a0%');
+      n.nodeValue=t;
+    });
+    pvmS.forEach(function(n,i){ n.nodeValue=pvm(cPvm[i],l); });
+  }
+  var orig=window.__setLang;
+  if(typeof orig==='function'){ window.__setLang=function(l){ orig(l); render(l); }; }
+  var sl=null; try{ sl=localStorage.getItem('sansox_lang'); }catch(e){}
+  render(sl||'en');
+})();
+</script>
 </body></html>
