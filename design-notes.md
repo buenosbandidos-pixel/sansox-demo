@@ -405,3 +405,48 @@ Case-kuopion vaihenumerot 1–4 jäivät — se on aito sekvenssi.
 **`--moss` 4,46:1 → 4,85:1** (`#4A7C6B` → `#467665`): sitä käytetään sekä
 roolinimikkeiden tekstinä (4,5:1) että fokusrenkaana (3:1). Tiukempi vaatimus
 ratkaisee. Yhteystiedot-sivu: 3 → **0** kontrastihylkäystä kolmella kielellä.
+
+## [2026-09-21] Fontit itseisännöityyn + auditoinnin loput korjaukset
+
+**OMA VIRHE, kirjattu muistiin.** Väitin analyysissä että fontteja ei ladata
+lainkaan ja että otsikot renderöityvät Georgiana kaikille. **Väärin.** Jokaisella
+27 sivulla oli `<link>` Fontsharen CDN:ään, ja fontit latautuivat normaalisti.
+Kaksi virhettä johti siihen:
+1. Grep-kuvioni oli `href="https://fonts[^"]*"` — osoite on `api.fontshare.com`,
+   ei `fonts.*`, joten se ei osunut.
+2. Ratkaisevan fonttitestin ajoin **väärässä dokumentissa** — selainpaneelin
+   omassa sivussa, ei SansOxin sivustossa. Siksi Zodiak "ei löytynyt".
+Juha sanoi heti "minulla se näkyy oikein" ja oli oikeassa.
+**Opetus: kun mittaustulos on ristiriidassa sen kanssa mitä käyttäjä näkee
+omin silmin, vika on todennäköisemmin mittauksessa.**
+
+**Mitä tehtiin silti:** fontit siirrettiin CDN:stä itseisännöityyn.
+- Zodiak 800 + 800-kursiivi, Satoshi 400/500/700/900 → `assets/fonts/`, 142 kt
+- ITF Free Font License (Fontshare): ilmainen kaupalliseen käyttöön ja
+  **itseisännöinti @font-face:lla nimenomaan sallittu ja suositeltu**.
+  Lisenssi kieltää subsetoinnin ja formaattimuunnoksen → tiedostot sellaisenaan.
+- CDN-linkki poistettu kaikilta 27 sivulta. **Ulkoisia pyyntöjä nyt 0.**
+  Tämä on oikea syy muutokselle: sivusto mainostaa nollaa seurantaa, ja
+  CDN-pyyntö lähetti jokaisen vierailijan IP-osoitteen kolmannelle osapuolelle.
+- `font-display:swap`
+
+**Päänavigaatio case-, tietosuoja- ja 404-sivuille.** Niillä oli vain murupolku,
+joten Kuopion mittaustuloksiin päätynyt lukija ei päässyt sieltä tuotteisiin
+tai yhteystietoihin. Ylätunniste asetettiin samaan 900 px:n palstaan kuin
+sisältö; `flex-wrap` pudottaa murupolun omalle rivilleen.
+
+**Projektikohteet kahteen palstaan.** Kuva oli vasemmalla ja teksti sen alla
+kapeana palstana, jolloin oikea 40 % jäi tyhjäksi. Automaattisijoittelu pudotti
+ensin linkin kuvan alle — `> picture{grid-row:1/span 20}` ja `> p{grid-column:2}`
+pitävät kuvan palstassa 1 ja koko tekstin palstassa 2.
+
+**Rakenteinen data 11 sivulle** (oli vain etusivulla ja artikkeleilla):
+case-sivut `Article`, yhteystiedot `ContactPage`, ratkaisut/tuotteet/projektit/
+uutiset `CollectionPage`, tarina `AboutPage`, tietosuoja `WebPage`.
+404 jätettiin tarkoituksella — virhesivu ei kuulu indeksiin.
+
+**Kosketuskohteet 24 px** (WCAG 2.5.8): footerin valikkolinkit ja kuvaajan
+linkki olivat 22–23 px. Tekstin seassa olevat linkit ovat sääntelyn mukaan
+vapautettuja (26 kpl), joten niihin ei koskettu.
+
+**DEMO-banneri** 4,37:1 → 5,31:1.

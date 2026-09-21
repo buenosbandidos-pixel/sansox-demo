@@ -1,5 +1,27 @@
 /* SansOx — case-sivujen tyylitiedosto. Irrotettu sivujen sisaisista <style>-lohkoista 2026-09-21.
    ALA muokkaa yksittaisen sivun <style>-lohkoa: muutokset tehdaan tanne, kerran. */
+/* ── Kirjaintyypit ──────────────────────────────────────────────
+   Zodiak ja Satoshi, Indian Type Foundry / Fontshare.
+   ITF Free Font License: ilmainen myos kaupalliseen kayttoon, ja
+   itseisannointi @font-face:lla on nimenomaan sallittu ja suositeltu.
+   Lisenssi kieltaa subsetoinnin ja formaattimuunnoksen, joten tiedostot
+   ovat sellaisenaan kuten Fontshare ne jakaa.
+   Aiemmin naita ei ladattu mistaan: otsikot renderoityivat Georgiana ja
+   leipateksti jarjestelmafontilla jokaisella jolla fontteja ei ollut koneella.
+   font-display:swap — teksti nakyy heti fallbackilla, vaihtuu kun fontti saapuu. */
+@font-face{font-family:'Zodiak';src:url('../fonts/zodiak-800.woff2') format('woff2');
+  font-weight:800;font-style:normal;font-display:swap}
+@font-face{font-family:'Zodiak';src:url('../fonts/zodiak-800-italic.woff2') format('woff2');
+  font-weight:800;font-style:italic;font-display:swap}
+@font-face{font-family:'Satoshi';src:url('../fonts/satoshi-400.woff2') format('woff2');
+  font-weight:400;font-style:normal;font-display:swap}
+@font-face{font-family:'Satoshi';src:url('../fonts/satoshi-500.woff2') format('woff2');
+  font-weight:500;font-style:normal;font-display:swap}
+@font-face{font-family:'Satoshi';src:url('../fonts/satoshi-700.woff2') format('woff2');
+  font-weight:700;font-style:normal;font-display:swap}
+@font-face{font-family:'Satoshi';src:url('../fonts/satoshi-900.woff2') format('woff2');
+  font-weight:900;font-style:normal;font-display:swap}
+
 :root{--bg:#F8F7F2;--panel:#F3F2EC;--line:#D1D1CB;--ink:#1A1A1A;--dim:#6B6B66;--aqua:#3F7393;--aqua-deep:#33505E;--rust:#9B6254;--moss:#467665;--deepfield:#1A1A1A;--accent:#3F7393}
   *{box-sizing:border-box;margin:0;padding:0}
   /* width/height-attribuutit varaavat tilan (CLS); nama kaksi pitavat kuvasuhteen */
@@ -100,3 +122,34 @@
 @media(max-width:760px){.logomark{height:28px}}
 
 img.tone{filter:grayscale(.65) saturate(.9) contrast(1.04)}
+
+/* ── Päänavigaatio case-, tietosuoja- ja 404-sivuille ──
+   Nailla oli aiemmin vain murupolku, joten mittaustuloksiin paatynyt lukija
+   ei paassyt sielta tuotteisiin tai yhteystietoihin ilman paluuta taaksepain. */
+/* flex-wrap + crumbin flex-basis:100% pudottaa murupolun omalle rivilleen;
+   ilman sita kaikki puristui yhdelle riville ja "Our story" katkesi kahdelle. */
+.nav{display:flex;flex-wrap:wrap;align-items:center;gap:14px 22px;
+  padding-top:14px;padding-bottom:14px}
+.nav .links{display:flex;gap:15px;font-size:14px;margin-left:auto}
+.nav .links a{color:var(--dim);text-decoration:none;padding:3px 0;white-space:nowrap}
+.nav .links a:hover{color:var(--ink)}
+.nav .crumb{flex-basis:100%;margin-left:0;float:none;padding-top:2px}
+.navtoggle{display:none;width:44px;height:44px;flex-direction:column;justify-content:center;
+  gap:5px;background:transparent;border:1.5px solid var(--deepfield);cursor:pointer;padding:0 11px}
+.navtoggle span{display:block;height:2px;background:var(--deepfield);transition:transform .18s,opacity .18s}
+.navtoggle[aria-expanded="true"] span:nth-child(1){transform:translateY(7px) rotate(45deg)}
+.navtoggle[aria-expanded="true"] span:nth-child(2){opacity:0}
+.navtoggle[aria-expanded="true"] span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
+@media(prefers-reduced-motion:reduce){.navtoggle span{transition:none}}
+@media(max-width:760px){
+  .nav{flex-wrap:wrap;gap:10px}
+  .navtoggle{display:flex;order:3}
+  .lang{order:2;margin-left:auto}
+  .nav .links{order:4;flex-basis:100%;margin-left:0;display:none;flex-direction:column;gap:0;font-size:15px}
+  .nav .links.open{display:flex}
+  .nav .links a{padding:13px 2px;border-top:1px solid var(--line);color:var(--ink)}
+  .nav .crumb{display:inline-block;order:5}
+}
+
+/* Kosketuskohteen vahimmaiskoko, ks. site.css */
+footer.site a{display:inline-block;padding:3px 0}

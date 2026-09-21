@@ -4,7 +4,29 @@
    perustelemaan valinnan omalle organisaatiolleen — ja joka tulostaa ja
    välittää sivuja eteenpäin. Siksi vaalea pohja, ei tummaa.
    ALA muokkaa yksittaisen sivun <style>-lohkoa: muutokset tehdaan tanne, kerran. */
-  :root{
+  /* ── Kirjaintyypit ──────────────────────────────────────────────
+   Zodiak ja Satoshi, Indian Type Foundry / Fontshare.
+   ITF Free Font License: ilmainen myos kaupalliseen kayttoon, ja
+   itseisannointi @font-face:lla on nimenomaan sallittu ja suositeltu.
+   Lisenssi kieltaa subsetoinnin ja formaattimuunnoksen, joten tiedostot
+   ovat sellaisenaan kuten Fontshare ne jakaa.
+   Aiemmin naita ei ladattu mistaan: otsikot renderoityivat Georgiana ja
+   leipateksti jarjestelmafontilla jokaisella jolla fontteja ei ollut koneella.
+   font-display:swap — teksti nakyy heti fallbackilla, vaihtuu kun fontti saapuu. */
+@font-face{font-family:'Zodiak';src:url('../fonts/zodiak-800.woff2') format('woff2');
+  font-weight:800;font-style:normal;font-display:swap}
+@font-face{font-family:'Zodiak';src:url('../fonts/zodiak-800-italic.woff2') format('woff2');
+  font-weight:800;font-style:italic;font-display:swap}
+@font-face{font-family:'Satoshi';src:url('../fonts/satoshi-400.woff2') format('woff2');
+  font-weight:400;font-style:normal;font-display:swap}
+@font-face{font-family:'Satoshi';src:url('../fonts/satoshi-500.woff2') format('woff2');
+  font-weight:500;font-style:normal;font-display:swap}
+@font-face{font-family:'Satoshi';src:url('../fonts/satoshi-700.woff2') format('woff2');
+  font-weight:700;font-style:normal;font-display:swap}
+@font-face{font-family:'Satoshi';src:url('../fonts/satoshi-900.woff2') format('woff2');
+  font-weight:900;font-style:normal;font-display:swap}
+
+:root{
     --bg:#F8F7F2;         /* lämmin paperi — Nordic Editorial */
     --panel:#F3F2EC;      /* betoniharmaa lohko */
     --line:#D1D1CB;
@@ -311,7 +333,7 @@ img.photo,.proto img,.projimg{filter:grayscale(.65) saturate(.9) contrast(1.04)}
 .lang button.on,.lang a.on{background:var(--ink);color:var(--bg)}
 header{border-bottom:1px solid var(--line)}
 .nav .links{letter-spacing:0;font-size:15px}
-.draft{letter-spacing:0;font-size:12.5px;background:#EAE8E0;color:#6B6B66;border-color:var(--line)}
+.draft{letter-spacing:0;font-size:12.5px;background:#EAE8E0;color:#5E5E59;border-color:var(--line)}
 .logo{font-family:'Zodiak',Georgia,serif;font-weight:800}
 .num b{font-family:'Zodiak',Georgia,serif}
 
@@ -334,3 +356,26 @@ header{border-bottom:1px solid var(--line)}
 section[id],[id="video"]{scroll-margin-top:96px}
 
 img.photo.evidence,.projimg.evidence{filter:none}
+
+/* ── Projektikohteet kahteen palstaan ──
+   Kuva oli vasemmalla ja teksti sen alla kapeana palstana, jolloin sivun
+   oikea 40 % jai tyhjaksi jokaisessa kohteessa. Kuva vasemmalle, teksti
+   oikealle: sama logiikka kuin herossa. */
+.projgrid{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.1fr);
+  gap:34px;align-items:start;margin-top:14px}
+/* Ilman naita automaattisijoittelu pudotti toisen kappaleen (linkin)
+   kuvan alle vasempaan palstaan. Kuva palstaan 1, kaikki teksti palstaan 2. */
+.projgrid > picture{grid-column:1;grid-row:1/span 20}
+.projgrid > p{grid-column:2}
+.projgrid .projimg{max-width:100%;width:100%;margin:0}
+.projgrid .lead{margin-bottom:14px;max-width:none}
+.projgrid p:last-child{margin-bottom:0}
+@media(max-width:820px){
+  .projgrid{grid-template-columns:1fr;gap:18px}
+  .projgrid > picture{grid-column:1;grid-row:auto}
+  .projgrid > p{grid-column:1}
+}
+
+/* WCAG 2.2 (2.5.8) vaatii 24x24 px kosketuskohteen. Footerin valikkolinkit
+   olivat 22 px ja kuvaajan linkki 23 px. */
+footer.site a,.chart figcaption a{display:inline-block;padding:3px 0}
