@@ -450,3 +450,18 @@ linkki olivat 22–23 px. Tekstin seassa olevat linkit ovat sääntelyn mukaan
 vapautettuja (26 kpl), joten niihin ei koskettu.
 
 **DEMO-banneri** 4,37:1 → 5,31:1.
+
+## [2026-09-21] Asennuskanta etusivulle + heron yläosa tiiviimmäksi
+
+**"Yli 100 asennusta noin 20 maassa" lukuriviin.** Luku esiintyi vain
+uutisartikkelissa (Karjalainen 18.4.2024, SansOxin oma lausunto), vaikka se on
+sivuston rauhoittavin yksittäinen tieto ostajalle joka epäröi pienen toimittajan
+riskiä. Nyt lukurivi on 90 % · 0,7 s · 11 Bq/l · 100+ · 2012 — kolme
+todistelukua, sitten kaksi yritystä koskevaa. Lähdemerkintään lisätty
+"yrityksen tarina". Kolme kieltä.
+[NEEDS VERIFICATION: luku on huhtikuulta 2024, pyydä SansOxilta ajantasainen.]
+
+**Heron yläosa:** H1 alkoi 200 px:stä eli 26 % ruudun korkeudesta.
+`.hero` padding-top 40→22 px, tunnustekstin alamarginaali 26→16 px.
+H1 nyt 171 px (22 %), ja **136 px kun DEMO-banneri poistuu julkaistaessa**.
+Sama parannus kaikilla seitsemällä sivulla jotka käyttävät samaa heroa.
