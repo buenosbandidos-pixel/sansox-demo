@@ -16,7 +16,7 @@
   .wrap{max-width:900px;margin:0 auto;padding:0 20px}
   .draft{background:#F0E9D2;color:#5C4A16;font-size:12px;text-align:center;padding:7px 14px}
   header{padding:18px 0;border-bottom:1px solid var(--line)}
-  .logo{font-weight:800;font-size:18px}.logo b{color:var(--accent)}
+  .logo{font-weight:800;font-size:24px}.logo b{color:var(--accent)}
   .crumb{float:right;font-size:13px;color:var(--dim);padding-top:3px}
   .crumb a{color:var(--dim);text-decoration:none}
   .hero{padding:58px 0 36px;position:relative}
