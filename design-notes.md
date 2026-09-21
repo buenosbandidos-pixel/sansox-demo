@@ -84,8 +84,15 @@ Vanha muistiinpano leimasi nämä poistettaviksi luettelona, ei katsomalla. Äl�
 
 ## Rohkeus yhdessä paikassa
 
-**3D-hero etusivulla** — käsin kirjoitettua 2D-canvasta, 145 riviä, ei Three.js:ää eikä mitään kirjastoa.
-Se on sivuston ainoa efekti ja saa olla.
+**[2026-09-21] 3D-hero poistettu.** [Juha: *"luovutaan siitä 3d kuvasta koska se on kökkö"*] Se oli 145 riviä
+käsin kirjoitettua 2D-canvasta ja designauditoinnin mukaan heron heikoin elementti: harmaa objekti lähes
+mustalla, ilman rajausta tai mittakaavaa.
+
+**Poisto korjasi kaksi muuta ongelmaa:** hero on nyt yksipalstainen, joten kaksi CTA-nappia mahtuvat
+rinnakkain (ennen ne pinoutuivat leveässäkin näytössä), ja **lukurivi nousi ensimmäiseen näkymään** —
+mitattu todiste tulee nyt ennen nappia, ei sen jälkeen.
+
+Sivustolla ei ole enää yhtään animaatiota. Se on tarkoituksellista: ostaja on hankintapäällikkö.
 
 Ruoste vain pieninä annoksina: `.tag`-merkinnät (26 kpl) ja `blockquote`-reuna (3 sivua).
 Ei ruostetta pinnoiksi eikä napeiksi.

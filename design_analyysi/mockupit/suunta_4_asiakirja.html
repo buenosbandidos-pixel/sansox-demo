@@ -1,0 +1,194 @@
+<!DOCTYPE html><html lang="fi"><head><meta charset="utf-8">
+<title>Suunta 4 — Asiakirja</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;800&family=Archivo+Expanded:wght@600;800&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --paper:#FBFAF7;      /* viileä paperi, ei cream */
+    --slab:#E3E6E4;       /* betoni */
+    --rule:#C6CCC8;
+    --ink:#141A18;        /* vihertävä musta */
+    --dim:#59635E;
+    --moss:#2F5D4A;       /* lupaleima: vahvistettu asia */
+    --oxide:#8F4020;      /* rautaoksidi: vajaa tulos */
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{background:var(--paper);color:var(--ink);
+    font:400 16.5px/1.58 Archivo,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+    font-variant-numeric:tabular-nums;-webkit-font-smoothing:antialiased}
+  a{color:inherit}
+  :focus-visible{outline:2.5px solid var(--moss);outline-offset:2px}
+  .sheet{max-width:1220px;margin:0 auto;padding:0 28px}
+
+  header{border-bottom:1.5px solid var(--ink);padding:15px 0}
+  .nav{display:flex;align-items:baseline;gap:26px}
+  .logo{font-weight:800;font-size:19px;letter-spacing:-.01em}
+  .links{margin-left:auto;display:flex;gap:20px;font-size:14.5px;color:var(--dim)}
+  .links a{text-decoration:none}
+  .links a:hover{color:var(--ink)}
+
+  /* Asiakirjaruudukko: kapea hallinnollinen marginaali + leveä sisältö */
+  .doc{display:grid;grid-template-columns:232px 1fr;border-bottom:1.5px solid var(--ink)}
+  .rail{border-right:1.5px solid var(--ink);padding:30px 24px 34px;background:var(--slab)}
+  .body{padding:34px 0 40px 38px}
+
+  .rail dl{font-size:13.5px;line-height:1.45}
+  .rail dt{color:var(--dim);font-size:12.5px;margin-top:15px}
+  .rail dt:first-child{margin-top:0}
+  .rail dd{font-weight:600}
+  .stamp{margin-top:26px;border:1.5px solid var(--moss);color:var(--moss);
+    padding:9px 11px;font-size:12.5px;font-weight:600;line-height:1.35}
+
+  h1{font-family:"Archivo Expanded",Archivo,sans-serif;font-weight:800;
+    font-size:clamp(31px,3.9vw,49px);line-height:1.06;letter-spacing:-.018em;max-width:16ch}
+  .lede{margin-top:17px;max-width:58ch;font-size:17.5px;color:#2b332f}
+  .acts{margin-top:24px;display:flex;gap:11px;flex-wrap:wrap}
+  .go{display:inline-block;background:var(--ink);color:var(--paper);text-decoration:none;
+    padding:13px 22px;font-weight:600;font-size:15px}
+  .go.alt{background:transparent;color:var(--ink);box-shadow:inset 0 0 0 1.5px var(--ink)}
+
+  /* Sääntelyperuste: leveä palkki, ei kortti */
+  .basis{border-top:1.5px solid var(--ink);padding:26px 0 30px}
+  .basis .sheet{display:grid;grid-template-columns:232px 1fr;gap:0}
+  .basis .lab{padding-right:24px;font-weight:600;font-size:15px}
+  .basis .txt{padding-left:38px;border-left:1.5px solid var(--rule);max-width:70ch;color:#2b332f}
+  .basis .src{margin-top:9px;font-size:13px;color:var(--dim)}
+
+  section{border-top:1.5px solid var(--ink);padding:34px 0 42px}
+  .head{display:grid;grid-template-columns:232px 1fr}
+  .head h2{font-family:"Archivo Expanded",Archivo,sans-serif;font-weight:600;font-size:21px;letter-spacing:-.01em}
+  .head p{padding-left:38px;color:var(--dim);max-width:60ch;font-size:15.5px}
+
+  /* Referenssit: taulukkorivejä, ei kortteja */
+  .refs{margin-top:22px;border-top:1px solid var(--rule)}
+  .ref{display:grid;grid-template-columns:232px 1fr 168px;gap:0;
+    border-bottom:1px solid var(--rule);padding:16px 0;align-items:start}
+  .ref .who{font-weight:600;font-size:16.5px;padding-right:24px}
+  .ref .who small{display:block;font-weight:400;font-size:13.5px;color:var(--dim);margin-top:2px}
+  .ref .what{padding-left:38px;color:#2b332f;font-size:15px;max-width:58ch}
+  .ref .state{text-align:right;color:var(--moss);font-weight:600;font-size:13.5px}
+  .ref .state em{display:block;font-style:normal;color:var(--dim);font-weight:400;margin-top:2px}
+
+  /* Aineisto: luettelo, ei korttiruudukko */
+  .files{margin-top:22px;border-top:1px solid var(--rule)}
+  .file{display:grid;grid-template-columns:232px 1fr 110px;border-bottom:1px solid var(--rule);
+    padding:15px 0;text-decoration:none;align-items:baseline}
+  .file:hover{background:#F2F4F2}
+  .file .n{font-weight:600;font-size:16px;padding-right:24px}
+  .file .d{padding-left:38px;color:var(--dim);font-size:14.5px}
+  .file .t{text-align:right;color:var(--dim);font-size:13.5px}
+
+  /* Vastuu: nimet riveinä, ei kortteja */
+  .who3{margin-top:22px;border-top:1px solid var(--rule)}
+  .pp{display:grid;grid-template-columns:232px 1fr 220px;border-bottom:1px solid var(--rule);padding:15px 0}
+  .pp .nm{font-weight:600;font-size:16.5px;padding-right:24px}
+  .pp .rl{padding-left:38px;color:var(--dim);font-size:15px}
+  .pp .cx{text-align:right;font-size:15px}
+  .pp .cx a{display:block;text-decoration:none}
+  .pp .cx a:hover{color:var(--moss)}
+
+  footer{border-top:1.5px solid var(--ink);padding:24px 0 40px;color:var(--dim);font-size:13.5px}
+
+  @media(max-width:900px){
+    .doc,.basis .sheet,.head,.ref,.file,.pp{grid-template-columns:1fr}
+    .rail{border-right:0;border-bottom:1.5px solid var(--ink)}
+    .body,.head p,.basis .txt,.ref .what,.file .d,.pp .rl{padding-left:0;border-left:0}
+    .body{padding:26px 0 32px}
+    .ref .state,.file .t,.pp .cx{text-align:left;margin-top:8px}
+  }
+</style></head><body>
+
+<header><div class="sheet nav">
+  <span class="logo">SansOx</span>
+  <span class="links"><a href="#">Ratkaisut</a><a href="#">Tuotteet</a><a href="#">Toimitetut kohteet</a><a href="#">Aineisto</a><a href="#">Yhteystiedot</a></span>
+</div></header>
+
+<div class="sheet"><div class="doc">
+  <aside class="rail">
+    <dl>
+      <dt>Aineisto</dt><dd>Lääkejäämien poisto, kunnallinen jätevesi</dd>
+      <dt>Päivitetty</dt><dd>21.9.2026</dd>
+      <dt>Toimittaja</dt><dd>SansOx Oy, Lahti</dd>
+      <dt>Y-tunnus</dt><dd>FI24678326</dd>
+      <dt>Perustettu</dt><dd>2012</dd>
+      <dt>Toimituksia</dt><dd>8 kohdetta, 3 maata</dd>
+    </dl>
+    <p class="stamp">Mittaustulos julkaistu vertaisarvioidussa konferenssijulkaisussa, IWA Milano 2021.</p>
+  </aside>
+  <div class="body">
+    <h1>Poisto ilman uutta rakennetta</h1>
+    <p class="lede">OxTube asennetaan siihen poistoputkeen joka laitoksella jo on. Ei kontaktiallasta, ei ilmastustornia, ei uutta perustusta — eikä siis rakennuslupaa, urakkakilpailutusta tai pitkää seisokkia. Kuopion kunnallisella puhdistamolla poistuma oli 90 % lääkejäämistä yhdellä läpivirtauksella, 0,7 sekunnissa.</p>
+    <div class="acts">
+      <a class="go" href="#">Pyydä tarjous</a>
+      <a class="go alt" href="#">Lataa koko aineisto</a>
+    </div>
+  </div>
+</div></div>
+
+<div class="basis"><div class="sheet">
+  <div class="lab">Hankinnan peruste</div>
+  <div class="txt">
+    EU:n uudistettu yhdyskuntajätevesidirektiivi tekee mikropollutanttien poistosta vaiheittain pakollisen ja siirtää vähintään 80 % poistokustannuksista lääke- ja kosmetiikkateollisuudelle. Lääkkeet ja kosmetiikka muodostavat jopa 92 % kaupunkijäteveden mikropollutanteista.
+    <p class="src">Lähteet: EU:n yhdyskuntajätevesidirektiivi; Helsingin Sanomat 3/2026.</p>
+  </div>
+</div></div>
+
+<section><div class="sheet">
+  <div class="head">
+    <h2>Toimitetut kohteet</h2>
+    <p>Nimetyt tilaajat, joilta voi kysyä. Kaikki kohteet ovat käytössä, ja kaksi tilaajaa on hankkinut toisen yksikön ensimmäisen jälkeen.</p>
+  </div>
+  <div class="refs">
+    <div class="ref">
+      <div class="who">Siuntion Vesi<small>Siuntio, Suomi</small></div>
+      <div class="what">Rauta ja matala pH kahdesta kaivosta samalla pumppaamolla. Tilaaja halusi minimoida kemikaalit.</div>
+      <div class="state">Käytössä<em>toinen asema tilattu</em></div>
+    </div>
+    <div class="ref">
+      <div class="who">Ekokymppi<small>Kajaani, Suomi</small></div>
+      <div class="what">Lajitteluaseman regenerointiveden happipitoisuus. Yksikkö vähensi kaasun tarvetta.</div>
+      <div class="state">Käytössä<em>toinen yksikkö viemärilinjaan</em></div>
+    </div>
+    <div class="ref">
+      <div class="who">Unique Water<small>Filippiinit</small></div>
+      <div class="what">Kuusi juomavesipumppaamoa radonrajan 11 Bq/l alapuolelle. Raja on noin 30-kertaisesti Suomen rajaa tiukempi.</div>
+      <div class="state">Käytössä<em>6 asemaa</em></div>
+    </div>
+  </div>
+</div></section>
+
+<section><div class="sheet">
+  <div class="head">
+    <h2>Aineisto hankintakansioon</h2>
+    <p>Kaikki ladattavissa ilman yhteydenottoa tai lomaketta.</p>
+  </div>
+  <div class="files">
+    <a class="file" href="#"><span class="n">Mittausjulkaisu</span><span class="d">Pylkkänen, IWA Milano 2021. Sisältää taulukon 42 aineesta ja vertailun kahteen käytössä olevaan menetelmään.</span><span class="t">PDF, 6 s.</span></a>
+    <a class="file" href="#"><span class="n">Mittaustaulukko</span><span class="d">Sama taulukko koneluettavana: lähtöpitoisuus, jäännös ja poistuma aineittain.</span><span class="t">CSV</span></a>
+    <a class="file" href="#"><span class="n">Tuoteperhe</span><span class="d">Kaksitoista kokoonpanoa, asennustavat, huoltoväli ja tilantarve.</span><span class="t">PDF</span></a>
+    <a class="file" href="#"><span class="n">Referenssiluettelo</span><span class="d">Toimitetut kohteet ja tilaajien yhteyshenkilöt heidän luvallaan.</span><span class="t">PDF</span></a>
+  </div>
+</div></section>
+
+<section><div class="sheet">
+  <div class="head">
+    <h2>Nimetty vastuu</h2>
+    <p>Toimituksella on nimetty vastuuhenkilö, ei vaihtuva palvelunumero. Sama henkilö vastaa myös takuuaikana.</p>
+  </div>
+  <div class="who3">
+    <div class="pp"><span class="nm">Mikael Seppälä</span><span class="rl">Toimitusjohtaja — sopimukset ja tarjoukset</span>
+      <span class="cx"><a href="tel:+358500603020">+358 500 603 020</a><a href="mailto:mikael.seppala@sansox.fi">mikael.seppala@sansox.fi</a></span></div>
+    <div class="pp"><span class="nm">Jukka Hakola</span><span class="rl">Operatiivinen johtaja — toimitus ja asennus</span>
+      <span class="cx"><a href="tel:+358405001123">+358 40 500 1123</a><a href="mailto:jukka.hakola@sansox.fi">jukka.hakola@sansox.fi</a></span></div>
+    <div class="pp"><span class="nm">Juhani Pylkkänen</span><span class="rl">Pääinsinööri — mitoitus ja mittaukset</span>
+      <span class="cx"><a href="tel:+358408669506">+358 40 866 9506</a><a href="mailto:juhani.pylkkanen@sansox.fi">juhani.pylkkanen@sansox.fi</a></span></div>
+  </div>
+</div></section>
+
+<footer><div class="sheet">
+  SansOx Oy, Y/VAT FI24678326. Niemenkatu 73, 15140 Lahti ja Sänkinotkonkatu 6, 83500 Outokumpu. Puhelin +358 500 603 020.
+</div></footer>
+</body></html>

@@ -1,0 +1,95 @@
+<!DOCTYPE html><html lang="fi"><head><meta charset="utf-8">
+<title>Suunta 1 — Mittaustulos</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+  :root{--pap:#f4f2ed;--ink:#14191d;--dim:#5d6b75;--rule:#c9c5bb;--aqua:#0a6a9e;--rust:#a8481c}
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{background:var(--pap);color:var(--ink);
+    font:17px/1.55 "Iowan Old Style","Palatino Linotype",Palatino,Georgia,serif;-webkit-font-smoothing:antialiased}
+  .wrap{max-width:1180px;margin:0 auto;padding:0 32px}
+  .mono{font-family:ui-monospace,"SF Mono",Menlo,Consolas,monospace}
+  header{border-bottom:2px solid var(--ink);padding:18px 0}
+  .nav{display:flex;align-items:baseline;gap:28px}
+  .logo{font-weight:700;font-size:19px;letter-spacing:.5px}
+  .nav a{margin-left:auto;color:var(--dim);text-decoration:none;font-size:13px}
+  .band{border-bottom:1px solid var(--rule);padding:6px 0;font-size:11.5px;letter-spacing:.14em;
+    text-transform:uppercase;color:var(--dim)}
+  /* HERO = tutkimusraportin otsikkolehti */
+  .hero{display:grid;grid-template-columns:1fr 340px;gap:56px;padding:64px 0 40px;align-items:start}
+  h1{font-size:clamp(38px,5.4vw,70px);line-height:1.02;letter-spacing:-.02em;font-weight:400;max-width:15ch}
+  h1 b{font-weight:700}
+  .sub{margin-top:22px;max-width:48ch;color:var(--dim);font-size:18px}
+  .meta{border-top:1px solid var(--rule);margin-top:26px;padding-top:14px;font-size:12.5px;color:var(--dim)}
+  .meta div{display:flex;justify-content:space-between;padding:3px 0;border-bottom:1px dotted var(--rule)}
+  /* ISO LUKU oikealla, kuin mittapöytäkirjan yhteenveto */
+  .card{border:2px solid var(--ink);padding:22px}
+  .card .lbl{font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--dim)}
+  .big{font-size:76px;line-height:.92;font-weight:700;letter-spacing:-.03em;margin:8px 0 2px}
+  .vs{margin-top:18px;border-top:1px solid var(--rule);padding-top:12px;font-size:13px}
+  .vs b{display:inline-block;width:56px}
+  .barrow{display:flex;align-items:center;gap:8px;margin:5px 0}
+  .bar{height:9px;background:var(--ink)}
+  .bar.alt{background:var(--rule)}
+  /* TAULUKKO on sivun sankari */
+  section{padding:52px 0;border-top:2px solid var(--ink)}
+  h2{font-size:26px;font-weight:700;letter-spacing:-.01em;margin-bottom:6px}
+  .lead{color:var(--dim);max-width:60ch;margin-bottom:22px}
+  table{border-collapse:collapse;width:100%;font-size:13.5px}
+  th,td{text-align:left;padding:7px 10px;border-bottom:1px solid var(--rule)}
+  thead th{font-size:10.5px;letter-spacing:.12em;text-transform:none;color:var(--dim);border-bottom:2px solid var(--ink)}
+  td.n{text-align:right;font-variant-numeric:tabular-nums}
+  td.win{font-weight:700}
+  td.lose{color:var(--rust)}
+  tr.tot td{border-top:2px solid var(--ink);font-weight:700;background:#e9e5dc}
+  .note{font-size:12px;color:var(--dim);margin-top:12px;max-width:70ch}
+  .cta{display:inline-block;background:var(--ink);color:var(--pap);text-decoration:none;
+    padding:14px 26px;font-weight:700;font-size:15px;margin-top:8px;font-family:inherit}
+  @media(max-width:860px){.hero{grid-template-columns:1fr;gap:28px}}
+</style></head><body>
+<header><div class="wrap nav"><span class="logo">SansOx</span>
+  <a href="#">Ratkaisut · Tuotteet · Projektit · Tarina · Yhteystiedot</a></div></header>
+<div class="band"><div class="wrap">Mittauspöytäkirja · Kuopion kunnallinen jätevedenpuhdistamo · julkaistu IWA Milano 2021</div></div>
+
+<div class="wrap hero">
+  <div>
+    <h1>42 ainetta mitattiin.<br><b>Näin kävi jokaiselle.</b></h1>
+    <p class="sub">OxTube on umpinainen putkiosa, joka pultataan olemassa olevaan linjaan. Yksi läpivirtaus, 0,7 sekuntia, ei altaita eikä torneja. Alla on koko julkaistu taulukko — myös ne seitsemän ainetta joissa hävisimme perinteiselle menetelmälle.</p>
+    <div class="meta">
+      <div><span>Koe</span><span class="mono">Kuopio, kunnallinen jätevesi</span></div>
+      <div><span>Menetelmä</span><span class="mono">OxTube Ozone, yksi läpivirtaus</span></div>
+      <div><span>Julkaisu</span><span class="mono">Pylkkänen, IWA Milano 2021</span></div>
+      <div><span>Prosessiaika</span><span class="mono">0,7 s</span></div>
+    </div>
+  </div>
+  <div class="card">
+    <div class="lbl">Kokonaislääkeainekuorma</div>
+    <div class="big">86,75<span style="font-size:30px"> %</span></div>
+    <div class="lbl">poistettiin yhdellä läpivirtauksella</div>
+    <div class="vs">
+      <div class="barrow"><b>OxTube</b><span class="bar" style="width:132px"></span> 86,75</div>
+      <div class="barrow"><b>Menet. 1</b><span class="bar alt" style="width:44px"></span> 28,83</div>
+      <div class="barrow"><b>Menet. 2</b><span class="bar alt" style="width:37px"></span> 24,18</div>
+    </div>
+  </div>
+</div>
+
+<section><div class="wrap">
+  <h2>Aine aineelta</h2>
+  <p class="lead">Taulukko 1 kokonaisuudessaan, sellaisena kuin se julkaistiin. Ruskealla merkityt ovat kohtia joissa OxTube jää perinteistä menetelmää heikommaksi.</p>
+  <table>
+    <thead><tr><th>Aine</th><th class="n">Lähtö µg/l</th><th class="n">OxTube jäännös</th><th class="n">OxTube</th><th class="n">Menet. 1</th><th class="n">Menet. 2</th></tr></thead>
+    <tbody>
+      <tr><td>Cetirizine</td><td class="n">5,8</td><td class="n">0,006</td><td class="n win">99,9 %</td><td class="n">&lt;20 %</td><td class="n">&lt;20 %</td></tr>
+      <tr><td>Diclofenac</td><td class="n">1,5</td><td class="n">0,004</td><td class="n win">99,7 %</td><td class="n">&lt;20 %</td><td class="n">&lt;20 %</td></tr>
+      <tr><td>Losartan</td><td class="n">1,2</td><td class="n">0,005</td><td class="n win">99,6 %</td><td class="n">&lt;20 %</td><td class="n">&lt;20 %</td></tr>
+      <tr><td>Lamotrigine</td><td class="n">1,4</td><td class="n">0,756</td><td class="n lose">46 %</td><td class="n">&lt;20 %</td><td class="n">&lt;20 %</td></tr>
+      <tr><td>Ketoprofen</td><td class="n">0,059</td><td class="n">0,042</td><td class="n lose">28 %</td><td class="n">62 %</td><td class="n">80 %</td></tr>
+      <tr><td>Warfarin</td><td class="n">0,007</td><td class="n">0,020</td><td class="n lose">&lt;20 %</td><td class="n">24 %</td><td class="n">&lt;20 %</td></tr>
+      <tr><td>Caffeine</td><td class="n">—</td><td class="n">0,018</td><td class="n lose">&lt;20 %</td><td class="n">&lt;20 %</td><td class="n">52 %</td></tr>
+      <tr class="tot"><td>Kokonaiskuorma</td><td class="n">24,162</td><td class="n">3,202</td><td class="n">86,75 %</td><td class="n">28,83 %</td><td class="n">24,18 %</td></tr>
+    </tbody>
+  </table>
+  <p class="note">Näyte 42 rivistä. Lähtöpitoisuussarake summautuu tasan paperin ilmoittamaan 24,162 µg/l:aan. Losartan esiintyy taulukossa kahdesti eri arvoilla ja Warfarinin jäännös on suurempi kuin lähtöpitoisuus — molemmat toistettu julkaistussa muodossa, korjaamatta.</p>
+  <a class="cta" href="#">Varaa 30 min insinöörin kanssa</a>
+</div></section>
+</body></html>

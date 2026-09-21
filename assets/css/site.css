@@ -36,13 +36,7 @@
   .lang button.on,.lang a.on{background:var(--aqua);color:#04121c}
 
   .hero{padding:56px 0 44px;position:relative;overflow:visible}
-  .herotop{display:grid;grid-template-columns:1.05fr .95fr;gap:30px;align-items:center}
-  .heroviz{position:relative;text-align:center}
-  .heroviz canvas{width:100%;max-width:520px;height:auto;display:block;margin:0 auto}
-  .slogan{font-family:Georgia,'Times New Roman',serif;font-style:italic;
-    font-size:clamp(21px,3vw,28px);letter-spacing:.4px;color:var(--ink);margin-top:2px}
-  .slogan em{font-style:italic;color:var(--aqua)}
-  .sloglabel{color:var(--dim);font-size:13px;letter-spacing:.2px;margin-top:10px}
+  .herotop{max-width:62ch}
   .bleed{width:100vw;position:relative;left:50%;margin-left:-50vw}
   
   .kicker{color:var(--dim);font-size:14px;font-weight:500;letter-spacing:0;border-bottom:1px solid var(--line);padding-bottom:10px;margin-bottom:20px;max-width:44ch}
@@ -128,8 +122,6 @@
       flex-direction:column;gap:0;font-size:15px}
     .nav .links.open{display:flex}
     .nav .links a{padding:13px 2px;border-top:1px solid var(--line);color:var(--ink)}
-    .herotop{grid-template-columns:1fr;gap:22px}
-    .heroviz canvas{max-width:340px}
     .hero{padding:34px 0 34px}
     .num b{letter-spacing:-1px}
     .proto{grid-template-columns:1fr}
