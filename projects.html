@@ -2,128 +2,21 @@
 <title>Projects | SansOx</title>
 <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><circle cx=%2250%22 cy=%2250%22 r=%2246%22 fill=%22%23050e16%22/><path d=%22M50 16C38 34 28 46 28 60a22 22 0 0044 0C72 46 62 34 50 16z%22 fill=%22%233ec6ff%22/></svg>">
 <meta name="description" content="Unique Water Philippines, Sukhrali India, Siuntio, Finnspring, Ekokymppi and a Finnish mine site."><meta property="og:title" content="Projects | SansOx"><meta property="og:description" content="Unique Water Philippines, Sukhrali India, Siuntio, Finnspring, Ekokymppi and a Finnish mine site.">
-<meta property="og:type" content="website"><meta property="og:image" content="https://static.wixstatic.com/media/74c0a2_6b00bf8ab75f48a48c8ade4762dfa6d8~mv2.jpg">
+<meta property="og:type" content="website"><meta property="og:image" content="https://www.sansox.fi/assets/img/oxtube_installed_vertical.jpg">
+<link rel="canonical" href="https://www.sansox.fi/projects.html">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<style>
-  :root{
-    --bg:#071019; --panel:#0a1826; --line:#16283a;
-    --ink:#e9f2f9; --dim:#8aa3b8; --aqua:#3ec6ff; --aqua-deep:#0f5f8f; --rust:#c96f3b;
-  }
-  *{box-sizing:border-box;margin:0;padding:0}
-  html{scroll-behavior:smooth}
-  body{background:var(--bg);color:var(--ink);
-    font:16px/1.6 -apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif;
-    -webkit-font-smoothing:antialiased}
-  .wrap{max-width:960px;margin:0 auto;padding:0 20px}
-  .draft{background:#26200a;color:#e5cf7a;font-size:12px;text-align:center;padding:7px 14px}
-
-  header{position:sticky;top:0;z-index:50;background:rgba(5,14,22,.85);
-    backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
-  .nav{display:flex;align-items:center;gap:22px;padding:15px 0}
-  .logo{font-weight:800;font-size:18px;letter-spacing:.6px}
-  .logo b{color:var(--aqua)}
-  .nav .links{display:flex;gap:18px;font-size:13.5px;margin-left:auto}
-  .nav .links a{color:var(--dim);text-decoration:none}
-  .nav .links a:hover{color:var(--ink)}
-  .lang{display:flex;gap:2px;border:1px solid var(--line);border-radius:6px;overflow:hidden}
-  .lang button{background:transparent;border:0;color:var(--dim);font:700 12px/1 inherit;
-    padding:8px 10px;cursor:pointer}
-  .lang button.on{background:var(--aqua);color:#04121c}
-
-  .hero{padding:56px 0 44px;position:relative;overflow:visible}
-  .herotop{display:grid;grid-template-columns:1.05fr .95fr;gap:30px;align-items:center}
-  .heroviz{position:relative;text-align:center}
-  .heroviz canvas{width:100%;max-width:520px;height:auto;display:block;margin:0 auto}
-  .slogan{font-family:Georgia,'Times New Roman',serif;font-style:italic;
-    font-size:clamp(21px,3vw,28px);letter-spacing:.4px;color:var(--ink);margin-top:2px}
-  .slogan em{font-style:italic;color:var(--aqua)}
-  .sloglabel{color:var(--dim);font-size:13px;letter-spacing:.2px;margin-top:10px}
-  .bleed{width:100vw;position:relative;left:50%;margin-left:-50vw}
-  
-  .kicker{color:var(--dim);font-size:14px;font-weight:500;letter-spacing:0;border-bottom:1px solid var(--line);padding-bottom:10px;margin-bottom:20px;max-width:44ch}
-  h1{font-size:clamp(34px,7vw,64px);line-height:1.03;letter-spacing:-1.5px;font-weight:800;max-width:17ch;text-wrap:balance}
-  h1 em{font-style:normal;color:var(--aqua)}
-  .lede{color:var(--dim);max-width:58ch;margin-top:20px;font-size:17px}
-  .heroctas{margin-top:28px;display:flex;gap:12px;flex-wrap:wrap}
-  .btn{display:inline-block;background:var(--aqua);color:#04121c;font-weight:800;
-    text-decoration:none;padding:14px 24px;border-radius:4px;font-size:15px}
-  .btn.ghost{background:transparent;color:var(--aqua);border:1.5px solid var(--aqua)}
-
-  .numbers{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));
-    gap:2px;background:var(--line);border:1px solid var(--line);border-radius:10px;
-    overflow:hidden;margin:40px 0 6px}
-  .num{background:var(--panel);padding:24px 20px}
-  .num b{display:block;font-size:clamp(38px,7vw,54px);font-weight:800;letter-spacing:-2px;
-    color:var(--aqua);line-height:1;font-variant-numeric:tabular-nums}
-  .num small{font-size:.45em}
-  .num span{display:block;color:var(--dim);font-size:13px;margin-top:9px;line-height:1.45}
-  .src{color:var(--dim);font-size:12.5px;margin-top:10px}
-  .src a{color:var(--aqua)}
-
-  section{padding:72px 0;border-top:1px solid var(--line)}
-  h2{font-size:clamp(23px,4vw,32px);letter-spacing:-.6px;margin-bottom:8px;font-weight:800}
-  .lead{color:var(--dim);max-width:62ch;margin-bottom:26px}
-
-
-  .cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:16px}
-  .card{border:0;border-top:1px solid var(--line);border-radius:0;padding:18px 4px 10px;background:transparent}
-  .tag{display:inline-block;font-size:12.5px;letter-spacing:.2px;color:var(--rust);font-weight:700;margin-bottom:8px}
-  .card h3{font-size:17px;margin-bottom:8px}
-  .card p{font-size:14px;color:var(--dim)}
-  .card .big{font-size:30px;font-weight:800;color:var(--aqua);letter-spacing:-1px;
-    margin:6px 0 4px;font-variant-numeric:tabular-nums}
-
-  .flow{border:1px solid var(--line);border-radius:10px;background:var(--panel);padding:26px 22px}
-  .bar{position:relative;height:10px;border-radius:99px;background:#0d2033;overflow:hidden}
-  .bar i{position:absolute;inset:0;border-radius:99px;transform-origin:left;
-    background:linear-gradient(90deg,var(--aqua-deep),var(--aqua));
-    animation:run 2.8s cubic-bezier(.2,.8,.25,1) infinite}
-  @keyframes run{0%{transform:scaleX(0)}25%{transform:scaleX(1)}100%{transform:scaleX(1)}}
-  .stages{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-top:16px}
-  .stage{font-size:12.5px;color:var(--dim);line-height:1.4}
-  .stage b{display:block;color:var(--ink);font-size:13px;margin-bottom:2px}
-  .flow .t{display:flex;justify-content:space-between;color:var(--dim);font-size:12px;margin-top:8px}
-  .flow .t b{color:var(--aqua);font-weight:800}
-
-  .proto{display:grid;grid-template-columns:1.2fr 1fr;gap:22px;align-items:center}
-  .proto img{width:100%;border-radius:10px;border:1px solid var(--line);display:block}
-  .proto p{color:var(--dim);font-size:14.5px}
-  .proto b{color:var(--ink)}
-
-  .team{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:16px}
-  .person{border:1px solid var(--line);border-radius:10px;padding:20px;background:var(--panel)}
-  .avatar{width:52px;height:52px;border-radius:50%;background:var(--aqua-deep);color:#dff2ff;
-    display:grid;place-items:center;font-weight:800;font-size:17px;margin-bottom:12px}
-  .person b{display:block}
-  .person span{color:var(--aqua);font-size:12.5px;font-weight:700;letter-spacing:.8px;
-    text-transform:uppercase}
-  .person p{color:var(--dim);font-size:13.5px;margin-top:8px}
-
-  .ctaband{background:linear-gradient(180deg,var(--panel),#0c1f31);border:1px solid var(--line);
-    border-radius:12px;padding:34px 26px;display:flex;flex-wrap:wrap;gap:20px;
-    align-items:center;justify-content:space-between}
-  .ctaband h3{font-size:20px}
-  .ctaband p{color:var(--dim);font-size:14.5px;margin-top:4px;max-width:46ch}
-
-  footer.site{border-top:3px double var(--line);margin-top:0;padding:30px 0 48px;
-    color:var(--dim);font-size:13.5px}
-  @media(max-width:680px){
-    .nav{flex-wrap:wrap;gap:10px}
-    .nav .links{gap:12px;font-size:13px;flex-wrap:wrap}
-    .proto{grid-template-columns:1fr}
-    .stages{grid-template-columns:repeat(2,1fr);gap:14px}
-  }
-</style></head><body>
+<link rel="stylesheet" href="assets/css/site.css"></head><body>
 <div class="draft">DEMO · not published · content mirrored from sansox.fi · design study</div>
 <header><div class="wrap nav">
   <a href="index.html" style="text-decoration:none;color:inherit"><div class="logo">Sans<b>Ox</b></div></a>
-  <div class="links">
-    <a href="index.html">Home</a>
-    <a href="solutions.html">Solutions</a>
-    <a href="projects.html">Projects</a>
-    <a href="our-story.html">Our story</a>
-    <a href="contact.html">Contact</a>
-    <a href="news.html">News</a>
+  <button class="navtoggle" id="navtoggle" type="button" aria-expanded="false" aria-controls="navlinks" aria-label="Menu"><span></span><span></span><span></span></button>
+  <div class="links" id="navlinks">
+    <a href="index.html" data-i18n="nv_home">Home</a>
+    <a href="solutions.html" data-i18n="nv_sol">Solutions</a>
+    <a href="projects.html" data-i18n="nv_proj">Projects</a>
+    <a href="our-story.html" data-i18n="nv_story">Our story</a>
+    <a href="contact.html" data-i18n="nv_contact">Contact</a>
+    <a href="news.html" data-i18n="nv_news">News</a>
   </div>
   <div class="lang"><button id="l-en" class="on">EN</button><button id="l-es">ES</button><button id="l-fi">FI</button></div>
 </div></header>
@@ -133,7 +26,7 @@
   <p data-i18n="lede" class="lede">Six deliveries as described on sansox.fi — plus the published Kuopio trial and the Carelian Caviar ozone work as detailed case studies.</p></div>
 
   <section><h2 data-i18n="j1h">Unique Water, Philippines</h2>
-    <picture><source srcset="assets/img/pumphouse_install.webp" type="image/webp"><img src="assets/img/pumphouse_install.jpg" alt="OxTube unit installed in a pump house" style="width:100%;max-width:420px;border-radius:6px;border:1px solid var(--line);display:block;margin:0 0 14px"></picture>
+    <picture><source srcset="assets/img/pumphouse_install.webp" type="image/webp"><img src="assets/img/pumphouse_install.jpg" alt="OxTube unit installed in a pump house" style="width:100%;max-width:420px;border-radius:6px;border:1px solid var(--line);display:block;margin:0 0 14px" width="647" height="861" decoding="async" fetchpriority="high"></picture>
     <p data-i18n-html="j1p" class="lead">In collaboration with our partner Unique Water in the Philippines, we have supplied radon removal units to potable water pumping stations. The Philippines maintains a radon limit of 11 Bq/l — significantly lower than in several European countries; in Finland, limits range between 300 and 400 Bq/l. RadOx — a combination of Booster, OxTube and GasRemox — strips radon and the radon–air mixture from the water; depending on the station, collected radon is contained or released. <i style="color:var(--dim)">[TARKISTETTAVA: the old site states five stations here and six in the company story.]</i></p>
     <p><a data-i18n="j1l" href="case-philippines.html" style="color:var(--aqua);font-weight:700">The case in detail</a></p>
   </section>
@@ -144,12 +37,12 @@
   </section>
 
   <section><h2 data-i18n="j3h">Siuntio, Finland</h2>
-    <picture><source srcset="assets/img/iron_precipitate.webp" type="image/webp"><img src="assets/img/iron_precipitate.jpg" alt="Iron precipitating out of treated water" style="width:100%;max-width:560px;border-radius:6px;border:1px solid var(--line);display:block;margin:0 0 14px"></picture>
+    <picture><source srcset="assets/img/iron_precipitate.webp" type="image/webp"><img src="assets/img/iron_precipitate.jpg" alt="Iron precipitating out of treated water" style="width:100%;max-width:560px;border-radius:6px;border:1px solid var(--line);display:block;margin:0 0 14px" width="556" height="418" loading="lazy" decoding="async"></picture>
     <p data-i18n="j3p" class="lead">Two adjacent wells at one pumping station: excessive iron in one, low pH from dissolved CO₂ in the other. Siuntio Water wanted to minimise chemicals. OxTube was integrated into both lines — compressed air precipitated the iron and stripped the CO₂, lifting pH; GasRemox removed the extracted gas and sand filters caught the precipitate. Water quality improved for the local spa and residents, and Siuntio engaged SansOx for a second station.</p>
   </section>
 
   <section><h2 data-i18n="j4h">Finnspring, Finland</h2>
-    <picture><source srcset="assets/img/oxtube_installer.webp" type="image/webp"><img src="assets/img/oxtube_installer.jpg" alt="Technician working on an installed OxTube unit" style="width:100%;max-width:560px;border-radius:6px;border:1px solid var(--line);display:block;margin:0 0 14px"></picture>
+    <picture><source srcset="assets/img/oxtube_installer.webp" type="image/webp"><img src="assets/img/oxtube_installer.jpg" alt="Technician working on an installed OxTube unit" style="width:100%;max-width:560px;border-radius:6px;border:1px solid var(--line);display:block;margin:0 0 14px" width="526" height="412" loading="lazy" decoding="async"></picture>
     <p data-i18n="j4p" class="lead">Wastewater arrived from varied sources with varying quality — hard to treat consistently. The ClariOx system in the collection drain both aerated and homogenised the water, so the treatment system purified more efficiently. The delivery: OxTube, hoses, a bucket and a submersible pump.</p>
   </section>
 
@@ -180,7 +73,7 @@
   <span>Water Europe (WSSTP) Best Innovation 2014 / Best Aeration Company &amp; SaoxFuge 2015 / IroxFlotation runner-up, Aquatech Amsterdam 2017 / IWA Milan 2021</span>
 </div></footer>
 <script>
-const T={"es": {"kick": "Proyectos", "h1": "Instalado, en <em>agua real</em>.", "lede": "Seis entregas tal como las describe sansox.fi — más el ensayo publicado de Kuopio y el trabajo con ozono de Carelian Caviar como casos detallados.", "j1h": "Unique Water, Filipinas", "j1p": "Con nuestro socio Unique Water hemos suministrado unidades de eliminación de radón a estaciones de bombeo de agua potable. Filipinas mantiene un límite de 11 Bq/l — muy por debajo de varios países europeos; en Finlandia el rango es 300–400 Bq/l. RadOx — Booster, OxTube y GasRemox — extrae el radón del agua; según la estación, el gas se contiene o se ventila. <i style=\"color:var(--dim)\">[TARKISTETTAVA: el sitio antiguo dice cinco estaciones aquí y seis en la historia.]</i>", "j1l": "El caso en detalle", "j2h": "Recuperación del estanque de Sukhrali — Haryana, India", "j2p": "Los ríos indios estaban relativamente sanos a mediados de los 90; hoy la situación es grave. Con nuestro socio indio Elixiir convertimos lagos en espacios recreativos de agua clara y sin olores. Se cortó la entrada de agua sin tratar, se limpiaron las orillas y el agua se bombeó por OxTubes para elevar el oxígeno, mientras un tratamiento enzimático hacía flotar los sólidos del fondo. Un contrato de mantenimiento mantiene el estanque claro — y el trabajo continúa en más lagos, incluida la aldea de Sadpura.", "j2l": "El caso en detalle, con el registro institucional", "j3h": "Siuntio, Finlandia", "j3p": "Dos pozos contiguos en una estación: exceso de hierro en uno, pH bajo por CO₂ en el otro. Siuntio quería minimizar los químicos. OxTube se integró en ambas líneas — el aire comprimido precipitó el hierro y extrajo el CO₂ elevando el pH; GasRemox retiró el gas y los filtros de arena el precipitado. La calidad mejoró para el balneario y los vecinos — y Siuntio encargó una segunda estación.", "j4h": "Finnspring, Finlandia", "j4p": "El agua residual llegaba de fuentes variadas con calidad cambiante. El sistema ClariOx en el dren colector aireó y homogeneizó el agua, y la depuración ganó eficiencia. La entrega: OxTube, mangueras, un cubo y una bomba sumergible.", "j5h": "Ekokymppi, Kajaani, Finlandia", "j5p": "El agua de regeneración de la estación de clasificación no alcanzaba el oxígeno requerido. OxTube mejoró la disolución lo bastante para reducir el gas necesario. Ekokymppi compró una segunda unidad para un dren — homogeneiza, airea y evita el H₂S.", "j6h": "Mina, Finlandia", "j6p": "El agua de minas abandonadas arrastra minerales — sobre todo hierro. El Reactor de Flujo Vertical (VFR), desarrollado con la Universidad LUT y Christoph Walkersdorfer, usa OxTube para precipitar el hierro hacia filtros de arena, con una precipitación claramente mejor. OxTube además previene y neutraliza el H₂S.", "pc_h": "Casos de estudio publicados", "pc1": "eliminado en 0,7 s — el ensayo publicado, sustancia por sustancia.", "pc2": "hasta la disolución completa en una granja de esturiones."}, "fi": {"kick": "Projektit", "h1": "Asennettu, <em>oikeaan veteen</em>.", "lede": "Kuusi toimitusta sansox.fi:n kuvaamina — sekä julkaistu Kuopion koe ja Carelian Caviarin otsonityö syventävinä caseina.", "j1h": "Unique Water, Filippiinit", "j1p": "Kumppanimme Unique Waterin kanssa olemme toimittaneet radoninpoistoyksiköitä juomavesipumppaamoille. Filippiinien raja on 11 Bq/l — selvästi alle monien Euroopan maiden; Suomessa 300–400 Bq/l. RadOx — Booster, OxTube ja GasRemox — poistaa radonin vedestä; asemasta riippuen kaasu otetaan talteen tai tuuletetaan. <i style=\"color:var(--dim)\">[TARKISTETTAVA: vanha sivusto sanoo tässä viisi asemaa, tarinassa kuusi.]</i>", "j1l": "Case yksityiskohtineen", "j2h": "Sukhralin lammen elvytys — Haryana, Intia", "j2p": "Intian joet olivat 90-luvun puolivälissä vielä suhteellisen terveitä; nykytila on vakava. Intialaisen kumppanimme Elixiirin kanssa muutamme järviä kirkasvetisiksi virkistysalueiksi. Käsittelemätön tulovirtaama katkaistiin, penkat siivottiin ja vesi pumpattiin OxTubien läpi hapen nostamiseksi; entsyymikäsittely nosti pohjan kiintoaineet kerättäviksi. Huoltosopimus pitää lammen kirkkaana — ja työ jatkuu uusilla järvillä, myös Sadpuran kylässä.", "j2l": "Case yksityiskohtineen, instituutiotodisteet mukana", "j3h": "Siuntio", "j3p": "Kaksi vierekkäistä kaivoa samalla asemalla: toisessa liikaa rautaa, toisessa matala pH liuenneen CO₂:n takia. Siuntio halusi minimoida kemikaalit. OxTube asennettiin molempiin linjoihin — paineilma saosti raudan ja poisti CO₂:n nostaen pH:ta; GasRemox erotti kaasun ja hiekkasuodattimet saostuman. Laatu parani kylpylälle ja asukkaille — ja Siuntio tilasi toisen aseman.", "j4h": "Finnspring", "j4p": "Jätevettä tuli monesta lähteestä vaihtelevalla laadulla. ClariOx keräysviemärissä ilmasti ja homogenisoi veden, ja puhdistus tehostui. Toimitus: OxTube, letkut, astia ja uppopumppu.", "j5h": "Ekokymppi, Kajaani", "j5p": "Lajitteluaseman regenerointivesi ei saavuttanut vaadittua happitasoa. OxTube paransi liukenemista niin, että kaasua tarvittiin vähemmän. Ekokymppi osti toisen yksikön viemäriin — homogenisoi, ilmastaa ja estää H₂S:n.", "j6h": "Kaivos, Suomi", "j6p": "Hylättyjen kaivosten vesi kuljettaa mineraaleja — ennen kaikkea rautaa. Pystyvirtausreaktori (VFR), kehitetty LUT-yliopiston ja Christoph Walkersdorferin kanssa, saostaa raudan OxTubella hiekkasuodattimiin — selvästi aiempaa tehokkaammin. OxTube myös estää ja neutraloi H₂S:n.", "pc_h": "Julkaistut caset", "pc1": "poistettu 0,7 sekunnissa — julkaistu koe, aine aineelta.", "pc2": "täyteen liukenemiseen toimivassa sampilaitoksessa."}};
+const T={"es": {"nv_home": "Inicio", "nv_sol": "Soluciones", "nv_proj": "Proyectos", "nv_story": "Historia", "nv_contact": "Contacto", "nv_news": "Noticias", "kick": "Proyectos", "h1": "Instalado, en <em>agua real</em>.", "lede": "Seis entregas tal como las describe sansox.fi — más el ensayo publicado de Kuopio y el trabajo con ozono de Carelian Caviar como casos detallados.", "j1h": "Unique Water, Filipinas", "j1p": "Con nuestro socio Unique Water hemos suministrado unidades de eliminación de radón a estaciones de bombeo de agua potable. Filipinas mantiene un límite de 11 Bq/l — muy por debajo de varios países europeos; en Finlandia el rango es 300–400 Bq/l. RadOx — Booster, OxTube y GasRemox — extrae el radón del agua; según la estación, el gas se contiene o se ventila. <i style=\"color:var(--dim)\">[TARKISTETTAVA: el sitio antiguo dice cinco estaciones aquí y seis en la historia.]</i>", "j1l": "El caso en detalle", "j2h": "Recuperación del estanque de Sukhrali — Haryana, India", "j2p": "Los ríos indios estaban relativamente sanos a mediados de los 90; hoy la situación es grave. Con nuestro socio indio Elixiir convertimos lagos en espacios recreativos de agua clara y sin olores. Se cortó la entrada de agua sin tratar, se limpiaron las orillas y el agua se bombeó por OxTubes para elevar el oxígeno, mientras un tratamiento enzimático hacía flotar los sólidos del fondo. Un contrato de mantenimiento mantiene el estanque claro — y el trabajo continúa en más lagos, incluida la aldea de Sadpura.", "j2l": "El caso en detalle, con el registro institucional", "j3h": "Siuntio, Finlandia", "j3p": "Dos pozos contiguos en una estación: exceso de hierro en uno, pH bajo por CO₂ en el otro. Siuntio quería minimizar los químicos. OxTube se integró en ambas líneas — el aire comprimido precipitó el hierro y extrajo el CO₂ elevando el pH; GasRemox retiró el gas y los filtros de arena el precipitado. La calidad mejoró para el balneario y los vecinos — y Siuntio encargó una segunda estación.", "j4h": "Finnspring, Finlandia", "j4p": "El agua residual llegaba de fuentes variadas con calidad cambiante. El sistema ClariOx en el dren colector aireó y homogeneizó el agua, y la depuración ganó eficiencia. La entrega: OxTube, mangueras, un cubo y una bomba sumergible.", "j5h": "Ekokymppi, Kajaani, Finlandia", "j5p": "El agua de regeneración de la estación de clasificación no alcanzaba el oxígeno requerido. OxTube mejoró la disolución lo bastante para reducir el gas necesario. Ekokymppi compró una segunda unidad para un dren — homogeneiza, airea y evita el H₂S.", "j6h": "Mina, Finlandia", "j6p": "El agua de minas abandonadas arrastra minerales — sobre todo hierro. El Reactor de Flujo Vertical (VFR), desarrollado con la Universidad LUT y Christoph Walkersdorfer, usa OxTube para precipitar el hierro hacia filtros de arena, con una precipitación claramente mejor. OxTube además previene y neutraliza el H₂S.", "pc_h": "Casos de estudio publicados", "pc1": "eliminado en 0,7 s — el ensayo publicado, sustancia por sustancia.", "pc2": "hasta la disolución completa en una granja de esturiones."}, "fi": {"nv_home": "Etusivu", "nv_sol": "Ratkaisut", "nv_proj": "Projektit", "nv_story": "Tarina", "nv_contact": "Yhteystiedot", "nv_news": "Uutiset", "kick": "Projektit", "h1": "Asennettu, <em>oikeaan veteen</em>.", "lede": "Kuusi toimitusta sansox.fi:n kuvaamina — sekä julkaistu Kuopion koe ja Carelian Caviarin otsonityö syventävinä caseina.", "j1h": "Unique Water, Filippiinit", "j1p": "Kumppanimme Unique Waterin kanssa olemme toimittaneet radoninpoistoyksiköitä juomavesipumppaamoille. Filippiinien raja on 11 Bq/l — selvästi alle monien Euroopan maiden; Suomessa 300–400 Bq/l. RadOx — Booster, OxTube ja GasRemox — poistaa radonin vedestä; asemasta riippuen kaasu otetaan talteen tai tuuletetaan. <i style=\"color:var(--dim)\">[TARKISTETTAVA: vanha sivusto sanoo tässä viisi asemaa, tarinassa kuusi.]</i>", "j1l": "Case yksityiskohtineen", "j2h": "Sukhralin lammen elvytys — Haryana, Intia", "j2p": "Intian joet olivat 90-luvun puolivälissä vielä suhteellisen terveitä; nykytila on vakava. Intialaisen kumppanimme Elixiirin kanssa muutamme järviä kirkasvetisiksi virkistysalueiksi. Käsittelemätön tulovirtaama katkaistiin, penkat siivottiin ja vesi pumpattiin OxTubien läpi hapen nostamiseksi; entsyymikäsittely nosti pohjan kiintoaineet kerättäviksi. Huoltosopimus pitää lammen kirkkaana — ja työ jatkuu uusilla järvillä, myös Sadpuran kylässä.", "j2l": "Case yksityiskohtineen, instituutiotodisteet mukana", "j3h": "Siuntio", "j3p": "Kaksi vierekkäistä kaivoa samalla asemalla: toisessa liikaa rautaa, toisessa matala pH liuenneen CO₂:n takia. Siuntio halusi minimoida kemikaalit. OxTube asennettiin molempiin linjoihin — paineilma saosti raudan ja poisti CO₂:n nostaen pH:ta; GasRemox erotti kaasun ja hiekkasuodattimet saostuman. Laatu parani kylpylälle ja asukkaille — ja Siuntio tilasi toisen aseman.", "j4h": "Finnspring", "j4p": "Jätevettä tuli monesta lähteestä vaihtelevalla laadulla. ClariOx keräysviemärissä ilmasti ja homogenisoi veden, ja puhdistus tehostui. Toimitus: OxTube, letkut, astia ja uppopumppu.", "j5h": "Ekokymppi, Kajaani", "j5p": "Lajitteluaseman regenerointivesi ei saavuttanut vaadittua happitasoa. OxTube paransi liukenemista niin, että kaasua tarvittiin vähemmän. Ekokymppi osti toisen yksikön viemäriin — homogenisoi, ilmastaa ja estää H₂S:n.", "j6h": "Kaivos, Suomi", "j6p": "Hylättyjen kaivosten vesi kuljettaa mineraaleja — ennen kaikkea rautaa. Pystyvirtausreaktori (VFR), kehitetty LUT-yliopiston ja Christoph Walkersdorferin kanssa, saostaa raudan OxTubella hiekkasuodattimiin — selvästi aiempaa tehokkaammin. OxTube myös estää ja neutraloi H₂S:n.", "pc_h": "Julkaistut caset", "pc1": "poistettu 0,7 sekunnissa — julkaistu koe, aine aineelta.", "pc2": "täyteen liukenemiseen toimivassa sampilaitoksessa."}};
 </script>
 <script>
 (function(){
@@ -197,6 +90,16 @@ document.querySelectorAll('[data-i18n-html]').forEach(function(e){var k=e.datase
 ['en','es','fi'].forEach(function(x){var b=document.getElementById('l-'+x);if(b)b.onclick=function(){window.__setLang(x)}});
 var sl=null;try{sl=localStorage.getItem('sansox_lang')}catch(e){}
 if(sl&&sl!=='en')window.__setLang(sl);
+})();
+</script>
+<script>
+(function(){var t=document.getElementById('navtoggle'),l=document.getElementById('navlinks');
+if(!t||!l)return;
+function close(){l.classList.remove('open');t.setAttribute('aria-expanded','false')}
+t.addEventListener('click',function(){var o=l.classList.toggle('open');t.setAttribute('aria-expanded',o?'true':'false')});
+l.addEventListener('click',function(e){if(e.target.closest('a'))close()});
+document.addEventListener('keydown',function(e){if(e.key==='Escape'&&l.classList.contains('open')){close();t.focus()}});
+addEventListener('resize',function(){if(innerWidth>680)close()});
 })();
 </script>
 </body></html>

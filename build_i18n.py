@@ -8,8 +8,10 @@ BASE = "https://www.sansox.fi"   # [TARKISTETTAVA] — vaihda jos hosting-päät
 R = os.path.dirname(os.path.abspath(__file__))
 PUBLISH = "--publish" in sys.argv
 
-PAGES = ["index.html","solutions.html","products.html","references.html","technology.html",
-         "company.html","story.html","case-kuopio.html","case-philippines.html","case-carelian.html","case-india.html"]
+# [2026-09-21] Paivitetty v3:n sivunimiin. Vanha lista oli v2:sta (products/references/
+# technology/company/story) eika yksikaan niista ole olemassa v3:ssa -> skripti ei tehnyt mitaan.
+PAGES = ["index.html","solutions.html","projects.html","our-story.html","contact.html","news.html",
+         "case-kuopio.html","case-philippines.html","case-carelian.html","case-india.html"]
 
 META = {  # sivu → (es_title, es_desc, fi_title, fi_desc)
  "index.html":("SansOx — tecnología finlandesa de tratamiento de agua",
@@ -18,16 +20,14 @@ META = {  # sivu → (es_title, es_desc, fi_title, fi_desc)
    "OxTube liuottaa kaasun veteen alle sekunnissa. 90 % lääkejäämistä poistettu — mitattu ja julkaistu."),
  "solutions.html":("Soluciones | SansOx","Aguas naturales, agua potable, agua residual — un tubo, tres segmentos.",
    "Ratkaisut | SansOx","Luonnonvedet, juomavesi, jätevesi — yksi putki, kolme segmenttiä."),
- "products.html":("Productos — la familia OxTube | SansOx","OxTube, RadOx, IroX, UGOx, GasRemox y Lady Bug. Un principio, nueve productos.",
-   "Tuotteet — OxTube-perhe | SansOx","OxTube, RadOx, IroX, UGOx, GasRemox ja Lady Bug. Yksi periaate, yhdeksän tuotetta."),
- "references.html":("Referencias | SansOx","Cuatro referencias medidas y trece crónicas desde el terreno.",
-   "Referenssit | SansOx","Neljä mitattua referenssiä ja kolmetoista raporttia kentältä."),
- "technology.html":("Tecnología | SansOx","Cuatro etapas dentro de un tubo sellado, en menos de un segundo.",
-   "Teknologia | SansOx","Neljä vaihetta suljetussa putkessa, alle sekunnissa."),
- "company.html":("Empresa | SansOx","Tres ingenieros en Lahti, Finlandia. Publicado en IWA, premiado por Water Europe.",
-   "Yritys | SansOx","Kolme insinööriä Lahdessa. IWA-julkaisu, Water Europe -palkinto."),
- "story.html":("Nuestra historia | SansOx","De una idea hidroeléctrica a una misión de restauración del agua.",
-   "Tarinamme | SansOx","Vesivoimaideasta veden elvytysmissioksi."),
+ "projects.html":("Proyectos | SansOx","Seis entregas tal como las describe sansox.fi, mas el ensayo publicado de Kuopio.",
+   "Projektit | SansOx","Kuusi toimitusta sansox.fi:n kuvaamina, seka julkaistu Kuopion koe."),
+ "our-story.html":("Nuestra historia | SansOx","De una idea hidroelectrica a restaurar el agua.",
+   "Tarinamme | SansOx","Vesivoimaideasta veden elvyttajaksi."),
+ "contact.html":("Contacto | SansOx","Pongase en contacto hoy y trabajemos juntos para encontrar la mejor solucion para usted.",
+   "Yhteystiedot | SansOx","Ota yhteytta jo tanaan - etsitaan yhdessa paras ratkaisu."),
+ "news.html":("Noticias | SansOx","Catorce cronicas, 2019-2026: estanques salvados, agua textil en Asia, el premio Baltic Sea Project.",
+   "Uutiset | SansOx","Neljatoista raporttia, 2019-2026: pelastettuja lampia, tekstiilivetta Aasiassa, Baltic Sea Project -palkinto."),
  "case-kuopio.html":("Caso Kuopio — 90 % de fármacos eliminados en 0,7 s | SansOx","El ensayo publicado por IWA, sustancia por sustancia.",
    "Case Kuopio — 90 % lääkejäämistä 0,7 sekunnissa | SansOx","IWA:n julkaisema koe, aine aineelta."),
  "case-philippines.html":("Caso Filipinas — radón bajo 11 Bq/l | SansOx","Seis estaciones de bombeo bajo uno de los límites más estrictos del mundo.",
@@ -65,6 +65,19 @@ def extract_dict(h):
     if out.returncode != 0: raise RuntimeError(out.stderr[:300])
     return json.loads(out.stdout)
 
+def canonical(page, lang):
+    """[2026-09-21] Jokainen kieliversio osoittaa ITSEENSA. Jos /es/-sivu julistaisi
+    EN-sivun kanoniseksi, Google pudottaisi koko ES-sisallon indeksista."""
+    p = "" if page == "index.html" else page
+    pre = "" if lang == "en" else lang + "/"
+    return f'<link rel="canonical" href="{BASE}/{pre}{p}">'
+
+def set_canonical(h, page, lang):
+    tag = canonical(page, lang)
+    if re.search(r'<link rel="canonical"[^>]*>', h):
+        return re.sub(r'<link rel="canonical"[^>]*>', tag, h, count=1)
+    return h.replace('<meta name="viewport"', tag + "\n" + '<meta name="viewport"', 1)
+
 def hreflang(page):
     p = "" if page=="index.html" else page
     return (f'<link rel="alternate" hreflang="en" href="{BASE}/{p}">\n'
@@ -73,14 +86,16 @@ def hreflang(page):
             f'<link rel="alternate" hreflang="x-default" href="{BASE}/{p}">\n')
 
 def lang_links(page, cur):
-    p = page
-    up = "../" if cur!="en" else ""
-    def cls(l): return ' class="on"' if l==cur else ""
-    en = f'{up}{p}' if cur!="en" else p
+    """[2026-09-21] Inline-tyylit poistettu: .lang a -saanto site.css:ssa hoitaa ulkoasun
+    ja 44 px kosketusalueen mobiilissa. Aiemmin tama ylikirjoitti ne padding:8px 10px:lla."""
+    up = "../" if cur != "en" else ""
+    def a(l, href):
+        on = ' class="on"' if l == cur else ""
+        return f'<a{on} href="{href}">{l.upper()}</a>'
     return ('<div class="lang">'
-            f'<a{cls("en")} href="{up if cur!="en" else ""}{p}" style="padding:8px 10px;text-decoration:none;color:{"#04121c" if cur=="en" else "var(--dim)"};font:700 12px/1 -apple-system,sans-serif;{"background:var(--aqua)" if cur=="en" else ""}">EN</a>'
-            f'<a{cls("es")} href="{up}es/{p}" style="padding:8px 10px;text-decoration:none;color:{"#04121c" if cur=="es" else "var(--dim)"};font:700 12px/1 -apple-system,sans-serif;{"background:var(--aqua)" if cur=="es" else ""}">ES</a>'
-            f'<a{cls("fi")} href="{up}fi/{p}" style="padding:8px 10px;text-decoration:none;color:{"#04121c" if cur=="fi" else "var(--dim)"};font:700 12px/1 -apple-system,sans-serif;{"background:var(--aqua)" if cur=="fi" else ""}">FI</a></div>')
+            + a("en", f'{up}{page}')
+            + a("es", f'{up}es/{page}')
+            + a("fi", f'{up}fi/{page}') + '</div>')
 
 def bake(h, d, lang, page):
     # data-i18n → tekstisisältö; data-i18n-html → HTML-sisältö
@@ -129,11 +144,13 @@ for page in PAGES:
         print("!! ei sanakirjaa:",page); continue
     for lang in ("es","fi"):
         out = bake(src, d, lang, page)
-        out = hreflangize = out.replace('<meta name="viewport"', hreflang(page)+'<meta name="viewport"',1)
+        out = out.replace('<meta name="viewport"', hreflang(page)+'<meta name="viewport"',1)
+        out = set_canonical(out, page, lang)
         if PUBLISH: out = strip_banner(out)
         open(R+f"/{lang}/{page}","w").write(out)
     # juurisivu: hreflang + kielivalitsin linkeiksi + localStorage-init pois
     root = src.replace('<meta name="viewport"', hreflang(page)+'<meta name="viewport"',1)
+    root = set_canonical(root, page, "en")
     root = re.sub(r'<div class="lang"[^>]*>.*?</div>', lang_links(page,"en"), root, count=1, flags=re.S)
     root = re.sub(r"\ndocument\.addEventListener\('DOMContentLoaded',function\(\)\{var sl=null;.*?\}\);",'',root,flags=re.S)
     if PUBLISH: root = strip_banner(root)

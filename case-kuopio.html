@@ -7,7 +7,8 @@
 <meta property="og:title" content="Case Kuopio — 90 % pharmaceutical removal in 0.7 s | SansOx">
 <meta property="og:description" content="Case Kuopio: 87–90% pharmaceutical residue removal from municipal wastewater in 0.7 seconds with OxTube Ozone. Published at IWA Milan 2021.">
 <meta property="og:type" content="website">
-<meta property="og:image" content="https://static.wixstatic.com/media/74c0a2_6b00bf8ab75f48a48c8ade4762dfa6d8~mv2.jpg">
+<meta property="og:image" content="https://www.sansox.fi/assets/img/oxtube_installed_vertical.jpg">
+<link rel="canonical" href="https://www.sansox.fi/case-kuopio.html">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Case Kuopio — 90 % pharmaceutical removal in 0.7 s | SansOx</title>
 <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><circle cx=%2250%22 cy=%2250%22 r=%2246%22 fill=%22%23050e16%22/><path d=%22M50 16C38 34 28 46 28 60a22 22 0 0044 0C72 46 62 34 50 16z%22 fill=%22%233ec6ff%22/></svg>">
@@ -17,6 +18,8 @@
     --ink:#e9f2f9; --dim:#8aa3b8; --aqua:#3ec6ff; --aqua-deep:#0f5f8f; --rust:#c96f3b;
   }
   *{box-sizing:border-box;margin:0;padding:0}
+  /* width/height-attribuutit varaavat tilan (CLS); nama kaksi pitavat kuvasuhteen */
+  img{max-width:100%;height:auto}
   html{scroll-behavior:smooth}
   body{background:var(--bg);color:var(--ink);
     font:16px/1.6 -apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif;
@@ -51,7 +54,8 @@
   .num{background:var(--panel);padding:26px 20px}
   .num b{display:block;font-size:clamp(40px,8vw,58px);font-weight:800;
     letter-spacing:-2px;color:var(--aqua);line-height:1;font-variant-numeric:tabular-nums}
-  .num span{display:block;color:var(--dim);font-size:13.5px;margin-top:10px;line-height:1.45}
+  .num small{font-size:.45em;letter-spacing:0;margin-left:.06em}
+  .num > span{display:block;color:var(--dim);font-size:13.5px;margin-top:10px;line-height:1.45}
   .src{color:var(--dim);font-size:12.5px;margin:10px 2px 0}
   .src a{color:var(--aqua)}
 
@@ -129,7 +133,7 @@
     .stages{grid-template-columns:repeat(2,1fr);gap:14px}
     .ctaband{padding:26px 20px}
   }
-.lang{display:inline-flex;gap:2px;border:1px solid var(--line);border-radius:6px;overflow:hidden}.lang button{background:transparent;border:0;color:var(--dim);font:700 12px/1 inherit;padding:7px 10px;cursor:pointer}.lang button.on{background:var(--aqua);color:#04121c}</style>
+.lang{display:inline-flex;gap:2px;border:1px solid var(--line);border-radius:6px;overflow:hidden}.lang button,.lang a{background:transparent;border:0;color:var(--dim);text-decoration:none;display:inline-block;font:700 12px/1 inherit;padding:7px 10px;cursor:pointer}@media(max-width:680px){.lang button,.lang a{padding:15px 14px}}.lang button.on,.lang a.on{background:var(--aqua);color:#04121c}</style>
 </head>
 <body>
 
@@ -157,7 +161,7 @@
     <div class="num"><b><span data-i18n="m3v">0.7</span><small style="font-size:.45em">s</small></b><span data-i18n="m3">total process time, single pass</span></div>
     <div class="num"><b>0</b><span data-i18n="m4">additional energy on the water side — only the ozone generator draws power</span></div>
   </div>
-  <p class="src">Source: J. Pylkkänen, <i>OxTube Integrated Water Clarification for Removal of Pharmaceutical Residues and Disinfection</i>, IWA 2021 · <a href="assets/paper/Pylkkanen_OxTube_IWA_Milan_2021.pdf" data-i18n="dl">Download the paper (PDF, 6 p.)</a> <img src="assets/img/iwa_ecostp_2021.png" alt="IWA ecoSTP 2021" style="height:24px;vertical-align:middle;margin-left:6px;background:#fff;border-radius:3px;padding:2px 4px"></p>
+  <p class="src">Source: J. Pylkkänen, <i>OxTube Integrated Water Clarification for Removal of Pharmaceutical Residues and Disinfection</i>, IWA 2021 · <a href="assets/paper/Pylkkanen_OxTube_IWA_Milan_2021.pdf" data-i18n="dl">Download the paper (PDF, 6 p.)</a> <img src="assets/img/iwa_ecostp_2021.png" alt="IWA ecoSTP 2021" style="height:24px;width:auto;vertical-align:middle;margin-left:6px;background:#fff;border-radius:3px;padding:2px 4px" width="887" height="440" decoding="async" fetchpriority="high"></p>
 
   <section>
     <h2 data-i18n-html="s1"><span class="stepnum">1</span>The starting point</h2>

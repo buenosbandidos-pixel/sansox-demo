@@ -2,128 +2,21 @@
 <title>Contact | SansOx</title>
 <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><circle cx=%2250%22 cy=%2250%22 r=%2246%22 fill=%22%23050e16%22/><path d=%22M50 16C38 34 28 46 28 60a22 22 0 0044 0C72 46 62 34 50 16z%22 fill=%22%233ec6ff%22/></svg>">
 <meta name="description" content="Your success is our priority. Reach out to us today."><meta property="og:title" content="Contact | SansOx"><meta property="og:description" content="Your success is our priority. Reach out to us today.">
-<meta property="og:type" content="website"><meta property="og:image" content="https://static.wixstatic.com/media/74c0a2_6b00bf8ab75f48a48c8ade4762dfa6d8~mv2.jpg">
+<meta property="og:type" content="website"><meta property="og:image" content="https://www.sansox.fi/assets/img/oxtube_installed_vertical.jpg">
+<link rel="canonical" href="https://www.sansox.fi/contact.html">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<style>
-  :root{
-    --bg:#071019; --panel:#0a1826; --line:#16283a;
-    --ink:#e9f2f9; --dim:#8aa3b8; --aqua:#3ec6ff; --aqua-deep:#0f5f8f; --rust:#c96f3b;
-  }
-  *{box-sizing:border-box;margin:0;padding:0}
-  html{scroll-behavior:smooth}
-  body{background:var(--bg);color:var(--ink);
-    font:16px/1.6 -apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif;
-    -webkit-font-smoothing:antialiased}
-  .wrap{max-width:960px;margin:0 auto;padding:0 20px}
-  .draft{background:#26200a;color:#e5cf7a;font-size:12px;text-align:center;padding:7px 14px}
-
-  header{position:sticky;top:0;z-index:50;background:rgba(5,14,22,.85);
-    backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
-  .nav{display:flex;align-items:center;gap:22px;padding:15px 0}
-  .logo{font-weight:800;font-size:18px;letter-spacing:.6px}
-  .logo b{color:var(--aqua)}
-  .nav .links{display:flex;gap:18px;font-size:13.5px;margin-left:auto}
-  .nav .links a{color:var(--dim);text-decoration:none}
-  .nav .links a:hover{color:var(--ink)}
-  .lang{display:flex;gap:2px;border:1px solid var(--line);border-radius:6px;overflow:hidden}
-  .lang button{background:transparent;border:0;color:var(--dim);font:700 12px/1 inherit;
-    padding:8px 10px;cursor:pointer}
-  .lang button.on{background:var(--aqua);color:#04121c}
-
-  .hero{padding:56px 0 44px;position:relative;overflow:visible}
-  .herotop{display:grid;grid-template-columns:1.05fr .95fr;gap:30px;align-items:center}
-  .heroviz{position:relative;text-align:center}
-  .heroviz canvas{width:100%;max-width:520px;height:auto;display:block;margin:0 auto}
-  .slogan{font-family:Georgia,'Times New Roman',serif;font-style:italic;
-    font-size:clamp(21px,3vw,28px);letter-spacing:.4px;color:var(--ink);margin-top:2px}
-  .slogan em{font-style:italic;color:var(--aqua)}
-  .sloglabel{color:var(--dim);font-size:13px;letter-spacing:.2px;margin-top:10px}
-  .bleed{width:100vw;position:relative;left:50%;margin-left:-50vw}
-  
-  .kicker{color:var(--dim);font-size:14px;font-weight:500;letter-spacing:0;border-bottom:1px solid var(--line);padding-bottom:10px;margin-bottom:20px;max-width:44ch}
-  h1{font-size:clamp(34px,7vw,64px);line-height:1.03;letter-spacing:-1.5px;font-weight:800;max-width:17ch;text-wrap:balance}
-  h1 em{font-style:normal;color:var(--aqua)}
-  .lede{color:var(--dim);max-width:58ch;margin-top:20px;font-size:17px}
-  .heroctas{margin-top:28px;display:flex;gap:12px;flex-wrap:wrap}
-  .btn{display:inline-block;background:var(--aqua);color:#04121c;font-weight:800;
-    text-decoration:none;padding:14px 24px;border-radius:4px;font-size:15px}
-  .btn.ghost{background:transparent;color:var(--aqua);border:1.5px solid var(--aqua)}
-
-  .numbers{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));
-    gap:2px;background:var(--line);border:1px solid var(--line);border-radius:10px;
-    overflow:hidden;margin:40px 0 6px}
-  .num{background:var(--panel);padding:24px 20px}
-  .num b{display:block;font-size:clamp(38px,7vw,54px);font-weight:800;letter-spacing:-2px;
-    color:var(--aqua);line-height:1;font-variant-numeric:tabular-nums}
-  .num small{font-size:.45em}
-  .num span{display:block;color:var(--dim);font-size:13px;margin-top:9px;line-height:1.45}
-  .src{color:var(--dim);font-size:12.5px;margin-top:10px}
-  .src a{color:var(--aqua)}
-
-  section{padding:72px 0;border-top:1px solid var(--line)}
-  h2{font-size:clamp(23px,4vw,32px);letter-spacing:-.6px;margin-bottom:8px;font-weight:800}
-  .lead{color:var(--dim);max-width:62ch;margin-bottom:26px}
-
-
-  .cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:16px}
-  .card{border:0;border-top:1px solid var(--line);border-radius:0;padding:18px 4px 10px;background:transparent}
-  .tag{display:inline-block;font-size:12.5px;letter-spacing:.2px;color:var(--rust);font-weight:700;margin-bottom:8px}
-  .card h3{font-size:17px;margin-bottom:8px}
-  .card p{font-size:14px;color:var(--dim)}
-  .card .big{font-size:30px;font-weight:800;color:var(--aqua);letter-spacing:-1px;
-    margin:6px 0 4px;font-variant-numeric:tabular-nums}
-
-  .flow{border:1px solid var(--line);border-radius:10px;background:var(--panel);padding:26px 22px}
-  .bar{position:relative;height:10px;border-radius:99px;background:#0d2033;overflow:hidden}
-  .bar i{position:absolute;inset:0;border-radius:99px;transform-origin:left;
-    background:linear-gradient(90deg,var(--aqua-deep),var(--aqua));
-    animation:run 2.8s cubic-bezier(.2,.8,.25,1) infinite}
-  @keyframes run{0%{transform:scaleX(0)}25%{transform:scaleX(1)}100%{transform:scaleX(1)}}
-  .stages{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-top:16px}
-  .stage{font-size:12.5px;color:var(--dim);line-height:1.4}
-  .stage b{display:block;color:var(--ink);font-size:13px;margin-bottom:2px}
-  .flow .t{display:flex;justify-content:space-between;color:var(--dim);font-size:12px;margin-top:8px}
-  .flow .t b{color:var(--aqua);font-weight:800}
-
-  .proto{display:grid;grid-template-columns:1.2fr 1fr;gap:22px;align-items:center}
-  .proto img{width:100%;border-radius:10px;border:1px solid var(--line);display:block}
-  .proto p{color:var(--dim);font-size:14.5px}
-  .proto b{color:var(--ink)}
-
-  .team{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:16px}
-  .person{border:1px solid var(--line);border-radius:10px;padding:20px;background:var(--panel)}
-  .avatar{width:52px;height:52px;border-radius:50%;background:var(--aqua-deep);color:#dff2ff;
-    display:grid;place-items:center;font-weight:800;font-size:17px;margin-bottom:12px}
-  .person b{display:block}
-  .person span{color:var(--aqua);font-size:12.5px;font-weight:700;letter-spacing:.8px;
-    text-transform:uppercase}
-  .person p{color:var(--dim);font-size:13.5px;margin-top:8px}
-
-  .ctaband{background:linear-gradient(180deg,var(--panel),#0c1f31);border:1px solid var(--line);
-    border-radius:12px;padding:34px 26px;display:flex;flex-wrap:wrap;gap:20px;
-    align-items:center;justify-content:space-between}
-  .ctaband h3{font-size:20px}
-  .ctaband p{color:var(--dim);font-size:14.5px;margin-top:4px;max-width:46ch}
-
-  footer.site{border-top:3px double var(--line);margin-top:0;padding:30px 0 48px;
-    color:var(--dim);font-size:13.5px}
-  @media(max-width:680px){
-    .nav{flex-wrap:wrap;gap:10px}
-    .nav .links{gap:12px;font-size:13px;flex-wrap:wrap}
-    .proto{grid-template-columns:1fr}
-    .stages{grid-template-columns:repeat(2,1fr);gap:14px}
-  }
-</style></head><body>
+<link rel="stylesheet" href="assets/css/site.css"></head><body>
 <div class="draft">DEMO · not published · content mirrored from sansox.fi · design study</div>
 <header><div class="wrap nav">
   <a href="index.html" style="text-decoration:none;color:inherit"><div class="logo">Sans<b>Ox</b></div></a>
-  <div class="links">
-    <a href="index.html">Home</a>
-    <a href="solutions.html">Solutions</a>
-    <a href="projects.html">Projects</a>
-    <a href="our-story.html">Our story</a>
-    <a href="contact.html">Contact</a>
-    <a href="news.html">News</a>
+  <button class="navtoggle" id="navtoggle" type="button" aria-expanded="false" aria-controls="navlinks" aria-label="Menu"><span></span><span></span><span></span></button>
+  <div class="links" id="navlinks">
+    <a href="index.html" data-i18n="nv_home">Home</a>
+    <a href="solutions.html" data-i18n="nv_sol">Solutions</a>
+    <a href="projects.html" data-i18n="nv_proj">Projects</a>
+    <a href="our-story.html" data-i18n="nv_story">Our story</a>
+    <a href="contact.html" data-i18n="nv_contact">Contact</a>
+    <a href="news.html" data-i18n="nv_news">News</a>
   </div>
   <div class="lang"><button id="l-en" class="on">EN</button><button id="l-es">ES</button><button id="l-fi">FI</button></div>
 </div></header>
@@ -133,9 +26,9 @@
   <p data-i18n="lede" class="lede">Reach out to us today, and let's work together to find the best solutions for you.</p></div>
   <section>
     <div class="team" style="margin-top:6px">
-      <div class="person"><img src="assets/img/team_seppala.jpg" alt="Mikael Seppälä" style="width:100%;aspect-ratio:5/6;object-fit:cover;border-radius:10px;margin-bottom:12px"><b>Mikael Seppälä</b><span data-i18n="r1">Managing Director</span><p>+358 500 603 020<br>mikael.seppala@sansox.fi</p></div>
-      <div class="person"><img src="assets/img/team_hakola.jpg" alt="Jukka Hakola" style="width:100%;aspect-ratio:5/6;object-fit:cover;border-radius:10px;margin-bottom:12px"><b>Jukka Hakola</b><span data-i18n="r2">Chief Operating Officer</span><p>+358 40 500 1123<br>jukka.hakola@sansox.fi</p></div>
-      <div class="person"><img src="assets/img/team_pylkkanen.jpg" alt="Juhani Pylkkänen" style="width:100%;aspect-ratio:5/6;object-fit:cover;border-radius:10px;margin-bottom:12px"><b>Juhani Pylkkänen</b><span data-i18n="r3">Chief Engineer</span><p>+358 40 866 9506<br>juhani.pylkkanen@sansox.fi</p></div>
+      <div class="person"><img src="assets/img/team_seppala.jpg" alt="Mikael Seppälä" style="width:100%;aspect-ratio:5/6;object-fit:cover;border-radius:10px;margin-bottom:12px" width="250" height="300" decoding="async" fetchpriority="high"><b>Mikael Seppälä</b><span data-i18n="r1">Managing Director</span><p>+358 500 603 020<br>mikael.seppala@sansox.fi</p></div>
+      <div class="person"><img src="assets/img/team_hakola.jpg" alt="Jukka Hakola" style="width:100%;aspect-ratio:5/6;object-fit:cover;border-radius:10px;margin-bottom:12px" width="250" height="300" decoding="async" fetchpriority="high"><b>Jukka Hakola</b><span data-i18n="r2">Chief Operating Officer</span><p>+358 40 500 1123<br>jukka.hakola@sansox.fi</p></div>
+      <div class="person"><img src="assets/img/team_pylkkanen.jpg" alt="Juhani Pylkkänen" style="width:100%;aspect-ratio:5/6;object-fit:cover;border-radius:10px;margin-bottom:12px" width="250" height="300" decoding="async" fetchpriority="high"><b>Juhani Pylkkänen</b><span data-i18n="r3">Chief Engineer</span><p>+358 40 866 9506<br>juhani.pylkkanen@sansox.fi</p></div>
     </div>
   </section>
   <section>
@@ -167,7 +60,7 @@
   <span>Water Europe (WSSTP) Best Innovation 2014 / Best Aeration Company &amp; SaoxFuge 2015 / IroxFlotation runner-up, Aquatech Amsterdam 2017 / IWA Milan 2021</span>
 </div></footer>
 <script>
-const T={"es": {"sv_h": "Servicios", "sv1t": "Consulta gratuita", "sv1h": "Consulta OxTube", "sv1p": "Una sesión privada sobre cómo OxTube encaja en su proceso — adaptada a su caudal, objetivos y emplazamiento.", "sv2t": "Curso", "sv2h": "Curso de aireación OxTube", "sv2p": "Sesiones a medida para proyectos municipales, industriales, agrícolas, de acuicultura y medioambientales.", "sv3t": "Formación", "sv3h": "Formación tecnológica", "sv3p": "Formación de nivel operador para equipos que gestionan una instalación OxTube.", "kick": "Contacto", "h1": "Su éxito es <em>nuestra prioridad</em>.", "lede": "Póngase en contacto hoy y trabajemos juntos para encontrar la mejor solución para usted.", "r1": "Director general", "r2": "Director de operaciones", "r3": "Ingeniero jefe", "a1": "Lahti", "a2": "Outokumpu", "a3": "Teléfono y correo", "cb_h": "Déjenos un mensaje", "cb_p": "Díganos su caudal, su objetivo y su agua — respondemos nosotros mismos.", "cb_b": "Escríbanos"}, "fi": {"sv_h": "Palvelut", "sv1t": "Maksuton konsultaatio", "sv1h": "OxTube-konsultaatio", "sv1p": "Kahdenkeskinen sessio siitä, miten OxTube istuu sinun prosessiisi — räätälöitynä virtaamaan, tavoitteisiin ja kohteeseen.", "sv2t": "Kurssi", "sv2h": "OxTube-ilmastuskurssi", "sv2p": "Räätälöidyt koulutukset kunnallisiin, teollisiin, maatalouden, vesiviljelyn ja ympäristöhankkeisiin.", "sv3t": "Koulutus", "sv3h": "Teknologiakoulutus", "sv3p": "Operaattoritason koulutus OxTube-asennusta käyttäville tiimeille.", "kick": "Yhteystiedot", "h1": "Sinun onnistumisesi on <em>meidän prioriteettimme</em>.", "lede": "Ota yhteyttä jo tänään — etsitään yhdessä paras ratkaisu.", "r1": "Toimitusjohtaja", "r2": "Operatiivinen johtaja", "r3": "Pääinsinööri", "a1": "Lahti", "a2": "Outokumpu", "a3": "Puhelin ja sähköposti", "cb_h": "Jätä viesti", "cb_p": "Kerro virtaama, tavoite ja vetesi — vastaamme itse.", "cb_b": "Lähetä sähköpostia"}};
+const T={"es": {"nv_home": "Inicio", "nv_sol": "Soluciones", "nv_proj": "Proyectos", "nv_story": "Historia", "nv_contact": "Contacto", "nv_news": "Noticias", "sv_h": "Servicios", "sv1t": "Consulta gratuita", "sv1h": "Consulta OxTube", "sv1p": "Una sesión privada sobre cómo OxTube encaja en su proceso — adaptada a su caudal, objetivos y emplazamiento.", "sv2t": "Curso", "sv2h": "Curso de aireación OxTube", "sv2p": "Sesiones a medida para proyectos municipales, industriales, agrícolas, de acuicultura y medioambientales.", "sv3t": "Formación", "sv3h": "Formación tecnológica", "sv3p": "Formación de nivel operador para equipos que gestionan una instalación OxTube.", "kick": "Contacto", "h1": "Su éxito es <em>nuestra prioridad</em>.", "lede": "Póngase en contacto hoy y trabajemos juntos para encontrar la mejor solución para usted.", "r1": "Director general", "r2": "Director de operaciones", "r3": "Ingeniero jefe", "a1": "Lahti", "a2": "Outokumpu", "a3": "Teléfono y correo", "cb_h": "Déjenos un mensaje", "cb_p": "Díganos su caudal, su objetivo y su agua — respondemos nosotros mismos.", "cb_b": "Escríbanos"}, "fi": {"nv_home": "Etusivu", "nv_sol": "Ratkaisut", "nv_proj": "Projektit", "nv_story": "Tarina", "nv_contact": "Yhteystiedot", "nv_news": "Uutiset", "sv_h": "Palvelut", "sv1t": "Maksuton konsultaatio", "sv1h": "OxTube-konsultaatio", "sv1p": "Kahdenkeskinen sessio siitä, miten OxTube istuu sinun prosessiisi — räätälöitynä virtaamaan, tavoitteisiin ja kohteeseen.", "sv2t": "Kurssi", "sv2h": "OxTube-ilmastuskurssi", "sv2p": "Räätälöidyt koulutukset kunnallisiin, teollisiin, maatalouden, vesiviljelyn ja ympäristöhankkeisiin.", "sv3t": "Koulutus", "sv3h": "Teknologiakoulutus", "sv3p": "Operaattoritason koulutus OxTube-asennusta käyttäville tiimeille.", "kick": "Yhteystiedot", "h1": "Sinun onnistumisesi on <em>meidän prioriteettimme</em>.", "lede": "Ota yhteyttä jo tänään — etsitään yhdessä paras ratkaisu.", "r1": "Toimitusjohtaja", "r2": "Operatiivinen johtaja", "r3": "Pääinsinööri", "a1": "Lahti", "a2": "Outokumpu", "a3": "Puhelin ja sähköposti", "cb_h": "Jätä viesti", "cb_p": "Kerro virtaama, tavoite ja vetesi — vastaamme itse.", "cb_b": "Lähetä sähköpostia"}};
 </script>
 <script>
 (function(){
@@ -184,6 +77,16 @@ document.querySelectorAll('[data-i18n-html]').forEach(function(e){var k=e.datase
 ['en','es','fi'].forEach(function(x){var b=document.getElementById('l-'+x);if(b)b.onclick=function(){window.__setLang(x)}});
 var sl=null;try{sl=localStorage.getItem('sansox_lang')}catch(e){}
 if(sl&&sl!=='en')window.__setLang(sl);
+})();
+</script>
+<script>
+(function(){var t=document.getElementById('navtoggle'),l=document.getElementById('navlinks');
+if(!t||!l)return;
+function close(){l.classList.remove('open');t.setAttribute('aria-expanded','false')}
+t.addEventListener('click',function(){var o=l.classList.toggle('open');t.setAttribute('aria-expanded',o?'true':'false')});
+l.addEventListener('click',function(e){if(e.target.closest('a'))close()});
+document.addEventListener('keydown',function(e){if(e.key==='Escape'&&l.classList.contains('open')){close();t.focus()}});
+addEventListener('resize',function(){if(innerWidth>680)close()});
 })();
 </script>
 </body></html>
