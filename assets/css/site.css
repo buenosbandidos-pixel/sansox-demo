@@ -13,7 +13,7 @@
     --aqua:#3F7393;       /* syvä vesi — toiminta ja linkit, EI data */
     --aqua-deep:#33505E;
     --rust:#9B6254;       /* rautaoksidi — vajaa tulos */
-    --moss:#4A7C6B;       /* lupaleima — vahvistettu asia */
+    --moss:#467665;       /* lupaleima — vahvistettu asia */
     /* Todistegrafiikan kenttä ja statusvärit. Validoitu dataviz-skriptillä
        tummaa kenttää vasten: kaikki kuusi tarkistusta PASS. */
     --accent:#3F7393;     /* otsikon korostussana — sama rooli kuin tumman version #3ec6ff */
@@ -56,23 +56,33 @@
 
   /* HERO — asiakirjan otsikkolehti, ei markkinointikuvaa */
   .hero{padding:40px 0 34px}
-  .herotop{display:grid;grid-template-columns:1fr 1fr;gap:14px 48px;align-items:end}
-  .herotop .kicker{color:var(--dim);font-size:12.5px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;border-bottom:1px solid var(--line);padding-bottom:10px;margin-bottom:22px;max-width:52ch}
+  /* Otsikko koko leveydelle omaksi riviksi, sen alle kaksi palstaa.
+     Aiemmin otsikko oli vasemmassa palstassa riveilla 2-4, jolloin ingressi
+     nousi sen ylapuolelle oikeaan palstaan: silma luki tunnustekstin,
+     ingressin, napit ja vasta neljantena otsikon. */
+  .herotop{display:grid;grid-template-columns:1fr 1fr;column-gap:56px;
+    grid-template-rows:auto auto auto 1fr;align-items:start}
+  .herotop .kicker{grid-column:1/-1;grid-row:1}
+  .herotop .kicker{color:var(--dim);font-size:14px;font-weight:500;letter-spacing:0;border-bottom:1px solid var(--line);padding-bottom:10px;margin-bottom:26px;max-width:58ch}
   /* Otsikko ulottuu ingressin ja nappien yli, jolloin sen alareuna
      asettuu samaan linjaan nappien kanssa eikä palstoihin jää kuoppaa. */
-  .herotop h1{grid-column:1;grid-row:2/4}
-  .herotop .lede,.herotop .heroctas{grid-column:2}
-  .herotop .lede{margin-top:0}
+  .herotop h1{grid-column:1/-1;grid-row:2;max-width:21ch;margin-bottom:32px}
+  /* Oletus: ingressi koko leveydelle. Vain heron mediasarake kaventaa sen. */
+  .herotop .lede{grid-column:1/-1;grid-row:3;margin-top:0;max-width:66ch}
+  .herotop.withmedia .lede{grid-column:1;max-width:44ch}
+  .herotop .heroctas{grid-column:1/-1;grid-row:4;align-self:start;margin-top:22px}
+  .herotop.withmedia .heroctas{grid-column:1}
   .bleed{width:100vw;position:relative;left:50%;margin-left:-50vw}
   .kicker{color:var(--dim);font-size:14px;border-bottom:1px solid var(--line);
     padding-bottom:9px;margin-bottom:18px;max-width:52ch}
-  h1{font-family:'Zodiak',Georgia,serif;font-size:clamp(34px,4.8vw,56px);line-height:1.05;letter-spacing:-.02em;font-weight:800;max-width:17ch;text-wrap:balance}
+  h1{font-family:'Zodiak',Georgia,serif;font-size:clamp(36px,5.4vw,66px);line-height:1.05;letter-spacing:-.02em;font-weight:800;max-width:17ch;text-wrap:balance}
   h1 em{font-style:italic;color:var(--accent)}
   h2 em{font-style:normal}
   .proof h2 em{color:var(--accent)}   /* syvällä kentällä sama rooli, riittävä kontrasti */
   .lede{color:#2b332f;max-width:46ch;margin-top:17px;font-size:17.5px}
-  .heroctas{margin-top:20px;display:flex;gap:11px;flex-wrap:wrap}
-  .btn{display:inline-block;background:var(--ink);color:var(--bg);font-weight:600;font-size:13.5px;letter-spacing:.05em;text-transform:uppercase;text-decoration:none;padding:15px 26px;border:1px solid var(--ink);transition:background .25s,color .25s}
+  .heroctas{margin-top:20px;display:flex;gap:11px;flex-wrap:wrap;align-items:center}
+  .heroctas .vlink{flex-basis:100%;margin-top:4px}
+  .btn{display:inline-block;background:var(--ink);color:var(--bg);font-weight:600;font-size:15px;letter-spacing:0;text-decoration:none;padding:15px 26px;border:1px solid var(--ink);transition:background .25s,color .25s}
   .btn:hover{background:var(--bg);color:var(--ink)}
   .btn.ghost{background:transparent;color:var(--ink);box-shadow:none;border:1px solid var(--ink)}
   .btn.ghost:hover{background:var(--ink);color:var(--bg)}
@@ -216,8 +226,10 @@
   @media(prefers-reduced-motion:reduce){.navtoggle span{transition:none}.bar i{animation:none;transform:scaleX(1)}}
 
   @media(max-width:900px){
-    .herotop{grid-template-columns:1fr;gap:0}
-    .herotop h1,.herotop .lede,.herotop .heroctas{grid-column:1}
+    .herotop{grid-template-columns:1fr}
+    .herotop .kicker,.herotop h1,.herotop .lede,.herotop .heroctas,.herotop .heromotion{
+      grid-column:1;grid-row:auto}
+    .herotop h1{margin-bottom:0;max-width:none}
     .herotop .lede{margin-top:17px}
     .herotop .heroctas{margin-top:24px}
     h1{max-width:17ch}
@@ -286,10 +298,10 @@ img.photo,.proto img,.projimg{filter:grayscale(.65) saturate(.9) contrast(1.04)}
 .projimg.tall{object-position:50% 32%}   /* pystykuvan tärkein sisältö ylempänä */
 
 /* [Claude 21.9.] Liikkuva hero: kuplakulho-looppi heron oikeassa palstassa */
-.heromotion{grid-column:2;margin-top:18px}
-.heromotion video{width:100%;display:block;border:1.5px solid var(--deepfield);filter:saturate(.95)}
+.heromotion{grid-column:2;grid-row:3/span 2;margin-top:6px;align-self:start}
+.heromotion video{width:100%;height:auto;aspect-ratio:1080/422;display:block;border:1.5px solid var(--deepfield);filter:saturate(.95)}
 .heromotion .cap{color:var(--dim);font-size:13px;margin-top:8px}
-@media(max-width:760px){.heromotion{grid-column:1}}
+@media(max-width:760px){.heromotion{grid-column:1;grid-row:auto;margin-top:22px}}
 @media print{.heromotion{display:none}}
 @media(prefers-reduced-motion:reduce){.heromotion video{display:none}}
 
@@ -298,13 +310,12 @@ img.photo,.proto img,.projimg{filter:grayscale(.65) saturate(.9) contrast(1.04)}
 .lang{border-color:var(--ink)}
 .lang button.on,.lang a.on{background:var(--ink);color:var(--bg)}
 header{border-bottom:1px solid var(--line)}
-.nav .links{letter-spacing:.1em;text-transform:uppercase;font-size:12.5px}
-.draft{letter-spacing:.12em;text-transform:uppercase;font-size:11px;background:#EAE8E0;color:#6B6B66;border-color:var(--line)}
+.nav .links{letter-spacing:0;font-size:15px}
+.draft{letter-spacing:0;font-size:12.5px;background:#EAE8E0;color:#6B6B66;border-color:var(--line)}
 .logo{font-family:'Zodiak',Georgia,serif;font-weight:800}
 .num b{font-family:'Zodiak',Georgia,serif}
 
 /* [Claude 21.9.] Nordic #7: numeroidut osiotunnukset (draftin "01. TECHNICAL MONOGRAPH") */
-.kicker[data-num]::before{content:attr(data-num) ".\2002";color:var(--accent);font-weight:700}
 
 /* [Claude 21.9.] Brändi esiin: isompi masthead + footerin signeeraus */
 .logo{font-size:30px}
@@ -312,12 +323,12 @@ header{border-bottom:1px solid var(--line)}
   letter-spacing:-.02em;color:var(--ink);margin:6px 0 18px}
 .ftmast b{color:var(--accent);font-weight:800}
 .ftmast span{display:block;font-family:'Satoshi',sans-serif;font-weight:500;font-size:13px;
-  letter-spacing:.14em;text-transform:uppercase;color:var(--dim);margin-top:6px}
+  letter-spacing:.02em;color:var(--dim);margin-top:6px}
 
 .logomark{height:34px;width:auto;display:block}
 @media(max-width:760px){.logomark{height:28px}}
 
-.vlink{align-self:center;color:var(--accent);font-weight:500;text-decoration:underline;text-underline-offset:4px;font-size:15px}
+.vlink{color:var(--accent);font-weight:500;text-decoration:underline;text-underline-offset:4px;font-size:15px}
 .vlink:hover{color:var(--ink)}
 
 section[id],[id="video"]{scroll-margin-top:96px}

@@ -355,3 +355,53 @@ summarivi on korostettava joka tapauksessa, nyt `--ink`.
 **Taulukon teksti ja kuvaajan pylväs ovat eri asia:** pylväs on grafiikkaa (3:1
 riittää) ja käyttää `#C4551D`:tä; taulukon häviävä luku on tekstiä (4,5:1
 vaaditaan) ja käyttää tummempaa `#A8481C`:tä.
+
+## [2026-09-21] Designkorjaukset: hierarkia ja hiljentäminen
+
+Viisi havaintoa auditoinnista, toteutettu `frontend-design`-skillin prosessilla
+(suunnitelma ensin, sitten koodi, sitten kuvakaappaus ja kritiikki).
+
+**1. Heron lukujärjestys.** Otsikko oli `grid-row:2/4` vasemmassa palstassa,
+jolloin ingressi nousi sen yläpuolelle oikeaan palstaan — silmä luki
+tunnustekstin, ingressin, napit ja vasta neljäntenä otsikon. Nyt otsikko on
+omalla rivillään koko leveydellä (`grid-column:1/-1`), ja sen alla kaksi palstaa:
+teksti + napit vasemmalla, video oikealla. Koko leveys salli isomman koon:
+`clamp(34px,4.8vw,56px)` → `clamp(36px,5.4vw,66px)`.
+Sivut joilla ei ole mediaa saavat ingressin koko leveydelle (`.withmedia`
+vain etusivulla) — muuten oikea puoli jäi tyhjäksi.
+
+**2. CTA-rykelmä.** Kolme eri muotoa samalla rivillä teki videolinkistä nappien
+vertaisen. Kaksi nappia rinnakkain, videolinkki omalle rivilleen
+(`.heroctas .vlink{flex-basis:100%}`).
+
+**3. Versaali pois kaikkialta.** Sitä oli viidessä paikassa: banneri, navigaatio,
+tunnusteksti, napit, footerin signeeraus, taulukoiden otsikkorivit ja
+ennen/jälkeen-leimat. Navigaatio oli 12,5 px versaalia 0,1em harvennuksella eli
+sivuston vaikeimmin luettava teksti; nyt 15 px gemenaa. Serif-display kantaa
+persoonallisuuden, versaali ei tehnyt mitään mitä paino ja väri eivät tee.
+`text-transform:uppercase` -sääntöjä sivustolla: 5 → **0**.
+
+**4. Korostus operatiiviseen sanaan.** Sanamäärä on väärä mittari lyhyelle
+otsikolle; ratkaisevaa on osuuko korostus siihen sanaan joka kantaa väitteen.
+- "One principle, *twelve products*" → "One principle, *twelve* products"
+- "Installed, in *real water*" → "Installed, in *real* water"
+- "*One tube*, three kinds" → "*One* tube, three kinds"
+- "...who *answer their own phones*" → "...who answer *their own phones*"
+- "...to *restoring water*" → "...to *restoring* water"
+- 404: korostus pois kokonaan — virheilmoitus ei väitä mitään.
+Kolme kieltä kussakin. Yli puolet otsikosta korostettuna: 13 → **0**.
+
+**5. Numerointi pois.** `data-num="03"` tuotesivulla ja `"04"` neljällä
+case-sivulla olivat navigaation järjestysnumeroita, eivät sisällön sekvenssiä.
+Case-kuopion vaihenumerot 1–4 jäivät — se on aito sekvenssi.
+
+**Kaksi asiaa jotka näkyivät vasta renderöidyllä sivulla:**
+- Videolle lisätyt `width`/`height`-attribuutit ilman `height:auto` saivat
+  selaimen noudattamaan korkeutta kirjaimellisesti → 420 px kehys, 208 px kuva.
+  Sama ansa kuin kuvien kanssa 21.9. Korjattu `height:auto;aspect-ratio:1080/422`.
+- Kahden rivin yli ulottuva video venytti ingressin rivin ja pudotti napit alas.
+  Viimeiselle riville `1fr`, napeille `align-self:start`.
+
+**`--moss` 4,46:1 → 4,85:1** (`#4A7C6B` → `#467665`): sitä käytetään sekä
+roolinimikkeiden tekstinä (4,5:1) että fokusrenkaana (3:1). Tiukempi vaatimus
+ratkaisee. Yhteystiedot-sivu: 3 → **0** kontrastihylkäystä kolmella kielellä.

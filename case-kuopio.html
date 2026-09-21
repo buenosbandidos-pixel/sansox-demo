@@ -22,7 +22,7 @@
 <style>
   :root{
     --bg:#F8F7F2; --panel:#F3F2EC; --line:#D1D1CB;
-    --ink:#1A1A1A; --dim:#6B6B66; --aqua:#3F7393; --aqua-deep:#33505E; --rust:#9B6254;--moss:#4A7C6B;--deepfield:#1A1A1A;--accent:#3F7393;
+    --ink:#1A1A1A; --dim:#6B6B66; --aqua:#3F7393; --aqua-deep:#33505E; --rust:#9B6254;--moss:#467665;--deepfield:#1A1A1A;--accent:#3F7393;
   }
   *{box-sizing:border-box;margin:0;padding:0}
   /* width/height-attribuutit varaavat tilan (CLS); nama kaksi pitavat kuvasuhteen */
@@ -111,7 +111,7 @@
   .ba .after{background:url(assets/img/kuopio_after.jpg) center/cover no-repeat;background-image:image-set(url(assets/img/kuopio_after.webp) type('image/webp'),url(assets/img/kuopio_after.jpg) type('image/jpeg'));background-size:cover;background-position:center;
     clip-path:inset(0 0 0 var(--cut,50%))}
   .ba .label{position:absolute;top:14px;font-size:11.5px;font-weight:700;
-    letter-spacing:1.6px;text-transform:uppercase;padding:5px 10px;
+    letter-spacing:0;padding:5px 10px;
     background:rgba(251,250,247,.72);backdrop-filter:blur(3px)}
   .ba .label.l{left:14px;color:#5C4A16}
   .ba .label.r{right:14px;color:var(--accent)}
@@ -145,7 +145,7 @@
   table{border-collapse:collapse;width:100%;min-width:520px;font-size:14.5px;background:var(--panel)}
   th,td{text-align:left;padding:13px 16px;border-bottom:1px solid var(--line)}
   tr:last-child td{border-bottom:0}
-  th{color:var(--dim);font-size:11.5px;letter-spacing:1.2px;text-transform:uppercase}
+  th{color:var(--dim);font-size:12.5px;letter-spacing:0;font-weight:600}
   td.v{color:var(--deepfield);font-weight:800;font-variant-numeric:tabular-nums;white-space:nowrap}
 
   blockquote{border-left:3px solid var(--rust);padding:6px 0 6px 20px;margin:26px 0 6px;
@@ -174,7 +174,7 @@
 @media(max-width:760px){.logomark{height:28px}}
 .ftmast{font-family:Zodiak,Georgia,serif;font-weight:800;font-size:clamp(34px,4.5vw,52px);letter-spacing:-.02em;color:var(--ink,#1A1A1A);margin:0 0 14px}
 .ftmast b{color:var(--accent,#3F7393)}
-.ftmast span{display:block;font-family:Satoshi,system-ui,sans-serif;font-weight:500;font-size:13px;letter-spacing:.14em;text-transform:uppercase;color:var(--dim,#6B6B66);margin-top:6px}
+.ftmast span{display:block;font-family:Satoshi,system-ui,sans-serif;font-weight:500;font-size:13px;letter-spacing:.02em;color:var(--dim,#6B6B66);margin-top:6px}
 </style>
 </head>
 <body>
@@ -194,7 +194,7 @@
 <div class="wrap">
 
   <div class="hero">
-    <div class="kicker" data-num="04" data-i18n="kick">Measured result · Municipal wastewater · Kuopio, Finland</div>
+    <div class="kicker" data-i18n="kick">Measured result · Municipal wastewater · Kuopio, Finland</div>
     <h1 data-i18n-html="h1">Pharmaceutical residues, removed in <em>0.7&nbsp;seconds</em>.</h1>
     <p data-i18n="intro">OxTube Ozone was installed in the outlet pipe of a purified municipal wastewater stream in Kuopio, Finland. One pass through the tube. No additional energy on the water side. The results were presented at IWA Ecotechnologies for Wastewater Treatment, Milan 2021.</p>
   </div>
