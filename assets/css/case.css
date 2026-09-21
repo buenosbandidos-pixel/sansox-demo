@@ -1,6 +1,6 @@
 /* SansOx — case-sivujen tyylitiedosto. Irrotettu sivujen sisaisista <style>-lohkoista 2026-09-21.
    ALA muokkaa yksittaisen sivun <style>-lohkoa: muutokset tehdaan tanne, kerran. */
-:root{--bg:#FBFAF7;--panel:#EEF1EE;--line:#C6CCC8;--ink:#141A18;--dim:#59635E;--aqua:#0A5E86;--aqua-deep:#0A6A9E;--rust:#8F4020;--moss:#2F5D4A;--deepfield:#0E322A}
+:root{--bg:#FBFAF7;--panel:#EEF1EE;--line:#C6CCC8;--ink:#141A18;--dim:#59635E;--aqua:#0A5E86;--aqua-deep:#0A6A9E;--rust:#8F4020;--moss:#2F5D4A;--deepfield:#0E322A;--accent:#0A5E86}
   *{box-sizing:border-box;margin:0;padding:0}
   /* width/height-attribuutit varaavat tilan (CLS); nama kaksi pitavat kuvasuhteen */
   img{max-width:100%;height:auto}
@@ -22,7 +22,7 @@
   .hero{padding:58px 0 36px;position:relative}
   .kicker{color:var(--dim);font-size:14px;font-weight:500;letter-spacing:0;border-bottom:1px solid var(--line);padding-bottom:10px;margin-bottom:20px;max-width:44ch}
   h1{font-size:clamp(32px,6.5vw,56px);line-height:1.05;letter-spacing:-1.2px;font-weight:800;max-width:18ch;text-wrap:balance}
-  h1 em{font-style:normal;color:var(--ink)}
+  h1 em,h2 em{font-style:normal;color:var(--accent)}
   .lede{color:var(--dim);max-width:58ch;margin-top:18px;font-size:17px}
   .numbers{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:1px;background:var(--line);border:1px solid var(--line);margin:36px 0 6px}
   .num{background:var(--panel);padding:22px 18px}

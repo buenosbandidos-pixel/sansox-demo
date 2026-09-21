@@ -23,7 +23,7 @@
 <style>
   :root{
     --bg:#FBFAF7; --panel:#EEF1EE; --line:#C6CCC8;
-    --ink:#141A18; --dim:#59635E; --aqua:#0A5E86; --aqua-deep:#0A6A9E; --rust:#8F4020;--moss:#2F5D4A;--deepfield:#0E322A;
+    --ink:#141A18; --dim:#59635E; --aqua:#0A5E86; --aqua-deep:#0A6A9E; --rust:#8F4020;--moss:#2F5D4A;--deepfield:#0E322A;--accent:#0A5E86;
   }
   *{box-sizing:border-box;margin:0;padding:0}
   /* width/height-attribuutit varaavat tilan (CLS); nama kaksi pitavat kuvasuhteen */
@@ -57,7 +57,7 @@
     border-bottom:1px solid var(--line);padding-bottom:10px;margin-bottom:20px;max-width:46ch}
   .hero h1{font-size:clamp(34px,7vw,62px);line-height:1.04;letter-spacing:-1.5px;
     font-weight:800;max-width:16ch}
-  .hero h1 em{font-style:normal;color:var(--ink)}
+  .hero h1 em,h2 em{font-style:normal;color:var(--accent)}
   .hero p{color:var(--dim);max-width:56ch;margin-top:20px;font-size:17px}
 
   /* GIANT NUMBERS */

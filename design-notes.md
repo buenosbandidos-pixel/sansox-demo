@@ -215,3 +215,28 @@ Nämä kaksi oli sekoitettu keskenään. Teksti korjattu EN/FI/ES ja aineet nime
 
 **Ei muutettu:** privacy.html jätettiin yhteen palstaan — sillä ei ole kickeriä,
 jolloin kahden palstan ruudukko pudotti otsikon alas ja teksti jäi yksin oikealle.
+
+## [2026-09-21] Otsikon korostusväri takaisin + uutiskorttien kuvasuhde
+
+**Juha:** "Pidin myös tummasta versiosta jossa tekstien otsikossa käytettiin
+valkoista ja sinistä. voisi käyttää samaa mutta mikä olisi tuohon sopiva väri"
+
+Tumma versio: `--ink #e9f2f9` otsikko + `--aqua #3ec6ff` korostussana.
+Olin poistanut korostuksen vaaleasta, koska frontend-design listaa yhden sanan
+värityksen yleiseksi tunnusmerkiksi. Juha pitää siitä → otetaan takaisin.
+Rakenne oli tallella: `<em>` on jo kaikkien 12 sivun h1:ssä.
+
+**Uusi token `--accent:#0A5E86`.** Valintaperuste — mitkä värit ovat varattuja:
+- `--win #34A97A` ja `--lose #E2703A` = datan statuskoodi kuvaajassa. Otsikossa
+  käytettynä sekoittaisivat merkityksen. Pois.
+- `--deepfield #0E322A` = rakenne. Liian lähellä `--ink`iä erottuakseen otsikossa.
+- Vesisininen on ainoa vapaa perhe, ja se on sama rooli kuin tumman version
+  #3ec6ff:llä. Kontrasti #FBFAF7-pohjaa vasten 6,8:1.
+- Linkkipäällekkäisyys: linkit ovat alleviivattuja, otsikot eivät → ei sekaannu.
+
+Vaihtoehdot laskettuna: A #0A5E86 6,8:1 · B #2F5D4A 7,2:1 · C #8F4020 6,9:1.
+Vaihto onnistuu yhdellä rivillä: `--accent` site.css / case.css / case-kuopio.
+
+**Uutissivu:** kuvat olivat lähteessä kolmessa eri kuvasuhteessa (640×400,
+900×740, 1200×675), jolloin "Lääkejäämät"-kortti venytti koko ensimmäisen rivin.
+`.nimg{aspect-ratio:16/10;object-fit:cover}` — kaikki laatikot samankokoisia.
