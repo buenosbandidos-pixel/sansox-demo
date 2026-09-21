@@ -16,7 +16,7 @@
     --moss:#2F5D4A;       /* lupaleima — vahvistettu asia */
     /* Todistegrafiikan kenttä ja statusvärit. Validoitu dataviz-skriptillä
        tummaa kenttää vasten: kaikki kuusi tarkistusta PASS. */
-    --accent:#8F4020;     /* otsikon korostussana — sama rooli kuin tumman version #3ec6ff */
+    --accent:#0A5E86;     /* otsikon korostussana — sama rooli kuin tumman version #3ec6ff */
     --deepfield:#0E322A;  /* syvä kenttä — väri täyttää pinnan, ei viivaa */
     --win:#34A97A;        /* OxTube voitti */
     --lose:#E2703A;       /* perinteinen menetelmä voitti */

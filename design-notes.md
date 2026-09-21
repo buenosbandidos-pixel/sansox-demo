@@ -241,7 +241,13 @@ Vaihto onnistuu yhdellä rivillä: `--accent` site.css / case.css / case-kuopio.
 900×740, 1200×675), jolloin "Lääkejäämät"-kortti venytti koko ensimmäisen rivin.
 `.nimg{aspect-ratio:16/10;object-fit:cover}` — kaikki laatikot samankokoisia.
 
-## [2026-09-21] Korostusväriksi rautaoksidi #8F4020 (ei sininen)
+## [2026-09-21] Korostusväri: kokeiltiin rautaoksidia, valittiin sininen #0A5E86
+
+**Lopputulos: Juha valitsi sinisen.** Alla oleva ruosteperustelu jää muistiin,
+koska se pätee edelleen argumenttina — vaihto takaisin on yhden rivin muutos
+(`--accent` site.css / case.css / case-kuopio.html).
+
+### Miksi ruostetta ehdotettiin
 
 Juha kysyi toimisiko ruoste sinistä paremmin. Toimii, ja kolmesta syystä:
 1. **Sininen on vesialan oletus.** Koko designtyön lähtökohta oli olla
@@ -263,3 +269,14 @@ Huom: frontend-design varoittaa terrakotasta ~#D97757 tekoälytunnusmerkkinä.
 `--rust`, eli sama väri kahdessa eri roolissa. Leima → `--deepfield` (rakennetta),
 ruoste jää yksin otsikon korostussanalle. Uutisten päiväykset olivat `--aqua`
 vaikka eivät ole linkkejä → `--dim` (14 kpl).
+
+**Sinisen kanssa elettävä kompromissi:** korostussana ja linkit ovat samaa
+sinistä. Ei sekaannu käytännössä, koska linkit ovat alleviivattuja ja
+otsikot eivät — mutta tämä on se hinta, jonka ruoste olisi poistanut.
+
+**Jäi voimaan ruostekokeilusta** (molemmat oikein kummallakin korostusvärillä):
+- `.tag` uutisten kategorialeima `--deepfield` (oli `--rust`). Leima on
+  rakennetta; ruosteen tuominen takaisin lisäisi kolmannen korostusperheen.
+- Uutisten päiväykset `--dim` (olivat `--aqua`). Ne eivät ole linkkejä, joten
+  ne eivät saa olla linkkivärissä — ja nyt kun korostusväri on sinistä, tämä
+  on entistä tärkeämpää.
