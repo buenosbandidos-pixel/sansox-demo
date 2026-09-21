@@ -27,7 +27,7 @@ UI = {
     "en": {"back": "\u2190 News", "orig": "Originally published on sansox.fi",
            "author": "Author", "prev": "Previous", "next": "Next",
            "skip": "Skip to content", "read": "Read more news"},
-    "fi": {"back": "\u2190 Uutiset", "orig": "Alun perin julkaistu sansox.fi-sivustolla",
+    "fi": {"back": "\u2190 Uutiset", "orig": "Julkaistu alun perin sansox.fi-sivustolla",
            "author": "Kirjoittaja", "prev": "Edellinen", "next": "Seuraava",
            "skip": "Siirry sisältöön", "read": "Lisää uutisia"},
     "es": {"back": "\u2190 Noticias", "orig": "Publicado originalmente en sansox.fi",
@@ -163,7 +163,6 @@ def build(a, prev, nxt):
       {body_html}
   </article>
   <p class="src"><span data-i18n="orig">Originally published on sansox.fi</span>
-     · <a href="{a["origin"]}">{a["origin"].replace("https://www.sansox.fi", "sansox.fi")}</a>
      · {a["author"]}</p>
   {nav_html}
 </div></main>
