@@ -1,118 +1,140 @@
-/* SansOx — yhteinen tyylitiedosto. Irrotettu sivujen sisaisista <style>-lohkoista 2026-09-21.
+/* SansOx — yhteinen tyylitiedosto.
+   [2026-09-21] Suunta "Asiakirja": vaalea, hankintapäällikölle.
+   Kohdeyleisö ei ole insinööri vaan kunnan hankintapäällikkö, joka joutuu
+   perustelemaan valinnan omalle organisaatiolleen — ja joka tulostaa ja
+   välittää sivuja eteenpäin. Siksi vaalea pohja, ei tummaa.
    ALA muokkaa yksittaisen sivun <style>-lohkoa: muutokset tehdaan tanne, kerran. */
-:root{
-    --bg:#071019; --panel:#0a1826; --line:#16283a;
-    --ink:#e9f2f9; --dim:#8aa3b8; --aqua:#3ec6ff; --aqua-deep:#0f5f8f; --rust:#c96f3b;
+  :root{
+    --bg:#FBFAF7;         /* viileä paperi — ei cream */
+    --panel:#EEF1EE;      /* betoniharmaa lohko */
+    --line:#C6CCC8;
+    --ink:#141A18;        /* vihertävä musta */
+    --dim:#59635E;
+    --aqua:#0A5E86;       /* syvä vesi — toiminta ja linkit, EI data */
+    --aqua-deep:#0A6A9E;
+    --rust:#8F4020;       /* rautaoksidi — vajaa tulos */
+    --moss:#2F5D4A;       /* lupaleima — vahvistettu asia */
   }
   *{box-sizing:border-box;margin:0;padding:0}
   /* width/height-attribuutit varaavat tilan (CLS); nama kaksi pitavat kuvasuhteen */
   img{max-width:100%;height:auto}
-  /* B2: ohituslinkki — näkyy vasta kun se saa kohdistuksen */
-  .skip{position:absolute;left:-9999px;top:0;z-index:100;background:var(--aqua);color:#04121c;
-    font-weight:800;padding:12px 18px;border-radius:0 0 6px 0;text-decoration:none}
+
+  /* ohituslinkki — näkyy vasta kun se saa kohdistuksen */
+  .skip{position:absolute;left:-9999px;top:0;z-index:100;background:var(--ink);color:var(--bg);
+    font-weight:700;padding:12px 18px;text-decoration:none}
   .skip:focus{left:0}
-  /* B7: oma kohdistusrengas. Selaimen oletus on ohut ja huonosti erottuva tummalla. */
-  :focus-visible{outline:3px solid var(--aqua);outline-offset:2px;border-radius:2px}
+  /* oma kohdistusrengas */
+  :focus-visible{outline:2.5px solid var(--moss);outline-offset:2px}
   .btn:focus-visible,.lang button:focus-visible,.lang a:focus-visible{outline-offset:3px}
-  @supports not selector(:focus-visible){ :focus{outline:3px solid var(--aqua);outline-offset:2px} }
+  @supports not selector(:focus-visible){ :focus{outline:2.5px solid var(--moss);outline-offset:2px} }
+
   html{scroll-behavior:smooth}
   body{background:var(--bg);color:var(--ink);
-    font:16px/1.6 -apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif;
-    -webkit-font-smoothing:antialiased}
-  .wrap{max-width:960px;margin:0 auto;padding:0 20px}
-  .draft{background:#26200a;color:#e5cf7a;font-size:12px;text-align:center;padding:7px 14px}
+    font:16.5px/1.58 -apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif;
+    font-variant-numeric:tabular-nums;-webkit-font-smoothing:antialiased}
+  .wrap{max-width:1180px;margin:0 auto;padding:0 28px}
+  .draft{background:#F0E9D2;color:#5C4A16;font-size:12.5px;text-align:center;padding:7px 14px;
+    border-bottom:1px solid var(--line)}
 
-  header{position:sticky;top:0;z-index:50;background:rgba(5,14,22,.85);
-    backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
-  .nav{display:flex;align-items:center;gap:22px;padding:15px 0}
-  .logo{font-weight:800;font-size:18px;letter-spacing:.6px}
+  header{position:sticky;top:0;z-index:50;background:var(--bg);border-bottom:1.5px solid var(--ink)}
+  .nav{display:flex;align-items:center;gap:22px;padding:14px 0}
+  .logo{font-weight:800;font-size:19px;letter-spacing:-.01em}
   .logo b{color:var(--aqua)}
-  .nav .links{display:flex;gap:18px;font-size:13.5px;margin-left:auto}
+  .nav .links{display:flex;gap:18px;font-size:14.5px;margin-left:auto}
   .nav .links a{color:var(--dim);text-decoration:none}
   .nav .links a:hover{color:var(--ink)}
-  .lang{display:flex;gap:2px;border:1px solid var(--line);border-radius:6px;overflow:hidden}
-  .lang button,.lang a{background:transparent;border:0;color:var(--dim);text-decoration:none;display:inline-block;font:700 12px/1 inherit;
-    padding:8px 10px;cursor:pointer}
-  .lang button.on,.lang a.on{background:var(--aqua);color:#04121c}
+  .lang{display:flex;gap:0;border:1.5px solid var(--ink)}
+  .lang button,.lang a{background:transparent;border:0;color:var(--dim);text-decoration:none;
+    display:inline-block;font:700 12.5px/1 inherit;padding:9px 11px;cursor:pointer}
+  .lang button.on,.lang a.on{background:var(--ink);color:var(--bg)}
 
-  .hero{padding:56px 0 44px;position:relative;overflow:visible}
+  /* HERO — asiakirjan otsikkolehti, ei markkinointikuvaa */
+  .hero{padding:40px 0 34px}
   .herotop{max-width:62ch}
   .bleed{width:100vw;position:relative;left:50%;margin-left:-50vw}
-  
-  .kicker{color:var(--dim);font-size:14px;font-weight:500;letter-spacing:0;border-bottom:1px solid var(--line);padding-bottom:10px;margin-bottom:20px;max-width:44ch}
-  h1{font-size:clamp(34px,7vw,64px);line-height:1.03;letter-spacing:-1.5px;font-weight:800;max-width:17ch;text-wrap:balance}
-  h1 em{font-style:normal;color:var(--aqua)}
-  .lede{color:var(--dim);max-width:58ch;margin-top:20px;font-size:17px}
-  .heroctas{margin-top:28px;display:flex;gap:12px;flex-wrap:wrap}
-  .btn{display:inline-block;background:var(--aqua);color:#04121c;font-weight:800;
-    text-decoration:none;padding:14px 24px;border-radius:4px;font-size:15px}
-  .btn.ghost{background:transparent;color:var(--aqua);border:1.5px solid var(--aqua)}
+  .kicker{color:var(--dim);font-size:14px;border-bottom:1px solid var(--line);
+    padding-bottom:9px;margin-bottom:18px;max-width:52ch}
+  h1{font-size:clamp(32px,5vw,54px);line-height:1.06;letter-spacing:-.022em;font-weight:800;
+    max-width:17ch;text-wrap:balance}
+  h1 em{font-style:normal;color:var(--ink)}   /* ei yhden sanan väritystä */
+  .lede{color:#2b332f;max-width:58ch;margin-top:17px;font-size:17.5px}
+  .heroctas{margin-top:24px;display:flex;gap:11px;flex-wrap:wrap}
+  .btn{display:inline-block;background:var(--ink);color:var(--bg);font-weight:700;
+    text-decoration:none;padding:13px 22px;font-size:15px}
+  .btn.ghost{background:transparent;color:var(--ink);box-shadow:inset 0 0 0 1.5px var(--ink)}
 
-  .numbers{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));
-    gap:2px;background:var(--line);border:1px solid var(--line);border-radius:10px;
-    overflow:hidden;margin:40px 0 6px}
-  .num{background:var(--panel);padding:24px 20px}
-  .num b{display:block;font-size:clamp(38px,7vw,54px);font-weight:800;letter-spacing:-2px;
-    color:var(--aqua);line-height:1;font-variant-numeric:tabular-nums}
-  .num small{font-size:.45em;letter-spacing:0;margin-left:.06em}
-  .num > span{display:block;color:var(--dim);font-size:13px;margin-top:9px;line-height:1.45}
-  .src{color:var(--dim);font-size:12.5px;margin-top:10px}
+  /* LUKURIVI — mitattu todiste, ei koristeltu */
+  .numbers{display:grid;grid-template-columns:repeat(auto-fit,minmax(178px,1fr));
+    gap:0;border-top:1.5px solid var(--ink);border-bottom:1.5px solid var(--ink);margin:34px 0 8px}
+  .num{background:transparent;padding:22px 22px 22px 0;border-right:1px solid var(--line)}
+  .num:last-child{border-right:0}
+  .num b{display:block;font-size:clamp(34px,5vw,46px);font-weight:800;letter-spacing:-.03em;
+    color:var(--ink);line-height:1;font-variant-numeric:tabular-nums}
+  .num small{font-size:.44em;letter-spacing:0;margin-left:.06em;color:var(--dim)}
+  .num > span{display:block;color:var(--dim);font-size:13.5px;margin-top:9px;line-height:1.45}
+  .src{color:var(--dim);font-size:13px;margin:12px 2px 0}
   .src a{color:var(--aqua)}
 
-  section{padding:72px 0;border-top:1px solid var(--line)}
-  h2{font-size:clamp(23px,4vw,32px);letter-spacing:-.6px;margin-bottom:8px;font-weight:800}
-  .lead{color:var(--dim);max-width:62ch;margin-bottom:26px}
+  section{padding:38px 0;border-top:1.5px solid var(--ink)}
+  h2{font-size:clamp(21px,3vw,27px);letter-spacing:-.018em;font-weight:800;margin-bottom:7px}
+  .lead{color:var(--dim);max-width:62ch;margin-bottom:22px}
 
-
-  .cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:16px}
-  .card{border:0;border-top:1px solid var(--line);border-radius:0;padding:18px 4px 10px;background:transparent}
-  .tag{display:inline-block;font-size:12.5px;letter-spacing:.2px;color:var(--rust);font-weight:700;margin-bottom:8px}
+  /* Luettelot riveinä, ei korttipakkana */
+  .cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(248px,1fr));gap:0;
+    border-top:1px solid var(--line)}
+  .card{border:0;border-bottom:1px solid var(--line);border-right:1px solid var(--line);
+    padding:18px 22px 18px 0;background:transparent}
+  .card:last-child{border-right:0}
+  .tag{display:inline-block;font-size:12.5px;letter-spacing:.2px;color:var(--rust);
+    font-weight:700;margin-bottom:8px}
   .card h3{font-size:17px;margin-bottom:8px}
-  .card p{font-size:14px;color:var(--dim)}
-  .card .big{font-size:30px;font-weight:800;color:var(--aqua);letter-spacing:-1px;
-    margin:6px 0 4px;font-variant-numeric:tabular-nums}
+  .card p{font-size:14.5px;color:var(--dim)}
+  .card .big{font-size:30px;font-weight:800;letter-spacing:-.03em;margin:6px 0 4px}
 
-  .flow{border:1px solid var(--line);border-radius:10px;background:var(--panel);padding:26px 22px}
-  .bar{position:relative;height:10px;border-radius:99px;background:#0d2033;overflow:hidden}
-  .bar i{position:absolute;inset:0;border-radius:99px;transform-origin:left;
-    background:linear-gradient(90deg,var(--aqua-deep),var(--aqua));
+  .flow{border:1px solid var(--line);background:var(--panel);padding:24px 22px}
+  .bar{position:relative;height:9px;background:#DCE2DD;overflow:hidden}
+  .bar i{position:absolute;inset:0;transform-origin:left;background:var(--aqua);
     animation:run 2.8s cubic-bezier(.2,.8,.25,1) infinite}
   @keyframes run{0%{transform:scaleX(0)}25%{transform:scaleX(1)}100%{transform:scaleX(1)}}
-  .stages{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-top:16px}
-  .stage{font-size:12.5px;color:var(--dim);line-height:1.4}
-  .stage b{display:block;color:var(--ink);font-size:13px;margin-bottom:2px}
-  .flow .t{display:flex;justify-content:space-between;color:var(--dim);font-size:12px;margin-top:8px}
-  .flow .t b{color:var(--aqua);font-weight:800}
+  .stages{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-top:16px}
+  .stage{font-size:13px;color:var(--dim);line-height:1.45}
+  .stage b{display:block;color:var(--ink);font-size:13.5px;margin-bottom:2px}
+  .flow .t{display:flex;justify-content:space-between;color:var(--dim);font-size:12.5px;margin-top:8px}
+  .flow .t b{color:var(--ink);font-weight:800}
 
-  .proto{display:grid;grid-template-columns:1.2fr 1fr;gap:22px;align-items:center}
-  .proto img{width:100%;border-radius:10px;border:1px solid var(--line);display:block}
-  .proto p{color:var(--dim);font-size:14.5px}
+  .proto{display:grid;grid-template-columns:1fr 1fr;gap:26px;align-items:start}
+  .proto img{width:100%;border:1px solid var(--line);display:block}
+  .proto p{color:var(--dim);font-size:15px}
   .proto b{color:var(--ink)}
 
-  .team{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:16px}
-  .person{border:1px solid var(--line);border-radius:10px;padding:20px;background:var(--panel)}
-  .avatar{width:52px;height:52px;border-radius:50%;background:var(--aqua-deep);color:#dff2ff;
-    display:grid;place-items:center;font-weight:800;font-size:17px;margin-bottom:12px}
-  .person b{display:block}
-  .person span{color:var(--aqua);font-size:12.5px;font-weight:700;letter-spacing:.8px;
-    text-transform:uppercase}
-  .person p{color:var(--dim);font-size:13.5px;margin-top:8px}
+  .team{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:0;
+    border-top:1px solid var(--line)}
+  .person{border-bottom:1px solid var(--line);border-right:1px solid var(--line);
+    padding:18px 22px 18px 0}
+  .person:last-child{border-right:0}
+  .avatar{width:50px;height:50px;background:var(--panel);color:var(--ink);
+    display:grid;place-items:center;font-weight:800;margin-bottom:10px}
+  .person b{display:block;font-size:16.5px}
+  .person span{display:block;color:var(--moss);font-size:13px;font-weight:700;margin:2px 0 8px}
+  .person p{color:var(--dim);font-size:14px;margin-top:8px}
 
-  .ctaband{background:linear-gradient(180deg,var(--panel),#0c1f31);border:1px solid var(--line);
-    border-radius:12px;padding:34px 26px;display:flex;flex-wrap:wrap;gap:20px;
-    align-items:center;justify-content:space-between}
-  .ctaband h3{font-size:20px}
-  .ctaband p{color:var(--dim);font-size:14.5px;margin-top:4px;max-width:46ch}
+  /* Loppupalkki — lohko, ei kortti */
+  .ctaband{background:var(--panel);border-left:4px solid var(--ink);padding:24px 26px;
+    display:flex;gap:22px;flex-wrap:wrap;align-items:center;justify-content:space-between}
+  .ctaband h3{font-size:20px;letter-spacing:-.01em}
+  .ctaband p{color:var(--dim);font-size:15px;margin-top:5px;max-width:48ch}
 
-  footer.site{border-top:3px double var(--line);margin-top:0;padding:30px 0 48px;
+  footer.site{border-top:1.5px solid var(--ink);margin-top:0;padding:26px 0 44px;
     color:var(--dim);font-size:13.5px}
+
   .navtoggle{display:none;width:44px;height:44px;flex-direction:column;justify-content:center;
-    gap:5px;background:transparent;border:1px solid var(--line);border-radius:6px;cursor:pointer;padding:0 11px}
-  .navtoggle span{display:block;height:2px;background:var(--ink);border-radius:2px;transition:transform .18s,opacity .18s}
+    gap:5px;background:transparent;border:1.5px solid var(--ink);cursor:pointer;padding:0 11px}
+  .navtoggle span{display:block;height:2px;background:var(--ink);transition:transform .18s,opacity .18s}
   .navtoggle[aria-expanded="true"] span:nth-child(1){transform:translateY(7px) rotate(45deg)}
   .navtoggle[aria-expanded="true"] span:nth-child(2){opacity:0}
   .navtoggle[aria-expanded="true"] span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
-  @media(prefers-reduced-motion:reduce){.navtoggle span{transition:none}}
+  @media(prefers-reduced-motion:reduce){.navtoggle span{transition:none}.bar i{animation:none;transform:scaleX(1)}}
+
   @media(max-width:680px){
     .nav{flex-wrap:wrap;gap:10px;padding:9px 0}
     .navtoggle{display:flex;order:3}
@@ -122,8 +144,10 @@
       flex-direction:column;gap:0;font-size:15px}
     .nav .links.open{display:flex}
     .nav .links a{padding:13px 2px;border-top:1px solid var(--line);color:var(--ink)}
-    .hero{padding:34px 0 34px}
-    .num b{letter-spacing:-1px}
+    .hero{padding:28px 0 28px}
+    .num{padding:18px 16px 18px 0}
     .proto{grid-template-columns:1fr}
     .stages{grid-template-columns:repeat(2,1fr);gap:14px}
+    .card,.person{border-right:0;padding-right:0}
+    .ctaband{padding:20px 18px}
   }
