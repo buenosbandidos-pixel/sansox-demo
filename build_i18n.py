@@ -15,7 +15,7 @@ PUBLISH = "--publish" in sys.argv
 
 # [2026-09-21] Paivitetty v3:n sivunimiin. Vanha lista oli v2:sta (products/references/
 # technology/company/story) eika yksikaan niista ole olemassa v3:ssa -> skripti ei tehnyt mitaan.
-PAGES = ["index.html","solutions.html","projects.html","our-story.html","contact.html","news.html",
+PAGES = ["index.html","solutions.html","products.html","projects.html","our-story.html","contact.html","news.html",
          "case-kuopio.html","case-philippines.html","case-carelian.html","case-india.html"]
 
 META = {  # sivu → (es_title, es_desc, fi_title, fi_desc)
@@ -25,6 +25,8 @@ META = {  # sivu → (es_title, es_desc, fi_title, fi_desc)
    "OxTube liuottaa kaasun veteen alle sekunnissa. 90 % lääkejäämistä poistettu — mitattu ja julkaistu."),
  "solutions.html":("Soluciones | SansOx","Aguas naturales, agua potable, agua residual — un tubo, tres segmentos.",
    "Ratkaisut | SansOx","Luonnonvedet, juomavesi, jätevesi — yksi putki, kolme segmenttiä."),
+ "products.html":("Productos \u2014 la familia OxTube | SansOx","OxTube, RadOx, IroX, UGOx, GasRemox, PharmOx, DripOx, GolfOx y Lady Bug: nueve configuraciones de un mismo tubo sellado, m\u00e1s consultor\u00eda y formaci\u00f3n.",
+   "Tuotteet \u2014 OxTube-perhe | SansOx","OxTube, RadOx, IroX, UGOx, GasRemox, PharmOx, DripOx, GolfOx ja Lady Bug: yhdeks\u00e4n nimetty\u00e4 kokoonpanoa samasta suljetusta putkesta, plus konsultaatio ja koulutus."),
  "projects.html":("Proyectos | SansOx","Seis entregas tal como las describe sansox.fi, mas el ensayo publicado de Kuopio.",
    "Projektit | SansOx","Kuusi toimitusta sansox.fi:n kuvaamina, seka julkaistu Kuopion koe."),
  "our-story.html":("Nuestra historia | SansOx","De una idea hidroelectrica a restaurar el agua.",
