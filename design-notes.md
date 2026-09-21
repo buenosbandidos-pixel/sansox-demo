@@ -175,3 +175,43 @@ grep -n "text-transform:uppercase" assets/css/*.css *.html   # tarkista ettei os
   heikot tulokset (<50 %) ruosteella. **Heikkoja tuloksia ei piiloteta — se on koko pointti.**
 - Desimaalierotin lokalisoidaan JS:llä (piste EN, pilkku FI/ES). Kanoninen arvo luetaan talteen
   latauksessa, joten toistuva kielenvaihto ei kerrytä muunnoksia. Testattu 7 vaihdolla.
+
+## [2026-09-21] Ilme yhdeksi järjestelmäksi — syvänvihreä rakenteelliseksi väriksi
+
+**Havainto (Juha):** "huomaan vain että taulukko on muuttunut" · "sekö oli se iso muutos?"
+Oikea havainto. Edellinen commit lisäsi yhden rohkean elementin, mutta sen ympärillä
+oli edelleen oletusratkaisuja, ja todistekaista näytti irralliselta raidalta koska
+mikään muu sivulla ei ollut vihreää.
+
+**Päätös:** `--deepfield #0E322A` ei ole vain grafiikan tausta vaan sivuston
+rakenteellinen väri: logomerkki, ensisijainen nappi, kielivalitsin, osioviivat,
+otsikkopalkin alaviiva, footerin yläviiva, case-sivujen vaihenumerot ja taulukon
+arvot. `--aqua` jää pelkäksi linkkiväriksi. Näin todistekaista on sarjan huipennus,
+ei poikkeus.
+
+**Muut korjaukset samassa:**
+- Hero kahteen palstaan (otsikko vasemmalle, ingressi + napit oikealle). Yhden
+  palstan hero jätti sivun oikean puoliskon tyhjäksi. Otsikko `grid-row:2/4`,
+  jolloin sen alareuna on samassa linjassa nappien kanssa.
+- Neljä "Explore / Explore / Explore / Follow" -tunnustekstiä pois. Neljä
+  päällekkäistä otsikkoa jotka eivät kerro mitään — frontend-design-skillin
+  luettelema yleinen tell.
+- Logomuuri: pyöristetyt valkoiset kortit pois, yksi solukorkeus, reunat soluihin
+  (ruudukon taustaväri paljasti vajaan rivin harmaana laattana), 6+3 solua.
+- Sivun kaksi viimeistä lohkoa olivat identtisiä. Todiste = vaalea lohko,
+  toiminta = umpinainen syvänvihreä. Kontrastit: #EAF2ED/#0E322A = 12,2:1,
+  #B9CCC2/#0E322A = 8,3:1.
+- case.css ja case-kuopion oma `<style>` olivat yhä aqua-paletissa ja täynnä
+  10–12 px pyöristyksiä, vaikka etusivulla ei ole yhtään. Yhtenäistetty.
+- case-kuopion versaali, harvennettu kicker → sama tavallinen kicker kuin muualla.
+- `h1 em` -väritys poistettu myös case-sivuilta (yhden fraasin väritys).
+
+**Asiavirhe korjattu:** case-kuopio väitti kolmella kielellä "seitsemän ainetta
+joissa OxTube häviää". Laskettu uudelleen `table1_full.json`:sta:
+- **4** ainetta, joissa perinteinen menetelmä ylsi suurempaan vähenemään:
+  ketoprofeeni (28 % vs 80 %), varfariini, kofeiini, verapamiili
+- **7** ainetta, joiden vähenemä jäi alle 50 %: + lamotrigiini, metronidatsoli, amiloridi
+Nämä kaksi oli sekoitettu keskenään. Teksti korjattu EN/FI/ES ja aineet nimetty.
+
+**Ei muutettu:** privacy.html jätettiin yhteen palstaan — sillä ei ole kickeriä,
+jolloin kahden palstan ruudukko pudotti otsikon alas ja teksti jäi yksin oikealle.

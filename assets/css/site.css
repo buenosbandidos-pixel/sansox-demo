@@ -41,36 +41,47 @@
   .draft{background:#F0E9D2;color:#5C4A16;font-size:12.5px;text-align:center;padding:7px 14px;
     border-bottom:1px solid var(--line)}
 
-  header{position:sticky;top:0;z-index:50;background:var(--bg);border-bottom:1.5px solid var(--ink)}
+  header{position:sticky;top:0;z-index:50;background:var(--bg);border-bottom:1.5px solid var(--deepfield)}
   .nav{display:flex;align-items:center;gap:22px;padding:14px 0}
   .logo{font-weight:800;font-size:19px;letter-spacing:-.01em}
-  .logo b{color:var(--aqua)}
+  .logo b{color:var(--deepfield)}
   .nav .links{display:flex;gap:18px;font-size:14.5px;margin-left:auto}
   .nav .links a{color:var(--dim);text-decoration:none}
   .nav .links a:hover{color:var(--ink)}
-  .lang{display:flex;gap:0;border:1.5px solid var(--ink)}
+  .lang{display:flex;gap:0;border:1.5px solid var(--deepfield)}
   .lang button,.lang a{background:transparent;border:0;color:var(--dim);text-decoration:none;
     display:inline-block;font:700 12.5px/1 inherit;padding:9px 11px;cursor:pointer}
-  .lang button.on,.lang a.on{background:var(--ink);color:var(--bg)}
+  .lang button.on,.lang a.on{background:var(--deepfield);color:#EAF2ED}
 
   /* HERO — asiakirjan otsikkolehti, ei markkinointikuvaa */
   .hero{padding:40px 0 34px}
-  .herotop{max-width:62ch}
+  .herotop{display:grid;grid-template-columns:1fr 1fr;gap:14px 48px;align-items:end}
+  .herotop .kicker{grid-column:1/-1}
+  /* Otsikko ulottuu ingressin ja nappien yli, jolloin sen alareuna
+     asettuu samaan linjaan nappien kanssa eikä palstoihin jää kuoppaa. */
+  .herotop h1{grid-column:1;grid-row:2/4}
+  .herotop .lede,.herotop .heroctas{grid-column:2}
+  .herotop .lede{margin-top:0}
   .bleed{width:100vw;position:relative;left:50%;margin-left:-50vw}
   .kicker{color:var(--dim);font-size:14px;border-bottom:1px solid var(--line);
     padding-bottom:9px;margin-bottom:18px;max-width:52ch}
-  h1{font-size:clamp(32px,5vw,54px);line-height:1.06;letter-spacing:-.022em;font-weight:800;
-    max-width:17ch;text-wrap:balance}
+  h1{font-size:clamp(32px,5.3vw,58px);line-height:1.04;letter-spacing:-.024em;font-weight:800;
+    max-width:14ch;text-wrap:balance}
   h1 em{font-style:normal;color:var(--ink)}   /* ei yhden sanan väritystä */
-  .lede{color:#2b332f;max-width:58ch;margin-top:17px;font-size:17.5px}
-  .heroctas{margin-top:24px;display:flex;gap:11px;flex-wrap:wrap}
-  .btn{display:inline-block;background:var(--ink);color:var(--bg);font-weight:700;
+  .lede{color:#2b332f;max-width:46ch;margin-top:17px;font-size:17.5px}
+  .heroctas{margin-top:20px;display:flex;gap:11px;flex-wrap:wrap}
+  .btn{display:inline-block;background:var(--deepfield);color:#EAF2ED;font-weight:700;
     text-decoration:none;padding:13px 22px;font-size:15px}
-  .btn.ghost{background:transparent;color:var(--ink);box-shadow:inset 0 0 0 1.5px var(--ink)}
+  .btn:hover{background:#0A241E}
+  .btn.ghost{background:transparent;color:var(--deepfield);box-shadow:inset 0 0 0 1.5px var(--deepfield)}
+  .btn.ghost:hover{background:rgba(14,50,42,.06)}
+  /* Vaalealla kentällä toimiva variantti — käytössä syvänvihreässä lohkossa */
+  .btn.onfield{background:#EAF2ED;color:var(--deepfield)}
+  .btn.onfield:hover{background:#fff}
 
   /* LUKURIVI — mitattu todiste, ei koristeltu */
   .numbers{display:grid;grid-template-columns:repeat(auto-fit,minmax(178px,1fr));
-    gap:0;border-top:1.5px solid var(--ink);border-bottom:1.5px solid var(--ink);margin:34px 0 8px}
+    gap:0;border-top:1.5px solid var(--deepfield);border-bottom:1.5px solid var(--deepfield);margin:34px 0 8px}
   .num{background:transparent;padding:22px 22px 22px 0;border-right:1px solid var(--line)}
   .num:last-child{border-right:0}
   .num b{display:block;font-size:clamp(34px,5vw,46px);font-weight:800;letter-spacing:-.03em;
@@ -85,7 +96,7 @@
      Väri on statuskoodi, ei koriste; siksi selite ja tekstiselitys aina mukana.
      Paletti validoitu dataviz-skriptillä: CVD ΔE 9.1 protan, 25.4 normaali. */
   .proof{background:var(--deepfield);color:#EAF2ED;border-top:0;padding:46px 0 40px}
-  .proof h2{color:#fff;max-width:28ch}
+  .proof h2{color:#fff;max-width:44ch}
   .proof .lead{color:#B9CCC2;max-width:68ch}
   .chart{margin-top:26px;position:relative;padding-left:46px}
   .chart svg{width:100%;height:190px;display:block}
@@ -115,7 +126,7 @@
     .chart figcaption{gap:10px;flex-direction:column;align-items:flex-start}
   }
 
-  section{padding:38px 0;border-top:1.5px solid var(--ink)}
+  section{padding:38px 0;border-top:1.5px solid var(--deepfield)}
   h2{font-size:clamp(21px,3vw,27px);line-height:1.16;letter-spacing:-.018em;font-weight:800;margin-bottom:7px}
   .lead{color:var(--dim);max-width:62ch;margin-bottom:22px}
 
@@ -127,9 +138,22 @@
   .card:last-child{border-right:0}
   .tag{display:inline-block;font-size:12.5px;letter-spacing:.2px;color:var(--rust);
     font-weight:700;margin-bottom:8px}
-  .card h3{font-size:17px;line-height:1.25;margin-bottom:8px}
+  .card h3{font-size:19px;line-height:1.22;margin-bottom:8px;letter-spacing:-.012em}
+  a.card:hover h3{text-decoration:underline;text-underline-offset:3px;text-decoration-thickness:2px;
+    text-decoration-color:var(--deepfield)}
+  .card{transition:background .14s}
+  a.card:hover{background:rgba(14,50,42,.035)}
   .card p{font-size:14.5px;color:var(--dim)}
   .card .big{font-size:30px;font-weight:800;letter-spacing:-.03em;margin:6px 0 4px}
+
+  /* Logomuuri — yhtenäinen ruudukko, ei korttipakkaa.
+     Logot ovat eri muotoisia, joten niille annetaan sama optinen korkeus
+     ja sama solu; muuten rivi näyttää siltä että joku on unohtanut skaalata. */
+  .logowall{display:grid;grid-template-columns:repeat(auto-fill,minmax(172px,1fr));
+    gap:0;margin-top:16px;border-top:1px solid var(--line);border-left:1px solid var(--line)}
+  .logowall div{background:#fff;display:grid;place-items:center;height:80px;padding:12px;
+    border-right:1px solid var(--line);border-bottom:1px solid var(--line)}
+  .logowall img{max-height:42px;max-width:80%;width:auto;object-fit:contain}
 
   .flow{border:1px solid var(--line);background:var(--panel);padding:24px 22px}
   .bar{position:relative;height:9px;background:#DCE2DD;overflow:hidden}
@@ -159,22 +183,35 @@
   .person p{color:var(--dim);font-size:14px;margin-top:8px}
 
   /* Loppupalkki — lohko, ei kortti */
-  .ctaband{background:var(--panel);border-left:4px solid var(--ink);padding:24px 26px;
+  /* Kaksi eri asiaa, kaksi eri painoarvoa: todiste on vaalea lohko,
+     toiminta on umpinainen syvänvihreä — sama väri kuin todistegrafiikassa,
+     joten sivu sulkeutuu siihen mistä se sai painonsa. */
+  .ctaband{background:var(--panel);border-left:4px solid var(--deepfield);padding:24px 26px;
     display:flex;gap:22px;flex-wrap:wrap;align-items:center;justify-content:space-between}
   .ctaband h3{font-size:20px;letter-spacing:-.01em}
   .ctaband p{color:var(--dim);font-size:15px;margin-top:5px;max-width:48ch}
+  .ctaband.act{background:var(--deepfield);border-left:0;color:#EAF2ED;padding:30px 32px}
+  .ctaband.act h3{color:#fff;font-size:23px}
+  .ctaband.act p{color:#B9CCC2}
 
-  footer.site{border-top:1.5px solid var(--ink);margin-top:0;padding:26px 0 44px;
+  footer.site{border-top:1.5px solid var(--deepfield);margin-top:0;padding:26px 0 44px;
     color:var(--dim);font-size:13.5px}
 
   .navtoggle{display:none;width:44px;height:44px;flex-direction:column;justify-content:center;
-    gap:5px;background:transparent;border:1.5px solid var(--ink);cursor:pointer;padding:0 11px}
-  .navtoggle span{display:block;height:2px;background:var(--ink);transition:transform .18s,opacity .18s}
+    gap:5px;background:transparent;border:1.5px solid var(--deepfield);cursor:pointer;padding:0 11px}
+  .navtoggle span{display:block;height:2px;background:var(--deepfield);transition:transform .18s,opacity .18s}
   .navtoggle[aria-expanded="true"] span:nth-child(1){transform:translateY(7px) rotate(45deg)}
   .navtoggle[aria-expanded="true"] span:nth-child(2){opacity:0}
   .navtoggle[aria-expanded="true"] span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
   @media(prefers-reduced-motion:reduce){.navtoggle span{transition:none}.bar i{animation:none;transform:scaleX(1)}}
 
+  @media(max-width:900px){
+    .herotop{grid-template-columns:1fr;gap:0}
+    .herotop h1,.herotop .lede,.herotop .heroctas{grid-column:1}
+    .herotop .lede{margin-top:17px}
+    .herotop .heroctas{margin-top:24px}
+    h1{max-width:17ch}
+  }
   @media(max-width:680px){
     .nav{flex-wrap:wrap;gap:10px;padding:9px 0}
     .navtoggle{display:flex;order:3}
