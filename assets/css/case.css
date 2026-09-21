@@ -16,7 +16,7 @@
   .wrap{max-width:900px;margin:0 auto;padding:0 20px}
   .draft{background:#F0E9D2;color:#5C4A16;font-size:12px;text-align:center;padding:7px 14px}
   header{padding:18px 0;border-bottom:1px solid var(--line)}
-  .logo{font-weight:800;font-size:18px}.logo b{color:var(--deepfield)}
+  .logo{font-weight:800;font-size:18px}.logo b{color:var(--accent)}
   .crumb{float:right;font-size:13px;color:var(--dim);padding-top:3px}
   .crumb a{color:var(--dim);text-decoration:none}
   .hero{padding:58px 0 36px;position:relative}
@@ -36,9 +36,12 @@
   .lead{color:var(--dim);max-width:62ch;margin-bottom:22px}
   .photo{border:1px solid var(--line);width:100%;display:block}
   .cap{color:var(--dim);font-size:13px;margin-top:10px}.cap b{color:var(--ink)}
-  .ph{border:2px dashed #2a4358;border-radius:10px;background:rgba(15,95,143,.08);padding:44px 24px;text-align:center;color:var(--dim)}
-  .ph .cam{font-size:30px;display:block;margin-bottom:10px}
-  .ph b{color:var(--aqua);display:block;font-size:13px;letter-spacing:1.4px;text-transform:uppercase;margin-bottom:6px}
+  /* Kuvapaikkamerkki. Saa nakya keskeneraiselta — se on sen tehtava —
+     mutta samassa paletissa kuin muu sivusto. Ei sinista katkoviivaa,
+     ei pyoristysta, ei versaalia harvennettua leimaa. */
+  .ph{border:1px dashed var(--line);background:var(--panel);padding:34px 24px;
+    text-align:center;color:var(--dim)}
+  .ph b{color:var(--deepfield);display:block;font-size:15px;letter-spacing:-.01em;margin-bottom:6px}
   .ph span{font-size:13.5px;max-width:46ch;display:inline-block}
   .tablewrap{overflow-x:auto;-webkit-overflow-scrolling:touch;border:1px solid var(--line)}
   table{border-collapse:collapse;width:100%;min-width:480px;font-size:14.5px;background:var(--panel)}

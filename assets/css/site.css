@@ -45,7 +45,7 @@
   header{position:sticky;top:0;z-index:50;background:var(--bg);border-bottom:1.5px solid var(--deepfield)}
   .nav{display:flex;align-items:center;gap:22px;padding:14px 0}
   .logo{font-weight:800;font-size:19px;letter-spacing:-.01em}
-  .logo b{color:var(--deepfield)}
+  .logo b{color:var(--accent)}
   .nav .links{display:flex;gap:18px;font-size:14.5px;margin-left:auto}
   .nav .links a{color:var(--dim);text-decoration:none}
   .nav .links a:hover{color:var(--ink)}
