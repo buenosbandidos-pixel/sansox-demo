@@ -99,3 +99,5 @@
 
 .logomark{height:34px;width:auto;display:block}
 @media(max-width:760px){.logomark{height:28px}}
+
+img.tone{filter:grayscale(.65) saturate(.9) contrast(1.04)}

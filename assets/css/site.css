@@ -318,3 +318,5 @@ header{border-bottom:1px solid var(--line)}
 .vlink:hover{color:var(--ink)}
 
 section[id],[id="video"]{scroll-margin-top:96px}
+
+img.photo.evidence,.projimg.evidence{filter:none}
