@@ -39,10 +39,7 @@
   /* Kuvapaikkamerkki. Saa nakya keskeneraiselta — se on sen tehtava —
      mutta samassa paletissa kuin muu sivusto. Ei sinista katkoviivaa,
      ei pyoristysta, ei versaalia harvennettua leimaa. */
-  .ph{border:1px dashed var(--line);background:var(--panel);padding:34px 24px;
-    text-align:center;color:var(--dim)}
-  .ph b{color:var(--deepfield);display:block;font-size:15px;letter-spacing:-.01em;margin-bottom:6px}
-  .ph span{font-size:13.5px;max-width:46ch;display:inline-block}
+
   .tablewrap{overflow-x:auto;-webkit-overflow-scrolling:touch;border:1px solid var(--line)}
   table{border-collapse:collapse;width:100%;min-width:480px;font-size:14.5px;background:var(--panel)}
   th,td{text-align:left;padding:12px 15px;border-bottom:1px solid var(--line)}
