@@ -77,11 +77,23 @@ def canonical(page, lang):
     pre = "" if lang == "en" else lang + "/"
     return f'<link rel="canonical" href="{BASE}/{pre}{p}">'
 
-def set_meta_urls(h):
-    """og:image ja JSON-LD BASEn mukaisiksi. Kohdistettu tarkasti naihin kahteen:
-    koko dokumentin lapi ajettu domain-korvaus rikkoisi sisaltolinkit Wix-blogiin."""
+def set_meta_urls(h, page="index.html", lang="en"):
+    """og:image, og:url, og:locale ja JSON-LD BASEn mukaisiksi. Kohdistettu tarkasti
+    naihin: koko dokumentin lapi ajettu domain-korvaus rikkoisi sisaltolinkit Wix-blogiin."""
     h = re.sub(r'(<meta property="og:image" content=")[^"]*(")',
                lambda m: m.group(1) + BASE + OG_IMAGE_PATH + m.group(2), h)
+    # og:url osoittaa TAHAN kieliversioon, kuten canonical
+    p = "" if page == "index.html" else page
+    pre = "" if lang == "en" else lang + "/"
+    h = re.sub(r'(<meta property="og:url" content=")[^"]*(")',
+               lambda m: m.group(1) + f"{BASE}/{pre}{p}" + m.group(2), h)
+    h = re.sub(r'(<meta property="og:locale" content=")[^"]*(")',
+               lambda m: m.group(1) + lang + m.group(2), h)
+    alts = [x for x in ("en", "es", "fi") if x != lang]
+    h = re.sub(r'<meta property="og:locale:alternate" content="[^"]*">\n?', "", h)
+    h = h.replace('<meta property="og:locale" content="' + lang + '">',
+                  '<meta property="og:locale" content="' + lang + '">\n'
+                  + "\n".join(f'<meta property="og:locale:alternate" content="{a}">' for a in alts), 1)
     def _ld(m):
         body = re.sub(r'https://(?:[a-z0-9-]+\.)*sansox\.fi', BASE, m.group(2))
         return m.group(1) + body + m.group(3)
@@ -138,6 +150,8 @@ def bake(h, d, lang, page):
         h = re.sub(r'(<meta name="description" content=")[^"]*', lambda m: m.group(1)+dsc, h)
         h = re.sub(r'(<meta property="og:title" content=")[^"]*', lambda m: m.group(1)+t, h)
         h = re.sub(r'(<meta property="og:description" content=")[^"]*', lambda m: m.group(1)+dsc, h)
+        h = re.sub(r'(<meta name="twitter:title" content=")[^"]*', lambda m: m.group(1)+t, h)
+        h = re.sub(r'(<meta name="twitter:description" content=")[^"]*', lambda m: m.group(1)+dsc, h)
     return h
 
 def strip_banner(h):
@@ -160,12 +174,12 @@ for page in PAGES:
     for lang in ("es","fi"):
         out = bake(src, d, lang, page)
         out = out.replace('<meta name="viewport"', hreflang(page)+'<meta name="viewport"',1)
-        out = set_meta_urls(set_canonical(out, page, lang))
+        out = set_meta_urls(set_canonical(out, page, lang), page, lang)
         if PUBLISH: out = strip_banner(out)
         open(R+f"/{lang}/{page}","w").write(out)
     # juurisivu: hreflang + kielivalitsin linkeiksi + localStorage-init pois
     root = src.replace('<meta name="viewport"', hreflang(page)+'<meta name="viewport"',1)
-    root = set_meta_urls(set_canonical(root, page, "en"))
+    root = set_meta_urls(set_canonical(root, page, "en"), page, "en")
     root = re.sub(r'<div class="lang"[^>]*>.*?</div>', lang_links(page,"en"), root, count=1, flags=re.S)
     root = re.sub(r"\ndocument\.addEventListener\('DOMContentLoaded',function\(\)\{var sl=null;.*?\}\);",'',root,flags=re.S)
     if PUBLISH: root = strip_banner(root)
