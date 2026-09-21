@@ -142,3 +142,29 @@ JSON-LD:hen. Testattu: BASE vaihdettuna `new.sansox.fi`:ksi metatiedot seurasiva
 sivustoon, koska uudella sivustolla ei ole `/post/`-sivuja. Päätettävä ennen julkaisua: jäävätkö
 blogit Wixiin (silloin linkkien on osoitettava vanhaan osoitteeseen eksplisiittisesti) vai
 siirretäänkö ne.
+
+## ⚠️ Yksiköt ja text-transform — älä toista tätä
+
+`text-transform:uppercase` **rikkoo SI-etuliitteet**. "µg/l" muuttuu muotoon "ΜG/L" (kreikan iso My,
+U+039C), joka näyttää tavallisella pääteviivattomalla fontilla täsmälleen samalta kuin "MG/L".
+Ero on **tuhatkertainen**. Tämä ehti todella renderöityä ainetaulukon otsikoihin 21.9. ennen kuin se
+huomattiin.
+
+Sääntö: taulukossa jossa on yksiköitä, otsikoissa **ei** saa olla `text-transform:uppercase`.
+Sama koskee `m` vs `M` ja `k` vs `K`.
+
+```bash
+grep -n "text-transform:uppercase" assets/css/*.css *.html   # tarkista ettei osu yksikkösoluihin
+```
+
+## Ainetaulukko (case-kuopio) — miten se on rakennettu
+
+- Data: `assets/paper/table1_full.json` — 42 ainetta + summarivi, litteroitu paperin sivulta 4.
+  **Tiedostossa on `source_anomalies_DO_NOT_SILENTLY_FIX`-lista** (Losartan kahdesti, Warfarinin
+  jäännös > lähtö, puuttuvat lähtöarvot, lähteen kirjoitusvirheet). Niitä ei korjata.
+- Verifiointi: lähtöpitoisuussarake summautuu **tasan** paperin ilmoittamaan 24.162 µg/l:aan, ja
+  jokaisen rivin ilmoitettu reduktio vastaa laskettua. Jos muokkaat dataa, aja tarkistus uudelleen.
+- HTML: `.subtab` — ensimmäinen sarake `position:sticky`, vaakavieritys `.tablewrap`issa,
+  heikot tulokset (<50 %) ruosteella. **Heikkoja tuloksia ei piiloteta — se on koko pointti.**
+- Desimaalierotin lokalisoidaan JS:llä (piste EN, pilkku FI/ES). Kanoninen arvo luetaan talteen
+  latauksessa, joten toistuva kielenvaihto ei kerrytä muunnoksia. Testattu 7 vaihdolla.
