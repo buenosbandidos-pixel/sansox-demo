@@ -280,3 +280,11 @@ img.photo,img.nimg,.proto img,.person img{filter:saturate(.86) contrast(1.02)}
 .projimg{width:100%;max-width:560px;aspect-ratio:3/2;object-fit:cover;object-position:center;
   border:1px solid var(--line);display:block;margin:0 0 16px}
 .projimg.tall{object-position:50% 32%}   /* pystykuvan tärkein sisältö ylempänä */
+
+/* [Claude 21.9.] Liikkuva hero: kuplakulho-looppi heron oikeassa palstassa */
+.heromotion{grid-column:2;margin-top:18px}
+.heromotion video{width:100%;display:block;border:1.5px solid var(--deepfield);filter:saturate(.95)}
+.heromotion .cap{color:var(--dim);font-size:13px;margin-top:8px}
+@media(max-width:760px){.heromotion{grid-column:1}}
+@media print{.heromotion{display:none}}
+@media(prefers-reduced-motion:reduce){.heromotion video{display:none}}
