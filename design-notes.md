@@ -318,3 +318,40 @@ jutusta alkuperäistä lähdettä]
 päätymisen Itämereen" on alun perin suomeksi, eli siinä EN ja ES ovat käännöksiä.
 Espanja on konekäännöksen sijaan kirjoitettu, mutta se kaipaa yhä natiivin
 tarkistuksen — sama avoin kohta kuin muillakin sivuilla.
+
+## [2026-09-21] Auditoinnin 7 korjausta
+
+1. **Kuvaajan linkki oli näkymätön.** `.chart figcaption a{color:#fff}` jäi tummasta
+   versiosta kun todistekaista muutettiin vaaleaksi → kontrasti **1,12:1**. Se oli
+   ainoa reitti etusivulta 42 aineen taulukkoon. Nyt `--accent`, lihavoitu.
+2. **84 puuttuvaa käännöstä.** `nv_*`-avaimet oli merkitty HTML:ään 6 sivulla
+   (404, privacy, 4 case-sivua) mutta käännöksiä ei ollut → footerin valikko jäi
+   englanniksi suomeksi ja espanjaksi. Lisätty.
+3. **`&nbsp;` selaimen otsikossa.** `title-i18n.js` riisui `<em>`-tagit regexillä
+   mutta ei purkanut entiteettejä. Nyt purku tehdään selaimella (`div.innerHTML`
+   → `textContent`), jolloin kaikki entiteetit hoituvat kerralla.
+4. **Mobiilin logomarginaali.** `.nav{padding:14px 0}` kumosi `.wrap{padding:0 28px}`
+   — sama pistemäärä, myöhempi voittaa. Logo oli kiinni ruudun reunassa muun
+   sisällön ollessa 28 px:ssä. Lyhenne purettu `padding-top`/`-bottom`:iksi.
+5. **Etusivun paino 4,2 Mt → 1,3 Mt (−69 %).** Hero-video oli 1280×500 @ 2,15 Mbit/s
+   = 3,5 Mt ja käynnistyy automaattisesti. Uudelleenpakattu 1080 px leveäksi,
+   CRF 32, ääniraita pois → **788 kt**. Vertasin ruutukaappauksia: kuplien
+   hienorakenne kestää. Lisäksi logo 76 kt → 16,5 kt (oli 867 px leveä, näytetään
+   88 px:n levyisenä) ja käyttämätön `loop_darkwater.mp4` (481 kt) poistettu.
+   Videolle ja logolle width/height → ei layout-hyppyä.
+6. **Kuvaajan väripari uusiksi.** Vanha `#4A7C6B`/`#9B6254`: deuteranopia-ΔE **4,7**
+   (raja 8) ja normaalinäkö 12,9 (raja 15) — punavihersokealle sama väri.
+   Uusi **`--win:#00926F`** / **`--lose:#C4551D`**: dataviz-validaattori antaa
+   **ALL CHECKS PASS**, deutan ΔE 10,2, normaali 24,4. Kylläisyys on korkeampi
+   kuin vaimeassa parissa — se on hinta siitä että kuvaaja on luettava.
+7. **`--accent` 4,12:1 → 4,79:1.** `#457EA1` → **`#3F7393`**: sama sävy (203°) ja
+   kylläisyys, 4 % tummempi. Leipätekstin linkit läpäisevät nyt AA:n.
+
+**Lisäksi kaksi kontrastivirhettä case-kuopiolla:** ennen/jälkeen-kuvan oikea leima
+oli `#bfe9ff` vaalealla sirulla (1,23:1) — tarkoitettu tummalle taustalle, nyt
+`--accent`. Summarivin luvut olivat `--dim` tummemmalla rivitaustalla (4,41:1) —
+summarivi on korostettava joka tapauksessa, nyt `--ink`.
+
+**Taulukon teksti ja kuvaajan pylväs ovat eri asia:** pylväs on grafiikkaa (3:1
+riittää) ja käyttää `#C4551D`:tä; taulukon häviävä luku on tekstiä (4,5:1
+vaaditaan) ja käyttää tummempaa `#A8481C`:tä.

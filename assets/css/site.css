@@ -10,16 +10,16 @@
     --line:#D1D1CB;
     --ink:#1A1A1A;        /* vihertävä musta */
     --dim:#6B6B66;
-    --aqua:#457EA1;       /* syvä vesi — toiminta ja linkit, EI data */
+    --aqua:#3F7393;       /* syvä vesi — toiminta ja linkit, EI data */
     --aqua-deep:#33505E;
     --rust:#9B6254;       /* rautaoksidi — vajaa tulos */
     --moss:#4A7C6B;       /* lupaleima — vahvistettu asia */
     /* Todistegrafiikan kenttä ja statusvärit. Validoitu dataviz-skriptillä
        tummaa kenttää vasten: kaikki kuusi tarkistusta PASS. */
-    --accent:#457EA1;     /* otsikon korostussana — sama rooli kuin tumman version #3ec6ff */
+    --accent:#3F7393;     /* otsikon korostussana — sama rooli kuin tumman version #3ec6ff */
     --deepfield:#1A1A1A;   /* editorial: syvä kenttä on muste */  /* syvä kenttä — väri täyttää pinnan, ei viivaa */
-    --win:#4A7C6B;        /* OxTube voitti */
-    --lose:#9B6254;       /* perinteinen menetelmä voitti */
+    --win:#00926F;        /* OxTube voitti */
+    --lose:#C4551D;       /* perinteinen menetelmä voitti */
   }
   *{box-sizing:border-box;margin:0;padding:0}
   /* width/height-attribuutit varaavat tilan (CLS); nama kaksi pitavat kuvasuhteen */
@@ -43,7 +43,7 @@
     border-bottom:1px solid var(--line)}
 
   header{position:sticky;top:0;z-index:50;background:var(--bg);border-bottom:1.5px solid var(--deepfield)}
-  .nav{display:flex;align-items:center;gap:22px;padding:14px 0}
+  .nav{display:flex;align-items:center;gap:22px;padding-top:14px;padding-bottom:14px}
   .logo{font-weight:800;font-size:24px;letter-spacing:-.01em}
   .logo b{color:var(--accent)}
   .nav .links{display:flex;gap:18px;font-size:14.5px;margin-left:auto}
@@ -119,7 +119,10 @@
   .key{display:inline-flex;align-items:center;gap:8px}
   .key i{width:13px;height:13px;flex:none;display:inline-block}
   .key i.kw{background:var(--win)} .key i.kl{background:var(--lose)}
-  .chart figcaption a{color:#fff}
+  /* Kaista oli aiemmin syvanvihrea ja tama valkoinen. Kun kaista muutettiin
+     vaaleaksi, linkki jai valkoiseksi -> kontrasti 1,12:1 eli nakymaton. */
+  .chart figcaption a{color:var(--accent);font-weight:700}
+  .chart figcaption a:hover{color:var(--ink)}
   @media(max-width:680px){
     .proof{padding:32px 0 30px}
     .chart{padding-left:38px}
@@ -220,7 +223,7 @@
     h1{max-width:17ch}
   }
   @media(max-width:680px){
-    .nav{flex-wrap:wrap;gap:10px;padding:9px 0}
+    .nav{flex-wrap:wrap;gap:10px;padding-top:9px;padding-bottom:9px}
     .navtoggle{display:flex;order:3}
     .lang{order:2;margin-left:auto}
     .lang button,.lang a{padding:15px 14px}
