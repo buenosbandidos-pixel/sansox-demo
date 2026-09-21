@@ -1,6 +1,6 @@
 /* SansOx — case-sivujen tyylitiedosto. Irrotettu sivujen sisaisista <style>-lohkoista 2026-09-21.
    ALA muokkaa yksittaisen sivun <style>-lohkoa: muutokset tehdaan tanne, kerran. */
-:root{--bg:#FBFAF7;--panel:#EEF1EE;--line:#C6CCC8;--ink:#141A18;--dim:#59635E;--aqua:#0A5E86;--aqua-deep:#0A6A9E;--rust:#8F4020;--moss:#2F5D4A;--deepfield:#0E322A;--accent:#0A5E86}
+:root{--bg:#F8F7F2;--panel:#F3F2EC;--line:#D1D1CB;--ink:#1A1A1A;--dim:#6B6B66;--aqua:#3E5B6B;--aqua-deep:#33505E;--rust:#9B6254;--moss:#4A7C6B;--deepfield:#1A1A1A;--accent:#3E5B6B}
   *{box-sizing:border-box;margin:0;padding:0}
   /* width/height-attribuutit varaavat tilan (CLS); nama kaksi pitavat kuvasuhteen */
   img{max-width:100%;height:auto}
@@ -12,7 +12,7 @@
   :focus-visible{outline:2.5px solid var(--moss);outline-offset:2px}
   .btn:focus-visible,.lang button:focus-visible,.lang a:focus-visible{outline-offset:3px}
   @supports not selector(:focus-visible){ :focus{outline:2.5px solid var(--moss);outline-offset:2px} }
-  body{background:var(--bg);color:var(--ink);font:16px/1.6 -apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif;-webkit-font-smoothing:antialiased}
+  body{background:var(--bg);color:var(--ink);font:16px/1.6 'Satoshi',-apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif;-webkit-font-smoothing:antialiased}
   .wrap{max-width:900px;margin:0 auto;padding:0 20px}
   .draft{background:#F0E9D2;color:#5C4A16;font-size:12px;text-align:center;padding:7px 14px}
   header{padding:18px 0;border-bottom:1px solid var(--line)}
@@ -21,7 +21,7 @@
   .crumb a{color:var(--dim);text-decoration:none}
   .hero{padding:58px 0 36px;position:relative}
   .kicker{color:var(--dim);font-size:14px;font-weight:500;letter-spacing:0;border-bottom:1px solid var(--line);padding-bottom:10px;margin-bottom:20px;max-width:44ch}
-  h1{font-size:clamp(32px,6.5vw,56px);line-height:1.05;letter-spacing:-1.2px;font-weight:800;max-width:18ch;text-wrap:balance}
+  h1{font-family:'Zodiak',Georgia,serif;font-size:clamp(32px,6.5vw,56px);line-height:1.05;letter-spacing:-1.2px;font-weight:800;max-width:18ch;text-wrap:balance}
   h1 em,h2 em{font-style:normal;color:var(--accent)}
   .lede{color:var(--dim);max-width:58ch;margin-top:18px;font-size:17px}
   .numbers{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:1px;background:var(--line);border:1px solid var(--line);margin:36px 0 6px}
@@ -31,7 +31,7 @@
   .num > span{display:block;color:var(--dim);font-size:13px;margin-top:9px;line-height:1.45}
   .src{color:var(--dim);font-size:12.5px;margin-top:10px}.src a{color:var(--aqua)}
   section{padding:48px 0;border-top:1px solid var(--line)}
-  h2{font-size:clamp(22px,4vw,29px);letter-spacing:-.5px;margin-bottom:8px;font-weight:800;line-height:1.16}
+  h2{font-family:'Zodiak',Georgia,serif;font-size:clamp(22px,4vw,29px);letter-spacing:-.5px;margin-bottom:8px;font-weight:800;line-height:1.16}
   .stepnum{display:inline-grid;place-items:center;width:26px;height:26px;border-radius:50%;background:var(--deepfield);color:#EAF2ED;font-size:13px;font-weight:800;margin-right:10px;transform:translateY(-2px)}
   .lead{color:var(--dim);max-width:62ch;margin-bottom:22px}
   .photo{border:1px solid var(--line);width:100%;display:block}

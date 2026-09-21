@@ -5,21 +5,21 @@
    välittää sivuja eteenpäin. Siksi vaalea pohja, ei tummaa.
    ALA muokkaa yksittaisen sivun <style>-lohkoa: muutokset tehdaan tanne, kerran. */
   :root{
-    --bg:#FBFAF7;         /* viileä paperi — ei cream */
-    --panel:#EEF1EE;      /* betoniharmaa lohko */
-    --line:#C6CCC8;
-    --ink:#141A18;        /* vihertävä musta */
-    --dim:#59635E;
-    --aqua:#0A5E86;       /* syvä vesi — toiminta ja linkit, EI data */
-    --aqua-deep:#0A6A9E;
-    --rust:#8F4020;       /* rautaoksidi — vajaa tulos */
-    --moss:#2F5D4A;       /* lupaleima — vahvistettu asia */
+    --bg:#F8F7F2;         /* lämmin paperi — Nordic Editorial */
+    --panel:#F3F2EC;      /* betoniharmaa lohko */
+    --line:#D1D1CB;
+    --ink:#1A1A1A;        /* vihertävä musta */
+    --dim:#6B6B66;
+    --aqua:#3E5B6B;       /* syvä vesi — toiminta ja linkit, EI data */
+    --aqua-deep:#33505E;
+    --rust:#9B6254;       /* rautaoksidi — vajaa tulos */
+    --moss:#4A7C6B;       /* lupaleima — vahvistettu asia */
     /* Todistegrafiikan kenttä ja statusvärit. Validoitu dataviz-skriptillä
        tummaa kenttää vasten: kaikki kuusi tarkistusta PASS. */
-    --accent:#0A5E86;     /* otsikon korostussana — sama rooli kuin tumman version #3ec6ff */
-    --deepfield:#0E322A;  /* syvä kenttä — väri täyttää pinnan, ei viivaa */
-    --win:#34A97A;        /* OxTube voitti */
-    --lose:#E2703A;       /* perinteinen menetelmä voitti */
+    --accent:#3E5B6B;     /* otsikon korostussana — sama rooli kuin tumman version #3ec6ff */
+    --deepfield:#1A1A1A;   /* editorial: syvä kenttä on muste */  /* syvä kenttä — väri täyttää pinnan, ei viivaa */
+    --win:#4A7C6B;        /* OxTube voitti */
+    --lose:#9B6254;       /* perinteinen menetelmä voitti */
   }
   *{box-sizing:border-box;margin:0;padding:0}
   /* width/height-attribuutit varaavat tilan (CLS); nama kaksi pitavat kuvasuhteen */
@@ -36,7 +36,7 @@
 
   html{scroll-behavior:smooth}
   body{background:var(--bg);color:var(--ink);
-    font:16.5px/1.58 -apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif;
+    font:16.5px/1.62 'Satoshi',-apple-system,'Segoe UI',Helvetica,sans-serif;
     font-variant-numeric:tabular-nums;-webkit-font-smoothing:antialiased}
   .wrap{max-width:1180px;margin:0 auto;padding:0 28px}
   .draft{background:#F0E9D2;color:#5C4A16;font-size:12.5px;text-align:center;padding:7px 14px;
@@ -57,7 +57,7 @@
   /* HERO — asiakirjan otsikkolehti, ei markkinointikuvaa */
   .hero{padding:40px 0 34px}
   .herotop{display:grid;grid-template-columns:1fr 1fr;gap:14px 48px;align-items:end}
-  .herotop .kicker{grid-column:1/-1}
+  .herotop .kicker{color:var(--dim);font-size:12.5px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;border-bottom:1px solid var(--line);padding-bottom:10px;margin-bottom:22px;max-width:52ch}
   /* Otsikko ulottuu ingressin ja nappien yli, jolloin sen alareuna
      asettuu samaan linjaan nappien kanssa eikä palstoihin jää kuoppaa. */
   .herotop h1{grid-column:1;grid-row:2/4}
@@ -66,18 +66,16 @@
   .bleed{width:100vw;position:relative;left:50%;margin-left:-50vw}
   .kicker{color:var(--dim);font-size:14px;border-bottom:1px solid var(--line);
     padding-bottom:9px;margin-bottom:18px;max-width:52ch}
-  h1{font-size:clamp(32px,5.3vw,58px);line-height:1.04;letter-spacing:-.024em;font-weight:800;
-    max-width:14ch;text-wrap:balance}
-  h1 em{font-style:normal;color:var(--accent)}
+  h1{font-family:'Zodiak',Georgia,serif;font-size:clamp(38px,6vw,72px);line-height:1.02;letter-spacing:-.02em;font-weight:800;max-width:14ch;text-wrap:balance}
+  h1 em{font-style:italic;color:var(--accent)}
   h2 em{font-style:normal}
   .proof h2 em{color:#7FD4C0}   /* syvällä kentällä sama rooli, riittävä kontrasti */
   .lede{color:#2b332f;max-width:46ch;margin-top:17px;font-size:17.5px}
   .heroctas{margin-top:20px;display:flex;gap:11px;flex-wrap:wrap}
-  .btn{display:inline-block;background:var(--deepfield);color:#EAF2ED;font-weight:700;
-    text-decoration:none;padding:13px 22px;font-size:15px}
-  .btn:hover{background:#0A241E}
-  .btn.ghost{background:transparent;color:var(--deepfield);box-shadow:inset 0 0 0 1.5px var(--deepfield)}
-  .btn.ghost:hover{background:rgba(14,50,42,.06)}
+  .btn{display:inline-block;background:var(--ink);color:var(--bg);font-weight:600;font-size:13.5px;letter-spacing:.05em;text-transform:uppercase;text-decoration:none;padding:15px 26px;border:1px solid var(--ink);transition:background .25s,color .25s}
+  .btn:hover{background:var(--bg);color:var(--ink)}
+  .btn.ghost{background:transparent;color:var(--ink);box-shadow:none;border:1px solid var(--ink)}
+  .btn.ghost:hover{background:var(--ink);color:var(--bg)}
   /* Vaalealla kentällä toimiva variantti — käytössä syvänvihreässä lohkossa */
   .btn.onfield{background:#EAF2ED;color:var(--deepfield)}
   .btn.onfield:hover{background:#fff}
@@ -130,7 +128,7 @@
   }
 
   section{padding:38px 0;border-top:1.5px solid var(--deepfield)}
-  h2{font-size:clamp(21px,3vw,27px);line-height:1.16;letter-spacing:-.018em;font-weight:800;margin-bottom:7px}
+  h2{font-family:'Zodiak',Georgia,serif;font-size:clamp(26px,3.6vw,38px);letter-spacing:-.015em;margin-bottom:8px;font-weight:800}
   .lead{color:var(--dim);max-width:62ch;margin-bottom:22px}
 
   /* Luettelot riveinä, ei korttipakkana */
@@ -245,7 +243,7 @@
   a.card:hover .more{color:var(--accent);text-decoration:underline;text-underline-offset:3px}
 
 /* [Claude 21.9.] Yhtenäinen valokuvasävy paperi-ilmeeseen — ei logoihin */
-img.photo,img.nimg,.proto img,.person img{filter:saturate(.86) contrast(1.02)}
+img.photo,img.nimg,.proto img,.person img,.projimg{filter:grayscale(.35) saturate(.85) contrast(1.03)}
 
 .person img{aspect-ratio:4/5;object-fit:cover;object-position:50% 22%;width:100%;max-width:320px}
 
@@ -288,3 +286,13 @@ img.photo,img.nimg,.proto img,.person img{filter:saturate(.86) contrast(1.02)}
 @media(max-width:760px){.heromotion{grid-column:1}}
 @media print{.heromotion{display:none}}
 @media(prefers-reduced-motion:reduce){.heromotion video{display:none}}
+
+/* [Claude 21.9.] Nordic Editorial: FIG-kuvatekstit */
+.cap,.src{letter-spacing:.06em;text-transform:uppercase;font-size:11.5px;line-height:1.7}
+.lang{border-color:var(--ink)}
+.lang button.on,.lang a.on{background:var(--ink);color:var(--bg)}
+header{border-bottom:1px solid var(--line)}
+.nav .links{letter-spacing:.1em;text-transform:uppercase;font-size:12.5px}
+.draft{letter-spacing:.12em;text-transform:uppercase;font-size:11px;background:#EAE8E0;color:#6B6B66;border-color:var(--line)}
+.logo{font-family:'Zodiak',Georgia,serif;font-weight:800}
+.num b{font-family:'Zodiak',Georgia,serif}

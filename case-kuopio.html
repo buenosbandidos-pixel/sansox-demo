@@ -21,13 +21,14 @@
 <link rel="alternate" hreflang="es" href="https://www.sansox.fi/es/case-kuopio.html">
 <link rel="alternate" hreflang="fi" href="https://www.sansox.fi/fi/case-kuopio.html">
 <link rel="alternate" hreflang="x-default" href="https://www.sansox.fi/case-kuopio.html">
+<link href="https://api.fontshare.com/v2/css?f[]=zodiak@800,400&f[]=satoshi@700,500,400&display=swap" rel="stylesheet">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Case Kuopio — 90 % pharmaceutical removal in 0.7 s | SansOx</title>
 <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><circle cx=%2250%22 cy=%2250%22 r=%2246%22 fill=%22%23050e16%22/><path d=%22M50 16C38 34 28 46 28 60a22 22 0 0044 0C72 46 62 34 50 16z%22 fill=%22%233ec6ff%22/></svg>">
 <style>
   :root{
-    --bg:#FBFAF7; --panel:#EEF1EE; --line:#C6CCC8;
-    --ink:#141A18; --dim:#59635E; --aqua:#0A5E86; --aqua-deep:#0A6A9E; --rust:#8F4020;--moss:#2F5D4A;--deepfield:#0E322A;--accent:#0A5E86;
+    --bg:#F8F7F2; --panel:#F3F2EC; --line:#D1D1CB;
+    --ink:#1A1A1A; --dim:#6B6B66; --aqua:#3E5B6B; --aqua-deep:#33505E; --rust:#9B6254;--moss:#4A7C6B;--deepfield:#1A1A1A;--accent:#3E5B6B;
   }
   *{box-sizing:border-box;margin:0;padding:0}
   /* width/height-attribuutit varaavat tilan (CLS); nama kaksi pitavat kuvasuhteen */
@@ -42,7 +43,7 @@
   @supports not selector(:focus-visible){ :focus{outline:2.5px solid var(--moss);outline-offset:2px} }
   html{scroll-behavior:smooth}
   body{background:var(--bg);color:var(--ink);
-    font:16px/1.6 -apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif;
+    font:16px/1.62 'Satoshi',-apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif;
     -webkit-font-smoothing:antialiased}
   .wrap{max-width:900px;margin:0 auto;padding:0 20px}
 
@@ -59,7 +60,7 @@
   .hero:before{content:"";position:absolute;inset:0;pointer-events:none;}
   .kicker{color:var(--dim);font-size:14px;font-weight:500;letter-spacing:0;
     border-bottom:1px solid var(--line);padding-bottom:10px;margin-bottom:20px;max-width:46ch}
-  .hero h1{font-size:clamp(34px,7vw,62px);line-height:1.04;letter-spacing:-1.5px;
+  .hero h1{font-family:'Zodiak',Georgia,serif;font-size:clamp(34px,7vw,62px);line-height:1.04;letter-spacing:-1.5px;
     font-weight:800;max-width:16ch}
   .hero h1 em,h2 em{font-style:normal;color:var(--accent)}
   .hero p{color:var(--dim);max-width:56ch;margin-top:20px;font-size:17px}
