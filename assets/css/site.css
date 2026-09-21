@@ -302,3 +302,11 @@ header{border-bottom:1px solid var(--line)}
 
 /* [Claude 21.9.] Nordic #7: numeroidut osiotunnukset (draftin "01. TECHNICAL MONOGRAPH") */
 .kicker[data-num]::before{content:attr(data-num) ".\2002";color:var(--accent);font-weight:700}
+
+/* [Claude 21.9.] Brändi esiin: isompi masthead + footerin signeeraus */
+.logo{font-size:30px}
+.ftmast{font-family:'Zodiak',Georgia,serif;font-weight:800;font-size:clamp(34px,4.5vw,52px);
+  letter-spacing:-.02em;color:var(--ink);margin:6px 0 18px}
+.ftmast b{color:var(--accent);font-weight:800}
+.ftmast span{display:block;font-family:'Satoshi',sans-serif;font-weight:500;font-size:13px;
+  letter-spacing:.14em;text-transform:uppercase;color:var(--dim);margin-top:6px}
