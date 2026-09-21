@@ -5,7 +5,7 @@
   /* width/height-attribuutit varaavat tilan (CLS); nama kaksi pitavat kuvasuhteen */
   img{max-width:100%;height:auto}
   /* B2: ohituslinkki — näkyy vasta kun se saa kohdistuksen */
-  .skip{position:absolute;left:-9999px;top:0;z-index:100;background:var(--deepfield);color:#EAF2ED;
+  .skip{position:absolute;left:-9999px;top:0;z-index:100;background:var(--deepfield);color:#E2E8E4;
     font-weight:800;padding:12px 18px;border-radius:0;text-decoration:none}
   .skip:focus{left:0}
   /* B7: oma kohdistusrengas. Selaimen oletus on ohut ja huonosti erottuva tummalla. */
@@ -32,7 +32,7 @@
   .src{color:var(--dim);font-size:12.5px;margin-top:10px}.src a{color:var(--aqua)}
   section{padding:48px 0;border-top:1px solid var(--line)}
   h2{font-family:'Archivo Black',sans-serif;text-transform:uppercase;font-size:clamp(22px,4vw,29px);letter-spacing:-.5px;margin-bottom:8px;font-weight:800;line-height:1.16}
-  .stepnum{display:inline-grid;place-items:center;width:26px;height:26px;border-radius:50%;background:var(--deepfield);color:#EAF2ED;font-size:13px;font-weight:800;margin-right:10px;transform:translateY(-2px)}
+  .stepnum{display:inline-grid;place-items:center;width:26px;height:26px;border-radius:50%;background:var(--deepfield);color:#E2E8E4;font-size:13px;font-weight:800;margin-right:10px;transform:translateY(-2px)}
   .lead{color:var(--dim);max-width:62ch;margin-bottom:22px}
   .photo{border:1px solid var(--line);width:100%;display:block}
   .cap{color:var(--dim);font-size:13px;margin-top:10px}.cap b{color:var(--ink)}
@@ -53,11 +53,11 @@
   blockquote footer{color:var(--dim);font-size:13.5px;margin-top:8px}
   .ctaband{background:var(--panel);border-left:4px solid var(--deepfield);border-radius:0;padding:30px 24px;display:flex;flex-wrap:wrap;gap:18px;align-items:center;justify-content:space-between}
   .ctaband h3{font-size:19px}.ctaband p{color:var(--dim);font-size:14px;margin-top:4px;max-width:46ch}
-  .btn{display:inline-block;background:var(--deepfield);color:#EAF2ED;font-weight:800;text-decoration:none;padding:13px 22px;border-radius:0;font-size:14.5px}
+  .btn{display:inline-block;background:var(--deepfield);color:#E2E8E4;font-weight:800;text-decoration:none;padding:13px 22px;border-radius:0;font-size:14.5px}
   .btn:hover{background:#0A241E}
   footer.site{border-top:1.5px solid var(--deepfield);margin-top:50px;padding:26px 0 44px;color:var(--dim);font-size:13px}
   @media(max-width:560px){.crumb{display:none}}
-.lang{display:inline-flex;gap:0;border:1.5px solid var(--deepfield)}.lang button,.lang a{background:transparent;border:0;color:var(--dim);text-decoration:none;display:inline-block;font:700 12px/1 inherit;padding:7px 10px;cursor:pointer}@media(max-width:680px){.lang button,.lang a{padding:15px 14px}}.lang button.on,.lang a.on{background:var(--deepfield);color:#EAF2ED}
+.lang{display:inline-flex;gap:0;border:1.5px solid var(--deepfield)}.lang button,.lang a{background:transparent;border:0;color:var(--dim);text-decoration:none;display:inline-block;font:700 12px/1 inherit;padding:7px 10px;cursor:pointer}@media(max-width:680px){.lang button,.lang a{padding:15px 14px}}.lang button.on,.lang a.on{background:var(--deepfield);color:#E2E8E4}
 
 /* ── Uutisartikkelin sivu (post-*.html, generoitu build_posts.py:lla) ── */
 .hero-img{margin:0 0 30px}
