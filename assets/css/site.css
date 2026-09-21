@@ -310,3 +310,6 @@ header{border-bottom:1px solid var(--line)}
 .ftmast b{color:var(--accent);font-weight:800}
 .ftmast span{display:block;font-family:'Satoshi',sans-serif;font-weight:500;font-size:13px;
   letter-spacing:.14em;text-transform:uppercase;color:var(--dim);margin-top:6px}
+
+.logomark{height:34px;width:auto;display:block}
+@media(max-width:760px){.logomark{height:28px}}
