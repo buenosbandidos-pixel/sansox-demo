@@ -10,13 +10,13 @@
     --line:#D1D1CB;
     --ink:#1A1A1A;        /* vihertävä musta */
     --dim:#6B6B66;
-    --aqua:#268DCF;       /* syvä vesi — toiminta ja linkit, EI data */
+    --aqua:#457EA1;       /* syvä vesi — toiminta ja linkit, EI data */
     --aqua-deep:#33505E;
     --rust:#9B6254;       /* rautaoksidi — vajaa tulos */
     --moss:#4A7C6B;       /* lupaleima — vahvistettu asia */
     /* Todistegrafiikan kenttä ja statusvärit. Validoitu dataviz-skriptillä
        tummaa kenttää vasten: kaikki kuusi tarkistusta PASS. */
-    --accent:#268DCF;     /* otsikon korostussana — sama rooli kuin tumman version #3ec6ff */
+    --accent:#457EA1;     /* otsikon korostussana — sama rooli kuin tumman version #3ec6ff */
     --deepfield:#1A1A1A;   /* editorial: syvä kenttä on muste */  /* syvä kenttä — väri täyttää pinnan, ei viivaa */
     --win:#4A7C6B;        /* OxTube voitti */
     --lose:#9B6254;       /* perinteinen menetelmä voitti */
