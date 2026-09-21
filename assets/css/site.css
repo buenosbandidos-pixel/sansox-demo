@@ -275,3 +275,8 @@ img.photo,img.nimg,.proto img,.person img{filter:saturate(.86) contrast(1.02)}
   display:flex;align-items:center;justify-content:center;text-align:center;padding:0 4%;pointer-events:none}
 .vidcover span{color:#EAF2ED;font-size:clamp(12px,1.6vw,18px);line-height:1.35;font-weight:600;text-wrap:balance}
 @media print{.vidwrap{display:none}}
+
+/* [Claude 21.9.] Projektikuvat: yksi koko, yksi rajaus — 3:2, sama leveys */
+.projimg{width:100%;max-width:560px;aspect-ratio:3/2;object-fit:cover;object-position:center;
+  border:1px solid var(--line);display:block;margin:0 0 16px}
+.projimg.tall{object-position:50% 32%}   /* pystykuvan tärkein sisältö ylempänä */
