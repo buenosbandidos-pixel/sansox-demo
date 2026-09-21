@@ -88,3 +88,6 @@
   .posthead{flex-wrap:wrap}
   .posthead .crumb{display:inline-block;order:3;margin-left:0;flex-basis:100%;padding-top:6px}
 }
+
+/* [Claude 21.9.] Nordic #7: numeroidut osiotunnukset (draftin "01. TECHNICAL MONOGRAPH") */
+.kicker[data-num]::before{content:attr(data-num) ".\2002";color:var(--accent);font-weight:700}

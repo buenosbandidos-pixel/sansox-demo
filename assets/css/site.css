@@ -296,3 +296,6 @@ header{border-bottom:1px solid var(--line)}
 .draft{letter-spacing:.12em;text-transform:uppercase;font-size:11px;background:#EAE8E0;color:#6B6B66;border-color:var(--line)}
 .logo{font-family:'Zodiak',Georgia,serif;font-weight:800}
 .num b{font-family:'Zodiak',Georgia,serif}
+
+/* [Claude 21.9.] Nordic #7: numeroidut osiotunnukset (draftin "01. TECHNICAL MONOGRAPH") */
+.kicker[data-num]::before{content:attr(data-num) ".\2002";color:var(--accent);font-weight:700}
