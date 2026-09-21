@@ -100,10 +100,10 @@ document.querySelectorAll('[data-i18n-html]').forEach(function(e){if(!(e.dataset
 window.__setLang=function(l){
 try{localStorage.setItem('sansox_lang',l)}catch(e){}
 document.documentElement.lang=l;
-['en','es','fi'].forEach(function(x){var b=document.getElementById('l-'+x);if(b)b.classList.toggle('on',x===l)});
+['en','es','fi'].forEach(function(x){document.querySelectorAll('[id="l-'+x+'"]').forEach(function(b){b.classList.toggle('on',x===l)})});
 document.querySelectorAll('[data-i18n]').forEach(function(e){var k=e.dataset.i18n;if(T[l]&&T[l][k]!=null)e.textContent=T[l][k]});
 document.querySelectorAll('[data-i18n-html]').forEach(function(e){var k=e.dataset.i18nHtml;if(T[l]&&T[l][k]!=null)e.innerHTML=T[l][k]});};
-['en','es','fi'].forEach(function(x){var b=document.getElementById('l-'+x);if(b)b.onclick=function(){window.__setLang(x)}});
+['en','es','fi'].forEach(function(x){document.querySelectorAll('[id="l-'+x+'"]').forEach(function(b){b.onclick=function(){window.__setLang(x)}})});
 var sl=null;try{sl=localStorage.getItem('sansox_lang')}catch(e){}
 if(sl&&sl!=='en')window.__setLang(sl);
 })();
