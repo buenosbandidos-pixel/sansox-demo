@@ -16,7 +16,7 @@
     --moss:#2F5D4A;       /* lupaleima — vahvistettu asia */
     /* Todistegrafiikan kenttä ja statusvärit. Validoitu dataviz-skriptillä
        tummaa kenttää vasten: kaikki kuusi tarkistusta PASS. */
-    --accent:#0A5E86;     /* otsikon korostussana — sama rooli kuin tumman version #3ec6ff */
+    --accent:#8F4020;     /* otsikon korostussana — sama rooli kuin tumman version #3ec6ff */
     --deepfield:#0E322A;  /* syvä kenttä — väri täyttää pinnan, ei viivaa */
     --win:#34A97A;        /* OxTube voitti */
     --lose:#E2703A;       /* perinteinen menetelmä voitti */
@@ -138,7 +138,9 @@
   .card{border:0;border-bottom:1px solid var(--line);border-right:1px solid var(--line);
     padding:18px 22px 18px 0;background:transparent}
   .card:last-child{border-right:0}
-  .tag{display:inline-block;font-size:12.5px;letter-spacing:.2px;color:var(--rust);
+  /* Kategorialeima on rakennetta, ei korostusta — ruoste on varattu otsikon
+     korostussanalle, jotta väri tarkoittaa sivustolla yhtä asiaa. */
+  .tag{display:inline-block;font-size:12.5px;letter-spacing:.2px;color:var(--deepfield);
     font-weight:700;margin-bottom:8px}
   .card h3{font-size:19px;line-height:1.22;margin-bottom:8px;letter-spacing:-.012em}
   a.card:hover h3{text-decoration:underline;text-underline-offset:3px;text-decoration-thickness:2px;

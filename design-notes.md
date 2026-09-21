@@ -240,3 +240,26 @@ Vaihto onnistuu yhdellä rivillä: `--accent` site.css / case.css / case-kuopio.
 **Uutissivu:** kuvat olivat lähteessä kolmessa eri kuvasuhteessa (640×400,
 900×740, 1200×675), jolloin "Lääkejäämät"-kortti venytti koko ensimmäisen rivin.
 `.nimg{aspect-ratio:16/10;object-fit:cover}` — kaikki laatikot samankokoisia.
+
+## [2026-09-21] Korostusväriksi rautaoksidi #8F4020 (ei sininen)
+
+Juha kysyi toimisiko ruoste sinistä paremmin. Toimii, ja kolmesta syystä:
+1. **Sininen on vesialan oletus.** Koko designtyön lähtökohta oli olla
+   näyttämättä kategorian oletukselta (sininen + luontokuva). Ruoste on sivun
+   ainoa lämmin sävy muuten kylmässä paletissa.
+2. **Sininen on linkkiväri.** Ruostetta ei voi luulla linkiksi; sininen
+   korostussana voi hämätä.
+3. **Aineellisesti rehellinen:** rautaoksidi on yksi asia jonka OxTube poistaa
+   (rauta ja mangaani juomavedestä), ei irrallinen koristeväri.
+
+Mitattu riski: ruoste on samaa sävyperhettä kuin kuvaajan häviöoranssi #E2703A.
+ΔE(OKLab) **20,4** — selvästi yli datavärien 8:n kynnyksen ja 15:n normaalinäön
+rajan, eli värit eivät sulaudu. Ero on käsitteellinen, ei havaittava, ja otsikot
+eivät koskaan ole pylväiden vieressä.
+Huom: frontend-design varoittaa terrakotasta ~#D97757 tekoälytunnusmerkkinä.
+#8F4020 on selvästi tummempi ja ruskeampi — aito rautaoksidi, ei se terrakotta.
+
+**Törmäys jouduttiin purkamaan samalla:** `.tag` (uutisten kategorialeima) oli
+`--rust`, eli sama väri kahdessa eri roolissa. Leima → `--deepfield` (rakennetta),
+ruoste jää yksin otsikon korostussanalle. Uutisten päiväykset olivat `--aqua`
+vaikka eivät ole linkkejä → `--dim` (14 kpl).
