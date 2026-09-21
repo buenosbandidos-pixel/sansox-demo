@@ -54,22 +54,31 @@ grep -rl "Saira\|@font-face\|fonts.googleapis" *.html assets/css/   # pitää ol
 
 ## "AI-tellit" — mitä oikeasti poistettiin, mitä tuli takaisin
 
-Vanha muistiinpano listasi kuusi poistettua maneeria. Tarkistettuna 21.9. **kolme niistä on yhä koodissa:**
+Vanha muistiinpano listasi kuusi poistettua maneeria. Tarkistettuna 21.9. **kolme niistä on yhä koodissa
+— ja kaikki kolme on päätetty jättää (perustelut alla).**
 
 | Maneeri | Tila | Missä |
 |---|---|---|
 | `·`-erottimet footerissa | ✅ poistettu, käyttää ` / ` | footer |
-| Radial-hehkut | ⚠️ 2 jäljellä | `case-kuopio.html` heron tausta |
-| Caps-eyebrow | ⚠️ 6 sääntöä | case-sivujen `.kick`, taulukoiden `th`, `.person span`, `.ph b` |
-| `→`-nuolet | ⚠️ 19 kpl | `news.html` 15, `case-india.html` 4 |
+| Radial-hehkut | 🔄 2 jäljellä — jää | `case-kuopio.html` heron tausta |
+| Caps-eyebrow | 🔄 6 sääntöä — jää | case-sivujen `.kick`, taulukoiden `th`, `.person span`, `.ph b` |
+| `→`-nuolet | 🔄 19 kpl — jää | `news.html` 15, `case-india.html` 4 |
 | h1:n yhden sanan väri | 🔄 **palautettu tarkoituksella** | `h1 em{color:var(--aqua)}` |
 | SaaS-korttisarja → spec-rivit | ✅ pysynyt | — |
 
 **h1 em on Juhan päätös** (`661edee`, "valko+sininen kaksivärisyys takaisin v1:n tapaan").
 Älä poista sitä design-puhtauden nimissä — se on valittu.
 
-Loput kolme ovat avoimia: poistetaanko vai hyväksytäänkö? Ei päätöstä. Case-sivujen caps-eyebrow
-kantaa oikeaa tietoa ("MEASURED RESULT · MUNICIPAL WASTEWATER · KUOPIO"), joten se ei ole tyhjä maneeri.
+**PÄÄTETTY 21.9.2026 (Juha): kaikki kolme jäävät.** Perustelut tarkistettu koodista, ei listasta:
+
+- **→-nuolet (19 kpl)** — jokainen on ulkoisen linkin merkki: `source: sansox.fi →`, `→ post`.
+  Toiminnallinen affordanssi, ei koriste. Poistaminen heikentäisi sivua.
+- **Caps-eyebrow (6 sääntöä)** — kantaa oikeaa tietoa: "MEASURED RESULT · MUNICIPAL WASTEWATER ·
+  KUOPIO, FINLAND". Dateline, ei maneeri.
+- **Radial-hehkut (2)** — opasiteetti .13 ja .18. Katsottu sivulta: käytännössä näkymättömiä.
+
+Vanha muistiinpano leimasi nämä poistettaviksi luettelona, ei katsomalla. Älä poista niitä
+"design-puhtauden" nimissä ilman uutta päätöstä.
 
 ---
 
@@ -112,5 +121,24 @@ grep -c 'loading=\|width=' *.html        # jokaisella img:llä pitää olla mole
 
 - Title-block-tyylinen sivunumerointi footerissa
 - Ruoste "ennen/jälkeen"-koodauksena case-sivuilla (nyt vain `case-kuopio`in liukusäädin)
-- `case-kuopio.html`:n CSS on yhä inline: se eroaa muista case-sivuista 28 säännön arvoissa.
-  Yhdistäminen muuttaisi ulkoasua, joten se vaatii oman designkierroksen.
+
+## Päätetty: case-kuopio.html pysyy inlinenä
+
+Sen CSS eroaa muista case-sivuista **28 säännön arvoissa** (`:root`, `.btn`, `.hero`, `.num`…).
+Se on lippulaivasivu omalla ennen/jälkeen-liukusäätimellä, joten haarautuminen on perusteltu.
+Yhdistäminen muuttaisi ulkoasua eikä sitä kannata tehdä ennen kuin firma on vahvistanut sisällön.
+**Päätetty 21.9.2026 (Juha): ei designkierrosta tälle sivulle nyt.**
+
+## Domain esiintyy yhdessä paikassa
+
+`build_i18n.py` → `BASE`. Skripti kirjoittaa sen mukaan `canonical`, `og:image` ja JSON-LD:n
+joka ajolla. Hosting-päätöksen jälkeen vaihdat yhden rivin ja ajat buildin.
+
+⚠️ **Sisältölinkkejä ei kosketa.** 38 linkkiä osoittaa `https://www.sansox.fi/post/...` eli elävään
+Wix-blogiin. Sokea domain-korvaus rikkoisi ne, joten `set_meta_urls()` kohdistuu vain og:imageen ja
+JSON-LD:hen. Testattu: BASE vaihdettuna `new.sansox.fi`:ksi metatiedot seurasivat, 0 sisältölinkkiä rikki.
+
+🔴 **Avoin:** ne 38 `/post/`-linkkiä menevät rikki siinä vaiheessa kun domain käännetään uuteen
+sivustoon, koska uudella sivustolla ei ole `/post/`-sivuja. Päätettävä ennen julkaisua: jäävätkö
+blogit Wixiin (silloin linkkien on osoitettava vanhaan osoitteeseen eksplisiittisesti) vai
+siirretäänkö ne.

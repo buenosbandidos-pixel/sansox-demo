@@ -5,6 +5,11 @@
 import os, re, json, subprocess, sys, html as htmllib
 
 BASE = "https://www.sansox.fi"   # [TARKISTETTAVA] — vaihda jos hosting-päätös tuo toisen domainin
+# [2026-09-21] BASE on AINOA paikka jossa domain esiintyy. Tama skripti kirjoittaa
+# canonicalin, og:imagen ja JSON-LD:n sen mukaan joka ajolla.
+# HUOM: sisaltolinkkeja (https://www.sansox.fi/post/... 38 kpl) EI kosketa -
+# ne osoittavat elavaan Wix-blogiin ja hajoaisivat jos ne uudelleenkirjoitettaisiin.
+OG_IMAGE_PATH = "/assets/img/oxtube_installed_vertical.jpg"
 R = os.path.dirname(os.path.abspath(__file__))
 PUBLISH = "--publish" in sys.argv
 
@@ -71,6 +76,16 @@ def canonical(page, lang):
     p = "" if page == "index.html" else page
     pre = "" if lang == "en" else lang + "/"
     return f'<link rel="canonical" href="{BASE}/{pre}{p}">'
+
+def set_meta_urls(h):
+    """og:image ja JSON-LD BASEn mukaisiksi. Kohdistettu tarkasti naihin kahteen:
+    koko dokumentin lapi ajettu domain-korvaus rikkoisi sisaltolinkit Wix-blogiin."""
+    h = re.sub(r'(<meta property="og:image" content=")[^"]*(")',
+               lambda m: m.group(1) + BASE + OG_IMAGE_PATH + m.group(2), h)
+    def _ld(m):
+        body = re.sub(r'https://(?:[a-z0-9-]+\.)*sansox\.fi', BASE, m.group(2))
+        return m.group(1) + body + m.group(3)
+    return re.sub(r'(<script type="application/ld\+json">)(.*?)(</script>)', _ld, h, flags=re.S)
 
 def set_canonical(h, page, lang):
     tag = canonical(page, lang)
@@ -145,12 +160,12 @@ for page in PAGES:
     for lang in ("es","fi"):
         out = bake(src, d, lang, page)
         out = out.replace('<meta name="viewport"', hreflang(page)+'<meta name="viewport"',1)
-        out = set_canonical(out, page, lang)
+        out = set_meta_urls(set_canonical(out, page, lang))
         if PUBLISH: out = strip_banner(out)
         open(R+f"/{lang}/{page}","w").write(out)
     # juurisivu: hreflang + kielivalitsin linkeiksi + localStorage-init pois
     root = src.replace('<meta name="viewport"', hreflang(page)+'<meta name="viewport"',1)
-    root = set_canonical(root, page, "en")
+    root = set_meta_urls(set_canonical(root, page, "en"))
     root = re.sub(r'<div class="lang"[^>]*>.*?</div>', lang_links(page,"en"), root, count=1, flags=re.S)
     root = re.sub(r"\ndocument\.addEventListener\('DOMContentLoaded',function\(\)\{var sl=null;.*?\}\);",'',root,flags=re.S)
     if PUBLISH: root = strip_banner(root)
