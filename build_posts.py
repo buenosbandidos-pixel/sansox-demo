@@ -6,7 +6,12 @@ Miksi generaattori eikä 13 kasin kirjoitettua sivua: rakenne on joka sivulla
 sama, ja kasin kirjoitettuna 13 sivua ajautuisi erilleen ensimmaisessa
 muutoksessa. Sisalto on datassa, rakenne taalla, kerran.
 
-Aja:  python3 build_posts.py
+AJOJARJESTYS ON TARKEA:
+    1. python3 build_posts.py    (kirjoittaa post-*.html ja posts/_meta.json)
+    2. python3 build_i18n.py     (tekee /fi/ ja /es/, hreflangit, sitemapin)
+Jalkimmainen muuttaa juuritiedostojen kielivalitsimen napeista linkeiksi.
+Jos ajat vain build_posts.py:n, artikkelisivut palaavat JS-valitsimeen ja
+niiden hreflangit katoavat — aja silloin myos build_i18n.py.
 """
 import json, os, re, html
 
@@ -226,7 +231,16 @@ def main():
                     "fi": "← " + older["fi"]["title"], "es": "← " + older["es"]["title"]}
         open(a["file"], "w", encoding="utf-8").write(build(a, prev, nxt))
         print("  ", a["file"])
-    print(f"{len(arts)} artikkelisivua.")
+
+    # Sivuotsikot ja kuvaukset kieliversioille. Ilman tata build_i18n.py jattaa
+    # /fi/- ja /es/-sivujen <title>- ja description-tagit englanniksi, jolloin
+    # hakukone indeksoi suomenkielisen sivun englanninkielisella otsikolla.
+    meta = {a["file"]: [a["es"]["title"] + " | SansOx", a["es"]["lede"][:300],
+                        a["fi"]["title"] + " | SansOx", a["fi"]["lede"][:300]]
+            for a in arts}
+    with open("posts/_meta.json", "w", encoding="utf-8") as f:
+        json.dump(meta, f, ensure_ascii=False, indent=1)
+    print(f"{len(arts)} artikkelisivua + posts/_meta.json")
     return arts
 
 

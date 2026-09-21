@@ -61,6 +61,14 @@ META = {  # sivu → (es_title, es_desc, fi_title, fi_desc)
    "Case Sukhrali — lammen elvytys | SansOx","Kuollut lampi elvytetty Gurugramissa — ja pidetty puhtaana."),
 }
 
+# Artikkelisivujen otsikot ja kuvaukset tulevat build_posts.py:n kirjoittamasta
+# tiedostosta, jotta niita ei tarvitse yllapitaa kahdessa paikassa.
+try:
+    with open("posts/_meta.json", encoding="utf-8") as _f:
+        META.update({k: tuple(v) for k, v in json.load(_f).items()})
+except FileNotFoundError:
+    print("  huom: posts/_meta.json puuttuu - aja ensin build_posts.py")
+
 PRIVACY = {
  "es":("Privacidad | SansOx","Este sitio no instala cookies ni ejecuta análisis o rastreo. Los únicos datos personales que recibimos son los que usted decide enviarnos por correo (info@sansox.fi), y se usan solo para responderle. Responsable: SansOx Oy, VAT FI24678326, Niemenkatu 73, FI-15140 Lahti, Finlandia.","Privacidad"),
  "fi":("Tietosuoja | SansOx","Tämä sivusto ei aseta evästeitä eikä käytä analytiikkaa tai seurantaa. Ainoat henkilötiedot ovat ne, jotka itse lähetät sähköpostitse (info@sansox.fi), ja niitä käytetään vain vastaamiseen. Rekisterinpitäjä: SansOx Oy, Y/VAT FI24678326, Niemenkatu 73, 15140 Lahti.","Tietosuoja"),

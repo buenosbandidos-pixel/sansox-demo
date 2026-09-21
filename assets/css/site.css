@@ -68,7 +68,8 @@
     padding-bottom:9px;margin-bottom:18px;max-width:52ch}
   h1{font-size:clamp(32px,5.3vw,58px);line-height:1.04;letter-spacing:-.024em;font-weight:800;
     max-width:14ch;text-wrap:balance}
-  h1 em,h2 em{font-style:normal;color:var(--accent)}
+  h1 em{font-style:normal;color:var(--accent)}
+  h2 em{font-style:normal}
   .proof h2 em{color:#7FD4C0}   /* syvällä kentällä sama rooli, riittävä kontrasti */
   .lede{color:#2b332f;max-width:46ch;margin-top:17px;font-size:17.5px}
   .heroctas{margin-top:20px;display:flex;gap:11px;flex-wrap:wrap}
@@ -242,3 +243,27 @@
      Sisakkainen <a> <a>:n sisalla olisi virheellista HTML:aa. */
   .card .more{display:inline-block;color:var(--dim);font-size:12.5px;font-weight:700}
   a.card:hover .more{color:var(--accent);text-decoration:underline;text-underline-offset:3px}
+
+/* [Claude 21.9.] Yhtenäinen valokuvasävy paperi-ilmeeseen — ei logoihin */
+img.photo,img.nimg,.proto img,.person img{filter:saturate(.86) contrast(1.02)}
+
+.person img{aspect-ratio:4/5;object-fit:cover;object-position:50% 22%;width:100%;max-width:320px}
+
+/* [Claude 21.9.] TULOSTUS — hankintapäällikkö tulostaa ja välittää eteenpäin */
+@media print{
+  .draft,.nav .links,.lang,.heroctas,.navtoggle,video{display:none!important}
+  header{position:static;border-bottom:2px solid #000}
+  body{background:#fff;color:#000;font-size:12pt}
+  .wrap{max-width:100%;padding:0}
+  a{color:#000;text-decoration:underline}
+  .src a[href^="http"]:after{content:" (" attr(href) ")";font-size:9pt;color:#444}
+  .proof{background:#fff!important;color:#000;border-top:2px solid #000;border-bottom:2px solid #000}
+  .proof h2,.proof .lead,.chart figcaption{color:#000!important}
+  .proof h2 em{color:#000}
+  .chart .grid line{stroke:#bbb}
+  .yaxis{color:#444}
+  section,.card{break-inside:avoid}
+  h1,h2{break-after:avoid}
+  img{max-height:9cm}
+  footer.site{border-top:2px solid #000;color:#000}
+}
