@@ -267,3 +267,11 @@ img.photo,img.nimg,.proto img,.person img{filter:saturate(.86) contrast(1.02)}
   img{max-height:9cm}
   footer.site{border-top:2px solid #000;color:#000}
 }
+
+/* [Claude 21.9.] Upotettu video omalla tekstityspalkilla (peittää poltetun tekstin) */
+.vidwrap{position:relative;border:1.5px solid var(--deepfield);background:#000;max-width:860px}
+.vidwrap video{width:100%;display:block;aspect-ratio:16/9}
+.vidcover{position:absolute;left:0;right:0;bottom:0;height:24%;background:var(--deepfield);
+  display:flex;align-items:center;justify-content:center;text-align:center;padding:0 4%;pointer-events:none}
+.vidcover span{color:#EAF2ED;font-size:clamp(12px,1.6vw,18px);line-height:1.35;font-weight:600;text-wrap:balance}
+@media print{.vidwrap{display:none}}
