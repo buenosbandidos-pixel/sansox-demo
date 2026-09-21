@@ -1,6 +1,6 @@
 /* SansOx — case-sivujen tyylitiedosto. Irrotettu sivujen sisaisista <style>-lohkoista 2026-09-21.
    ALA muokkaa yksittaisen sivun <style>-lohkoa: muutokset tehdaan tanne, kerran. */
-:root{--bg:#F8F7F2;--panel:#F3F2EC;--line:#D1D1CB;--ink:#1A1A1A;--dim:#6B6B66;--aqua:#3E5B6B;--aqua-deep:#33505E;--rust:#9B6254;--moss:#4A7C6B;--deepfield:#1A1A1A;--accent:#3E5B6B}
+:root{--bg:#F8F7F2;--panel:#F3F2EC;--line:#D1D1CB;--ink:#1A1A1A;--dim:#6B6B66;--aqua:#268DCF;--aqua-deep:#33505E;--rust:#9B6254;--moss:#4A7C6B;--deepfield:#1A1A1A;--accent:#268DCF}
   *{box-sizing:border-box;margin:0;padding:0}
   /* width/height-attribuutit varaavat tilan (CLS); nama kaksi pitavat kuvasuhteen */
   img{max-width:100%;height:auto}
