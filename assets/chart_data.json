@@ -1,0 +1,296 @@
+[
+ {
+  "aine": "Cetirizine",
+  "oxtube": "99.9",
+  "arvo": 99.9,
+  "perinteinen": "<20 %",
+  "voitto": true
+ },
+ {
+  "aine": "Diclofenac",
+  "oxtube": "99.7",
+  "arvo": 99.7,
+  "perinteinen": "<20 %",
+  "voitto": true
+ },
+ {
+  "aine": "Losartan",
+  "oxtube": "99.6",
+  "arvo": 99.6,
+  "perinteinen": "<20 %",
+  "voitto": true
+ },
+ {
+  "aine": "Furosemide",
+  "oxtube": "97",
+  "arvo": 97.0,
+  "perinteinen": "<20 %",
+  "voitto": true
+ },
+ {
+  "aine": "Citalopram",
+  "oxtube": "97",
+  "arvo": 97.0,
+  "perinteinen": "<20 %",
+  "voitto": true
+ },
+ {
+  "aine": "Piperacillin",
+  "oxtube": "97",
+  "arvo": 97.0,
+  "perinteinen": "48 %",
+  "voitto": true
+ },
+ {
+  "aine": "Mirtazapine",
+  "oxtube": "96.4",
+  "arvo": 96.4,
+  "perinteinen": "31 %",
+  "voitto": true
+ },
+ {
+  "aine": "4-acetamidoantipyrine",
+  "oxtube": "95",
+  "arvo": 95.0,
+  "perinteinen": "21 %",
+  "voitto": true
+ },
+ {
+  "aine": "Quetiapine",
+  "oxtube": "95",
+  "arvo": 95.0,
+  "perinteinen": "<20 %",
+  "voitto": true
+ },
+ {
+  "aine": "Azithromycin",
+  "oxtube": "94",
+  "arvo": 94.0,
+  "perinteinen": "<20 %",
+  "voitto": true
+ },
+ {
+  "aine": "Hydrochloricazide",
+  "oxtube": "91",
+  "arvo": 91.0,
+  "perinteinen": "<20 %",
+  "voitto": true
+ },
+ {
+  "aine": "Carbamazepine",
+  "oxtube": "91",
+  "arvo": 91.0,
+  "perinteinen": "<20 %",
+  "voitto": true
+ },
+ {
+  "aine": "Atorvastatin",
+  "oxtube": "91",
+  "arvo": 91.0,
+  "perinteinen": "66 %",
+  "voitto": true
+ },
+ {
+  "aine": "Propanolol",
+  "oxtube": "91",
+  "arvo": 91.0,
+  "perinteinen": "<20 %",
+  "voitto": true
+ },
+ {
+  "aine": "Clozapine",
+  "oxtube": "90",
+  "arvo": 90.0,
+  "perinteinen": "<20 %",
+  "voitto": true
+ },
+ {
+  "aine": "Tramadol",
+  "oxtube": "90",
+  "arvo": 90.0,
+  "perinteinen": "<20 %",
+  "voitto": true
+ },
+ {
+  "aine": "Xylometazoline",
+  "oxtube": "86",
+  "arvo": 86.0,
+  "perinteinen": "<20 %",
+  "voitto": true
+ },
+ {
+  "aine": "Fluvastatin",
+  "oxtube": "84",
+  "arvo": 84.0,
+  "perinteinen": "26 %",
+  "voitto": true
+ },
+ {
+  "aine": "Sotalol",
+  "oxtube": "84",
+  "arvo": 84.0,
+  "perinteinen": "33 %",
+  "voitto": true
+ },
+ {
+  "aine": "Sulfamethoxazole",
+  "oxtube": "83",
+  "arvo": 83.0,
+  "perinteinen": "<20 %",
+  "voitto": true
+ },
+ {
+  "aine": "Naproxen",
+  "oxtube": "80",
+  "arvo": 80.0,
+  "perinteinen": "<20 %",
+  "voitto": true
+ },
+ {
+  "aine": "Losartan",
+  "oxtube": "79.5",
+  "arvo": 79.5,
+  "perinteinen": "<20 %",
+  "voitto": true
+ },
+ {
+  "aine": "Diatrizoate",
+  "oxtube": "79",
+  "arvo": 79.0,
+  "perinteinen": "20 %",
+  "voitto": true
+ },
+ {
+  "aine": "Atenolol",
+  "oxtube": "79",
+  "arvo": 79.0,
+  "perinteinen": "22 %",
+  "voitto": true
+ },
+ {
+  "aine": "Bisoprolol",
+  "oxtube": "79",
+  "arvo": 79.0,
+  "perinteinen": "77 %",
+  "voitto": true
+ },
+ {
+  "aine": "Bezafibrate",
+  "oxtube": "79",
+  "arvo": 79.0,
+  "perinteinen": "78 %",
+  "voitto": true
+ },
+ {
+  "aine": "Sertraline",
+  "oxtube": "79",
+  "arvo": 79.0,
+  "perinteinen": "<20 %",
+  "voitto": true
+ },
+ {
+  "aine": "5-methylbenzotriazole",
+  "oxtube": "77",
+  "arvo": 77.0,
+  "perinteinen": "<20 %",
+  "voitto": true
+ },
+ {
+  "aine": "Ramipril",
+  "oxtube": "74",
+  "arvo": 74.0,
+  "perinteinen": "<20 %",
+  "voitto": true
+ },
+ {
+  "aine": "Desloratadine",
+  "oxtube": "73",
+  "arvo": 73.0,
+  "perinteinen": "33 %",
+  "voitto": true
+ },
+ {
+  "aine": "4-formylaminoantipyrine",
+  "oxtube": "71",
+  "arvo": 71.0,
+  "perinteinen": "52 %",
+  "voitto": true
+ },
+ {
+  "aine": "Sulfadiazine",
+  "oxtube": "70",
+  "arvo": 70.0,
+  "perinteinen": "<20 %",
+  "voitto": true
+ },
+ {
+  "aine": "Benzotriazole",
+  "oxtube": "68",
+  "arvo": 68.0,
+  "perinteinen": "63 %",
+  "voitto": true
+ },
+ {
+  "aine": "Clarithromycin",
+  "oxtube": "68",
+  "arvo": 68.0,
+  "perinteinen": "24 %",
+  "voitto": true
+ },
+ {
+  "aine": "Roxithromycin",
+  "oxtube": "62",
+  "arvo": 62.0,
+  "perinteinen": "<20 %",
+  "voitto": true
+ },
+ {
+  "aine": "Lamotrigine",
+  "oxtube": "46",
+  "arvo": 46.0,
+  "perinteinen": "<20 %",
+  "voitto": true
+ },
+ {
+  "aine": "Metronidazole",
+  "oxtube": "45",
+  "arvo": 45.0,
+  "perinteinen": "23 %",
+  "voitto": true
+ },
+ {
+  "aine": "Amiloride",
+  "oxtube": "38",
+  "arvo": 38.0,
+  "perinteinen": "<20 %",
+  "voitto": true
+ },
+ {
+  "aine": "Ketoprofen",
+  "oxtube": "28",
+  "arvo": 28.0,
+  "perinteinen": "80 %",
+  "voitto": false
+ },
+ {
+  "aine": "Warfarin",
+  "oxtube": "<20",
+  "arvo": 19.0,
+  "perinteinen": "24 %",
+  "voitto": false
+ },
+ {
+  "aine": "Caffeine",
+  "oxtube": "<20",
+  "arvo": 19.0,
+  "perinteinen": "52 %",
+  "voitto": false
+ },
+ {
+  "aine": "Verapamil",
+  "oxtube": "<20",
+  "arvo": 19.0,
+  "perinteinen": "24 %",
+  "voitto": false
+ }
+]
