@@ -94,3 +94,28 @@ div.grid{gap:14px;background:none;border:0}
   .hero .num .prov{font-size:11px;padding:1px 5px;line-height:1.25}
   .hero .num b small{font-size:11px}
 }
+
+/* ===== Yhtenäistys 2026-09-27 (Cowork): yksi turkoosi väriperhe, taustojen rytmi, kevyemmät huomautukset ===== */
+:root{--accent:#17706D;--aqua:#17706D;--aqua-deep:#0F5654}
+main>section{border-top:0}
+main>section:nth-of-type(even):not(#chain-of-evidence):not(.cta){background:#fff}
+main>section:nth-of-type(even):not(#chain-of-evidence):not(.cta) .card{background:#F4F8F7;box-shadow:none;border:1px solid #E1ECEA}
+h2 em{font-style:normal;color:var(--accent)}
+.cta h2 em,#chain-of-evidence h2 em{color:var(--teal-light)}
+.note{border-left-color:var(--teal);background:#EEF6F5;border-radius:0 10px 10px 0}
+#not-claimed .note,.note.warn{border-left-color:var(--rust);background:#F7F0EC}
+.note.ok{border-left-color:var(--moss)}
+main p a:not([class]),main li a:not([class]),.note a:not([class]){color:var(--accent)}
+#chain-of-evidence .note a:not([class]),.cta a:not([class]){color:var(--teal-light)}
+/* Korttien ikonit + kuva/teksti-jako 2026-09-27 (Cowork) */
+.card-ic{display:grid;place-items:center;width:42px;height:42px;border-radius:12px;background:#E3F1EF;color:var(--accent);margin-bottom:14px}
+.card-ic svg{width:24px;height:24px}
+.split{display:grid;grid-template-columns:minmax(0,1.35fr) minmax(0,1fr);gap:28px;align-items:start}
+.split-img{margin:0;position:sticky;top:90px}
+.split-img img{width:100%;height:auto;display:block;border-radius:14px;box-shadow:0 6px 24px rgba(14,40,51,.12);background:#fff}
+.split-img figcaption{font-size:13px;color:var(--dim);margin-top:10px;line-height:1.45}
+@media (max-width:640px){
+  .split{grid-template-columns:1fr;gap:18px}
+  .split-img{position:static;order:-1}
+  .split-img img{max-height:320px;object-fit:cover}
+}
