@@ -1,0 +1,72 @@
+/* Theme B "Tumma vesi" — 2026-09-27 (Cowork). Ladataan site.css:n jälkeen.
+   Poisto = poista <link theme-b.css> ja <script menu.js> sivuilta. */
+:root{--navy:#0E2833;--navy-2:#123442;--navy-line:#244B5A;--teal:#1F8F8C;--teal-deep:#17706D;--teal-light:#7FD3CF}
+
+/* sivumarginaali: .bar ja .hero nollasivat .wrap-paddingin */
+.wrap.bar{padding:12px 20px}
+.wrap.hero{padding-left:20px;padding-right:20px}
+
+/* luonnospalkki + yläpalkki */
+.draft{background:#0A1E27;color:#9FC3CC}
+header{background:var(--navy);border-bottom:1px solid var(--navy-line)}
+.logo,.logo:visited{color:#fff}
+.logo b{color:var(--teal-light)}
+.logo .tagline{color:#8FB3BD}
+nav a{color:#CFE3E8}
+nav a:hover,nav a[aria-current="page"]{color:#fff;box-shadow:inset 0 -2px var(--teal-light)}
+.lang a{color:#CFE3E8;border-color:var(--navy-line);border-radius:6px}
+.lang a:hover{color:#fff;border-color:#fff}
+.lang a[aria-current="true"]{background:#fff;color:var(--navy);border-color:#fff}
+.menu-btn{display:none;align-items:center;justify-content:center;width:44px;height:44px;flex:none;
+  border:1px solid var(--navy-line);background:transparent;color:#fff;border-radius:10px;cursor:pointer;padding:0}
+.menu-btn svg{width:22px;height:22px}
+.menu-btn:focus-visible{outline:2.5px solid var(--teal-light);outline-offset:2px}
+
+/* hero */
+.wrap.hero{position:relative;max-width:none;margin:0;color:#fff;
+  padding-top:72px;padding-bottom:56px;
+  background:linear-gradient(180deg,rgba(14,40,51,.72),rgba(14,40,51,.94) 75%),var(--hero-img,none) center/cover,var(--navy)}
+.wrap.hero>*{max-width:940px;margin-left:auto;margin-right:auto}
+.hero .kicker{color:var(--teal-light);border-bottom-color:rgba(255,255,255,.25)}
+.hero h1{color:#fff}
+.hero h1 em{color:var(--teal-light)}
+.hero .lede{color:#DCEAEE}
+.hero a{color:var(--teal-light)}
+.herocta{display:flex;gap:10px;flex-wrap:wrap;margin-top:28px}
+.herocta a{display:inline-flex;align-items:center;justify-content:center;min-height:48px;padding:0 24px;
+  border-radius:999px;font-weight:700;font-size:16px;text-decoration:none}
+.herocta a.p{background:var(--teal);color:#fff}
+.herocta a.p:hover{background:var(--teal-deep)}
+.herocta a.s{border:1px solid rgba(255,255,255,.55);color:#fff}
+.herocta a.s:hover{background:rgba(255,255,255,.1)}
+
+/* painikkeet ja kortit */
+.btn{background:var(--teal);border-radius:999px}
+.btn:hover{background:var(--teal-deep)}
+div.grid{gap:14px;background:none;border:0}
+.card{background:#fff;border-radius:14px;box-shadow:0 1px 2px rgba(0,0,0,.05),0 6px 18px rgba(14,40,51,.07)}
+.tag{color:var(--teal-deep)}
+.numbers{gap:10px;background:none;border:0}
+.num{border-radius:12px}
+
+@media (max-width:640px){
+  header{position:sticky;top:0}
+  .bar{flex-wrap:nowrap;gap:10px}
+  .logo{font-size:20px;white-space:nowrap}
+  .lang{margin-left:auto}
+  .lang a{padding:9px 10px;font-size:12.5px}
+  .js-menu .menu-btn{display:inline-flex}
+  .js-menu nav{display:none}
+  header.open .bar{flex-wrap:wrap}
+  header.open nav{display:flex;flex-direction:column;flex-basis:100%;gap:0;margin:4px 0 6px;order:9}
+  header.open nav a{padding:14px 0;border-top:1px solid var(--navy-line);font-size:17px;box-shadow:none}
+  header.open nav a[aria-current="page"]{color:var(--teal-light)}
+  .wrap.hero{padding-top:52px;padding-bottom:40px}
+  .hero h1{font-size:clamp(30px,9.2vw,38px);line-height:1.06;hyphens:auto;-webkit-hyphens:auto;overflow-wrap:break-word}
+  .herocta a{flex:1 1 auto}
+  .prov{white-space:normal}
+  :lang(fi) .hero h1{font-size:clamp(26px,8vw,36px)}
+}
+@media (min-width:641px){
+  .lang{margin-left:14px}
+}
