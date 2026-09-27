@@ -264,13 +264,13 @@
 
     <div class="tablewrap">
       <table>
-        <thead><tr><th>Nimelliskoko</th><th>Virtaama</th><th>Perusasennuksen pituus</th></tr></thead>
+        <thead><tr><th>Malli</th><th>Virtaama</th><th>Perusasennuksen pituus</th></tr></thead>
         <tbody>
-          <tr><td><b>DN25</b></td><td>3&ndash;6,5 m&sup3;/h</td><td>600 mm</td></tr>
-          <tr><td><b>DN40</b></td><td>6,5&ndash;15 m&sup3;/h</td><td>870 mm</td></tr>
-          <tr><td><b>DN65</b></td><td>15&ndash;40 m&sup3;/h</td><td>1,200 mm</td></tr>
-          <tr><td><b>DN100</b></td><td>50&ndash;100 m&sup3;/h</td><td>1,610 mm</td></tr>
-          <tr><td><b>DN200</b></td><td>160&ndash;400 m&sup3;/h</td><td>3,150 mm</td></tr>
+          <tr><td><b>OxTube Q3</b></td><td>3&ndash;6,5 m&sup3;/h</td><td>600 mm</td></tr>
+          <tr><td><b>OxTube Q6.5</b></td><td>6,5&ndash;15 m&sup3;/h</td><td>870 mm</td></tr>
+          <tr><td><b>OxTube Q15</b></td><td>15&ndash;40 m&sup3;/h</td><td>1,200 mm</td></tr>
+          <tr><td><b>OxTube Q50</b></td><td>50&ndash;100 m&sup3;/h</td><td>1,610 mm</td></tr>
+          <tr><td><b>OxTube Q160</b></td><td>160&ndash;400 m&sup3;/h</td><td>3,150 mm</td></tr>
         </tbody>
       </table>
     </div>
@@ -287,7 +287,7 @@
       </table>
     </div>
 
-    <div class="note"><b>Mitä datalehti ratkaisee ja mitä ei.</b> Yllä olevat luvut ovat valmistajan viitearvoja perusasennukselle. DN25:tä pienempiä yksiköitä on saatavilla pyynnöstä. Tietyn linjan mitoitus on eri asia: se vahvistetaan kohteen todellista virtaamaa, painetta ja kaasuntarvetta vasten. Itse datalehdessä ei ole kg&nbsp;O&#8322;/kWh-arvoa; yhtiön ilmoittama tyypillinen vaihteluväli (4,0&ndash;6,0 kg&nbsp;O&#8322;/kWh, ks. yllä) on erillinen, kohdekohtaisesti pilotissa vahvistettava luku.</div>
+    <div class="note"><b>Mitä datalehti ratkaisee ja mitä ei.</b> Yllä olevat luvut ovat valmistajan viitearvoja perusasennukselle. Mallinimet ovat OxTube Q-sarjaa; Q-numero on yksikön alin käyttövirtaus (m&sup3;/h). Q3-aluetta (3&nbsp;m&sup3;/h) pienempiä yksiköitä on saatavilla pyynnöstä. Tietyn linjan mitoitus on eri asia: se vahvistetaan kohteen todellista virtaamaa, painetta ja kaasuntarvetta vasten. Itse datalehdessä ei ole kg&nbsp;O&#8322;/kWh-arvoa; yhtiön ilmoittama tyypillinen vaihteluväli (4,0&ndash;6,0 kg&nbsp;O&#8322;/kWh, ks. yllä) on erillinen, kohdekohtaisesti pilotissa vahvistettava luku.</div>
 
     <p class="src"><span class="prov prov-mfr">Valmistajan dokumentti</span> <b>Lähde.</b> SansOx Oy, <i>OxTube Datasheet</i>, 1.9.2025. Luvut sellaisina kuin valmistaja ne julkaisee.</p>
 
@@ -326,9 +326,9 @@
 
     <script>
     (function(){
-      var S=[{dn:'DN25',min:3,max:6.5,len:600},{dn:'DN40',min:6.5,max:15,len:870},
-             {dn:'DN65',min:15,max:40,len:1200},{dn:'DN100',min:50,max:100,len:1610},
-             {dn:'DN200',min:160,max:400,len:3150}];
+      var S=[{dn:'OxTube Q3',min:3,max:6.5,len:600},{dn:'OxTube Q6.5',min:6.5,max:15,len:870},
+             {dn:'OxTube Q15',min:15,max:40,len:1200},{dn:'OxTube Q50',min:50,max:100,len:1610},
+             {dn:'OxTube Q160',min:160,max:400,len:3150}];
       var LO=S[0].min, HI=S[S.length-1].max;
       var f=document.getElementById('sz-flow'), o=document.getElementById('sz-out');
       function n(x){return x.toLocaleString('fi-FI');}
@@ -355,13 +355,13 @@
         }
         if(v<LO){
           say('none','Pienin listattu koko alittuu.',
-            'Datalehti alkaa arvosta <b>'+n(LO)+'&nbsp;m&sup3;/h</b> (DN25) ja toteaa että pienempiä '+
+            'Datalehti alkaa arvosta <b>'+n(LO)+'&nbsp;m&sup3;/h</b> (OxTube Q3) ja toteaa että pienempiä '+
             'yksiköitä on saatavilla pyynnöstä. Tämä on kysymys valmistajalle, ei ei.');
           return;
         }
         if(v>HI){
           say('none','Suurin listattu koko ylittyy.',
-            'Datalehti päättyy arvoon <b>'+n(HI)+'&nbsp;m&sup3;/h</b> (DN200). Suurempia mitoituksia '+
+            'Datalehti päättyy arvoon <b>'+n(HI)+'&nbsp;m&sup3;/h</b> (OxTube Q160). Suurempia mitoituksia '+
             'julkaistut luvut eivät kata, ja ne on varmistettava suoraan &mdash; mitään tällä '+
             'sivulla ei pidä lukea tarjouksena niistä.');
           return;
