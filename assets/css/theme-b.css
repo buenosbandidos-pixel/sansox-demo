@@ -70,3 +70,27 @@ div.grid{gap:14px;background:none;border:0}
 @media (min-width:641px){
   .lang{margin-left:14px}
 }
+
+/* 5 s -testi 2026-09-27: luvut heron sisään kompaktina 3 sarakkeen nauhana,
+   mobiilissa tiiviimpi ensinäkymä (otsikko+alaotsikko+painike+luvut < 664 px) */
+.hero .numbers{margin-top:20px;grid-template-columns:repeat(3,1fr);gap:8px}
+.hero .num{background:rgba(255,255,255,.08);border-radius:12px;padding:12px 12px}
+.hero .num b{font-size:clamp(20px,3vw,30px);letter-spacing:-1px;color:#fff}
+.hero .num span{color:#BFD7DD;font-size:12px;margin-top:6px;line-height:1.35}
+.hero .num .prov{font-size:9.5px;padding:2px 6px}
+.hero .num a{color:var(--teal-light)}
+@media (max-width:640px){
+  .wrap.hero{padding-top:28px;padding-bottom:26px}
+  .hero .kicker{display:none}
+  .hero h1{font-size:clamp(25px,7.4vw,34px);line-height:1.08}
+  :lang(fi) .hero h1{font-size:clamp(23px,6.8vw,32px)}
+  .hero .lede{font-size:15px;line-height:1.5;margin-top:10px}
+  .herocta{margin-top:14px;flex-wrap:nowrap;gap:8px}
+  .herocta a{flex:1 1 0;min-height:44px;padding:6px 10px;font-size:13.5px;line-height:1.15;text-align:center}
+  .hero .numbers{margin-top:14px;gap:6px}
+  .hero .num{padding:9px 8px}
+  .hero .num b{font-size:19px;letter-spacing:-.5px}
+  .hero .num span{font-size:12px;margin-top:4px;line-height:1.3}
+  .hero .num .prov{font-size:11px;padding:1px 5px;line-height:1.25}
+  .hero .num b small{font-size:11px}
+}
