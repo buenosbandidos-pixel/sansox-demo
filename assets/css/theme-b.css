@@ -90,7 +90,7 @@ div.grid{gap:14px;background:none;border:0}
   .hero .numbers{margin-top:14px;gap:6px}
   .hero .num{padding:9px 8px}
   .hero .num b{font-size:19px;letter-spacing:-.5px}
-  .hero .num span{font-size:12px;margin-top:4px;line-height:1.3}
+  .hero .num span{font-size:12px;margin-top:4px;line-height:1.3;hyphens:auto;-webkit-hyphens:auto;overflow-wrap:anywhere}
   .hero .num .prov{font-size:11px;padding:1px 5px;line-height:1.25}
   .hero .num b small{font-size:11px}
 }
